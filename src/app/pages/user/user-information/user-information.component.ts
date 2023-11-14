@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormBuilder,FormGroup,Validators} from '@angular/forms';
 @Component({
   selector: 'app-user-information',
   standalone: true,
@@ -9,5 +9,9 @@ import { CommonModule } from '@angular/common';
   styleUrl: './user-information.component.scss'
 })
 export class UserInformationComponent {
+  registerForm : FormGroup;
 
+  constructor(private _fb : FormBuilder){
+    this.registerForm = this._fb.group({})
+  }
 }
