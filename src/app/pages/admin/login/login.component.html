@@ -1,7 +1,13 @@
-<div>
-    <form>
+<div class=" bg-gray-100 p-4 rounded-md shadow-md text-center">
+    <form [formGroup]="loginForm" (ngsubmit)="login()">
+        <div class="mb-4">
+            <input type="text" formControlName="name" placeholder="Nom d'utilisateur" class="form-control" />
+        </div>
+        <div class="mb-4">
+            <input type="password" formControlName="password" placeholder="Mot de passe" class="form-control" />
+        </div>
         <div>
-            <input type="text" />
+            <button class="btn" type="submit">Se connecter</button>
         </div>
     </form>
 </div>
