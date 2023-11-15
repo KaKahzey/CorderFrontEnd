@@ -1,0 +1,104 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url("/assets/img/thanksBackgroundDesktop.PNG");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+}
+
+// Réajuster pour les versions paysages
+@media only screen and (max-width: 850px) {
+    .p-style-participation, .line, .btnStyle1{
+        margin: 20px 0px !important;
+    }
+}
+
+// Si l'écran passe de bureau à mobile, changer l'image
+@media only screen and (max-width: 500px) {
+    body{
+    margin: 0;
+    padding: 0;
+    background-image: url("/assets/img/thanksBackgroundMobile.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+}
+.p-style-participation, .line, .btnStyle1{
+        margin: 35px 0px !important;
+    }
+}
+
+.center{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+}
+
+p{
+    text-align: center;
+    margin: 0px 8px;
+}
+
+.p-style-thanks{
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.p-style-participation{
+    margin: 35px 0px;
+    font-size: 20px;
+    font-weight: 700;    
+}
+
+.informations{
+    font-size: 16px;
+}
+
+.line{
+    height: 1px;
+    width: 250px;
+    border-bottom: solid 2px grey;
+    margin: 35px;
+}
+
+.all-btn{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn{
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px;
+    border-radius: 50px;
+}
+
+.btnStyle1{
+    background-color: #0E103B;
+    color: #fff;
+    margin-bottom: 35px;
+    margin-top: 35px;
+}
+    .btnStyle1:hover{
+            cursor: pointer;
+            background-color: #03030c;
+    }
+
+.btnStyle2{
+    background-color: #B7C90D;
+    color: #0E103B;
+}
+    .btnStyle2:hover{
+        cursor: pointer;
+        background-color: #91a00b;
+    }
