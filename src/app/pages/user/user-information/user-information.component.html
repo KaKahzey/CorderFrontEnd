@@ -1,3 +1,51 @@
-<form [formGroup]="registerForm"></form>
+<form [formGroup]="infoForm">
+    <div>
+        <p>Prénom</p>
+        <input  type="text" placeholder="" formControlName="firstName">
+        <span>
+            @if (infoForm.get('firstName')?.touched && infoForm.get('firstName')?.errors?.['required']) {
+                Champ requis
+            }
+        </span>            
+    </div>
+    <div>
+        <p>Nom</p>
+        <input type="text" placeholder="" formControlName="lastName">
+        @if (infoForm.get('lastName')?.touched && infoForm.get('lastName')?.errors?.['required']) {
+            Champ requis
+        }
+        
+    </div>
 
+    <div>
+        <p>email</p>
+
+        <input  type="mail" placeholder="" formControlName="email">
+        @if (infoForm.get('email')?.touched && infoForm.get('email')?.errors?.['required']) {
+            Champ requis
+        }
+    </div>
+    <div>
+        <p>Adresse</p>
+        <input  type="text" placeholder="" formControlName="adresse">
+        @if (infoForm.get('adresse')?.touched && infoForm.get('adresse')?.errors?.['required']) {
+            Champ requis
+        }
+    </div>
+    <div>
+        <p>code postal</p>
+        <input  type="text" placeholder="" formControlName="postal">
+        @if (infoForm.get('postal')?.touched && infoForm.get('postal')?.errors?.['required']) {
+            Champ requis
+        }
+    </div>
+    <div>
+        <p>ville</p>
+        <input  type="text" placeholder="" formControlName="town">
+        @if (infoForm.get('town')?.touched && infoForm.get('town')?.errors?.['required']) {
+            Champ requis
+        }
+    </div>
+    <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit" [disabled]="!infoForm" value="Je participe !"><br>
+</form>
 
