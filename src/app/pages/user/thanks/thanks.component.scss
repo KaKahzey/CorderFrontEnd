@@ -1,6 +1,7 @@
 body{
     margin: 0;
     padding: 0;
+    height: 100vh;
     background-image: url("/assets/img/thanksBackgroundDesktop.PNG");
     background-repeat: no-repeat;
     background-position: bottom center;
@@ -46,7 +47,7 @@ p{
     margin: 0px 8px;
 }
 
-.p-style-merci{
+.p-style-thanks{
     font-size: 32px;
     font-weight: 700;
 }
