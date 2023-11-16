@@ -13,8 +13,8 @@ body{
     height: 100vh;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    // padding-left: 0.5rem;
+    // padding-right: 0.5rem;
 }
 .center{
 display: flex;
@@ -25,6 +25,12 @@ align-items: center;
     position: absolute;
     bottom: 100px;
     right: 150px;
+}
+.txt{
+    font-size: 38px;
+    background-color: #4d9c18 ;
+    transform: round($number: 20);
+    text-align: center;
 }
 // Si l'écran passe de mobile à bureau, changer l'image
 @media only screen and (max-width: 600px) {
