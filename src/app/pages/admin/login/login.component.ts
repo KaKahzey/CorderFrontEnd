@@ -29,6 +29,14 @@ export class LoginComponent {
       name : this.loginForm.get("name")?.value,
       password : this.loginForm.get("password")?.value
     }
-    // this._apiService.login(loginInfo) 
+    this._apiService.login(loginInfo).subscribe({
+      next : (response) => {
+        console.log("User logged in : ", response)
+        this._authService.setUser(loginInfo.name, response.token)
+        this._router.navigateByUrl("/list")
+      },
+      error : (error) => {
+        console.log("error : ", error)
+      }})
   }
 }
