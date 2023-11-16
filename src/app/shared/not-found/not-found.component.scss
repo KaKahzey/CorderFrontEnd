@@ -1,0 +1,73 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url("/assets/img/404/404-desktop.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+}
+
+
+// Si l'écran passe de bureau à mobile, changer l'image
+@media only screen and (max-width: 500px) {
+    body{
+    margin: 0;
+    padding: 0;
+    background-image: url("/assets/img/404/404-mobile.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+}
+}
+
+.center{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+}
+
+p{
+    margin: -15px;
+}
+
+.p-style-error{
+    font-size: 52px;
+    font-weight: 700;
+}
+
+.p-style-qcq{
+    font-size: 112px;
+    font-weight: 700;    
+}
+
+.all-btn{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 150px;
+}
+
+.btn{
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px;
+    border-radius: 50px;
+}
+
+.btnStyle1{
+    background-color: #B7C90D;
+    color: #0E103B;
+    font-weight: 400;
+}
+    .btnStyle1:hover{
+        cursor: pointer;
+        background-color: #91a00b;
+    }
