@@ -2,10 +2,11 @@ export interface UserData {
     firstName : string,
     LastName : string,
     email : string,
+    pictureName : string,
+    pictureType : string,
+    blob : [1,0,1],
     street : string,
-    postCode : number,
     city : string,
-    productUsed : string,
-    photo : string,
-    seed : string
+    postCode : number
+    
 }

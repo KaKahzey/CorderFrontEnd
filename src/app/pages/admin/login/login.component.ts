@@ -20,21 +20,21 @@ export class LoginComponent {
 
   constructor(private _authService : AuthService,private _apiService : ApiService, private _router : Router, private _fb : FormBuilder){
     this.loginForm = this._fb.group({
-      name : [[null], [Validators.required]],
+      login : [[null], [Validators.required]],
       password : [[null], [Validators.required]]
     })
   }
   login() : void{
     const loginInfo = {
-      name : this.loginForm.get("name")?.value,
+      login : this.loginForm.get("name")?.value,
       password : this.loginForm.get("password")?.value
     }
     this._apiService.login(loginInfo).subscribe({
       next : (response) => {
         console.log("User logged in : ", response)
-        this._authService.setUser(loginInfo.name, response.token)
+        this._authService.setUser(loginInfo.login, response.token)
         this._router.navigateByUrl("/list")
-      },
+      },  
       error : (error) => {
         console.log("error : ", error)
       }})
