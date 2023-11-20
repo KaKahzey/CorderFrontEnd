@@ -1,0 +1,82 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url("/assets/img/blurCompletebg.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+}
+
+/* Réajuster pour les versions paysages */
+@media only screen and (max-width: 1000px) {
+    p {
+        font-size: 15px;
+    }
+}
+
+/* Si l'écran passe de bureau à mobile, changer l'image */
+@media only screen and (max-width: 500px) {
+    body {
+        background-image: url("/assets/img/thanksBackgroundMobile.png");
+    }
+    p {
+        font-size: 12px;
+    }
+}
+
+.square-bg {
+    width: 50%;
+    height: 200px;
+    background-color: #F5F8E0;
+    margin: 20px auto;
+    border-radius: 20px;
+    border: dashed;
+    transform: rotate(-3deg);
+}
+
+.bee {
+    width: 12%;
+}
+
+.center {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.h2{
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+
+p {
+    text-align: center;
+    margin: 0 8px;
+}
+
+.all-btn {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn {
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    border-radius: 50px;
+}
+
+.btn-style1 {
+    background-color: #0E103B;
+    color: #F5F8E0;
+}
+
+.btn-style1:hover {
+    cursor: pointer;
+    background-color: #03030c;
+}

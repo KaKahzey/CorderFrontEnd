@@ -9,6 +9,7 @@ import { ThanksComponent } from './pages/user/thanks/thanks.component';
 import { UserInformationComponent } from './pages/user/user-information/user-information.component';
 import { ListComponent } from './pages/admin/list/list.component';
 import { connectedGuard } from './shared/guards/connected.guard';
+import { GoodPracticeComponent } from './pages/user/good-practice/good-practice.component';
 
 export const routes: Routes = [
     {path : "", component : HomeComponent},
@@ -18,6 +19,7 @@ export const routes: Routes = [
     {path : "photo-capture-choice", component : PhotoCaptureChoiceComponent},
     {path : "photo-information", component : PhotoInformationComponent},
     {path : "photo-validation", component : PhotoValidationComponent},
+    {path : "good-practice", component : GoodPracticeComponent},
     {path : "thanks", component : ThanksComponent},
     {path : "user-information", component : UserInformationComponent},
     {path : "notfound", component : NotFoundComponent},
