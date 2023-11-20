@@ -11,7 +11,7 @@ export const connectedGuard: CanActivateFn = () => {
     return true
   }
   else{
-    router.navigateByUrl("/admin")
+    router.navigateByUrl("/admin/login")
     return false
   }
 };
