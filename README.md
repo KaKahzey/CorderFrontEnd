@@ -32,11 +32,12 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 TODO
 -------------------------
-| ° background          |
-| ° style centre champs |
-| ° navbar partagee     |
-| ° responsive          |
-| ° envoi formulaire    |
-| ° changer le CSS quand bouton désactivé |
-| ° check les conditions du formulaire    |
--------------------------------------------
+| ° background   Ok       |
+| ° style centre champs | ok
+| ° navbar partagee     | ko
+| ° responsive          |mi-ok /en cours
+| ° envoi formulaire    |o
+| ° changer le CSS quand bouton désactivé |ok
+| ° check les conditions du formulaire    |ok
+------------------------------------------
+°mise en place colonnes (grod)

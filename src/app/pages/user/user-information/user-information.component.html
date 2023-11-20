@@ -7,58 +7,59 @@
 </head>
 <body class="styleFond">
 
-    <h1 class="titleFont">Vos info</h1>
-    <form class="styledForm" [formGroup]="infoForm" (ngSubmit) ="sendForm()">
-        <div>
+    <h1 class="titleFont">Vos infoss</h1>
+    <form class="formContainer" [formGroup]="infoForm" (ngSubmit) ="sendForm()">
+
+        <div class="form-row">
             <p class="titleFont">Prénom</p>
-            <input class="police"  type="text" placeholder="" formControlName="firstName">
+            <input class="police"  type="text" placeholder="Fifi" formControlName="firstName">
             <span>
                 @if (infoForm.get('firstName')?.touched && infoForm.get('firstName')?.errors?.['required']) {
                     Champ requis
                 }
             </span>            
         </div>
-        <div>
+
+        <div class="form-row">
             <p class="titleFont">Nom</p>
-            <input type="text" placeholder="" formControlName="lastName">
+            <input type="text" placeholder="Franchamps" formControlName="lastName">
             @if (infoForm.get('lastName')?.touched && infoForm.get('lastName')?.errors?.['required']) {
                 Champ requis
             } 
         </div>
 
-        <div>
-            <p class="titleFont">email</p>
-
-            <input  type="mail" placeholder="" formControlName="email">
+        <div class="form-row">
+            <p class="titleFont">Adresse email</p>
+            <input type="text" placeholder="fifi.franchamps@gmail.com" formControlName="email">
             @if (infoForm.get('email')?.touched && infoForm.get('email')?.errors?.['required']) {
                 Champ requis
             }
+            @if(infoForm.get('email')?.errors?.['pattern']){
+                Mauvais format
+            }
         </div>
-        <div>
-            <p class="titleFont">Adresse</p>
-            <input  type="text" placeholder="" formControlName="adresse">
+        <div class="form-row">
+            <p class="titleFont">Adresse postale</p>
+            <input  type="text" placeholder="Rue Cerisier d'Haine, 12" formControlName="adresse">
             @if (infoForm.get('adresse')?.touched && infoForm.get('adresse')?.errors?.['required']) {
                 Champ requis
             }
         </div>
-        <div>
-            <p class="titleFont">code postal</p>
-            <input  type="text" placeholder="" formControlName="postal">
+        <div class="form-row">
+            <input  type="text" placeholder="1301" formControlName="postal">
             @if (infoForm.get('postal')?.touched && infoForm.get('postal')?.errors?.['required']) {
                 Champ requis
             }
         </div>
-        <div>
-            <p class="titleFont">ville</p>
-            <input  type="text" placeholder="" formControlName="town">
+        <div class="form-row">
+            <input  type="text" placeholder="Wavre" formControlName="town">
             @if (infoForm.get('town')?.touched && infoForm.get('town')?.errors?.['required']) {
                 Champ requis
             }
         </div>
         <div class="all-btn">
-                <input class="btn btnStyle" type="submit" [disabled]="!infoForm" value="Je participe !"><br>
+            <input class="btn btnStyle" type="submit" [disabled]="!infoForm" value="Je participe !"><br>
         </div>
     </form>
 </body>
-
 </html>

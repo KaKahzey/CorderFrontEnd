@@ -16,7 +16,7 @@ export class UserInformationComponent {
       
       firstName : [null, [Validators.required,Validators.minLength(2)]],
       lastName : [null, [Validators.required]],
-      email : [null,[Validators.required]],
+      email : [null,[Validators.required,Validators.pattern(/^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/)]],
       adresse : [null,Validators.required],
       postal : [null,Validators.required],
       town : [null,Validators.required]
