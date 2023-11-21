@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url("/assets/img/blurCompletebg.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+}
+
+.square-bg {
+    width: 370px;
+    margin: 25px 0px 40px 0px;
+    border-radius: 20px 20px 0px 0px;
+    background: var(--Blanc, #F5F8E0);
+    box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.25); 
+}
+
+.center {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.h2{
+    font-size: 42px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: -0.21px; 
+}
+
+.p1 {
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27px; 
+}
+
+.text-square {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 15px 35px;    
+    font-size: 16px;
+    font-weight: 100;
+}
+
+.btn_all{
+    display: flex;
+    justify-content: center;
+    margin: 75px 0px;
+}
+
+button{
+    background-color: #E7F39A;
+    color: #0E103B;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    border-radius: 50px;
+    margin: 18px 0px;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700; 
+}
+
+input{
+    border-radius: 100px;
+    width: 400px;
+    border: 0.5px solid #B7C90D;
+    background: var(--Blanc, #F5F8E0);
+    text-indent: 15px;
+    padding: 10px 0;
+}
+
+input::placeholder{
+    color: #0E103B;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    opacity: 0.5;
+}
+
+.btn-style{
+    background-color: #0E103B;
+    color: #F5F8E0;
+    width: 175px;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    border-radius: 50px;
+    margin: 0px 20px;
+}
+    .btn-style:hover {
+        cursor: pointer;
+        background-color: #03030c;
+    }
+
+.btn-color2{
+    .btn-style{
+        color: #0E103B;
+        background-color: #B7C90D;
+    }
+    .btn-style:hover {
+        cursor: pointer;
+        background-color: darkolivegreen;
+    }
+}
+
+/* Réajuster pour les versions paysages */
+@media only screen and (max-width: 1024px) {
+    p {
+        font-size: 15px;
+    }
+    .square-bg{
+        width: 1200px;
+    }
+}
+
+/* Si l'écran passe de bureau à mobile, changer l'image */
+@media only screen and (max-width: 500px) {
+    body {
+        background-image: url("/assets/img/thanksBackgroundMobile.png");
+        overflow: hidden;
+    }
+    p {
+        font-size: 12px;
+    }
+}
