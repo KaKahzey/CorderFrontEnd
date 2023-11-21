@@ -9,9 +9,10 @@ body {
 }
 
 .square-bg {
-    width: 370px;
-    margin: 25px 0px 40px 0px;
-    border-radius: 20px 20px 0px 0px;
+    max-width: 100%;
+    margin-top: 25px;
+    margin-bottom: 40px;
+    border-radius: 20px;
     background: var(--Blanc, #F5F8E0);
     box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.25); 
 }
@@ -33,37 +34,42 @@ body {
 }
 
 .p1 {
+    display: none;
+}
+
+.p1-desktop{
     text-align: center;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 27px; 
 }
 
 .text-square {
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin: 15px 35px;    
     font-size: 16px;
     font-weight: 100;
+    padding: 25px 110px 0px 110px;
 }
 
 .btn_all{
     display: flex;
-    justify-content: center;
-    margin: 75px 0px;
+    justify-content: space-around;
+    max-width: 100%;
+    margin: 75px auto;
+}
+
+.btnHerbi{
+    margin-top: 18px !important;
 }
 
 button{
     background-color: #E7F39A;
     color: #0E103B;
-    width: 400px;
+    width: 430px;
     display: flex;
     justify-content: center;
     padding: 10px 0;
     border-radius: 50px;
-    margin: 18px 0px;
+    margin: 8px 0px;
     font-size: 18px;
     font-style: normal;
     font-weight: 700; 
@@ -71,11 +77,12 @@ button{
 
 input{
     border-radius: 100px;
-    width: 400px;
+    width: 430px;
     border: 0.5px solid #B7C90D;
     background: var(--Blanc, #F5F8E0);
     text-indent: 15px;
     padding: 10px 0;
+    margin-top: 10px;
 }
 
 input::placeholder{
@@ -86,6 +93,16 @@ input::placeholder{
     opacity: 0.5;
 }
 
+.btn-color2{
+    color: #0E103B !important;
+    background-color: #B7C90D !important;
+}
+
+.btn-color2:hover {
+    cursor: pointer;
+    background-color: darkolivegreen !important;
+}
+
 .btn-style{
     background-color: #0E103B;
     color: #F5F8E0;
@@ -94,35 +111,37 @@ input::placeholder{
     justify-content: center;
     padding: 10px 0;
     border-radius: 50px;
-    margin: 0px 20px;
 }
     .btn-style:hover {
         cursor: pointer;
         background-color: #03030c;
     }
 
-.btn-color2{
-    .btn-style{
-        color: #0E103B;
-        background-color: #B7C90D;
-    }
-    .btn-style:hover {
-        cursor: pointer;
-        background-color: darkolivegreen;
-    }
+.btn-leftm{
+    margin-right: 15px !important;
 }
 
-/* Réajuster pour les versions paysages */
-@media only screen and (max-width: 1024px) {
+
+
+/* Réajuster pour tablette */
+@media only screen and (max-width: 800px) {
     p {
         font-size: 15px;
     }
     .square-bg{
-        width: 1200px;
+        width: 80%;
+        border-radius: 20px;
+    }
+    
+}
+
+/* Pour le mobile first */
+@media only screen and (max-width: 540px) {
+    button, input{
+        width: 390px;
     }
 }
 
-/* Si l'écran passe de bureau à mobile, changer l'image */
 @media only screen and (max-width: 500px) {
     body {
         background-image: url("/assets/img/thanksBackgroundMobile.png");
@@ -130,5 +149,37 @@ input::placeholder{
     }
     p {
         font-size: 12px;
+    }
+    .square-bg{
+        position: relative;
+        top: 10%;
+        width: 100%;
+        border-radius: 20px 20px 0px 0px;
+    }
+    .center{
+        justify-content: space-between;
+    }
+    .h2{
+        margin-top: 50px;
+    }
+    .parent-p1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .p1{
+        display: block;
+        margin: 30px 0px;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 27px;
+        text-align: center;
+    }
+    button, input{
+        width: 350px;
+    }
+    .p1-desktop{
+        display: none;
     }
 }

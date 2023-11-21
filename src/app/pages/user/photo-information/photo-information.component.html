@@ -8,19 +8,20 @@
 <body>
     <div class="center">
         <p class="h2">Concernant <br> votre photo</p>
-        <p class="p1">Quel type de pesticide venez-vous de prendre en photo ?</p>
+        <div class="parent-p1">
+            <p class="p1">Quel type de pesticide venez-vous de prendre en photo ?</p>
+        </div>    
         <div class="square-bg">
             <div class="text-square">
-                <button (click)="choisir('A')">Herbicide</button>
+                    <p class="p1-desktop">Quel type de pesticide venez-vous de prendre en photo ?</p>
+                <button class="btnHerbi" (click)="choisir('A')">Herbicide</button>
                 <button (click)="choisir('B')">Fongicide</button>
                 <button (click)="choisir('C')">Insecticide</button>
                 <input type="text" placeholder="Autre">
             </div>
             <div class="btn_all">
-                <a class="btn-style" routerLink="/photo-validation">Retour</a>
-                <div class="btn-color2">
-                    <a class="btn-style" routerLink="/good-practice">Continuer</a>
-                </div>
+                <a class="btn-style btn-leftm" routerLink="/photo-validation">Retour</a>
+                <a class="btn-style btn-color2" routerLink="/good-practice">Continuer</a>
             </div>
         </div>
     </div>
