@@ -1,4 +1,5 @@
 <div class="flex h-full">
+    <!-- NavbarLeft -->
     <div id="navbarLeft" class="flex flex-col justify-between bg-gray-400 p-4 w-15%">
         <div>
             <img src="" alt="logo corder" class="h-8 w-auto" />
@@ -19,6 +20,7 @@
         </div>
     </div>
 
+    <!-- NavbarTop + content -->
     <div class="flex-1 flex flex-col">
         <div id="navbarTop" class="bg-gray-300 p-4">
             <div class="text-center mb-4">
@@ -32,6 +34,10 @@
                     </span>
                 </div>
             </div>
+        </div>
+        <!-- Components! -->
+        <div>
+            <router-outlet ></router-outlet>
         </div>
     </div>
 </div>
