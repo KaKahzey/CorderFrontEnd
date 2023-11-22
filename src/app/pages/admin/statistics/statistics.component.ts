@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-list',
+  selector: 'app-statistics',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './list.component.html',
-  styleUrl: './list.component.scss'
+  templateUrl: './statistics.component.html',
+  styleUrl: './statistics.component.scss'
 })
-export class ListComponent {
+export class StatisticsComponent {
 
 }
