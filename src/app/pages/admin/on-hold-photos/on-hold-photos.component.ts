@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NavbarService } from '../../../shared/services/navbar.service';
 
 @Component({
   selector: 'app-on-hold-photos',
@@ -9,5 +10,4 @@ import { CommonModule } from '@angular/common';
   styleUrl: './on-hold-photos.component.scss'
 })
 export class OnHoldPhotosComponent {
-
 }
