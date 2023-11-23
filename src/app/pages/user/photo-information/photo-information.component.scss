@@ -50,12 +50,7 @@ body {
     padding: 25px 110px 0px 110px;
 }
 
-.btn_all{
-    display: flex;
-    justify-content: space-around;
-    max-width: 100%;
-    margin: 75px auto;
-}
+
 
 .btnHerbi{
     margin-top: 18px !important;
@@ -91,6 +86,13 @@ input::placeholder{
     font-style: normal;
     font-weight: 700;
     opacity: 0.5;
+}
+
+.btn_all{
+    display: flex;
+    justify-content: space-around;
+    max-width: 100%;
+    margin: 75px auto;
 }
 
 .btn-color2{

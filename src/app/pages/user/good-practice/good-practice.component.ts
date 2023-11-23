@@ -34,11 +34,11 @@ export class GoodPracticeComponent{
         break;
       }
       case'D': {
-        this.texte = 'Texte pour le choix C';
+        this.texte = 'Texte quand "Autre" sera rempli';
         break;
       }
       default:
-        this.texte = 'Texte par défaut';
+        this.texte = 'Les pesticides représentent une menace sérieuse pour la biodiversité, en provoquant la disparition d\'insectes pollinisateurs essentiels à la reproduction des plantes, compromettant ainsi l\'équilibre écologique.';
         break;
     }
   }
