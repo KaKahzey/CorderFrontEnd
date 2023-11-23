@@ -6,12 +6,12 @@ body {
     background-repeat: no-repeat;
     background-position: bottom center;
     background-size: cover;
+    overflow: hidden;
 }
 
 .square-bg {
     border-radius: 20px;
-    border: 2px dashed var(--Noir, #0E103B);
-    border-width: 3px;
+    border: 3px dashed var(--Noir, #0E103B);
     background: var(--Blanc, #F5F8E0);
     box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.25);
     transform: rotate(-3deg);
