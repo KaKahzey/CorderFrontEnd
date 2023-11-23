@@ -1,0 +1,12 @@
+button{
+    color: white;
+    width: 100px;
+    justify-content: center;
+    border-radius: 50px;
+    font-style: normal;
+    font-weight: 700; 
+    @apply bg-blue-950;
+}
+.buttons-sort {
+    @apply flex px-4;
+}
