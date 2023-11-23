@@ -9,5 +9,4 @@ import { CommonModule } from '@angular/common';
   styleUrl: './participants.component.scss'
 })
 export class ParticipantsComponent {
-
 }

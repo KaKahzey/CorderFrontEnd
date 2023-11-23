@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PesticideChoiceService } from '../../../shared/services/pesticide-choice.service';
 import { RouterLink } from '@angular/router';
+import { PesticideChoiceService } from '../../../shared/services/pesticide-choice.service';
 
 @Component({
   selector: 'app-photo-information',
@@ -11,9 +11,12 @@ import { RouterLink } from '@angular/router';
   styleUrl: './photo-information.component.scss'
 })
 export class PhotoInformationComponent {
-  constructor(private pesticideService: PesticideChoiceService) {}
 
-  choisir(choix: string) {
-    this.pesticideService.informerChoix(choix);
+  constructor(private _pesticideService : PesticideChoiceService) {
+
+  }
+
+  choisir(choix : string){
+    this._pesticideService.changerChoix(choix);
   }
 }

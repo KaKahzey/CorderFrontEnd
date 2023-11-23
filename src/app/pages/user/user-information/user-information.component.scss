@@ -4,17 +4,20 @@
     height: 100vh;
     background-size: cover;
 }
+
+
 h1{
     color: rgb(140, 71, 35);
     display: flex;
     justify-content: center;
     margin: 0;
-   
-
 }
 .titleFont{
-    font-weight: 500;
+    font-weight: 700;
 }
+
+
+
 .all-btn{
     display: flex;
     align-items: center;
@@ -36,4 +39,28 @@ h1{
     background-color: #91a00b;
 }
 
+.formContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
 
+
+input[type="text"]{
+    background-color: #f5f8e0;
+    border: 1px solid black;
+    color: black;
+    max-width: 250px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 50px;
+    border-radius: 50px;
+    flex-direction: column;
+    margin-bottom: 20px;
+    margin-top: 2px;
+   
+}
