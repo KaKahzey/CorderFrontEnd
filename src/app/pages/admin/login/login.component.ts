@@ -27,13 +27,13 @@ export class LoginComponent {
   }
   login() : void{
     const loginInfo = {
-      name : this.loginForm.get("name")?.value,
+      login : this.loginForm.get("name")?.value,
       password : this.loginForm.get("password")?.value
     }
     this._apiService.login(loginInfo).subscribe({
       next : (response) => {
         console.log("User logged in : ", response)
-        this._authService.setUser(loginInfo.name, response.token)
+        this._authService.setUser(loginInfo.login, response.token)
         this._router.navigateByUrl("/admin/dashboard")
       },
       error : (error) => {
