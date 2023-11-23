@@ -9,12 +9,22 @@ import { ThanksComponent } from './pages/user/thanks/thanks.component';
 import { UserInformationComponent } from './pages/user/user-information/user-information.component';
 import { connectedGuard } from './shared/guards/connected.guard';
 import { GoodPracticeComponent } from './pages/user/good-practice/good-practice.component';
-import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { ValidatedPhotosComponent } from './pages/admin/validated-photos/validated-photos.component';
+import { RejectedPhotosComponent } from './pages/admin/rejected-photos/rejected-photos.component';
+import { OnHoldPhotosComponent } from './pages/admin/on-hold-photos/on-hold-photos.component';
+import { ParticipantsComponent } from './pages/admin/participants/participants.component';
+import { StatisticsComponent } from './pages/admin/statistics/statistics.component';
 
 export const routes: Routes = [
     {path : "", component : HomeComponent},
     {path : "admin/login", component : LoginComponent},
-    {path : "admin/dashboard", component : NavbarComponent}, // canActivate: [connectedGuard]
+    {path : "admin/dashboard", component : DashboardComponent}, // canActivate: [connectedGuard]
+    {path : "admin/validated-photos", component : ValidatedPhotosComponent},
+    {path : "admin/rejected-photos", component : RejectedPhotosComponent},
+    {path : "admin/on-hold-photos", component : OnHoldPhotosComponent},
+    {path : "admin/participants", component : ParticipantsComponent},
+    {path : "admin/statistics", component : StatisticsComponent},
     {path : "photo-capture-choice", component : PhotoCaptureChoiceComponent},
     {path : "photo-information", component : PhotoInformationComponent},
     {path : "photo-validation", component : PhotoValidationComponent},

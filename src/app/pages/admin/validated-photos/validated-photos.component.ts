@@ -9,5 +9,4 @@ import { CommonModule } from '@angular/common';
   styleUrl: './validated-photos.component.scss'
 })
 export class ValidatedPhotosComponent {
-
 }

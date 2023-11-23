@@ -9,5 +9,4 @@ import { CommonModule } from '@angular/common';
   styleUrl: './on-hold-photos.component.scss'
 })
 export class OnHoldPhotosComponent {
-
 }

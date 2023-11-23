@@ -9,5 +9,4 @@ import { CommonModule } from '@angular/common';
   styleUrl: './statistics.component.scss'
 })
 export class StatisticsComponent {
-
 }

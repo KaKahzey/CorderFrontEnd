@@ -1,5 +1,5 @@
 <div class=" bg-gray-100 p-4 rounded-md shadow-md text-center">
-    <form [formGroup]="loginForm" (ngsubmit)="login()">
+    <form [formGroup]="loginForm" (submit)="login()">
         <div class="mb-4">
             <input type="text" formControlName="login" placeholder="Nom d'utilisateur" class="form-control" />
         </div>

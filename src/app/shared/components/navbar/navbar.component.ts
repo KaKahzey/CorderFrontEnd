@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from '../../../pages/admin/dashboard/dashboard.component';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
@@ -11,5 +11,4 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-
 }
