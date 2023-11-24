@@ -11,7 +11,7 @@ import { NavbarService } from '../../../shared/services/navbar.service';
 })
 export class ParticipantsComponent {
 
-  participantsList : any[] = [{id : 0, lastName :"Doe", firstName : "John", street : "rue à gauche", postcode : "1422", city : "Tilly", productUsed : "Fongicide", validated : true, shipped : false},
+  participantsList : any[] = [{id : 0, lastName :"Doe", firstName : "John", street : "rue à gauche", postcode : "1422", city : "Braine le Compte", productUsed : "Fongicide", validated : true, shipped : false},
   {id : 0, lastName :"Doe", firstName : "John", street : "rue à gauche", postcode : "1422", city : "Tilly", productUsed : "Fongicide", validated : true, shipped : false} ]
 
   constructor(private _navbarService : NavbarService){
