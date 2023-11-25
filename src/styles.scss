@@ -1,7 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'NexaSlab';
+    src: url('/typo/NexaSlabHeavy/NexaSlab-Trial-Heavy.otf') format('otf');
+  }
+
+@font-face {
+    font-family: 'Panton';
+    src: url(/src/assets/typo/Panton/Panton-Regular.otf);
+}
+
 html, body {
     height: 100%;
-    font-family: Arial, sans-serif;}
+    font-family: 'Panton';
+}
+
+h1,h2 {
+    font-family: 'NexaSlab', sans-serif;
+}
 
