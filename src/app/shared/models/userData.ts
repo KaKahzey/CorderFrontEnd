@@ -1,13 +1,12 @@
 export interface UserData {
     firstName : string,
     LastName : string,
-    mail : string,
-    address : {
-        street : string,
-        postalCode : number,
-        city : string
-    }
-    productUsed : string,
-    photo : string,
-    seed : string
+    email : string,
+    pictureName : string,
+    pictureType : string,
+    blob : [1,0,1], // voir fonction pour convert canal frontend
+    street : string,
+    city : string,
+    postCode : number
+    
 }
