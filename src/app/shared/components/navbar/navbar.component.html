@@ -1,40 +1,33 @@
-<div class="flex h-full">
+<div id="navbar-overall">
     <!-- NavbarLeft -->
-    <div id="navbarLeft" class="flex flex-col justify-between bg-gray-400 p-4 w-15%">
-        <div>
-            <img src="" alt="logo corder" class="h-8 w-auto" />
-        </div>
-        <div class="mt-4">
-            <ul class="space-y-2">
-                <li><a routerLink="/admin/dashboard">Dashboard</a></li>
-                <li><a routerLink="/admin/validated-photos">Photos validées</a></li>
-                <li><a routerLink="/admin/rejected-photos">Photos refusées</a></li>
-                <li><a routerLink="/admin/on-hold-photos">Photos en attente</a></li>
-                <li><a routerLink="/admin/participants">Participants</a></li>
-                <li><a routerLink="/admin/statistics">Statistiques</a></li>
-            </ul>
-            <button class="bg-green-400 text-white px-4 py-2 rounded mt-4">CycleEnTerre</button>
+    <div id="navbar-left">
+        <div id="content-left">
+            <div id="logo-area">
+                <img src="/assets/img/logoCorder.svg" alt="logo corder"/>
+            </div>
+                <ul id="list">
+                    <li><a routerLink="/admin/dashboard"><img src="assets/img/logos-navbar/house.svg" alt="house" /> Dashboard</a></li>
+                    <li><a routerLink="/admin/validated-photos"><img src="assets/img/logos-navbar/valide.svg" alt="valide" />Photos validées</a></li>
+                    <li><a routerLink="/admin/rejected-photos"><img src="assets/img/logos-navbar/rejected.svg" alt="non valide" />Photos refusées</a></li>
+                    <li><a routerLink="/admin/on-hold-photos"><img src="assets/img/logos-navbar/hourglass.svg" alt="sablier" />Photos en attente</a></li>
+                    <li><a routerLink="/admin/participants"><img src="assets/img/logos-navbar/people.svg" alt="participants" />Participants</a></li>
+                    <li><a routerLink="/admin/statistics"><img src="assets/img/logos-navbar/stats.svg" alt="stats" />Statistiques</a></li>
+                </ul>
         </div>
     </div>
-
-    <!-- NavbarTop + content -->
-    <div class="flex-1 flex flex-col">
-        <div id="navbarTop" class="bg-gray-300 p-4">
-            <div class="text-center mb-4">
-                <div class="flex items-center space-x-2">
-                    <input type="text" class="border p-2 rounded">
-                    <button class="bg-gray-600 text-white px-4 py-2 rounded">🔍</button>
-                    <span class="mr-auto">Username</span>
-                    <span class="flex items-center">
-                        <img src="" alt="User avatar" class="h-6 w-6 rounded-full mr-2" />
-                        😆
-                    </span>
-                </div>
-            </div>
+    <!-- NavbarTop-->
+    <div id="navbar-top">
+        <div id="search-bar">
+            <input type="text" size="70" placeholder="Rechercher" />
+            <img src="/assets/img/logos-navbar/magnifying-glass.svg" alt="loupe" />
         </div>
-        <!-- Component! -->
-        <div class="pl-5 pt-5">
-            <router-outlet ></router-outlet>
+        <div id="name-photo">
+            {{username}}
+            <img src="/assets/img/logos-navbar/magnifying-glass.svg" alt="User avatar" />
         </div>
+    </div>
+    <!-- Component -->
+    <div id="content">
+        <router-outlet ></router-outlet>
     </div>
 </div>

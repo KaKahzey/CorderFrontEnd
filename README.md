@@ -11,3 +11,4 @@ TODO
 | ° responsive  mi-ok / en cours            |
 |   -> mise en place colonnes (grod) x      |
 ---------------------------------------------
+modifier logique navbar par router -> get url -> condition
