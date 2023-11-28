@@ -14,12 +14,9 @@ TODO
 | ° input en inline                         | ok
 | ° email                                   | ok
 ---------------------------------------------
-<<<<<<< HEAD
 modifier logique navbar par router -> get url -> condition
-=======
 
 
 rectifications avant rendu final
 -> lien checkbox rgpd
 ->lien quand infoform ok
->>>>>>> 34f6f85c857ea376973df15bc289136e9fdd23ab

@@ -5,7 +5,6 @@ import { AuthService } from '../../../shared/services/auth.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ApiService } from '../../../shared/services/api.service';
-import { NavbarService } from '../../../shared/services/navbar.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +18,7 @@ export class LoginComponent {
 
   loginForm : FormGroup
 
-  constructor(private _authService : AuthService,private _apiService : ApiService, private _router : Router, private _fb : FormBuilder, public _navbarService : NavbarService){
+  constructor(private _authService : AuthService,private _apiService : ApiService, private _router : Router, private _fb : FormBuilder){
     this.loginForm = this._fb.group({
       login : [[null], [Validators.required]],
       password : [[null], [Validators.required]]

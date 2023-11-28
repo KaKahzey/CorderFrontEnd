@@ -1,10 +1,11 @@
-<div id="navbar-overall">
-    <!-- NavbarLeft -->
-    <div id="navbar-left">
-        <div id="content-left">
-            <div id="logo-area">
-                <img src="/assets/img/logoCorder.svg" alt="logo corder"/>
-            </div>
+<div id="override-body">
+    <div id="navbar-overall">
+        <!-- NavbarLeft -->
+        <div id="navbar-left">
+            <div id="content-left">
+                <div id="logo-area">
+                    <img src="/assets/img/logoCorder.svg" alt="logo corder"/>
+                </div>
                 <ul id="list">
                     <li><a routerLink="/admin/dashboard"><img src="assets/img/logos-navbar/house.svg" alt="house" /><span>Dashboard</span> </a></li>
                     <li><a routerLink="/admin/validated-photos"><img src="assets/img/logos-navbar/valide.svg" alt="valide" /><span>Photos validées</span></a></li>
@@ -13,23 +14,24 @@
                     <li><a routerLink="/admin/participants"><img src="assets/img/logos-navbar/people.svg" alt="participants" /><span>Participants</span></a></li>
                     <li><a routerLink="/admin/statistics"><img src="assets/img/logos-navbar/stats.svg" alt="stats" /><span>Statistiques</span></a></li>
                 </ul>
-        </div>
-    </div>
-    <!-- NavbarTop-->
-    <div id="navbar-top">
-        <div id="search-bar">
-            <div id="border-search">
-                <input type="text" size="70" placeholder="Rechercher" />
-                <img src="/assets/img/logos-navbar/magnifying-glass.svg" alt="loupe" />
             </div>
         </div>
-        <div id="name-photo">
-            {{username}}
-            <img src="/assets/img/logos-navbar/magnifying-glass.svg" alt="User avatar" />
+        <!-- NavbarTop-->
+        <div id="navbar-top">
+            <div id="search-bar">
+                <div id="border-search">
+                    <input type="text" size="100" placeholder="Rechercher" />
+                    <img src="/assets/img/logos-navbar/magnifying-glass.svg" alt="loupe" />
+                </div>
+            </div>
+            <div id="name-photo">
+                {{username}}
+                <img src="/assets/img/logos-navbar/magnifying-glass.svg" alt="User avatar" />
+            </div>
         </div>
-    </div>
-    <!-- Component -->
-    <div id="content">
-        <router-outlet ></router-outlet>
+        <!-- Component -->
+        <div id="content">
+            <router-outlet ></router-outlet>
+        </div>
     </div>
 </div>

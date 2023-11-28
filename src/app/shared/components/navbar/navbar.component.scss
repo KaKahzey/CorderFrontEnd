@@ -1,8 +1,12 @@
-
+#override-body {
+    background-color: white;
+    min-height: 100vh;
+    @apply p-5;
+}
 
 #navbar-overall {
     height: 100%;
-    @apply grid grid-cols-7 grid-rows-6 m-5;
+    @apply grid grid-cols-7 grid-rows-6;
 }
 
 #navbar-left {
@@ -35,7 +39,7 @@ li a {
 }
 
 #list {
-    @apply row-span-1 pl-3 space-y-6;
+    @apply row-span-1 pl-8 space-y-6;
 }
 
 #list span {

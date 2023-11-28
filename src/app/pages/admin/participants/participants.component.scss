@@ -1,9 +1,11 @@
+
+
 .sort-area {
-    @apply flex w-2/3 pb-4;
+    @apply flex pb-4;
 }
 
 .list {
-    @apply w-full mx-5 text-center ;
+    @apply w-full mx-5 text-center pr-5;
 }
 button{
     color: white;
