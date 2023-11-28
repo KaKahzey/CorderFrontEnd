@@ -8,6 +8,8 @@ export interface UserData {
     street : string,
     city : string,
     postCode : number,
-    newsletter: boolean
-    
+    productUsed : string,
+    newsletter: boolean,
+    shipped : boolean,
+    validated : boolean
 }
