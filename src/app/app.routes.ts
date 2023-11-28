@@ -17,6 +17,7 @@ import { ParticipantsComponent } from './pages/admin/participants/participants.c
 import { StatisticsComponent } from './pages/admin/statistics/statistics.component';
 import { PhotoCaptureComponent } from './photo-capture/photo-capture.component';
 import { PopupValidationComponent } from './shared/components/popup-validation/popup-validation.component';
+import { PhotoCaptureComponent } from './pages/user/photo-capture/photo-capture.component';
 
 export const routes: Routes = [
     {path : "", component : HomeComponent},

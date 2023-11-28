@@ -1,6 +1,6 @@
 export interface UserData {
     firstName : string,
-    LastName : string,
+    lastName : string,
     email : string,
     pictureName : string,
     pictureType : string,
@@ -9,5 +9,6 @@ export interface UserData {
     city : string,
     postCode : number
     productUsed : string;
+    newsletter: boolean
     
 }
