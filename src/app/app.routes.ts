@@ -16,6 +16,7 @@ import { OnHoldPhotosComponent } from './pages/admin/on-hold-photos/on-hold-phot
 import { ParticipantsComponent } from './pages/admin/participants/participants.component';
 import { StatisticsComponent } from './pages/admin/statistics/statistics.component';
 import { PhotoCaptureComponent } from './photo-capture/photo-capture.component';
+import { PopupValidationComponent } from './shared/components/popup-validation/popup-validation.component';
 
 export const routes: Routes = [
     {path : "", component : HomeComponent},
@@ -26,6 +27,7 @@ export const routes: Routes = [
     {path : "admin/on-hold-photos", component : OnHoldPhotosComponent},
     {path : "admin/participants", component : ParticipantsComponent},
     {path : "admin/statistics", component : StatisticsComponent},
+    {path : "admin/popup-validation", component: PopupValidationComponent},
     {path : "photo-capture", component : PhotoCaptureComponent},
     {path : "photo-capture-choice", component : PhotoCaptureChoiceComponent},
     {path : "photo-information", component : PhotoInformationComponent},

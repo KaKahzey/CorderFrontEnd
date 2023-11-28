@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { UserData } from '../../models/userData';
 
 @Component({
   selector: 'app-popup-validation',
@@ -10,4 +11,5 @@ import { CommonModule } from '@angular/common';
 })
 export class PopupValidationComponent {
 
+  userData : UserData = {firstName : "John", LastName :"Doe" , street : "rue à gauche", postCode : 1422, city : "Braine le Compte", productUsed : "Fongicide",pictureName : " ",pictureType : " "}
 }
