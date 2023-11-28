@@ -11,5 +11,5 @@ import { UserData } from '../../models/userData';
 })
 export class PopupValidationComponent {
 
-  userData : UserData = {firstName : "John", LastName :"Doe" , street : "rue à gauche", postCode : 1422, city : "Braine le Compte", productUsed : "Fongicide",pictureName : " ",pictureType : " "}
+  // userData : UserData = {firstName : "John", LastName :"Doe" , street : "rue à gauche", postCode : 1422, city : "Braine le Compte", productUsed : "Fongicide",pictureName : " ",pictureType : " "}
 }
