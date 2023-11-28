@@ -1,0 +1,54 @@
+input[type="checkbox"] {
+    /* Cacher la case à cocher native */
+    display: none;
+  }
+
+  /* Style personnalisé pour la nouvelle apparence de la case à cocher */
+  .custom-checkbox {
+    display: inline-block;
+    width: 30px; /* Largeur souhaitée de la case à cocher */
+    height: 30px; /* Hauteur souhaitée de la case à cocher */
+    background-color: #3498db; /* Couleur de fond de la case à cocher non cochée */
+    border-radius: 5px; /* Bordure arrondie */
+    border: 2px solid #2980b9; /* Bordure de la case à cocher non cochée */
+    position: relative;
+    cursor: pointer;
+  }
+
+  /* Style pour la coche lorsque la case est cochée */
+  .custom-checkbox.checked {
+    background-color: #27ae60; /* Couleur de fond de la case à cocher cochée */
+    border-color: #2ecc71; /* Bordure de la case à cocher cochée */
+  }
+
+  /* Style pour la coche elle-même */
+  .custom-checkbox .checkmark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px; /* Largeur de la coche */
+    height: 15px; /* Hauteur de la coche */
+    border: solid #fff; /* Couleur de la coche */
+    border-width: 0 3px 3px 0; /* Ajustements pour dessiner la coche */
+    transform-origin: bottom left;
+    opacity: 0; /* La coche est initialement invisible */
+    transition: opacity 0.2s ease-in-out; /* Animation de transition pour l'opacité */
+  }
+
+  /* Style du texte associé à la case à cocher */
+  .custom-checkbox-label {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px; /* Espacement entre la case à cocher et le texte */
+  }
+
+  /* Styler le texte associé lorsque la case à cocher est cochée */
+  .custom-checkbox.checked .custom-checkbox-label {
+    color: #2ecc71; /* Couleur du texte lorsque la case à cocher est cochée */
+  }
+
+  /* Style lorsque la case à cocher est cochée pour afficher la coche */
+  .custom-checkbox.checked .checkmark {
+    opacity: 1; /* Rendre la coche visible lorsque la case est cochée */
+  }

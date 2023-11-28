@@ -1,23 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@font-face {
-    font-family: 'NexaSlab';
-    src: url('/typo/NexaSlabHeavy/NexaSlab-Trial-Heavy.otf') format('otf');
-  }
-
-@font-face {
-    font-family: 'Panton';
-    src: url(/src/assets/typo/Panton/Panton-Regular.otf);
+body{
+    background-color:  #f5f8e0;
 }
-
-html, body {
-    height: 100%;
-    font-family: 'Panton';
-}
-
-h1,h2 {
-    font-family: 'NexaSlab', sans-serif;
-}
-

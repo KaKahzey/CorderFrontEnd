@@ -1,0 +1,22 @@
+.sort-area {
+    @apply flex w-2/3 pb-4;
+}
+
+.list {
+    @apply w-full mx-5 text-center ;
+}
+button{
+    color: white;
+    width: 100px;
+    justify-content: center;
+    border-radius: 50px;
+    font-style: normal;
+    font-weight: 700; 
+    @apply bg-blue-950;
+}
+.buttons-sort {
+    @apply flex px-4;
+}
+th, td {
+    @apply text-left;
+}
