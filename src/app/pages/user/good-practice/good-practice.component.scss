@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url("/assets/img/blurCompletebg.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+}
+
+.square-bg {
+    width: 370px;
+    background-color: #F5F8E0;
+    border-radius: 20px;
+    border: dashed 5px #000000 ;
+    transform: rotate(-3deg);
+    margin: 25px 0px 40px 0px;
+}
+
+.bee {
+    width: 125px;
+    margin: 25px 0px;
+}
+
+.center {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.h2{
+    font-size: 42px;
+    font-weight: bolder;
+}
+
+p {
+    text-align: center;
+    margin: 0 8px;
+}
+
+.para{
+    margin-bottom: 40px;
+}
+
+.text-square {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 15px 35px;    
+    font-size: 16px;
+    font-weight: 100;
+}
+
+.btn_all{
+    display: flex;
+    justify-content: center;
+    transform: rotate(1.5deg);
+}
+
+.btn-style1{
+    background-color: #0E103B;
+    color: #F5F8E0;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    border-radius: 50px;
+}
+    .btn-style1:hover {
+        cursor: pointer;
+        background-color: #03030c;
+    }
+.btn-style2{
+    background-color: #0E103B;
+    color: #F5F8E0;
+    width: 125px;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    border-radius: 50px;
+}
+    .btn-style2:hover {
+        cursor: pointer;
+        background-color: #03030c;
+    }
+
+.non-rotate{
+    transform: rotate(1.5deg);
+}
+
+/* Réajuster pour les versions paysages */
+@media only screen and (max-width: 1024px) {
+    p {
+        font-size: 15px;
+    }
+    .square-bg{
+        width: 1200px;
+    }
+    .para{
+        width: 450px;
+    }
+}
+
+/* Si l'écran passe de bureau à mobile, changer l'image */
+@media only screen and (max-width: 500px) {
+    body {
+        background-image: url("/assets/img/thanksBackgroundMobile.png");
+        overflow: hidden;
+    }
+    p {
+        font-size: 12px;
+    }
+    .para{
+        width: 350px;
+    }
+    
+}
