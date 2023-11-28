@@ -19,6 +19,9 @@ button{
 .buttons-sort {
     @apply flex px-4;
 }
+th {
+    @apply pb-5;
+}
 th, td {
     @apply text-left;
 }
