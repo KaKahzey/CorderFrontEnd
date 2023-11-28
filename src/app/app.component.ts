@@ -4,8 +4,8 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './shared/services/api.service';
+import { NavbarService } from './shared/services/navbar.service'; 
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
-import { NavbarService } from './shared/services/navbar.service';
 
 @Component({
   selector: 'app-root',
