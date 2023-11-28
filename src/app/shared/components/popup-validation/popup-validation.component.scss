@@ -3,14 +3,36 @@
     height: 100vh;
 }
 .card{
+    display: flex;
     width: 50%;
+    flex-direction: row;
+    height: fit-content;
     position: absolute;
     bottom: 35%;
     right: 25%;
     border: solid 1px;
     border-radius: 25px;
-}
-.card-content-txt{
-    display: flex;
     padding: 10px;
+    padding-right: 40px;
+}
+
+.card-content-img{
+    display: flexbox;
+    width: 40%;
+}
+
+.card-content-txt{
+    width: 66%;
+}
+.content-txt{
+    display: flex;
+}
+.txt-left{
+    
+}
+.txt-right{
+    margin-left: 10px;
+}
+.txt-user-info{
+
 }
