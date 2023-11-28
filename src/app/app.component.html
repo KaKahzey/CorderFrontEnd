@@ -1,2 +1,2 @@
-<app-navbar *ngIf="getNavbarState()"></app-navbar>
-<router-outlet class="w-full" *ngIf="!getNavbarState()"></router-outlet>
+<app-navbar *ngIf="isAdmin"></app-navbar>
+<router-outlet class="w-full" *ngIf="!isAdmin"></router-outlet>
