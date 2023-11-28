@@ -38,6 +38,14 @@ TODO
 | ° envoi formulaire                        | ok
 | ° changer le CSS quand bouton désactivé   | ok
 | ° check les conditions du formulaire      | ok
-| ° responsive  mi-ok / en cours            |
-|   -> mise en place colonnes (grod) x      |
+| ° rendre fonctionnelle les checkboxs      | ok
+| ° responsive  mi-ok / en cours            | 
+| ° agrandir et centrer le h1               | ok
+| ° input en inline                         | ok
+| ° email                                   | ok
 ---------------------------------------------
+
+
+rectifications avant rendu final
+-> lien checkbox rgpd
+->lien quand infoform ok

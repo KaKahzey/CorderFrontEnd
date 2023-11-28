@@ -15,7 +15,7 @@ import { RejectedPhotosComponent } from './pages/admin/rejected-photos/rejected-
 import { OnHoldPhotosComponent } from './pages/admin/on-hold-photos/on-hold-photos.component';
 import { ParticipantsComponent } from './pages/admin/participants/participants.component';
 import { StatisticsComponent } from './pages/admin/statistics/statistics.component';
-import { PhotoCaptureComponent } from './photo-capture/photo-capture.component';
+import { PhotoCaptureComponent } from './pages/user/photo-capture/photo-capture.component';
 
 export const routes: Routes = [
     {path : "", component : HomeComponent},

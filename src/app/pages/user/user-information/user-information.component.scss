@@ -1,66 +1,119 @@
-.styleFond{
+body{
     background-color:#f5f8e0 ;
-    width: 100vw;
-    height: 100vh;
     background-size: cover;
 }
 
 
+//////////////////////////////////////////////////TITRES
 h1{
-    color: rgb(140, 71, 35);
+
+    color: #0E103B;
     display: flex;
     justify-content: center;
-    margin: 0;
+    margin-top: 20px;
+    font-size: xx-large;
+    font-weight: 800;
 }
 .titleFont{
     font-weight: 700;
+    margin-left: 25px;
 }
 
 
-
+////////////////////////////////////////////////BOUTONS
 .all-btn{
     display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-.btn{
-    width: 250px;
-    display: flex;
-    justify-content: center;
     padding: 10px 0px;
-    border-radius: 50px;
 }
 .btnStyle{
+    width: 50%;
+    text-align: center;
+    padding: 10px 0px;
+    border-radius: 50px;
+    margin-right: 8px;
+    margin-left: 8px;
+    
+}
+.btn1{
+    background-color: #0E103B;
+    color : white;
+}
+.btn1:hover{
+    background-color:  #000000;
+    color: rgb(228, 228, 228);
+}
+
+.btn2{
     background-color: #B7C90D;
     color: #0E103B;
 
 }
-.btnStyle:hover{
+.btn2:hover{
     background-color: #91a00b;
 }
-
+////////////////////////////////////////////
 .formContainer{
     display: flex;
+    width:100%;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    box-sizing: border-box;
+   
+}
+
+.form-row{
+    display :flex;
+    width: 96%;
 }
 
 
 input[type="text"]{
+
     background-color: #f5f8e0;
     border: 1px solid black;
     color: black;
-    max-width: 250px;
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 7px 50px;
+    
+    width: calc(96% - 20px);
+    box-sizing: border-box;
+    padding: 14px 50px;
     border-radius: 50px;
-    flex-direction: column;
+    
     margin-bottom: 20px;
     margin-top: 2px;
+    margin-left: 20px;
+    
    
 }
+.red-container::placeholder  {
+    color: red;
+}
+.red-container{
+    border:2px solid red !important;
+}
+label{
+    display: block;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+label a{
+    text-decoration: underline;
+    color:#0E103B;
+
+}
+label a:hover{
+    color: rgb(112, 200, 227);
+}
+
+input[type="checkbox"] {
+    appearance: none; //Désactive l'apparence native du navigateur
+    width: 14px;
+    height: 14px;
+    background-color: #f5f8e0;
+    border: 1px solid black;
+    border-radius:  5px;
+    cursor: pointer;
+  }
+  
+input[type="checkbox"]:checked {
+    background-color: #B7C90D; 
+    border-color: #0E103B; 
+  }
