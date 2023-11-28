@@ -6,20 +6,22 @@
                 <img src="/assets/img/logoCorder.svg" alt="logo corder"/>
             </div>
                 <ul id="list">
-                    <li><a routerLink="/admin/dashboard"><img src="assets/img/logos-navbar/house.svg" alt="house" /> Dashboard</a></li>
-                    <li><a routerLink="/admin/validated-photos"><img src="assets/img/logos-navbar/valide.svg" alt="valide" />Photos validées</a></li>
-                    <li><a routerLink="/admin/rejected-photos"><img src="assets/img/logos-navbar/rejected.svg" alt="non valide" />Photos refusées</a></li>
-                    <li><a routerLink="/admin/on-hold-photos"><img src="assets/img/logos-navbar/hourglass.svg" alt="sablier" />Photos en attente</a></li>
-                    <li><a routerLink="/admin/participants"><img src="assets/img/logos-navbar/people.svg" alt="participants" />Participants</a></li>
-                    <li><a routerLink="/admin/statistics"><img src="assets/img/logos-navbar/stats.svg" alt="stats" />Statistiques</a></li>
+                    <li><a routerLink="/admin/dashboard"><img src="assets/img/logos-navbar/house.svg" alt="house" /><span>Dashboard</span> </a></li>
+                    <li><a routerLink="/admin/validated-photos"><img src="assets/img/logos-navbar/valide.svg" alt="valide" /><span>Photos validées</span></a></li>
+                    <li><a routerLink="/admin/rejected-photos"><img src="assets/img/logos-navbar/rejected.svg" alt="non valide" /><span>Photos refusées</span></a></li>
+                    <li><a routerLink="/admin/on-hold-photos"><img src="assets/img/logos-navbar/hourglass.svg" alt="sablier" /><span>Photos en attente</span></a></li>
+                    <li><a routerLink="/admin/participants"><img src="assets/img/logos-navbar/people.svg" alt="participants" /><span>Participants</span></a></li>
+                    <li><a routerLink="/admin/statistics"><img src="assets/img/logos-navbar/stats.svg" alt="stats" /><span>Statistiques</span></a></li>
                 </ul>
         </div>
     </div>
     <!-- NavbarTop-->
     <div id="navbar-top">
         <div id="search-bar">
-            <input type="text" size="70" placeholder="Rechercher" />
-            <img src="/assets/img/logos-navbar/magnifying-glass.svg" alt="loupe" />
+            <div id="border-search">
+                <input type="text" size="70" placeholder="Rechercher" />
+                <img src="/assets/img/logos-navbar/magnifying-glass.svg" alt="loupe" />
+            </div>
         </div>
         <div id="name-photo">
             {{username}}

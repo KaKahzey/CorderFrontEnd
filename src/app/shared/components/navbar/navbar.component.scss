@@ -1,26 +1,21 @@
-html {
-    height: 100%;
-    width : 100%;
-}
+
 
 #navbar-overall {
-    font-size: 20px;
-    font-weight: 400;
     height: 100%;
-    @apply grid grid-cols-4 grid-rows-2 m-5;
+    @apply grid grid-cols-7 grid-rows-6 m-5;
 }
 
 #navbar-left {
-    background-color: #f5f8e0;
-    @apply  rounded-xl col-start-1 col-end-2 row-span-2;
+    background-color: #F5F8E0;
+    @apply  rounded-xl col-span-1 row-span-6;
 }
 
 #navbar-top {
-    @apply h-20 items-center col-start-2 col-end-5 grid grid-cols-12;
+    @apply items-center col-span-6 grid grid-cols-3 row-span-1;
 }
 
 #content {
-    @apply pl-5 col-start-2 col-end-5 row-span-1;
+    @apply pl-5 col-span-6 row-span-5;
 }
 
 #content-left {
@@ -28,10 +23,7 @@ html {
 }
 
 #logo-area {
-    @apply row-span-1;
-}
-li {
-    
+    @apply row-span-1 pt-5;
 }
 li img {
     width : 24px;
@@ -43,19 +35,29 @@ li a {
 }
 
 #list {
-    @apply row-span-1 ;
+    @apply row-span-1 pl-3 space-y-6;
+}
+
+#list span {
+    @apply pl-2;
 }
 
 #search-bar {
-    border-color: #BCBCBC;
-    @apply flex h-8 border-0 border-b-2 col-span-7;
+    @apply  col-span-2 pl-4;
 }
+
+#border-search {
+    border-color: #BCBCBC;
+    float : left;
+    @apply flex border-0 border-b-2 items-center pb-2;
+}
+
 #name-photo {
-    @apply flex col-span-5 justify-end;
+    @apply flex col-span-1 justify-end items-center;
 }
 #search-bar img {
-    width : 32px;
-    height : 32px;
+    width : 18px;
+    height : 18px;
 }   
 #name-photo img {
     width : 64px;
