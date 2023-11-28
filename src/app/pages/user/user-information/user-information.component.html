@@ -1,65 +1,68 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infos</title>
-</head>
-<body class="styleFond">
 
-    <h1 class="titleFont">Vos infoss</h1>
     <form class="formContainer" [formGroup]="infoForm" (ngSubmit) ="getForm()">
+            <h1>Vos infos</h1>
+    <!--PRENOM-->
+            <div>
+                <p class="titleFont">Prénom</p>
+                <input type="text" placeholder="Remy"   [ngClass]="{'red-container': infoForm.get('firstName')?.touched && infoForm.get('firstName')?.errors?.['required']}"formControlName="firstName">          
+            </div>
 
-        <div class="form-row">
-            <p class="titleFont">Prénom</p>
-            <input class="police"  type="text" placeholder="Fifi" formControlName="firstName">
-            <span>
-                @if (infoForm.get('firstName')?.touched && infoForm.get('firstName')?.errors?.['required']) {
-                    Champ requis
+    <!--NOM-->
+            <div>
+                <p class="titleFont">Nom</p>
+                <input type="text" placeholder="Dos"   [ngClass]="{'red-container': infoForm.get('lastName')?.touched && infoForm.get('lastName')?.errors?.['required']}"formControlName="lastName">
+            </div>
+
+    <!-- ADRESSE MAIL -->
+            <div>
+                <p class="titleFont">Adresse email</p>
+                <input type="text" placeholder="abc@exemple.be"   [ngClass]="{'red-container': infoForm.get('email')?.touched && infoForm.get('email')?.errors?.['required'] || infoForm.get('email')?.errors?.['pattern']}"formControlName="email">
+                
+                @if(infoForm.get('email')?.errors?.['pattern']){
+                    Mauvais format
                 }
-            </span>            
-        </div>
+            </div>
 
-        <div class="form-row">
-            <p class="titleFont">Nom</p>
-            <input type="text" placeholder="Franchamps" formControlName="lastName">
-            @if (infoForm.get('lastName')?.touched && infoForm.get('lastName')?.errors?.['required']) {
-                Champ requis
-            } 
-        </div>
+    <!--ADRESSE-->
+            <div>
+                <p class="titleFont">Adresse</p>
+                <input type="text" placeholder="Adresse complète"   [ngClass]="{'red-container': infoForm.get('street')?.touched && infoForm.get('street')?.errors?.['required']}"formControlName="street">
+            </div>
 
-        <div class="form-row">
-            <p class="titleFont">Adresse email</p>
-            <input type="text" placeholder="fifi.franchamps@gmail.com" formControlName="email">
-            @if (infoForm.get('email')?.touched && infoForm.get('email')?.errors?.['required']) {
-                Champ requis
-            }
-            @if(infoForm.get('email')?.errors?.['pattern']){
-                Mauvais format
-            }
-        </div>
-        <div class="form-row">
-            <p class="titleFont">Adresse postale</p>
-            <input  type="text" placeholder="Rue Cerisier d'Haine, 12" formControlName="street">
-            @if (infoForm.get('street')?.touched && infoForm.get('street')?.errors?.['required']) {
-                Champ requis
-            }
-        </div>
-        <div class="form-row">
-            <input  type="text" placeholder="1301" formControlName="postCode">
-            @if (infoForm.get('postCode')?.touched && infoForm.get('postCode')?.errors?.['required']) {
-                Champ requis
-            }
-        </div>
-        <div class="form-row">
-            <input  type="text" placeholder="Wavre" formControlName="city">
-            @if (infoForm.get('city')?.touched && infoForm.get('city')?.errors?.['required']) {
-                Champ requis
-            }
-        </div>
-        <div class="all-btn">
-            <input class="btn btnStyle" type="submit" [disabled]="!infoForm" value="Je participe !"><br>
-        </div>
+    <!--POSTAL-->
+            <div class="form-row">
+                <input type="text" placeholder="Code postal"   [ngClass]="{'red-container': infoForm.get('postCode')?.touched && infoForm.get('postCode')?.errors?.['required']}"formControlName="postCode">
+    <!--VILLE-->
+                <input type="text" placeholder="Ville"   [ngClass]="{'red-container': infoForm.get('city')?.touched && infoForm.get('city')?.errors?.['required']}"formControlName="city">
+            </div>
+
+
+    <!--CHECKBOX CONDITIONS-->
+            <label>
+                <input type="checkbox" formControlName="conditionJeu"/>
+                J'ai lu et j'accepte
+                <a class="linkFont" href="https://www.pwrp.be/_files/ugd/bbef1f_e1c8d82b848642d593b85d811057df81.pdf"> les conditions du jeu</a>
+
+            </label>
+
+    <!--CHECKBOX NEWSLETTER-->
+            <label>
+                <input type="checkbox" formControlName="newsletter" (change)="onCheckBoxChange()"/>
+                Je désire rester informé de l'actualité de l'asbl CORDER
+            </label>
+
+    <!--CHECKBOX RGPD-->
+            <label>
+                <input type="checkbox" formControlName="rgpd" />
+                J'ai lu et j'accepte 
+                <a href="https://www.pwrp.be/_files/ugd/bbef1f_e1c8d82b848642d593b85d811057df81.pdf">la politique générale de protections des données</a>
+                
+            </label>
+
+
+            <div class="all-btn">
+                <input class="btn1 btnStyle" routerLink="/good-practice" value="Retour">
+                <input class="btn2 btnStyle" type="submit" value="Je participe !">
+            </div>
     </form>
-</body>
-</html>
+
