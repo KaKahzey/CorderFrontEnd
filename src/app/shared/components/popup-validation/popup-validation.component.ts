@@ -11,5 +11,5 @@ import { UserData } from '../../models/userData';
 })
 export class PopupValidationComponent {
 
-  userData : UserData = {firstName : "John", lastName :"Doe" , street : "rue à gauche",email : "JohnDoe@gmail.com" ,blob : [1,0,1] , postCode : 1422, city : "Braine le Compte", productUsed : "Fongicide", pictureName : undefined, pictureType : undefined,shipped : undefined, validated : undefined , newsletter : true}
+  userData : UserData = {firstName : "John", lastName :"Doe" , street : "rue à gauche",email : "JohnDoe@gmail.com" ,blob : [1,0,1] , postCode : 1422, city : "Braine le Compte", productUsed : "Fongicide", newsletter : true}
 }

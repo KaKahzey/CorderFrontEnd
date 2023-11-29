@@ -10,6 +10,7 @@ export interface UserData {
     postCode : number,
     productUsed : string,
     newsletter: boolean,
-    shipped? : boolean,
-    validated? : boolean
+    isShipped? : boolean,
+    // isSeen? : boolean,
+    isValidated? : boolean
 }
