@@ -18,14 +18,38 @@
         </div>
 
         <div class="containe">
-            <div class="card" id="popup1">
-                <h2>POP UP 1 MA GUEULE</h2>
-                <button (click)="changeState('popup1') ;changeState('popup2') ">bouton1</button>
+            <div class="card" id="popup1"> 
+                <h2>Qu'avez vous pensez de ce jeu concours ?</h2>
+                <h3 class="text-center">Faites nous part de votre expérience.</h3>
+                    <div class="flex items-center justify-center">
+                        <label>
+                            <input type="radio" name="groupRadio" value="content">
+                            Content le zebi 
+                        </label>
+                        
+                        <label>
+                            <input type="radio" name="groupRadio" value="bof bof">
+                            bof bof le zebi 
+                        </label>
+                        
+                        <label>
+                            <input type="radio" name="groupRadio" value="pas content">
+                            Pas content le zebi
+                        </label>
+                    </div>
+                    <div class="all-btn">
+                        <button class="btn btnStyle2" (click)="changeState('popup1') ;changeState('popup3') ">C'était trop long</button><br>
+                        <button class="btn btnStyle2" (click)="changeState('popup1') ;changeState('popup3') ">C'était trop court</button><br>
+                        <button class="btn btnStyle2" (click)="changeState('popup1') ;changeState('popup3') ">L'appareil ne fonctionnait pas</button><br>
+                        <button class="btn btnStyle2" (click)="changeState('popup1') ;changeState('popup3') ">informations pas claires</button><br>
+                        <button class="btn btnStyle2" (click)="changeState('popup1') ;changeState('popup2') ">Autres</button>
+                    </div>    
             </div>
 
             <div class="card" id="popup2">
-                <h2>POP UP 2 ZEBI</h2>
-                <button (click)="changeState('popup2') ;changeState('popup3') ">bouton2</button>
+            <h2>POP UP 2 ZEBI</h2>
+                <input type="text">
+                <button (click)="changeState('popup2') ;changeState('popup3') ">Soumettre mon avis</button>
             </div>
 
             <div class="card" id="popup3">

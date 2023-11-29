@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-thanks',
@@ -40,7 +42,7 @@ export class ThanksComponent {
         if(popupID == 'popup3'){
            setTimeout(() => {
             this.changeState(popupID);
-          }, 10000);
+          }, 5000);
         }
       }
       else{
