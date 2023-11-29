@@ -1,1 +1,45 @@
-<p>participants works!</p>
+<div class="main">
+    <div class="sort-area">
+            <span>trier par : </span>
+            <span class="buttons-sort">
+                <button>état</button>
+                <button>province</button>
+                <button>produit</button>
+                <button>note</button>
+            </span>
+    </div>
+    <div >
+        <table class="list">
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Coordonnées</th>
+                <th>Produit</th>
+                <th>Etat</th>
+            </tr>
+            @for (p of participantsList; track p.id){
+                <tr>
+                    <td>{{p.id}}</td>
+                    <td>{{p.lastName}}</td>
+                    <td>{{p.firstName}}</td>
+                    <td>{{p.street}} {{p.postcode}} {{p.city}}</td>
+                    <td>{{p.productUsed}}</td>
+                    <td>
+                        @if (p.validated) {
+                            @if (p.shipped) {
+                                <span id="sent">envoyé</span>
+                            }
+                            @else {
+                                <span id="onHold">en attente</span>
+                            }
+                        }
+                        @else {
+                            <span id="rejected">refusé</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

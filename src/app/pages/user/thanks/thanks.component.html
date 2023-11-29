@@ -16,6 +16,46 @@
             <a class="btn btnStyle1" href="https://8264e3fe-fee4-4848-bbcb-66c6942962ea.filesusr.com/ugd/bbef1f_7eea6d7fcc84428cb88e12b77c949901.pdf" target="_blank">Télécharger le PDF</a>
             <a class="btn btnStyle2" routerLink="/">Retour sur le site web</a> 
         </div>
+
+        <div class="containe">
+            <div class="card" id="popup1"> 
+                <h2>Qu'avez vous pensez de ce jeu concours ?</h2>
+                <h3 class="text-center">Faites nous part de votre expérience.</h3>
+                    <div class="flex items-center justify-center">
+                        <label>
+                            <input type="radio" name="groupRadio" value="content">
+                            Content le zebi 
+                        </label>
+                        
+                        <label>
+                            <input type="radio" name="groupRadio" value="bof bof">
+                            bof bof le zebi 
+                        </label>
+                        
+                        <label>
+                            <input type="radio" name="groupRadio" value="pas content">
+                            Pas content le zebi
+                        </label>
+                    </div>
+                    <div class="all-btn">
+                        <button class="btn btnStyle2" (click)="changeState('popup1') ;changeState('popup3') ">C'était trop long</button><br>
+                        <button class="btn btnStyle2" (click)="changeState('popup1') ;changeState('popup3') ">C'était trop court</button><br>
+                        <button class="btn btnStyle2" (click)="changeState('popup1') ;changeState('popup3') ">L'appareil ne fonctionnait pas</button><br>
+                        <button class="btn btnStyle2" (click)="changeState('popup1') ;changeState('popup3') ">informations pas claires</button><br>
+                        <button class="btn btnStyle2" (click)="changeState('popup1') ;changeState('popup2') ">Autres</button>
+                    </div>    
+            </div>
+
+            <div class="card" id="popup2">
+            <h2>POP UP 2 ZEBI</h2>
+                <input type="text">
+                <button (click)="changeState('popup2') ;changeState('popup3') ">Soumettre mon avis</button>
+            </div>
+
+            <div class="card" id="popup3">
+                <h2>POPUP 3 REMERCIEMENT</h2>
+            </div>
+        </div>
     </div>
 </body>
 </html>
