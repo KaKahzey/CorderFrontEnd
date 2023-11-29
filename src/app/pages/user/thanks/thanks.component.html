@@ -16,6 +16,22 @@
             <a class="btn btnStyle1" href="https://8264e3fe-fee4-4848-bbcb-66c6942962ea.filesusr.com/ugd/bbef1f_7eea6d7fcc84428cb88e12b77c949901.pdf" target="_blank">Télécharger le PDF</a>
             <a class="btn btnStyle2" routerLink="/">Retour sur le site web</a> 
         </div>
+
+        <div class="containe">
+            <div class="card" id="popup1">
+                <h2>POP UP 1 MA GUEULE</h2>
+                <button (click)="changeState('popup1') ;changeState('popup2') ">bouton1</button>
+            </div>
+
+            <div class="card" id="popup2">
+                <h2>POP UP 2 ZEBI</h2>
+                <button (click)="changeState('popup2') ;changeState('popup3') ">bouton2</button>
+            </div>
+
+            <div class="card" id="popup3">
+                <h2>POPUP 3 REMERCIEMENT</h2>
+            </div>
+        </div>
     </div>
 </body>
 </html>

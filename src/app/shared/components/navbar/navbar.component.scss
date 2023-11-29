@@ -1,0 +1,70 @@
+#override-body {
+    background-color: white;
+    min-height: 100vh;
+    font-size: 20px;
+    @apply p-5;
+}
+
+#navbar-overall {
+    height: 100%;
+    @apply grid grid-cols-7 grid-rows-6;
+}
+
+#navbar-left {
+    background-color: #F5F8E0;
+    @apply  rounded-xl col-span-1 row-span-6;
+}
+
+#navbar-top {
+    @apply items-center col-span-6 grid grid-cols-3 row-span-1;
+}
+
+#content {
+    @apply pl-5 col-span-6 row-span-5;
+}
+
+#content-left {
+    @apply grid grid-rows-3;
+}
+
+#logo-area {
+    @apply row-span-1 pt-5;
+}
+li img {
+    width : 24px;
+    height : 24px;
+}
+
+li a {
+    @apply flex;
+}
+
+#list {
+    @apply row-span-1 pl-8 space-y-4;
+}
+
+#list span {
+    @apply pl-2;
+}
+
+#search-bar {
+    @apply  col-span-2 pl-4;
+}
+
+#border-search {
+    border-color: #BCBCBC;
+    float : left;
+    @apply flex border-0 border-b-2 items-center pb-2;
+}
+
+#name-photo {
+    @apply flex col-span-1 justify-end items-center;
+}
+#search-bar img {
+    width : 18px;
+    height : 18px;
+}   
+#name-photo img {
+    width : 64px;
+    height : 64px;
+}

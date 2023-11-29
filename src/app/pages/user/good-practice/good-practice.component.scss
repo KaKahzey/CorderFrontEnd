@@ -1,20 +1,32 @@
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
+    height: 100vh !important;
     background-image: url("/assets/img/blurCompletebg.png");
     background-repeat: no-repeat;
     background-position: bottom center;
     background-size: cover;
+    overflow: hidden;
+}
+
+header{
+    width: 100%;
+    height: 122px;
+    background-color: #0E103B;
 }
 
 .square-bg {
-    width: 370px;
-    background-color: #F5F8E0;
     border-radius: 20px;
-    border: dashed 5px #000000 ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px dashed var(--Noir, #0E103B);
+    background: var(--Blanc, #F5F8E0);
+    box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.25);
     transform: rotate(-3deg);
-    margin: 25px 0px 40px 0px;
+    width: 874px;
+    height: 755px;
+    margin-left: 125px;
 }
 
 .bee {
@@ -23,25 +35,34 @@ body {
 }
 
 .center {
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.h2{
-    font-size: 42px;
-    font-weight: bolder;
+h2{
+    color: var(--Noir, #0E103B);
+    text-align: center;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 1;
+    margin: 75px 0px 75px 0px;
+    font-family: 'nexaRegular';
 }
 
 p {
     text-align: center;
-    margin: 0 8px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 170%;
+    font-family: 'pantonRegular';
+    max-width: 430px !important;
 }
 
-.para{
-    margin-bottom: 40px;
+.borderPara{
+    max-width: 430px;
 }
 
 .text-square {
@@ -55,65 +76,151 @@ p {
 
 .btn_all{
     display: flex;
-    justify-content: center;
-    transform: rotate(1.5deg);
+    justify-content: space-between;
+    width: 430px;
+    transform: rotate(3deg);
+    margin-top: 30px;
+    margin-left: -27px;
 }
 
-.btn-style1{
+.btn-color2{
+    color: #0E103B !important;
+    background-color: #B7C90D !important;
+}
+
+.btn-color2:hover {
+    cursor: pointer;
+    background-color: #94a31f !important;
+}
+
+.btn-style{
     background-color: #0E103B;
     color: #F5F8E0;
-    width: 250px;
+    width: 205px;
     display: flex;
     justify-content: center;
     padding: 10px 0;
     border-radius: 50px;
+    font-family: 'pantonRegular';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700; 
 }
-    .btn-style1:hover {
+    .btn-style:hover {
         cursor: pointer;
-        background-color: #03030c;
-    }
-.btn-style2{
-    background-color: #0E103B;
-    color: #F5F8E0;
-    width: 125px;
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-    border-radius: 50px;
-}
-    .btn-style2:hover {
-        cursor: pointer;
-        background-color: #03030c;
+        background-color: #0E101D;
     }
 
 .non-rotate{
     transform: rotate(1.5deg);
 }
 
-/* Réajuster pour les versions paysages */
-@media only screen and (max-width: 1024px) {
-    p {
-        font-size: 15px;
+@media only screen and (max-width: 930px) {
+    p{
+        font-size: 17px;
     }
-    .square-bg{
-        width: 1200px;
+    .btn-style{
+        width: 185px;
+        
     }
-    .para{
-        width: 450px;
+    .btn_all{
+        width: 380px;
+        margin-left: 0px;
     }
 }
 
-/* Si l'écran passe de bureau à mobile, changer l'image */
+@media only screen and (min-width : 815px) {
+    .square-bg{
+        max-width: 50%;
+        position: relative;
+        top: 20%;
+        height: 2500px;
+    }
+
+    h2{
+        font-size: 57px;
+    }
+}
+
+/* Réajuster pour les versions bureau */
+@media only screen and (max-width: 815px) {
+    .bee{
+        margin-top: 10px;
+    }
+    h2{
+        margin: 50px 0px 50px 0px;
+    }
+}
+
+/* Réajuster pour les versions tablette */
+@media only screen and (max-width: 814px) {
+    p {
+        font-size: 22px;
+        font-family: 'pantonBold';
+        font-style: normal;
+        font-weight: 800;
+        line-height: 36px;
+        text-align: center;
+    }
+    .square-bg{
+        width: 1000px;
+        height: 650px;
+        margin-left: 25px;
+    }
+    h2{
+        font-size: 51px; 
+    }
+    header{
+        height: 65px;
+    }
+}
+
+/* Réajuster pour les versions mobile */
 @media only screen and (max-width: 500px) {
     body {
         background-image: url("/assets/img/thanksBackgroundMobile.png");
         overflow: hidden;
     }
-    p {
-        font-size: 12px;
+    .borderPara{
+        width: 420px;
     }
-    .para{
-        width: 350px;
+    .square-bg{
+        margin-left: 0;
+    }
+    p {
+        font-size: 18px;
+        font-family: 'pantonBold';
+        font-style: normal;
+        font-weight: 500;
+    }
+    h2{
+        font-size: 42px; 
     }
     
+}
+
+@media only screen and (max-width: 420px) {
+    p{
+        font-size: 14px;
+    }
+    .borderPara{
+        width: 320px;
+    }
+    .btn_all{
+        margin-left: -15px;
+    }
+}
+@media only screen and (max-width: 380px) {
+    .btn_all{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 380px;
+    }
+    .btn-color2{
+        margin-top: 25px;
+    }
+    .btn-style{
+        width: 205px;
+    }
 }

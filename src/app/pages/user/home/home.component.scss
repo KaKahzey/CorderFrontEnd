@@ -1,73 +1,78 @@
-body{
-    margin: 0;
-    padding: 0;
-    background-image: url('/assets/img/img-bg.png');
-    min-height: 100vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: bottom center;
+.giga-container{
+    // clip-path: circle(94% at 48% 15%);
+    border: 5px solid red;
+    border-radius: 0 0 50% 50%;
 }
-.container{
+
+.img-container{
+    position: relative;
+  
+    .bee {
+        top: 20%;
+        left: 20%;
+        position: absolute;
+        width: calc(1/15 * 100vw);
+        z-index: 1000;
+    }
+}
+
+.img-bg{
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    height: 100%;
+    object-fit: cover;
+    
+    object-position: bottom center;
+    z-index: 0;
 }
+
+.cont {
+    height: 90vh;
+    width: 100%;
+}
+
+.center{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.btnAjouter{
+    position: absolute;
+    bottom: 100px;
+    right: 150px;
+}
+
+.txt{
+    font-size: 38px;
+    background-color: #4d9c18;
+    text-align: center;
+    padding-bottom: 2%;
+}
+
+.txt-scroll-container{
+    width: 100%;
+    height: 10vh;
+    background-color: #4d9c18;
+}
+
+.txt-scroll{
+    font-family: "nexaRegular";
+    font-size: xx-large;
+    opacity: 50%;
+    text-align: center;
+}
+
+.test{
+    font-family: 'nexa';
+}
+
 // Si l'écran passe de mobile à bureau, changer l'image
 @media only screen and (max-width: 600px) {
-    body{
-    margin: 0;
-    padding: 0;
-    background-image: url("/assets/img/bg_mobile.png");
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    background-attachment: fixed;
-    background-size: cover;
-}
-}
-/* xs */
-@media (min-width: 475px) {
-    .container{
-        max-width: 475px;
-    }
-
-} 
-
-/* sm */
-@media (min-width: 640px) {
-    .container{
-        max-width: 640px;
-    }
-} 
-
-/* md */
-@media (min-width: 768px) {
-    .container{
-        max-width: 640px;
-    }
-} 
-
-/* lg */
-@media (min-width: 1024px) {
-    .container{
-        max-width: 1024px;
-    }
+.img-container{
+    background-image: url("/assets/img/home/bg_mobile.png");
 }
 
-/* xl */
-@media (min-width: 1280px) {
-    .container{
-        max-width: 1280px;
-    }
-} 
-
-/* 2xl */
-@media (min-width: 1536px) {
-    .container{
-        max-width: 1536px;
-    }
 }
+
 
 
