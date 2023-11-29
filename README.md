@@ -30,7 +30,7 @@ Tout le formulaire user - POST
     email : string
     pictureName : string
     pictureType : string
-    blob : [1,0,1]  // photo
+    blob : string  // photo
     street : string
     city : string
     postCode : string
@@ -54,8 +54,8 @@ Modifier login - UPDATE
 
 Dashboard - GET
 ------------------------------
-    id : number // 3 derniers en attente + 3 derniers validés
-    blob : [1,0,1] // 3 derniers en attente + 3 derniers validés
+    [ {id : number, blob : string} * 3] // 3  derniers en attente where !isSeen
+    [ {id : number, blob : string} * 3] // 3 derniers validés where isValidated
     totalParticipants : number
     dateParticipants : number // get 7 derniers jours je suppose
 ------------------------------
@@ -66,7 +66,7 @@ Popup admin - GET
     firstName : string
     lastName : string
     email : string
-    blob : [1,0,1]  // photo
+    blob : string  // photo
     street : string
     city : string
     postCode : string
@@ -82,8 +82,7 @@ Popup admin - UPDATE
 
 Stats (oh boy) - GET
 ------------------------------
-    totalParticipants : number
-    dateInscription : Date 
+    [{totalParticipants : number, dateIncription : Date}] //tous les jours
     city : string 
     productUsed : string
     rating : number
@@ -105,29 +104,29 @@ Liste participants - GET
     dateInscription : Date
 ------------------------------
 
-Photos validées - GET (seulement les validated)
+Photos validées - GET (where validated)
 ------------------------------
     id : number
     lastName : string
     firstName : string
     dateInscritpion : Date
-    blob : [1,0,1]
+    blob : string
 ------------------------------
 
-Photos rejetées - GET (seulement les !validated)
+Photos rejetées - GET (where !validated)
 ------------------------------
     id : number
     lastName : string
     firstName : string
     dateInscritpion : Date
-    blob : [1,0,1]
+    blob : string
 ------------------------------
 
-Photos en attente - GET (seulement les !isSeen)
+Photos en attente - GET (where !isSeen)
 ------------------------------
     id : number
     lastName : string
     firstName : string
     dateInscritpion : Date
-    blob : [1,0,1]
+    blob : string
 ------------------------------
