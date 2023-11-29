@@ -14,7 +14,7 @@ TODO
 | ° input en inline                         | ok
 | ° email                                   | ok
 ---------------------------------------------
-modifier logique navbar par router -> get url -> condition
+gérer province pour composant participants
 
 
 rectifications avant rendu final

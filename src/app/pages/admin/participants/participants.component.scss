@@ -1,27 +1,78 @@
-
+#main-participants {
+    width : 95%
+}
 
 .sort-area {
     @apply flex pb-4;
 }
 
 .list {
-    @apply w-full mx-5 text-center pr-5;
+    @apply mx-5 text-center pr-5;
 }
 button{
-    color: white;
-    width: 100px;
+    color: #0E103B;
+    width: 110px;
     justify-content: center;
     border-radius: 50px;
     font-style: normal;
-    font-weight: 700; 
-    @apply bg-blue-950;
+    font-weight: 600; 
+    border-color : #0E103B;
+    @apply p-1 border;
 }
+
+button:hover{
+    background-color: #F5F8E0;
+}
+
+button:focus{
+    background-color: #0E103B;
+    color: white;
+}
+
 .buttons-sort {
-    @apply flex px-4;
+    @apply flex px-4 ;
+}
+.buttons-sort button {
+    margin-right: 10px;
+}
+table {
+    width : 100%;
+    border-spacing: 20px;
+    border-collapse: separate;
 }
 th {
-    @apply pb-5;
+    @apply pb-6;
 }
 th, td {
     @apply text-left;
+}
+
+td {
+    
+}
+.state-head {
+    width : 100px
+}
+
+.sent {
+    background-color: #B7C90D;
+    border-radius: 50px;
+    text-align: center;
+    vertical-align: middle;
+    @apply py-1; 
+}
+
+.onHold {
+    background-color: #E7F39A;
+    border-radius: 50px;
+    text-align: center;
+    @apply py-1;
+}
+
+.rejected {
+    background-color: #E3254E;
+    border-radius: 50px;
+    text-align: center;
+    color : white;
+    @apply py-1;
 }
