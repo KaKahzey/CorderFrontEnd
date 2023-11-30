@@ -12,7 +12,7 @@
 #navbar-left {
     position: fixed;
     background-color: #F5F8E0;
-    width : 12%;
+    width : 15%;
     height : 90%;
     flex: 0 0 auto;
     border-radius : 20px; 
@@ -21,8 +21,8 @@
     @apply py-5 pt-8 pl-10;
 }
 #right-side {
-    margin-left: 12%;
-    width : 88%;
+    margin-left: 16%;
+    width : 85%;
     height : 10%;
 }
 
@@ -42,9 +42,11 @@
     text-align: center;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 #logo-area img {
-    width : 70%;
+    height : 82px;
+    width : 183px;
     margin: 0 auto;
 }
 li img {

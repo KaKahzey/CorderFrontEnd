@@ -1,34 +1,112 @@
 #main {
-    height : 100%;
+    height:fit-content;
     @apply flex justify-between;
 }
 .photo-area {
-    width : 75%
+    width : 70%;
 }
 .frame {
     background-color: #F5F8E0;
     border-radius : 20px; 
-    @apply p-5 mb-10;
+    @apply p-4 mb-5;
 }
 .title-frame {
-
+    color: #81848d;
+    font-weight:800;
+    font-size: 28px;
+    padding-bottom: 1px;
 }
-.on-hold-images {
+.grid-images {
     height : 25%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-gap: 8px;
+    padding-right: 5%;
+}
+.see-more {
+    font-weight: bold;
+    vertical-align: center;
 }
 
 .image-container {
-    height: 10vh;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.image-container:hover {
+    cursor: pointer;
+}
+.image-container.see-more:hover {
+    cursor: pointer;
+    border-radius : 20px; 
+    @apply border
 }
 
 .image {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
 }
 
 .main-info-section {
-    width : 24%;
+    width : 28%;
+}
+
+.big-data {
+    color: #0E103B;
+    font-weight:800;
+    font-size: 35px;
+}
+.graph-vertical-week {
+    column-gap: 4%;
+    width : 87%;
+    @apply row-span-5 grid grid-cols-7;
+}
+.graph-vertical-bars {
+    height : 100%;
+}
+.bg-graph-vertical {
+    height : 235px;
+    border-radius: 5px;
+    background-color: #E7F39A;
+    display: flex;
+    flex-direction: column-reverse;
+}
+.monday {
+    border-radius: 4px;
+    height : 45%;
+    background-color: #12A19A;
+}
+.tuesday {
+    border-radius: 4px;
+    height : 50%;
+    background-color: #12A19A;
+}
+.wednesday {
+    border-radius: 4px;
+    height : 55%;
+    background-color: #12A19A;
+}
+.thursday {
+    border-radius: 4px;
+    height : 62%;
+    background-color: #12A19A;
+}
+.friday {
+    border-radius: 4px;
+    height : 70%;
+    background-color: #12A19A;
+}
+.saturday {
+    border-radius: 4px;
+    height : 75%;
+    background-color: #12A19A;
+}.sunday {
+    border-radius: 4px;
+    height : 80%;
+    background-color: #12A19A;
+}
+.graph-vertical-bars p {
+    text-align: center;
 }
