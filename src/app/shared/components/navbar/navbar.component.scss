@@ -6,20 +6,26 @@
 
 #navbar-overall {
     height: 100%;
-    @apply grid grid-cols-7 grid-rows-6;
+    @apply flex pt-3;
 }
 
 #navbar-left {
     background-color: #F5F8E0;
-    @apply  rounded-xl col-span-1 row-span-6;
+    width : 15%;
+    height : 90%;
+    flex: 0 0 auto;
+    border-radius : 20px; 
 }
-
 #navbar-top {
-    @apply items-center col-span-6 grid grid-cols-3 row-span-1;
+    @apply py-5 pt-8;
+}
+#right-side {
+    width : 85%;
+    height : 10%;
 }
 
 #content {
-    @apply pl-5 col-span-6 row-span-5;
+    @apply pl-5;
 }
 
 #content-left {
@@ -27,7 +33,11 @@
 }
 
 #logo-area {
+    align-items: center;
     @apply row-span-1 pt-5;
+}
+#logo-area img {
+    width : 80%;
 }
 li img {
     width : 24px;
@@ -47,7 +57,7 @@ li a {
 }
 
 #search-bar {
-    @apply  col-span-2 pl-4;
+    @apply  pl-4;
 }
 
 #border-search {
@@ -57,13 +67,14 @@ li a {
 }
 
 #name-photo {
-    @apply flex col-span-1 justify-end items-center;
+    @apply flex justify-end items-center;
 }
 #search-bar img {
     width : 18px;
     height : 18px;
 }   
 #name-photo img {
+    padding-left: 12px;
     width : 64px;
     height : 64px;
 }

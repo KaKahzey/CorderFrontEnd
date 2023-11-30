@@ -1,11 +1,22 @@
-.box {
-    @apply  bg-gray-400 rounded p-5 mb-10;
+#main {
+    height : 100%;
+    @apply flex justify-between;
 }
+.photo-area {
+    width : 75%
+}
+.frame {
+    background-color: #F5F8E0;
+    border-radius : 20px; 
+    @apply p-5 mb-10;
+}
+.title-frame {
 
+}
 .on-hold-images {
+    height : 25%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
 }
 
 .image-container {
@@ -19,5 +30,5 @@
 }
 
 .main-info-section {
-    @apply m-auto;
+    width : 24%;
 }

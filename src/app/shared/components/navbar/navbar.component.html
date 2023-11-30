@@ -17,21 +17,23 @@
             </div>
         </div>
         <!-- NavbarTop-->
-        <div id="navbar-top">
-            <div id="search-bar">
-                <div id="border-search">
-                    <input type="text" size="80" placeholder="Rechercher" />
-                    <img src="/assets/img/logos-navbar/magnifying-glass.svg" alt="loupe" />
+        <div id="right-side">
+            <div id="navbar-top">
+                <div id="search-bar">
+                    <div id="border-search">
+                        <input type="text" size="80" placeholder="Rechercher" />
+                        <img src="/assets/img/logos-navbar/magnifying-glass.svg" alt="loupe" />
+                    </div>
+                </div>
+                <div id="name-photo">
+                    {{username}}
+                    <img src="/assets/img/logos-navbar/placeholder-avatar.svg" alt="User avatar" />
                 </div>
             </div>
-            <div id="name-photo">
-                {{username}}
-                <img src="/assets/img/logos-navbar/magnifying-glass.svg" alt="User avatar" />
+            <!-- Component -->
+            <div id="content">
+                <router-outlet ></router-outlet>
             </div>
-        </div>
-        <!-- Component -->
-        <div id="content">
-            <router-outlet ></router-outlet>
         </div>
     </div>
 </div>
