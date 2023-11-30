@@ -10,17 +10,19 @@
 }
 
 #navbar-left {
+    position: fixed;
     background-color: #F5F8E0;
-    width : 15%;
+    width : 12%;
     height : 90%;
     flex: 0 0 auto;
     border-radius : 20px; 
 }
 #navbar-top {
-    @apply py-5 pt-8;
+    @apply py-5 pt-8 pl-10;
 }
 #right-side {
-    width : 85%;
+    margin-left: 12%;
+    width : 88%;
     height : 10%;
 }
 
@@ -29,15 +31,21 @@
 }
 
 #content-left {
-    @apply grid grid-rows-3;
+    height : 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #logo-area {
-    align-items: center;
-    @apply row-span-1 pt-5;
+    height : 30%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 #logo-area img {
-    width : 80%;
+    width : 70%;
+    margin: 0 auto;
 }
 li img {
     width : 24px;
@@ -45,11 +53,26 @@ li img {
 }
 
 li a {
-    @apply flex;
+    height : 100%;
+    width : 100%;
+    align-items: center;
+    @apply flex pl-2;
 }
-
+li{
+    height : 20%;
+    display: flex;
+    align-items: center;
+}
+.active-link{
+    background-color: #E7F39A;
+    border-radius: 100px;
+}
 #list {
-    @apply row-span-1 pl-8 space-y-4;
+    padding: 0;
+    margin: 0;
+    width : 90%;
+    margin-bottom: 50%;
+    @apply pl-5 space-y-4;
 }
 
 #list span {
@@ -72,9 +95,20 @@ li a {
 #search-bar img {
     width : 18px;
     height : 18px;
-}   
-#name-photo img {
+}
+#modify-logo {
+    width : 40px;
+    height : 40px;
+    @apply mr-5;
+}  
+#modify-logo:hover {
+    cursor: pointer;
+}
+#avatar-logo {
     padding-left: 12px;
     width : 64px;
     height : 64px;
+}
+#avatar-logo:hover {
+    cursor: pointer;
 }
