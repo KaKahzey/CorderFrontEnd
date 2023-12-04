@@ -72,15 +72,21 @@ p{
 .all-btn{
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
 }
-
+.container-button{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 .btn{
     width: 250px;
     display: flex;
     justify-content: center;
     padding: 10px 0px;
     border-radius: 50px;
+    border: solid 2px red;
 }
 
 .btnStyle1{
@@ -133,20 +139,25 @@ input{
    visibility: hidden;
 }
 
-.radio-button img {
-  width: 50px; /* Ajustez la largeur de l'image selon vos besoins */
-  height: 50px; /* Ajustez la hauteur de l'image selon vos besoins */
-  border: 2px solid #ccc; /* Ajoute une bordure pour indiquer l'état du bouton radio */
-}
 #emote1{
     height:86px;
     width: 101px;
+    opacity: 60%;
 }
 #emote2{
     height:86px;
     width: 86px;
+    opacity: 60%;
 }
 #emote3{
     height: 93px;
     width: 93px;
+    opacity: 60%;
 }
+#emote1:hover,#emote2:hover,#emote3:hover{
+        opacity: 100%;
+
+}
+#emote2:checked {
+    border-color: #007bff; /* Change la couleur de la bordure lorsque le bouton radio est coché */
+  }

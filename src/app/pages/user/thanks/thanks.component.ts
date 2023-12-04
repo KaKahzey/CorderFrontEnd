@@ -51,9 +51,9 @@ export class ThanksComponent {
         }
       }
       else{
-        console.log(popup.style.display);
-        popup.style.display = this.statePopup[0];
-        console.log(popup.style.display);
+        if(popupID != 'popup1'){
+          popup.style.display = this.statePopup[0];
+        }
       }
     }
   }
