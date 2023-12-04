@@ -8,13 +8,14 @@
 .frame {
     background-color: #F5F8E0;
     border-radius : 20px; 
-    @apply p-4 mb-5;
+    @apply p-4 mb-5 pt-1;
 }
 .title-frame {
     color: #81848d;
     font-weight:800;
     font-size: 28px;
     padding-bottom: 1px;
+    @apply pb-2;
 }
 .grid-images {
     height : 25%;
