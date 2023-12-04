@@ -20,7 +20,7 @@ import { ModifyAccountComponent } from './pages/admin/modify-account/modify-acco
 
 export const routes: Routes = [
     {path : "", component : HomeComponent},
-    {path : "admin/login", component : LoginComponent},
+    {path : "login", component : LoginComponent},
     {path : "admin/dashboard", component : DashboardComponent}, // canActivate: [connectedGuard]
     {path : "admin/validated-photos", component : ValidatedPhotosComponent},
     {path : "admin/rejected-photos", component : RejectedPhotosComponent},
