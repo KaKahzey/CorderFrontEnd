@@ -5,10 +5,12 @@
     <div class="frame">
         <form [formGroup]="loginForm" (submit)="login()">
             <div class="mb-4">
-                <input type="text" formControlName="login" placeholder="Nom d'utilisateur" class="form-control" />
+                <label>Login</label>
+                <input type="text" formControlName="login" class="form-control" />
             </div>
             <div class="mb-4">
-                <input type="password" formControlName="password" placeholder="Mot de passe" class="form-control" />
+                <label>Mot de passe</label>
+                <input type="password" formControlName="password" class="form-control" />
             </div>
             <div>
                 <button class="btn" type="submit">Se connecter</button>
