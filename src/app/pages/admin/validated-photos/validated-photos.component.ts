@@ -9,4 +9,6 @@ import { CommonModule } from '@angular/common';
   styleUrl: './validated-photos.component.scss'
 })
 export class ValidatedPhotosComponent {
+  listParticipants : Object[] = [{id : 0, src : "/assets/img/placeholder.svg"}, {id : 0, src : "/assets/img/placeholder.svg"}]
+
 }

@@ -1,18 +1,18 @@
 <div class="main">
-    <div>
+    <div class="title">
         Connexion Admin
     </div>
     <div class="frame">
         <form [formGroup]="loginForm" (submit)="login()">
-            <div class="mb-4">
+            <div class="fields">
                 <label>Login</label>
                 <input type="text" formControlName="login" class="form-control" />
             </div>
-            <div class="mb-4">
+            <div class="fields">
                 <label>Mot de passe</label>
                 <input type="password" formControlName="password" class="form-control" />
             </div>
-            <div>
+            <div class="button-area">
                 <button class="btn" type="submit">Se connecter</button>
             </div>
         </form>
