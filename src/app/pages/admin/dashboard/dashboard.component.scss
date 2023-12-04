@@ -8,16 +8,17 @@
 .frame {
     background-color: #F5F8E0;
     border-radius : 20px; 
-    @apply p-4 mb-5;
+    margin-bottom: 1.79vh;
+    @apply pl-2;
 }
 .title-frame {
     color: #81848d;
     font-weight:800;
-    font-size: 28px;
+    font-size: 3vh;
     padding-bottom: 1px;
+    padding-top: 1vh;
 }
 .grid-images {
-    height : 25%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 8px;
@@ -34,10 +35,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
+    @apply pb-4;
 }
 .image-container:hover {
     cursor: pointer;
+}
+.see-more {
+    height : 90%;
 }
 .image-container.see-more:hover {
     cursor: pointer;
@@ -46,28 +50,37 @@
 }
 
 .image {
-    object-fit: cover;
+    height : 23vh;
 }
 
 .main-info-section {
     width : 28%;
 }
-
+.frame-total {
+    height : 20%;
+}
 .big-data {
     color: #0E103B;
     font-weight:800;
-    font-size: 35px;
+    font-size: 3vh;
+}
+.in-frame {
+    @apply pt-2;
+}
+.frame-week {
+    height : 42vh;
 }
 .graph-vertical-week {
     column-gap: 4%;
-    width : 87%;
+    width : 90%;
+    height : fit-content;
     @apply row-span-5 grid grid-cols-7;
 }
 .graph-vertical-bars {
     height : 100%;
 }
 .bg-graph-vertical {
-    height : 235px;
+    height : 26vh;
     border-radius: 5px;
     background-color: #E7F39A;
     display: flex;
@@ -107,6 +120,13 @@
     height : 80%;
     background-color: #12A19A;
 }
+
 .graph-vertical-bars p {
     text-align: center;
+}
+.graph-vertical-bars p {
+    height : 1.2vh;
+}
+.frame-timer {
+    height : 16vh;  
 }
