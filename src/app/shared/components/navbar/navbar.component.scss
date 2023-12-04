@@ -1,34 +1,53 @@
 #override-body {
     background-color: white;
     min-height: 100vh;
-    font-size: 20px;
     @apply p-5;
 }
 
 #navbar-overall {
     height: 100%;
-    @apply grid grid-cols-7 grid-rows-6;
+    @apply flex pt-3;
 }
 
 #navbar-left {
+    position: fixed;
     background-color: #F5F8E0;
-    @apply  rounded-xl col-span-1 row-span-6;
+    width : 15%;
+    height : 90%;
+    flex: 0 0 auto;
+    border-radius : 20px; 
 }
-
 #navbar-top {
-    @apply items-center col-span-6 grid grid-cols-3 row-span-1;
+    padding-bottom: 5vh;
+    @apply pl-10;
+}
+#right-side {
+    margin-left: 16%;
+    width : 85%;
 }
 
 #content {
-    @apply pl-5 col-span-6 row-span-5;
+    @apply pl-5;
 }
 
 #content-left {
-    @apply grid grid-rows-3;
+    height : 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #logo-area {
-    @apply row-span-1 pt-5;
+    height : 30%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#logo-area img {
+    height : 82px;
+    width : 183px;
+    margin: 0 auto;
 }
 li img {
     width : 24px;
@@ -36,11 +55,25 @@ li img {
 }
 
 li a {
-    @apply flex;
+    height : 100%;
+    width : 100%;
+    align-items: center;
+    @apply flex pl-2;
 }
-
+li{
+    height : 20%;
+    display: flex;
+    align-items: center;
+}
+.active-link{
+    background-color: #E7F39A;
+    border-radius: 100px;
+}
 #list {
-    @apply row-span-1 pl-8 space-y-4;
+    padding-top: 10vh;
+    padding: 0;
+    margin: 0;
+    @apply pl-5 space-y-4;
 }
 
 #list span {
@@ -48,23 +81,37 @@ li a {
 }
 
 #search-bar {
-    @apply  col-span-2 pl-4;
+    @apply  pl-4;
 }
 
 #border-search {
+    padding-top: 3vh;
+    align-items: center;
     border-color: #BCBCBC;
     float : left;
     @apply flex border-0 border-b-2 items-center pb-2;
 }
 
 #name-photo {
-    @apply flex col-span-1 justify-end items-center;
+    @apply flex justify-end items-center;
 }
 #search-bar img {
     width : 18px;
     height : 18px;
-}   
-#name-photo img {
+}
+#modify-logo {
+    width : 40px;
+    height : 40px;
+    @apply mr-5;
+}  
+#modify-logo:hover {
+    cursor: pointer;
+}
+#avatar-logo {
+    padding-left: 12px;
     width : 64px;
     height : 64px;
+}
+#avatar-logo:hover {
+    cursor: pointer;
 }

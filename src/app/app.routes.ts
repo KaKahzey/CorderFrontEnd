@@ -16,16 +16,18 @@ import { OnHoldPhotosComponent } from './pages/admin/on-hold-photos/on-hold-phot
 import { ParticipantsComponent } from './pages/admin/participants/participants.component';
 import { StatisticsComponent } from './pages/admin/statistics/statistics.component';
 import { PhotoCaptureComponent } from './pages/user/photo-capture/photo-capture.component';
+import { ModifyAccountComponent } from './pages/admin/modify-account/modify-account.component';
 
 export const routes: Routes = [
     {path : "", component : HomeComponent},
-    {path : "admin/login", component : LoginComponent},
+    {path : "login", component : LoginComponent},
     {path : "admin/dashboard", component : DashboardComponent}, // canActivate: [connectedGuard]
     {path : "admin/validated-photos", component : ValidatedPhotosComponent},
     {path : "admin/rejected-photos", component : RejectedPhotosComponent},
     {path : "admin/on-hold-photos", component : OnHoldPhotosComponent},
     {path : "admin/participants", component : ParticipantsComponent},
     {path : "admin/statistics", component : StatisticsComponent},
+    {path : "admin/modify-account", component : ModifyAccountComponent},
     {path : "photo-capture", component : PhotoCaptureComponent},
     {path : "photo-capture-choice", component : PhotoCaptureChoiceComponent},
     {path : "photo-information", component : PhotoInformationComponent},

@@ -1,0 +1,79 @@
+#main {
+    @apply grid grid-cols-7;
+}
+
+.frame {
+    background-color: #F5F8E0;
+    border-radius : 20px; 
+    height : 90%;
+    @apply border;
+}
+.graphs {
+    
+    @apply col-span-5 m-2;
+}
+.in-frame {
+    grid-template-rows: repeat(9, minmax(0, 1fr));
+    height : 100%;
+    @apply grid p-5;
+}
+.side-area {
+    @apply col-span-2 m-2 ;
+}
+.title-graph {
+    font-size: 5vh;
+    @apply row-span-1;
+}
+
+.top-graph {
+    @apply grid grid-cols-2 row-span-2 items-center;
+}
+.top-buttons {
+    @apply col-span-1 space-x-5;
+}
+.btn-graph {
+    background-color: #B7C90D;
+    width : 30%;
+    justify-content: center;
+    border-radius: 50px;
+    font-style: normal;
+    font-weight: 600; 
+    @apply p-1 border;
+}
+button:hover{
+    background-color: #E7F39A;
+}
+
+button:focus{
+    background-color: #94A31F;
+}
+.top-graph-total {
+    @apply col-span-1 text-right;
+}
+.graph-vertical-week {
+    column-gap: 4%;
+    width : 87%;
+    @apply row-span-5 grid grid-cols-7;
+}
+.graph-vertical-bars {
+    height : 100%;
+}
+.bg-graph-vertical {
+    height : 90%;
+    background-color: #E7F39A;
+}
+.graph-vertical-bars p {
+    text-align: center;
+}
+.below-graph {
+    @apply grid grid-cols-2 row-span-1 items-end;
+}
+.previous-week {
+    @apply col-span-1;
+}
+.next-week {
+    @apply col-span-1 text-right;
+}
+.link-style {
+    @apply underline;
+}
