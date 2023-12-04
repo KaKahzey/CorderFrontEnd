@@ -7,31 +7,34 @@
                     <img src="/assets/img/logoCorder.svg" alt="logo corder"/>
                 </div>
                 <ul id="list">
-                    <li><a routerLink="/admin/dashboard"><img src="assets/img/logos-navbar/house.svg" alt="house" /><span>Dashboard</span> </a></li>
-                    <li><a routerLink="/admin/validated-photos"><img src="assets/img/logos-navbar/valide.svg" alt="valide" /><span>Photos validées</span></a></li>
-                    <li><a routerLink="/admin/rejected-photos"><img src="assets/img/logos-navbar/rejected.svg" alt="non valide" /><span>Photos refusées</span></a></li>
-                    <li><a routerLink="/admin/on-hold-photos"><img src="assets/img/logos-navbar/hourglass.svg" alt="sablier" /><span>Photos en attente</span></a></li>
-                    <li><a routerLink="/admin/participants"><img src="assets/img/logos-navbar/people.svg" alt="participants" /><span>Participants</span></a></li>
-                    <li><a routerLink="/admin/statistics"><img src="assets/img/logos-navbar/stats.svg" alt="stats" /><span>Statistiques</span></a></li>
+                    <li><a routerLink="/admin/dashboard" routerLinkActive="active-link"><img src="assets/img/logos-navbar/house.svg" alt="house" /><span>Dashboard</span> </a></li>
+                    <li><a routerLink="/admin/validated-photos" routerLinkActive="active-link"><img src="assets/img/logos-navbar/valide.svg" alt="valide" /><span>Photos validées</span></a></li>
+                    <li><a routerLink="/admin/rejected-photos" routerLinkActive="active-link"><img src="assets/img/logos-navbar/rejected.svg" alt="non valide" /><span>Photos refusées</span></a></li>
+                    <li><a routerLink="/admin/on-hold-photos" routerLinkActive="active-link"><img src="assets/img/logos-navbar/hourglass.svg" alt="sablier" /><span>Photos en attente</span></a></li>
+                    <li><a routerLink="/admin/participants" routerLinkActive="active-link"><img src="assets/img/logos-navbar/people.svg" alt="participants" /><span>Participants</span></a></li>
+                    <li><a routerLink="/admin/statistics" routerLinkActive="active-link"><img src="assets/img/logos-navbar/stats.svg" alt="stats" /><span>Statistiques</span></a></li>
                 </ul>
             </div>
         </div>
         <!-- NavbarTop-->
-        <div id="navbar-top">
-            <div id="search-bar">
-                <div id="border-search">
-                    <input type="text" size="100" placeholder="Rechercher" />
-                    <img src="/assets/img/logos-navbar/magnifying-glass.svg" alt="loupe" />
+        <div id="right-side">
+            <div id="navbar-top">
+                <div id="search-bar">
+                    <div id="border-search">
+                        <input type="text" size="80" placeholder="Rechercher" />
+                        <img src="/assets/img/logos-navbar/magnifying-glass.svg" alt="loupe" />
+                    </div>
+                </div>
+                <div id="name-photo">
+                    <img routerLink="/admin/modify-account" id="modify-logo" src="/assets/img/logos-navbar/modify.svg" alt="User avatar" />
+                    {{username}}
+                    <img id="avatar-logo" src="/assets/img/logos-navbar/placeholder-avatar.svg" alt="User avatar" />
                 </div>
             </div>
-            <div id="name-photo">
-                {{username}}
-                <img src="/assets/img/logos-navbar/magnifying-glass.svg" alt="User avatar" />
+            <!-- Component -->
+            <div id="content">
+                <router-outlet ></router-outlet>
             </div>
-        </div>
-        <!-- Component -->
-        <div id="content">
-            <router-outlet ></router-outlet>
         </div>
     </div>
 </div>

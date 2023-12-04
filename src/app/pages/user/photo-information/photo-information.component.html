@@ -1,29 +1,20 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo information</title>
-</head>
-<body>
-    <div class="center">
-        <p class="h2">Concernant <br> votre photo</p>
-        <div class="parent-p1">
-            <p class="p1">Quel type de pesticide venez-vous de prendre en photo ?</p>
-        </div>    
-        <div class="square-bg">
-            <div class="text-square">
-                <p class="p1-desktop">Quel type de pesticide venez-vous de prendre en photo ?</p>
-                <button class="btnHerbi" (click)="choisir('A')">Herbicide</button>
-                <button (click)="choisir('B')">Fongicide</button>
-                <button (click)="choisir('C')">Insecticide</button>
-                <input type="text" placeholder="Autre">
-            </div>
-            <div class="btn_all">
-                <a class="btn-style btn-leftm" routerLink="/photo-validation">Retour</a>
-                <a class="btn-style btn-color2" routerLink="/good-practice">Continuer</a>
-            </div>
+<div class="center">
+    <header></header>
+    <p class="h2">Concernant <br> votre photo</p>
+    <div class="parent-p1">
+        <p class="p1">Quel type de pesticide venez-vous de prendre en photo ?</p>
+    </div>    
+    <div class="square-bg">
+        <div class="text-square">
+            <p class="p1-desktop">Quel type de pesticide venez-vous de prendre en photo ?</p>
+            <button class="btnHerbi" (click)="choisir('A')">Herbicide</button>
+            <button (click)="choisir('B')">Fongicide</button>
+            <button (click)="choisir('C')">Insecticide</button>
+            <input type="text" (focus)="choisir('D')" [(ngModel)]="inputValue" (input)="onInputChange()" placeholder="Autre">
+        </div>
+        <div class="btn_all">
+            <a class="btn-style btn-leftm" routerLink="/photo-validation">Retour</a>
+            <a class="btn-style btn-color2" routerLink="/good-practice">Continuer</a>
         </div>
     </div>
-</body>
-</html>
+</div>

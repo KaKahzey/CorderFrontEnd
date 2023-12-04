@@ -1,3 +1,22 @@
+.main {
+    background-color: white;
+    min-height: 100vh;
+}
+
+.frame {
+
+  background-color: #E7F39A;
+  width : 23%;
+  height : 37vh;
+  border: solid 1px black;
+  border-radius: 20px;
+  margin: auto;
+  padding: 20px;
+}
+form{
+  height : 100%;
+  vertical-align: middle;
+}
 .btn {
     display: inline-block;
     padding: 8px 16px;
