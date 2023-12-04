@@ -21,28 +21,30 @@
             <div class="card" id="popup0"> 
                 <h2>Qu'avez vous pensez de ce jeu concours ?</h2>
                 <h3 class="text-center">Faites nous part de votre expérience.</h3>
+
                     <div class="flex items-center justify-center">
-                        <label>
-                            <input type="radio" name="groupRadio" value="content">
-                            Content le zebi 
+
+                        <label class="radio-button" for="content">     
+                            <img id="emote1" src="/assets/img/Emotes/smile.svg" alt="content" (click)="changeState('popup0');changeState('popup3')">
                         </label>
                         
-                        <label>
-                            <input type="radio" name="groupRadio" value="bof bof">
-                            bof bof le zebi 
+                        <input id="ok" type="radio" name="groupRadio" value="bof bof" (click)="changeState('popup1')">
+                        <label class="radio-button" for="ok">
+                            <img id="emote2" src="/assets/img/Emotes/bof.svg" alt="moyen">
                         </label>
                         
-                        <label>
-                            <input type="radio" name="groupRadio" value="pas content">
-                            Pas content le zebi
+                        <input id="fache" type="radio" name="groupRadio" value="pas content" (click)="changeState('popup1')">
+                        <label class="radio-button" for="fache">
+                            <img id="emote3" src="/assets/img/Emotes/sad.svg" alt="pas content">
                         </label>
                     </div>
+
                     <div class="all-btn" id="popup1">
-                        <button class="btn btnStyle2" (click)="changeState('popup1') ;changeState('popup3') ">C'était trop long</button><br>
-                        <button class="btn btnStyle2" (click)="changeState('popup1') ;changeState('popup3') ">C'était trop court</button><br>
-                        <button class="btn btnStyle2" (click)="changeState('popup1') ;changeState('popup3') ">L'appareil ne fonctionnait pas</button><br>
-                        <button class="btn btnStyle2" (click)="changeState('popup1') ;changeState('popup3') ">informations pas claires</button><br>
-                        <button class="btn btnStyle2" (click)="changeState('popup1') ;changeState('popup2') ">Autres</button>
+                        <button class="btn btnStyle3" (click)="changeState('popup0') ;changeState('popup3') ">C'était trop long</button><br>
+                        <button class="btn btnStyle3" (click)="changeState('popup0') ;changeState('popup3') ">C'était trop court</button><br>
+                        <button class="btn btnStyle3" (click)="changeState('popup0') ;changeState('popup3') ">L'appareil ne fonctionnait pas</button><br>
+                        <button class="btn btnStyle3" (click)="changeState('popup0') ;changeState('popup3') ">informations pas claires</button><br>
+                        <button class="btn btnStyle3" (click)="changeState('popup0') ;changeState('popup2') ">Autres</button>
                     </div>    
             </div>
 

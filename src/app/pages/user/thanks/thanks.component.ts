@@ -17,7 +17,6 @@ export class ThanksComponent {
 
   ngOnInit(): void {
 
-
     const popup0 = document.getElementById('popup0');
     if(popup0){
      popup0.style.display = 'block';
@@ -56,7 +55,6 @@ export class ThanksComponent {
         popup.style.display = this.statePopup[0];
         console.log(popup.style.display);
       }
-
     }
   }
 }
