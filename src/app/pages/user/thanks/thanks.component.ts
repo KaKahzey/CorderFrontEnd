@@ -15,6 +15,12 @@ export class ThanksComponent {
   
   private statePopup: string[] = ['none','block'];
 
+  isChecked1 = false;
+  isChecked2 = false;
+  isChecked3 = false;
+
+  messages: string[] = [];
+
   ngOnInit(): void {
 
     const popup0 = document.getElementById('popup0');
@@ -51,10 +57,33 @@ export class ThanksComponent {
         }
       }
       else{
-        if(popupID != 'popup1'){
+        if(popupID != 'popup1' || this.isChecked2 == false && this.isChecked3 == false){
           popup.style.display = this.statePopup[0];
         }
       }
     }
   }
+
+  checkBoxChange2(){
+    this.isChecked2 = !this.isChecked2
+    if(this.isChecked3 == true){
+      this.isChecked3 = !this.isChecked3;
+    }
+    this.changeState('popup1')
+  }
+
+  checkBoxChange3(){
+    this.isChecked3 = !this.isChecked3
+    if(this.isChecked2 != false){
+      this.isChecked2 = !this.isChecked2
+    }
+    this.changeState('popup1')
+  }
+  
+  sendMessage(text: string) {
+    if (text.trim() !== '') {
+      this.messages.push(text);
+    }
+  }
 }
+
