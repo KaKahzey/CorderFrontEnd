@@ -1,11 +1,12 @@
 #override-body {
     background-color: white;
     min-height: 100vh;
-    @apply p-5;
+    @apply pl-5 pr-5 pt-5;
 }
 
 #navbar-overall {
     height: 100%;
+    font-family: pantonRegular;
     @apply flex pt-3;
 }
 
@@ -18,12 +19,12 @@
     border-radius : 20px; 
 }
 #navbar-top {
-    @apply py-5 pt-8 pl-10;
+    padding-bottom: 5vh;
+    @apply pl-10;
 }
 #right-side {
     margin-left: 16%;
     width : 85%;
-    height : 10%;
 }
 
 #content {
@@ -62,6 +63,7 @@ li a {
 }
 li{
     height : 20%;
+    width : 95%;
     display: flex;
     align-items: center;
 }
@@ -70,10 +72,9 @@ li{
     border-radius: 100px;
 }
 #list {
+    padding-top: 10vh;
     padding: 0;
     margin: 0;
-    width : 90%;
-    margin-bottom: 50%;
     @apply pl-5 space-y-4;
 }
 
@@ -86,11 +87,12 @@ li{
 }
 
 #border-search {
+    padding-top: 3vh;
+    align-items: center;
     border-color: #BCBCBC;
     float : left;
     @apply flex border-0 border-b-2 items-center pb-2;
 }
-
 #name-photo {
     @apply flex justify-end items-center;
 }

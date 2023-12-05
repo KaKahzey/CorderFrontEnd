@@ -125,3 +125,28 @@ h2{
     font-size: larger;
     margin-top: 5px;
 }
+.btnStyle3{
+    background-color: #B7C90D;
+    color: #0E103B;
+}
+input{
+   visibility: hidden;
+}
+
+.radio-button img {
+  width: 50px; /* Ajustez la largeur de l'image selon vos besoins */
+  height: 50px; /* Ajustez la hauteur de l'image selon vos besoins */
+  border: 2px solid #ccc; /* Ajoute une bordure pour indiquer l'état du bouton radio */
+}
+#emote1{
+    height:86px;
+    width: 101px;
+}
+#emote2{
+    height:86px;
+    width: 86px;
+}
+#emote3{
+    height: 93px;
+    width: 93px;
+}
