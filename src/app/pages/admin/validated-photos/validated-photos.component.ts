@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ApiService } from '../../../shared/services/api.service';
 
 @Component({
   selector: 'app-validated-photos',
@@ -9,6 +10,15 @@ import { CommonModule } from '@angular/common';
   styleUrl: './validated-photos.component.scss'
 })
 export class ValidatedPhotosComponent {
+<<<<<<< HEAD
   listParticipants : Object[] = [{id : 0, src : "/assets/img/placeholder.svg"}, {id : 0, src : "/assets/img/placeholder.svg"}]
 
+=======
+
+  
+  listParticipants : Object[] = [{id : 0, src : "/assets/img/placeholder.svg"}, {id : 0, src : "/assets/img/placeholder.svg"}]
+
+  constructor(private _apiService : ApiService){}
+
+>>>>>>> admin-validated
 }
