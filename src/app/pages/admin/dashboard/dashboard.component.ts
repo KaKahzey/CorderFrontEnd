@@ -13,7 +13,7 @@ export class DashboardComponent {
   totalParticipants : number = 1297
   weekParticipants : number = 19
   days : number[] = [5, 10, 3, 4, 1, 5, 8]
-  timeLeft : number = this.displayTimeLeft("2023-12-22")
+  timeLeft : number = this.displayTimeLeft("2024-06-20")
 
   constructor(private _renderer: Renderer2, private _elementRef: ElementRef) {}
 

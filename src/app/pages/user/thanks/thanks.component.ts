@@ -17,9 +17,14 @@ export class ThanksComponent {
 
   ngOnInit(): void {
 
+    const popup0 = document.getElementById('popup0');
+    if(popup0){
+     popup0.style.display = 'block';
+    }
+
     const popup1 = document.getElementById('popup1');
     if(popup1){
-     popup1.style.display = 'block';
+     popup1.style.display = 'none';
     }
 
     const popup2 = document.getElementById('popup2');
@@ -50,7 +55,6 @@ export class ThanksComponent {
         popup.style.display = this.statePopup[0];
         console.log(popup.style.display);
       }
-
     }
   }
 }

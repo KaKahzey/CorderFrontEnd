@@ -1,13 +1,13 @@
-export interface UserData {
+export interface participantForm {
     firstName : string,
     lastName : string,
     email : string,
     pictureName : string,
     pictureType : string,
-    blob : string, // voir fonction pour convert canal frontend
+    blob : string, 
+    productType : string,
     street : string,
     city : string,
-    postCode : number,
+    postCode : string,
     newsletter : boolean
-    
 }
