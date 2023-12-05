@@ -12,27 +12,33 @@ html, body {
 
   
   .video-container {
-    width: 100vw;
-    height: 100vh;
+    max-width: 100%; /* Set a pixel value instead if no parent container*/
+    margin: 0 auto; /* Center the container */
     border: solid 2px red;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     overflow: hidden;
-    position: relative;
   }
   
   video {
     border: solid 5px green;
+    width: 100%; /* Fill the available width */
+    height: auto; /* Adjust height automatically */
   }
-  
-  .snap-container {
-    border: solid 3px blue;
+
+  .btnFermeture{
     position: absolute;
-    bottom: 10px;
+    top: 0;
+    right: 0;
+    margin: 5% 5% 0px 0px;
+  }
+
+  .btnSnap{
+    position: fixed;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    text-align: center;
-    align-items: center;
+  }
+
+  #canvas{
+    display: none;
   }
   

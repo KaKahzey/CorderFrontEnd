@@ -10,8 +10,8 @@ import { RouterLink } from '@angular/router';
   styleUrl: './photo-capture.component.scss'
 })
 export class PhotoCaptureComponent implements AfterViewInit {
-  WIDTH = '100vw';
-  HEIGHT = '100vh';
+  WIDTH = 4640;
+  HEIGHT = 4480;
 
   
   @ViewChild("video")
@@ -22,7 +22,6 @@ export class PhotoCaptureComponent implements AfterViewInit {
   
   captures: string[] = [];
   error: any;
-  isCaptured!: boolean;
   
   async ngAfterViewInit() {
     await this.setupDevices();
@@ -50,7 +49,22 @@ export class PhotoCaptureComponent implements AfterViewInit {
   capture() {
     this.drawImageToCanvas(this.video.nativeElement);
     this.captures.push(this.canvas.nativeElement.toDataURL("image/png"));
-    this.isCaptured = true;
+    console.log(this.captures[0]);
+    fetch(this.captures[0])
+    .then(async res => {
+      const myBlob = await res.blob();
+      // const binaryBlob = new Uint8Array(await myBlob.arrayBuffer());
+      // let byteArray : any = [];
+      // binaryBlob.forEach(byte=>{
+      //   for(let i = 7; i>=0; i--){
+      //     let bit = byte>>i&1;
+      //     byteArray.push(bit)
+      //   }
+      // })
+      // console.log(byteArray);
+      const blobUrl = URL.createObjectURL(myBlob);
+      console.log(blobUrl);
+    })
   }
 
   drawImageToCanvas(image: any) {

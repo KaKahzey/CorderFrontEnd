@@ -1,22 +1,25 @@
 <div class="video-container">
     <video
-      [class.show]="!isCaptured"
-      [class.hide]="isCaptured"
       #video
       id="video"
       autoplay
     ></video>
-    <!-- <canvas
-      [class.show]="isCaptured"
-      [class.hide]="!isCaptured"
-      #canvas
-      id="canvas"
-    ></canvas> -->
+
+    <button class="btnFermeture" routerLink="/photo-capture-choice">
+      <img src="/assets/img/snaps/croixFermeture.svg" alt="">
+    </button>
+
+    <button class="btnSnap" (click)="capture()">
+      <img src="/assets/img/snaps/snapPicture.svg" alt="">
+    </button>
 </div>
-  
-<div class="snap-container">
-  <button class="btn" *ngIf="!isCaptured" (click)="capture()" routerLink="/photo-validation">
-    Prendre la photo
-  </button>
-  <button style="border: solid 3px gold;" routerLink="/photo-capture-choice">Revenir en arrière</button>
-</div>
+
+<input type="file" accept="image/*" capture="user">
+
+
+<canvas
+#canvas
+id="canvas"
+[width]="WIDTH"
+[height]="HEIGHT"
+></canvas>
