@@ -1,12 +1,25 @@
-<button routerLink="/">Accueil</button>
+<div class="center">
+    <header></header>
 
-<h1>Partagez votre photo</h1>
-<p>Rendez-vous dans le recyparc le plus proche de chez vous. Envoyez-nous une photo de votre pesticide jeté et recevez un kit de semences locales et biologique Cycle-en-Terre pour votre jardin  </p>
+    <div class="titlePlusReturn">
+        <a routerLink="/">&#60; Retour à la page d'accueil</a>
+        <h2>Partagez <br> votre photo !</h2>
+    </div>
 
-<label for="appareil">Appareil photo
-<input  id="appareil"type="button" routerLink="/photo-capture">
-</label>
+    <div class="para1">Rendez-vous dans le recyparc le plus proche de chez vous. <br> Envoyez-nous une photo de votre pesticide jeté et recevez un kit de semences locales et biologique Cycle-en-Terre pour votre jardin !</div>
 
-<label for="photo">Choisir une photo existante
-<input id="photo" style="visibility: hidden;" accept="image/*" type="file">
-</label>
+    <div class="white-square">
+        <div class="square-bg">
+            <div class="borderImg">
+                <img style="cursor: pointer; width: 100%;" src="/assets/img/captureChoice/cameraYellow.png" alt="img-camera" routerLink="/photo-capture">
+            </div>
+            <img src="/assets/img/captureChoice/cloud.svg" alt="img-nuage">
+            <div>
+                <button class="btn">Choisir une photo existante
+                    <input id="photo" style="visibility: hidden;" accept="image/*" type="file">
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
