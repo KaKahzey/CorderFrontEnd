@@ -15,6 +15,7 @@ export class ApiService {
   private _urlGetAllParticipantsNoBlob : string = "http://192.168.200.102:8080/participation/allNoBlob"
   private _urlDeleteUser : string = ""
   private _urlUpdateUser : string = ""
+  private _urlSetPicture : string = "http://192.168.200.102:8080/participation/addPhoto?id="
 
   constructor(private _httpClient : HttpClient) { }
 
@@ -38,5 +39,7 @@ export class ApiService {
     return this._httpClient.put(this._urlUpdateUser + id, user)
   }
 
-  
+  addPicture(id : number, picture : FormData) : Observable<any> {
+    return this._httpClient.post(this._urlSetPicture + id, picture)
+  }
 }

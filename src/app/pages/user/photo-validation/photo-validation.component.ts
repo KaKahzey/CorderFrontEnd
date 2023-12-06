@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { DataFormService } from '../../../shared/services/data-form.service';
+import { ApiService } from '../../../shared/services/api.service';
 
 @Component({
   selector: 'app-photo-validation',
@@ -13,8 +14,9 @@ import { DataFormService } from '../../../shared/services/data-form.service';
 export class PhotoValidationComponent{
 
   imgUrl : string = ''
+  errorMessage : any
 
-  constructor(private _DataFormService : DataFormService) {
+  constructor(private _DataFormService : DataFormService, private _ApiService : ApiService) {
 
   }
 
@@ -27,5 +29,20 @@ export class PhotoValidationComponent{
 
     //Déclencher le onload du reader en fournissant le fichier à lire
     reader.readAsDataURL(this._DataFormService.getFile())
+  }
+
+  sendPhoto(){
+    const file = this._DataFormService.getFile()
+    const formPicture = new FormData()
+
+    formPicture.append("file", file, file.name)
+    this._ApiService.addPicture(108, formPicture).subscribe({
+      // next : (value)=>{
+      //   this.errorMessage = value
+      // },
+      // error : (err) => {
+      //   this.errorMessage = err
+      // }
+    })
   }
 }

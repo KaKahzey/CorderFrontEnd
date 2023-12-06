@@ -3,4 +3,6 @@
 <img [src]="imgUrl" alt="">
 
 <button style="border: solid 2px red;" routerLink="/photo-capture-choice">Bouton rouge Revenir en arrière</button><br>
-<button style="border: solid 2px blue;" routerLink="/photo-information">Bouton vert passer à la suite</button>
+<button (click)="sendPhoto()" style="border: solid 2px green;">Bouton vert passer à la suite</button>
+
+<p>{{errorMessage | json}}</p>
