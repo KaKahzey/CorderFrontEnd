@@ -1,9 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { CommonModule, NgClass } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { FormBuilder,FormGroup,FormsModule,ReactiveFormsModule,Validators} from '@angular/forms';
-import { ApiService } from '../../../shared/services/api.service';
 import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
+import { DataFormService } from '../../../shared/services/data-form.service';
+import { ApiService } from '../../../shared/services/api.service';
 
 @Component({
   selector: 'app-user-information',
@@ -17,7 +18,7 @@ export class UserInformationComponent {
   router = inject(Router);
   newsletter : boolean = false;
   
-  constructor(private _fb : FormBuilder,private createService : ApiService){
+  constructor(private _fb : FormBuilder,private _dataFormService : DataFormService, private _apiService : ApiService){
     this.infoForm = this._fb.group({
       
       firstName : [null, [Validators.required,Validators.minLength(2)]],
@@ -41,11 +42,12 @@ export class UserInformationComponent {
   getForm(){
       if(this.infoForm.valid){
         console.log("formulaire valide");
-
-        this.createService.createUser(this.infoForm.value).subscribe({
+        this._dataFormService.addForm(this.infoForm.value)
+        this._apiService.createUser(this._dataFormService.mergeData()).subscribe({
           next : (resp) => {
-            console.log("ok",resp);
-            this.router.navigateByUrl("\thanks");
+            this._dataFormService.getId(resp.id)
+            this.router.navigateByUrl("/thanks");
+            
           },
           error : (error) => {
             console.log("probleme",error);
