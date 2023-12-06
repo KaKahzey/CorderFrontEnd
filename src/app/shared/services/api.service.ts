@@ -13,6 +13,7 @@ export class ApiService {
   private _urlCreateUser : string = "http://192.168.200.102:8080/participation/create"
   private _urlGetUsers : string = "http://192.168.200.102:8080/participation/all"
   private _urlGetAllParticipantsNoBlob : string = "http://192.168.200.102:8080/participation/allNoBlob"
+  private _urlGetUsersValidatedBlob : string = "http://192.168.200.102:8080/participation/allValidated"
   private _urlDeleteUser : string = ""
   private _urlUpdateUser : string = ""
 
@@ -28,6 +29,10 @@ export class ApiService {
 
   getAllUsersNoBlob() : Observable<any> {
     return this._httpClient.get(this._urlGetAllParticipantsNoBlob)
+  }
+
+  getUsersValidatedBlob() : Observable<any> {
+  return this._httpClient.get(this._urlGetUsersValidatedBlob)
   }
 
   deleteUser(id : number) : Observable<any> {

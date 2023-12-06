@@ -2,10 +2,12 @@
     <div class="title">
         Photos validées
     </div>
-    <div class="row">
-        @for (p of listParticipants; track p) {
-            <div>
-
+    <div class="list">
+        @for (p of tempList; track p) {
+            <div class="card">
+                <div>
+                    <img src="/assets/img/placeholder.svg" alt="image participant" />
+                </div>
             </div>
         }
     </div>

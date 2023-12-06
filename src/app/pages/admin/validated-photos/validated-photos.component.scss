@@ -1,0 +1,13 @@
+.main {
+    height : 100vh;
+}
+.title {
+    font-family: nexaRegular;
+    font-weight: 900;
+    font-size: 3.7vh;
+}
+.list {
+    height : 100%;
+    width : 100%;
+    @apply grid grid-cols-5 grid-rows-3;
+}
