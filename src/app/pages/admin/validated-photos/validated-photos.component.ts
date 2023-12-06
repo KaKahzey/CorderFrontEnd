@@ -10,15 +10,10 @@ import { ApiService } from '../../../shared/services/api.service';
   styleUrl: './validated-photos.component.scss'
 })
 export class ValidatedPhotosComponent {
-<<<<<<< HEAD
-  listParticipants : Object[] = [{id : 0, src : "/assets/img/placeholder.svg"}, {id : 0, src : "/assets/img/placeholder.svg"}]
-
-=======
 
   
   listParticipants : Object[] = [{id : 0, src : "/assets/img/placeholder.svg"}, {id : 0, src : "/assets/img/placeholder.svg"}]
 
   constructor(private _apiService : ApiService){}
 
->>>>>>> admin-validated
 }
