@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarService } from '../../../shared/services/navbar.service';
+import { ApiService } from '../../../shared/services/api.service';
 
 @Component({
   selector: 'app-validated-photos',
@@ -10,7 +10,15 @@ import { NavbarService } from '../../../shared/services/navbar.service';
   styleUrl: './validated-photos.component.scss'
 })
 export class ValidatedPhotosComponent {
-  constructor(private _navbarService : NavbarService){
-    this._navbarService.showNavbar()
-  }
+<<<<<<< HEAD
+  listParticipants : Object[] = [{id : 0, src : "/assets/img/placeholder.svg"}, {id : 0, src : "/assets/img/placeholder.svg"}]
+
+=======
+
+  
+  listParticipants : Object[] = [{id : 0, src : "/assets/img/placeholder.svg"}, {id : 0, src : "/assets/img/placeholder.svg"}]
+
+  constructor(private _apiService : ApiService){}
+
+>>>>>>> admin-validated
 }

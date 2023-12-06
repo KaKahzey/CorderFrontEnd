@@ -17,17 +17,18 @@ import { ParticipantsComponent } from './pages/admin/participants/participants.c
 import { StatisticsComponent } from './pages/admin/statistics/statistics.component';
 import { PopupValidationComponent } from './shared/components/popup-validation/popup-validation.component';
 import { PhotoCaptureComponent } from './pages/user/photo-capture/photo-capture.component';
+import { ModifyAccountComponent } from './pages/admin/modify-account/modify-account.component';
 
 export const routes: Routes = [
     {path : "", component : HomeComponent},
-    {path : "admin/login", component : LoginComponent},
+    {path : "login", component : LoginComponent},
     {path : "admin/dashboard", component : DashboardComponent}, // canActivate: [connectedGuard]
     {path : "admin/validated-photos", component : ValidatedPhotosComponent},
     {path : "admin/rejected-photos", component : RejectedPhotosComponent},
     {path : "admin/on-hold-photos", component : OnHoldPhotosComponent},
     {path : "admin/participants", component : ParticipantsComponent},
     {path : "admin/statistics", component : StatisticsComponent},
-    {path : "admin/popup-validation", component: PopupValidationComponent},
+    {path : "admin/modify-account", component : ModifyAccountComponent},
     {path : "photo-capture", component : PhotoCaptureComponent},
     {path : "photo-capture-choice", component : PhotoCaptureChoiceComponent},
     {path : "photo-information", component : PhotoInformationComponent},

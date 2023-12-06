@@ -1,16 +1,17 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-photo-capture',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './photo-capture.component.html',
   styleUrl: './photo-capture.component.scss'
 })
 export class PhotoCaptureComponent implements AfterViewInit {
-  WIDTH = 640;
-  HEIGHT = 480;
+  WIDTH = '100vw';
+  HEIGHT = '100vh';
 
   
   @ViewChild("video")

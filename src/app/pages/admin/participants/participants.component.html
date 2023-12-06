@@ -1,43 +1,39 @@
-<div class="main">
+<div id="main-participants">
     <div class="sort-area">
             <span>trier par : </span>
             <span class="buttons-sort">
-                <button>état</button>
-                <button>province</button>
-                <button>produit</button>
-                <button>note</button>
+                <button (click)="sortName()">nom</button>
+                <button (click)="sortDate()">récent</button>
+                <button (click)="sortState()">à envoyer</button>
+                <button (click)="sortProduct()">produit</button>
             </span>
     </div>
-    <div >
-        <table class="list">
+    <div class="list">
+        <table>
             <tr>
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Prénom</th>
                 <th>Coordonnées</th>
                 <th>Produit</th>
-                <th>Etat</th>
+                <th class="state-head">Etat</th>
             </tr>
             @for (p of participantsList; track p.id){
                 <tr>
                     <td>{{p.id}}</td>
-                    <td>{{p.lastName}}</td>
-                    <td>{{p.firstName}}</td>
-                    <td>{{p.street}} {{p.postcode}} {{p.city}}</td>
-                    <td>{{p.productUsed}}</td>
-                    <td>
-                        @if (p.validated) {
-                            @if (p.shipped) {
-                                <span id="sent">envoyé</span>
-                            }
-                            @else {
-                                <span id="onHold">en attente</span>
-                            }
-                        }
-                        @else {
-                            <span id="rejected">refusé</span>
-                        }
-                    </td>
+                    <td>{{p.participantLastName}}</td>
+                    <td>{{p.participantFirstName}}</td>
+                    <td>{{p.participantAddress.street}} {{p.participantAddress.postCode}} {{p.participantAddress.city}}</td>
+                    <td>{{p.productType}}</td>
+                    @if (p.status === "DENIED" ) {
+                        <td class="rejected">refusé</td>
+                    }
+                    @else if (p.status === "SENT") {
+                        <td class="sent">envoyé</td>
+                    }
+                    @else if (p.status === "PENDING") {
+                        <td class="onHold">en attente</td>
+                    }
                 </tr>
             }
         </table>

@@ -33,12 +33,14 @@ export class GoodPracticeComponent{
         this.texte = 'Les insecticides peuvent être risqués pour les insectes utiles (abeilles, coccinelles...) également. Pensez à scrupuleusement lire les conditions d\'utilisation lorsque vous en utilisez.';
         break;
       }
+      // Si la case "Autre" a été remplie
       case'D': {
-        this.texte = 'Texte pour le choix C';
+        this.texte = 'Les plantes indigènes (de chez nous) sont plus résistantes aux insectes ravageurs et maladies. N\’hésitez pas à demander conseil dans votre pépinière afin de vous orienter vers des espèces et variétés adaptées à votre jardin !';
         break;
       }
+      // On rentre ici si il y'a eu un problème de chargement OU que l'user a rien choisi du tout
       default:
-        this.texte = 'Texte par défaut';
+        this.texte = 'Les pesticides représentent une menace sérieuse pour la biodiversité, en provoquant la disparition d\'insectes pollinisateurs essentiels à la reproduction des plantes, compromettant ainsi l\'équilibre écologique.';
         break;
     }
   }
