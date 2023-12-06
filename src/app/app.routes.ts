@@ -15,7 +15,6 @@ import { RejectedPhotosComponent } from './pages/admin/rejected-photos/rejected-
 import { OnHoldPhotosComponent } from './pages/admin/on-hold-photos/on-hold-photos.component';
 import { ParticipantsComponent } from './pages/admin/participants/participants.component';
 import { StatisticsComponent } from './pages/admin/statistics/statistics.component';
-import { PhotoCaptureComponent } from './pages/user/photo-capture/photo-capture.component';
 import { ModifyAccountComponent } from './pages/admin/modify-account/modify-account.component';
 
 export const routes: Routes = [
@@ -28,7 +27,6 @@ export const routes: Routes = [
     {path : "admin/participants", component : ParticipantsComponent},
     {path : "admin/statistics", component : StatisticsComponent},
     {path : "admin/modify-account", component : ModifyAccountComponent},
-    {path : "photo-capture", component : PhotoCaptureComponent},
     {path : "photo-capture-choice", component : PhotoCaptureChoiceComponent},
     {path : "photo-information", component : PhotoInformationComponent},
     {path : "photo-validation", component : PhotoValidationComponent},
