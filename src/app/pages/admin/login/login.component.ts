@@ -20,24 +20,38 @@ export class LoginComponent {
 
   constructor(private _authService : AuthService,private _apiService : ApiService, private _router : Router, private _fb : FormBuilder){
     this.loginForm = this._fb.group({
-      login : [[null], [Validators.required]],
-      password : [[null], [Validators.required]]
+      login : [null, [Validators.required]],
+      password : [null, [Validators.required]]
     })
   }
-  login() : void{
-    const loginInfo = {
-      login : this.loginForm.get("name")?.value,
-      password : this.loginForm.get("password")?.value
+  loginFormisValid = false;
+  onSubmit() {
+    if (this.loginForm.valid) {
+      this.loginFormisValid = true;
     }
-    this._apiService.login(loginInfo).subscribe({
-      next : (response) => {
-        console.log("User logged in : ", response)
-        this._authService.setUser(loginInfo.login, response.token)
-        this._router.navigateByUrl("/admin/dashboard")
-      },
-      error : (error) => {
-        console.log("error : ", error)
-      }})
+  }
+
+  login() : void{ 
+    console.log("test")
+    // if (this.loginForm.valid){
       
+    //   const loginInfo = {
+    //   login : this.loginForm.get("name")?.value,
+    //   password : this.loginForm.get("password")?.value
+    //   }
+
+    //   this._apiService.login(loginInfo).subscribe({
+
+    //     next : (response) => {
+    //       console.log("User logged in : ", response)
+    //       this._authService.setUser(loginInfo.login, response.token)
+    //       this._router.navigateByUrl("/admin/dashboard")
+    //     },
+
+    //     error : (error) => {
+    //       console.log("error : ", error)
+    //     }
+    //   })
+    // }
   }
 }

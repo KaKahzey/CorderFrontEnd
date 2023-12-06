@@ -3,7 +3,6 @@
   min-height: 100vh;
   background-image: url("/assets/img/404/404-desktop.png");
   background-repeat: no-repeat;
-  
   background-size: cover;
 }
 .test{
@@ -13,7 +12,7 @@
 }
 .title {
   font-family: nexaRegular;
-  padding-top: 18.33vh;
+  padding-top: 8.33vh;
   padding-bottom: 7.78vh;
   text-align: center;
   font-size: 5.1vh;
@@ -26,12 +25,14 @@
   height : 412px;
   border: solid 1px black;
   border-radius: 20px;
-  padding-bottom: 3.58vh;
   padding-top: 40px;
   margin: auto;
 }
 form{
+  padding: 0;
+  margin: 0;
   vertical-align: middle;
+  height: fit-content;
 }
 label {
   margin-left: 20px;
@@ -43,6 +44,7 @@ label {
   @apply space-y-2;
 }
 input {
+  border: solid 1px;
   padding-left: 3.58vh;
   vertical-align: middle;
   background-color: #F5F8E0;
@@ -52,22 +54,48 @@ input {
   border-radius: 100px;
 }
 .button-area {
+  padding-top: 20px;
   text-align: center;
 }
-.btn {
-    opacity: 50%;
-    color : #0E103B;
-    font-weight: 700;
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: #B7C90D;
-    text-decoration: none;
-    border-radius: 100px;
-    transition: background-color 0.2s;
-    width : 367px;
-    margin: 20px;
-    height : 48px;
-  }
-  .btn:hover {
-    background-color: #005ca5;
-  }
+button[type="submit"]:hover {
+  
+  cursor: pointer;
+  opacity: 100%;
+  color : #0E103B;
+  font-weight: 700;
+  display: inline-block;
+  background-color: #94A31F;
+  text-decoration: none;
+  border-radius: 100px;
+  transition: background-color 0.2s;
+  width : 367px;
+  height : 48px;
+}
+//btn désactivé
+button[type="submit"][disabled]{
+  cursor: not-allowed;
+  opacity: 50%;
+  color : #0E103B;
+  font-weight: 700;
+  display: inline-block;
+  background-color: #B7C90D;
+  text-decoration: none;
+  border-radius: 100px;
+  transition: background-color 0.2s;
+  width : 367px;
+  height : 48px;
+}
+button[type="submit"]{
+  cursor: pointer;
+  opacity: 100%;
+  color : #0E103B;
+  font-weight: 700;
+  display: inline-block;
+  background-color: #B7C90D;
+  text-decoration: none;
+  border-radius: 100px;
+  transition: background-color 0.2s;
+  width : 367px;
+  height : 48px;
+}
+//btn activé et survolé

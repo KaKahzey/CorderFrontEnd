@@ -1,7 +1,6 @@
 <div class="main">
     <div class="test">
     </div>
-    <!-- <img class="w-full" src="/assets/img/thanksBackgroundDesktop.PNG" alt=""> -->
     <div class="title">
         Connexion Admin
     </div>
@@ -16,7 +15,7 @@
                 <input type="password" formControlName="password" class="form-control" />
             </div>
             <div class="button-area">
-                <button class="btn" type="submit">Connexion</button>
+                <button [disabled]="!loginForm.valid" type="submit">Connexion</button>
             </div>
         </form>
     </div>
