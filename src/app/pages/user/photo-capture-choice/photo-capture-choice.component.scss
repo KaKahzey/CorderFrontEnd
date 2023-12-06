@@ -1,6 +1,6 @@
 header{
     width: 100%;
-    height: 12%;
+    height: 10%;
     background-color: #0E103B;
 }
 
@@ -95,7 +95,19 @@ h2{
     border-radius: 50px;
     position: relative;
     overflow: hidden;
-    
+    cursor: pointer;
+}
+
+.containerCloudBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cloud{
+    cursor: pointer;
+    margin-bottom: 5%;
 }
 
 .btn input {
@@ -167,6 +179,6 @@ h2{
     }
 
     .cloud{
-        max-width: 20%;
+        max-width: 40%;
     }
 }

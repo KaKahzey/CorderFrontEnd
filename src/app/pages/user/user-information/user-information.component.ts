@@ -45,7 +45,7 @@ export class UserInformationComponent {
         this._dataFormService.addForm(this.infoForm.value)
         this._apiService.createUser(this._dataFormService.mergeData()).subscribe({
           next : (resp) => {
-            this._dataFormService.getId(resp.id)
+            this._dataFormService.setId(resp.id)
             this.router.navigateByUrl("/thanks");
             
           },

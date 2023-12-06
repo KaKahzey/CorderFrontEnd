@@ -11,15 +11,19 @@
     <div class="white-square">
         <div class="square-bg">
             <div class="borderImg">
-                <img style="cursor: pointer; width: 100%;" src="/assets/img/captureChoice/cameraYellow.png" alt="img-camera" routerLink="/photo-capture">
+                <label for="takePicture">
+                    <img style="cursor: pointer; width: 100%;" src="/assets/img/captureChoice/cameraYellow.png" alt="img-camera">
+                </label>
+                <input (change)="setupFileService($event)" type="file" id="takePicture" accept="image/*" capture="user" style="visibility: hidden;">
             </div>
-            <img class="cloud" src="/assets/img/captureChoice/cloud.svg" alt="img-nuage">
+           
             <div>
-                <button class="btn">Choisir une photo existante
-                    <input id="photo" style="visibility: hidden;" accept="image/*" type="file">
-                </button>
+                <label class="containerCloudBtn" for="choosePicture">
+                    <img class="cloud" src="/assets/img/captureChoice/cloud.svg" alt="img-nuage">
+                    <p class="btn">Choisir une photo existante</p>
+                </label>
+                <input (change)="setupFileService($event)" type="file" id="choosePicture" accept="image/*" style="visibility: hidden;">
             </div>
         </div>
     </div>
-
 </div>
