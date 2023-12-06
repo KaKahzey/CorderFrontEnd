@@ -19,7 +19,7 @@ header{
 
 .titlePlusReturn{
     width: 60%;
-    margin-top: 2%;
+    margin-top: 1%;
 }
 
 a{
@@ -27,6 +27,7 @@ a{
     font-weight: 700;
     color: #0E103B;
     margin-bottom: 2%;
+    text-align: center;
 }
 
 h2{
@@ -45,7 +46,7 @@ h2{
     font-size: 1.10rem;
     font-family: 'pantonRegular';
     font-weight: 400;
-    margin: 0% 0% 3% 0%;
+    margin: 2% 0% 3% 0%;
 }
 
 .white-square{
@@ -109,6 +110,17 @@ h2{
     .white-square{
         width: 90%;
     }
+    .titlePlusReturn{
+        height: 25%;
+        display: flex;
+        flex-direction: column;
+        margin: 0% 0% -13% 0%;
+    }
+
+    a{
+        margin-bottom: 3%;
+        width: 50%;
+    }
 
     .square-bg, .para1, .titlePlusReturn{
         width: 80%;
@@ -117,6 +129,9 @@ h2{
 
 //Réajuster pour mobile
 @media only screen and (max-width: 550px) {
+    header{
+        height: 8%;
+    }
     .titlePlusReturn{
         width: 100%;
     }
@@ -137,7 +152,10 @@ h2{
     }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 420px) {
+    a{
+        width: 80%;
+    }
     button, input{
         width: 30%;
     }
@@ -146,5 +164,9 @@ h2{
 @media only screen and (max-width: 384px) {
     .btn{
         font-size: 12px;
+    }
+
+    .cloud{
+        max-width: 20%;
     }
 }

@@ -1,7 +1,10 @@
-body {
-    margin: 0;
-    padding: 0;
-    height: 100vh !important;
+.center {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     background-image: url("/assets/img/blurCompletebg.png");
     background-repeat: no-repeat;
     background-position: bottom center;
@@ -24,9 +27,10 @@ header{
     background: var(--Blanc, #F5F8E0);
     box-shadow: 0px -4px 10px 0px rgba(0, 0, 0, 0.25);
     transform: rotate(-3deg);
-    width: 874px;
-    height: 755px;
-    margin-left: 125px;
+    width: 50%;
+    height: 100%;
+    position: relative;
+    top: 20%;
 }
 
 .bee {
@@ -34,20 +38,14 @@ header{
     margin-bottom: 3%;
 }
 
-.center {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 h2{
     color: var(--Noir, #0E103B);
+    font-size: 57px;
     text-align: center;
     font-style: normal;
     font-weight: 900;
     line-height: 1;
-    margin: 3% 0px 3% 0px;
+    margin: 3% 0px -5% 0px;
     font-family: 'nexaRegular';
 }
 
@@ -114,6 +112,12 @@ p {
     transform: rotate(1.5deg);
 }
 
+@media only screen and (max-width: 1200px) {
+    .square-bg{
+        width: 80%;
+    }
+}
+
 @media only screen and (max-width: 930px) {
     p{
         font-size: 17px;
@@ -128,61 +132,39 @@ p {
     }
 }
 
-@media only screen and (min-width : 815px) {
-    .square-bg{
-        max-width: 50%;
-        position: relative;
-        top: 20%;
-        height: 2500px;
-    }
-
-    h2{
-        font-size: 57px;
-    }
-}
-
-/* Réajuster pour les versions bureau */
-@media only screen and (max-width: 815px) {
-    .bee{
-        margin-top: 10px;
-    }
-    h2{
-        margin: 50px 0px 50px 0px;
-    }
-}
-
 /* Réajuster pour les versions tablette */
 @media only screen and (max-width: 814px) {
     p {
         font-family: 'pantonBold';
         font-style: normal;
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 800;
         line-height: 170%;
         text-align: center;
     }
     .bee{
+        margin-top: 2%;
+        margin-bottom: 4%;
+    }
+    .square-bg{
+        width: 120%;
+        top: 0%;
+        height: 55%;
         margin-top: 10%;
         margin-bottom: 15%;
     }
-    .square-bg{
-        width: 150%;
-        height: 650px;
-        margin-left: 25px;
-    }
     h2{
-        font-size: 51px; 
-    }
-    header{
-        height: 65px;
+        font-size: 51px;
     }
 }
 
 /* Réajuster pour les versions mobile */
 @media only screen and (max-width: 500px) {
-    body {
+    header{
+        height: 8%;
+    }
+    .center {
         background-image: url("/assets/img/thanksBackgroundMobile.png");
-        overflow: hidden;
     }
     .bee{
         margin-left: 5%;
@@ -190,9 +172,7 @@ p {
     .borderPara{
         margin-left: 5%;
     }
-    .square-bg{
-        margin-left: 0;
-    }
+
     p {
         font-family: 'pantonBold';
         font-style: normal;
@@ -200,8 +180,8 @@ p {
         line-height: 150%;
     }
     h2{
-        font-size: 42px; 
-        margin: 10% 0px 10% 0px;
+        font-size: 42px;
+        margin-bottom: -20%;
     }
     
 }
@@ -210,12 +190,16 @@ p {
     p{
         font-size: 14px;
     }
+    h2{
+        margin-top: -20%;
+    }
+
     .borderPara{
-        max-width: 60%;
+        max-width: 80%;
     }
     .bee{
-        margin-top: 5%;
-        margin-bottom: 7%;
+        margin-top: 1%;
+        margin-bottom: 3%;
     }
     .btn_all{
         flex-direction: column;
