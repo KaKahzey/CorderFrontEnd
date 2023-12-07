@@ -18,9 +18,10 @@
     @apply grid p-5;
 }
 .title-frame {
+    font-family : nexaRegular;
     color: #0E103B;
-    font-weight:800;
-    font-size: 35px;
+    font-weight:900;
+    font-size: 3.7vh;
 }
 .top-title {
     @apply row-span-1;
@@ -116,4 +117,10 @@ button:focus{
 }
 .side-area {
     @apply col-span-2 m-2 p-5 ;
+}
+.total-count {
+    background-color: #E7F39A;
+    border-radius: 20px;
+    text-align: center;
+    @apply p-5;
 }

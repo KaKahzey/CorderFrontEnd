@@ -25,33 +25,27 @@ export class LoginComponent {
     })
   }
   loginFormisValid = false;
-  onSubmit() {
-    if (this.loginForm.valid) {
-      this.loginFormisValid = true;
-    }
-  }
 
   login() : void{ 
-    console.log("test")
-    // if (this.loginForm.valid){
+    if (this.loginForm.valid){
       
-    //   const loginInfo = {
-    //   login : this.loginForm.get("name")?.value,
-    //   password : this.loginForm.get("password")?.value
-    //   }
+      const loginInfo = {
+      login : this.loginForm.get("name")?.value,
+      password : this.loginForm.get("password")?.value
+      }
 
-    //   this._apiService.login(loginInfo).subscribe({
+      this._apiService.login(loginInfo).subscribe({
 
-    //     next : (response) => {
-    //       console.log("User logged in : ", response)
-    //       this._authService.setUser(loginInfo.login, response.token)
-    //       this._router.navigateByUrl("/admin/dashboard")
-    //     },
+        next : (response) => {
+          console.log("User logged in : ", response)
+          this._authService.setUser(loginInfo.login, response.token)
+          this._router.navigateByUrl("/admin/dashboard")
+        },
 
-    //     error : (error) => {
-    //       console.log("error : ", error)
-    //     }
-    //   })
-    // }
+        error : (error) => {
+          console.log("error : ", error)
+        }
+      })
+    }
   }
 }
