@@ -1,0 +1,106 @@
+.main {
+    align-items: center;
+    min-height: 100vh;
+    background-color: #F5F8E0 ;
+  }
+  .test{
+    width: 100%;
+    height: 80px;
+    background-color: #0E103B;
+  }
+  .title {
+    width: 590px;
+    height: 131.4px;
+    font-family: nexaRegular;
+    padding: 0;
+    position: absolute;
+    left: 309px;
+    top: 355.2px;
+    // margin-left: 309px;
+    // margin-top: 355.2px;
+    text-align: start;
+    font-size: 57px;
+  }
+  .frame {
+    display: flex;
+    background-color: #E7F39A;
+    bottom: 27.58vh;
+    width : 407px;
+    height : 412px;
+    border: solid 1px black;
+    border-radius: 20px;
+    padding-top: 40px;
+    margin: auto;
+  }
+  form{
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+    height: fit-content;
+  }
+  label {
+    margin-left: 20px;
+    font-weight: 700;
+  }
+  .fields {
+    padding-bottom: 40px;
+    width : 100%;
+    @apply space-y-2;
+  }
+  input {
+    border: solid 1px;
+    padding-left: 3.58vh;
+    vertical-align: middle;
+    background-color: #F5F8E0;
+    width : 367px;
+    margin: 20px;
+    height : 48px;
+    border-radius: 100px;
+  }
+  .button-area {
+    padding-top: 20px;
+    text-align: center;
+  }
+  button[type="submit"]:hover {
+    
+    cursor: pointer;
+    opacity: 100%;
+    color : #0E103B;
+    font-weight: 700;
+    display: inline-block;
+    background-color: #94A31F;
+    text-decoration: none;
+    border-radius: 100px;
+    transition: background-color 0.2s;
+    width : 367px;
+    height : 48px;
+  }
+  //btn désactivé
+  button[type="submit"][disabled]{
+    cursor: not-allowed;
+    opacity: 50%;
+    color : #0E103B;
+    font-weight: 700;
+    display: inline-block;
+    background-color: #B7C90D;
+    text-decoration: none;
+    border-radius: 100px;
+    transition: background-color 0.2s;
+    width : 367px;
+    height : 48px;
+  }
+  button[type="submit"]{
+    cursor: pointer;
+    opacity: 100%;
+    color : #0E103B;
+    font-weight: 700;
+    display: inline-block;
+    background-color: #B7C90D;
+    text-decoration: none;
+    border-radius: 100px;
+    transition: background-color 0.2s;
+    width : 367px;
+    height : 48px;
+  }
+  //btn activé et survolé
+  
