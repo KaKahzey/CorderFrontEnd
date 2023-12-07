@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import {Renderer2} from '@angular/core';
+import { Renderer2 } from '@angular/core';
 import { ɵDomRendererFactory2 } from '@angular/platform-browser';
 import { ApiService } from '../../../shared/services/api.service';
 import { DataFormService } from '../../../shared/services/data-form.service';
@@ -17,10 +17,11 @@ export class ThanksComponent {
   
   private statePopup: string[] = ['none','block'];
   
-  
   isChecked1 = false;
   isChecked2 = false;
   isChecked3 = false;
+
+  isOpaque : boolean = true;
 
   private satisfaction : number = 0;
   private messages: string = '';
@@ -72,6 +73,9 @@ export class ThanksComponent {
       else{
         if(popupID != 'popup1' || this.isChecked2 == false && this.isChecked3 == false){
           popup.style.display = this.statePopup[0];
+          if(popupID == 'popup3'){
+            this.removeOpacity();
+          }
         }
       }
     }
@@ -141,12 +145,15 @@ export class ThanksComponent {
   
   closeModal() {
     console.log("CloseModal called");
+    this.removeOpacity();
     if (this.modal) {
       console.log("Modal found, changing style");
       this.renderer.setStyle(this.modal.nativeElement, 'display', 'none');
     }
   }
 
-
+  removeOpacity(){
+    this.isOpaque = false;
+  }
 }
 
