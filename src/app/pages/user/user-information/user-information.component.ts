@@ -47,8 +47,17 @@ export class UserInformationComponent {
         this._apiService.createUser(this._dataFormService.mergeData()).subscribe({
           next : (resp) => {
             this._dataFormService.setId(resp.id)
-            this.router.navigateByUrl("/thanks");
-            
+            const file = this._dataFormService.getFile()
+            const formPicture = new FormData()
+            formPicture.append("file", file, file.name)
+            this._apiService.addPicture(resp.id, formPicture).subscribe({
+              next : ()=>{
+                this.router.navigateByUrl("/thanks");
+              },
+              error : () => {
+                console.log("Image pas envoyée")
+              }
+            })  
           },
           error : (error) => {
             console.log("probleme",error);
