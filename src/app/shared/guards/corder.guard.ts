@@ -11,7 +11,7 @@ export const CorderGuard: CanActivateFn = () => {
     return true
   }
   else{
-    router.navigateByUrl("/login")
+    router.navigateByUrl("/admin/validated-photos")
     return false
   }
 };
