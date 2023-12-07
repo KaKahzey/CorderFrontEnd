@@ -17,6 +17,7 @@ import { ParticipantsComponent } from './pages/admin/participants/participants.c
 import { StatisticsComponent } from './pages/admin/statistics/statistics.component';
 import { ModifyAccountComponent } from './pages/admin/modify-account/modify-account.component';
 import { CycleGuard } from './shared/guards/cycle.guard';
+import { PopupValidationComponent } from './shared/components/popup-validation/popup-validation.component';
 
 export const routes: Routes = [
     {path : "", component : HomeComponent},
@@ -34,6 +35,7 @@ export const routes: Routes = [
     {path : "good-practice", component : GoodPracticeComponent},
     {path : "thanks", component : ThanksComponent},
     {path : "user-information", component : UserInformationComponent},
+    {path : "popup-validation", component : PopupValidationComponent},
     {path : "notfound", component : NotFoundComponent},
     { path : "**", redirectTo : "/notfound"},
 ];
