@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ApiService } from '../../../shared/services/api.service';
+import { ParticipantAllDataNoBlob } from '../../../shared/models/participantAllDataNoBlob';
 
 @Component({
   selector: 'app-participants',
@@ -10,26 +12,32 @@ import { CommonModule } from '@angular/common';
 })
 export class ParticipantsComponent {
 
-  participantsList : any[] = [
-    {id : 0, lastName :"Doe", firstName : "John", street : "rue à gauche", postcode : "1422", city : "Braine le Compte", productUsed : "Fongicide", date : "2023-12-22", validated : true, shipped : false},
-    {id : 1, lastName :"Pitt", firstName : "John", street : "rue à gauche", postcode : "1422", city : "Tilly", productUsed : "Herbicide", date : "2024-10-22", validated : false, shipped : false},
-    {id : 2, lastName :"Doe", firstName : "Eliott", street : "rue à gauche", postcode : "1422", city : "Tilly", productUsed : "Insecticide", date : "2023-12-12", validated : true, shipped : true} 
-  ]
+  participantsList : ParticipantAllDataNoBlob[] = []
+ 
+
+  constructor(private _apiService : ApiService) {
+  }
+
+  ngOnInit(): void {
+    this._apiService.getAllUsersNoBlob().subscribe(data => {
+      this.participantsList = data
+    })
+  }
 
   sortName() : void {
     this.participantsList.sort((p1, p2) => {
-      if(p1.lastName === p2.lastName) {
-        if (p1.firstName < p2.firstName) {
+      if(p1.participantLastName.toLowerCase() === p2.participantLastName.toLowerCase()) {
+        if (p1.participantFirstName.toLowerCase() < p2.participantFirstName.toLowerCase()) {
           return -1
-      } else if (p1.firstName > p2.firstName) {
+      } else if (p1.participantFirstName.toLowerCase() > p2.participantFirstName.toLowerCase()) {
           return 1
       } else {
           return 0
       }
       }
-      if (p1.lastName < p2.lastName) {
+      if (p1.participantLastName.toLowerCase() < p2.participantLastName.toLowerCase()) {
           return -1
-      } else if (p1.lastName > p2.lastName) {
+      } else if (p1.participantLastName.toLowerCase() > p2.participantLastName.toLowerCase()) {
           return 1
       } else {
           return 0
@@ -39,28 +47,33 @@ export class ParticipantsComponent {
 
   sortDate() : void {
     this.participantsList.sort((p1, p2) => {
-      const date1 = new Date(p1.date)
-      const date2 = new Date(p2.date)
+      const date1 = new Date(p1.participationDate)
+      const date2 = new Date(p2.participationDate)
       return date1.getTime() - date2.getTime()
   })
+  this.participantsList.forEach(p => {
+      console.log(p.participationDate);
+      
+  });
   }
 
   sortState() : void {
     this.participantsList.sort((p1, p2) => {
-      if (p1.validated === p2.validated) {
-        return p1.shipped - p2.shipped
-      } 
-      else {
-        return p1.validated ? -1 : 1
+      if (p1.status < p2.status) {
+          return -1
+      } else if (p1.status > p2.status) {
+          return 1
+      } else {
+          return 0
       }
-    })
+  })
   }
 
   sortProduct() : void {
     this.participantsList.sort((p1, p2) => {
-      if (p1.productUsed < p2.productUsed) {
+      if (p1.productType < p2.productType) {
           return -1
-      } else if (p1.productUsed > p2.productUsed) {
+      } else if (p1.productType > p2.productType) {
           return 1
       } else {
           return 0

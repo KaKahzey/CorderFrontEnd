@@ -2,19 +2,20 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LoginData } from '../models/loginData';
-import { UserData } from '../models/userData';
+import { ParticipantFullForm } from '../models/participantFullForm';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  private _urlLogin : string = ""
-  private _urlCreateUser : string = ""
-  private _urlGetUsers : string = ""
+  private _urlLogin : string = "http://192.168.200.102:8080/user/login"
+  private _urlCreateUser : string = "http://192.168.200.102:8080/participation/create"
+  private _urlGetUsers : string = "http://192.168.200.102:8080/participation/all"
+  private _urlGetAllParticipantsNoBlob : string = "http://192.168.200.102:8080/participation/allNoBlob"
   private _urlDeleteUser : string = ""
   private _urlUpdateUser : string = ""
-  private _urlSendRating : string = ""
+  private _urlSetPicture : string = "http://192.168.200.102:8080/participation/addPhoto?id="
 
   constructor(private _httpClient : HttpClient) { }
 
@@ -22,22 +23,23 @@ export class ApiService {
     return this._httpClient.post(this._urlLogin, user)
   }
 
-  createUser(user : UserData) : Observable<any> {
+  createUser(user : ParticipantFullForm) : Observable<any> {
     return this._httpClient.post(this._urlCreateUser, user)
   }
 
-  getUsers() : Observable<any> {
-    return this._httpClient.get(this._urlGetUsers)
+  getAllUsersNoBlob() : Observable<any> {
+    return this._httpClient.get(this._urlGetAllParticipantsNoBlob)
   }
 
   deleteUser(id : number) : Observable<any> {
     return this._httpClient.delete(this._urlDeleteUser + id)
   }
   
-  updateUser(id : number, user : UserData) : Observable<any> {
+  updateUser(id : number, user : ParticipantFullForm) : Observable<any> {
     return this._httpClient.put(this._urlUpdateUser + id, user)
   }
-  sendRating(rating : number) : Observable<any> {
-    return this._httpClient.post(this._urlSendRating, rating)
+
+  addPicture(id : number, picture : FormData) : Observable<any> {
+    return this._httpClient.post(this._urlSetPicture + id, picture)
   }
 }

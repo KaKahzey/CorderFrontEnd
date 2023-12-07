@@ -2,15 +2,15 @@
     <header></header>
     <p class="h2">Concernant <br> votre photo</p>
     <div class="parent-p1">
-        <p class="p1">Quel type de pesticide venez-vous de prendre en photo ?</p>
+        <div class="p1">Quel type de pesticide venez-vous de prendre en photo ?</div>
     </div>    
     <div class="square-bg">
         <div class="text-square">
             <p class="p1-desktop">Quel type de pesticide venez-vous de prendre en photo ?</p>
-            <button class="btnHerbi" (click)="choisir('A')">Herbicide</button>
-            <button (click)="choisir('B')">Fongicide</button>
-            <button (click)="choisir('C')">Insecticide</button>
-            <input type="text" (focus)="choisir('D')" [(ngModel)]="inputValue" (input)="onInputChange()" placeholder="Autre">
+            <button class="btnHerbi" (click)="chooseProduct('Herbicide')">Herbicide</button>
+            <button (click)="chooseProduct('Fongicide')">Fongicide</button>
+            <button (click)="chooseProduct('Insecticide')">Insecticide</button>
+            <input type="text" (focus)="chooseProduct('D')" [(ngModel)]="inputValue" (input)="onInputChange()" placeholder="Autre">
         </div>
         <div class="btn_all">
             <a class="btn-style btn-leftm" routerLink="/photo-validation">Retour</a>

@@ -1,11 +1,11 @@
 import { TestBed } from '@angular/core/testing';
 import { CanActivateFn } from '@angular/router';
 
-import { connectedGuard } from './corder.guard';
+import { cycleGuard } from './cycle.guard';
 
-describe('connectedGuard', () => {
+describe('cycleGuard', () => {
   const executeGuard: CanActivateFn = (...guardParameters) => 
-      TestBed.runInInjectionContext(() => connectedGuard(...guardParameters));
+      TestBed.runInInjectionContext(() => cycleGuard(...guardParameters));
 
   beforeEach(() => {
     TestBed.configureTestingModule({});

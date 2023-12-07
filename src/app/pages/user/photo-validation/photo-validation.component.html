@@ -1,6 +1,24 @@
-<label for="myCheckbox" class="custom-checkbox">
-    <input type="checkbox" id="myCheckbox" class="hidden-checkbox">
-    <div class="checkmark"></div>
-  </label>
-  <span class="custom-checkbox-label">Texte du label</span>
-  
+<div class="center">
+    <header></header>
+    <div class="titleContainer">
+        <div class="title">Waw quel cliché 😱</div>
+    </div>
+
+    <div class="imgWhiteSquare">
+        <div class="imgUserContainer">
+            <img class="userImg" [src]="imgUrl" alt="">
+        </div>
+    </div>
+    
+    <div class="all-btn">
+        <button routerLink="/photo-capture-choice">
+            <img src="/assets/img/captureValidation/btn-rouge.svg" alt="return back">
+        </button>
+        <button (click)="sendPhoto()" >
+            <img src="/assets/img/captureValidation/btn-vert.svg" alt="send picture">
+        </button>
+    </div>
+</div>
+
+
+<p>{{errorMessage | json}}</p>
