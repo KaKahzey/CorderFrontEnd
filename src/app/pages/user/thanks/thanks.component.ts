@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import {Renderer2} from '@angular/core';
 import { ɵDomRendererFactory2 } from '@angular/platform-browser';
+import { ApiService } from '../../../shared/services/api.service';
+import { DataFormService } from '../../../shared/services/data-form.service';
 
 @Component({
   selector: 'app-thanks',
@@ -19,15 +21,17 @@ export class ThanksComponent {
   isChecked1 = false;
   isChecked2 = false;
   isChecked3 = false;
+
+  private satisfaction : number = 0;
+  private messages: string = '';
   
   @ViewChild('myModal', { static: false }) modal: ElementRef<HTMLElement> | null = null;
   private renderer: Renderer2;
 
-  constructor(private rendererFactory: ɵDomRendererFactory2){
+  constructor(private rendererFactory: ɵDomRendererFactory2, private _ApiService : ApiService ,private _DataForm : DataFormService ){
     this.renderer = this.rendererFactory.createRenderer(null, null);
   }
   
-  messages: string[] = [];
   
   ngOnInit(): void {
     
@@ -59,11 +63,9 @@ export class ThanksComponent {
         popup.style.display = this.statePopup[1];
         console.log(popup.style.display);
         if(popupID == 'popup3'){
+          this.sendOpinion()
           setTimeout(() => {
             this.changeState(popupID);
-            console.log(this.isChecked1);
-            console.log(this.isChecked2);
-            console.log(this.isChecked3);
           }, 5000);
         }
       }
@@ -74,7 +76,45 @@ export class ThanksComponent {
       }
     }
   }
+  sendOpinion(){
+    this.satisfaction = this.defineSatisfaction();
+    this._DataForm.setOpinion(this.satisfaction, this.messages);
+    console.log(this.messages);
+    console.log(this.satisfaction);
+    this._ApiService.sendOpinion(this._DataForm.getOpinion()).subscribe({
+      next : (resp) => {
+        console.log("youpi");
+        
+      },
+      error : (error) => {
+        console.log("probleme",error);
+        
+      }
+    })
+  }
   
+  defineSatisfaction():number { 
+    if(this.isChecked1){
+        return 1;
+    }
+    else if(this.isChecked2){
+      return 2;
+    }
+    else{
+      return 3;
+    }
+  }
+  
+  checkboxChange1(){
+    this.isChecked1 = !this.isChecked1;
+    if(this.isChecked2 == true){
+      this.isChecked2 = !this.isChecked2;
+    }
+    else if(this.isChecked3 == false){
+      this.isChecked3 = !this.isChecked3;
+    }
+
+  }
   checkBoxChange2(){
     this.isChecked2 = !this.isChecked2
     if(this.isChecked3 == true){
@@ -93,7 +133,9 @@ export class ThanksComponent {
   
   sendMessage(text: string) {
     if (text.trim() !== '') {
-      this.messages.push(text);
+      this.messages = text;
+      console.log(this.messages);
+      
     }
   }
   
@@ -104,6 +146,7 @@ export class ThanksComponent {
       this.renderer.setStyle(this.modal.nativeElement, 'display', 'none');
     }
   }
+
 
 }
 
