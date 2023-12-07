@@ -18,8 +18,22 @@ gérer province pour composant participants
 
 
 rectifications avant rendu final
+
 -> lien checkbox rgpd
-->lien quand infoform ok
+->ajout 4eme checkbox
+->rework checkbox
+
+-> lien quand infoform ok
+-> lien envoi commentaire et avis
+
+-> !!!! tester les endpoints du form 
+-->     et popup pour le comment
+
+->fermeture popup click outside
+-> ptite fleche sur le button Autres
+-> nb Caracteres comment
+
+-> !!!! RESPONSIVE
 
 ENDPOINTS :
 
