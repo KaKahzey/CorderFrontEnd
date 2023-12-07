@@ -1,26 +1,28 @@
 <div class="main">
     <div class="test">
     </div>
-    <div class="title">
-        Modification de mot de passe
-    </div>
-    <div class="frame">
+    <div class="all-container">
+        <div class="title">
+            Modification de mot de passe
+        </div>
+        <div class="frame">
             <form [formGroup]="modifyForm" (submit)="modifyPassword()">
-            <div class="fields">
-                <label>Ancien mot de passe</label>
-                <input type="password" formControlName="oldPassword" class="form-control" />
-            </div>
-            <div class="fields">
-                <label>Nouveau mot de passe</label>
-                <input type="password" formControlName="newPassword" class="form-control" />
-            </div>
-            <div class="fields">
-                <label>Confirmer le nouveau mot de passe</label>
-                <input type="password" formControlName="newPasswordRepeat" class="form-control">
-            </div>
-            <div class="button-area">
-                <button type="submit">Modifier le mot de passe</button>
-            </div>
-        </form>
+                <div class="fields">
+                    <label>Ancien mot de passe</label>
+                    <input type="password" formControlName="oldPassword" class="form-control" />
+                </div>
+                <div class="fields">
+                    <label>Nouveau mot de passe</label>
+                    <input type="password" formControlName="newPassword" class="form-control" />
+                </div>
+                <div class="fields">
+                    <label>Confirmer le nouveau mot de passe</label>
+                    <input type="password" formControlName="newPasswordRepeat" class="form-control">
+                </div>
+                <div class="button-area">
+                    <button [disabled]="!modifyForm.valid" type="submit">Modifier le mot de passe</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>

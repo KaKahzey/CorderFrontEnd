@@ -3,19 +3,25 @@
     min-height: 100vh;
     background-color: #F5F8E0 ;
   }
+  .all-container{
+    display: flexbox;
+    padding: 0;
+  }
   .test{
     width: 100%;
-    height: 80px;
+    height: 116px;
     background-color: #0E103B;
+    position: absolute;
   }
   .title {
     width: 590px;
     height: 131.4px;
     font-family: nexaRegular;
     padding: 0;
-    position: absolute;
+    position: fixed;
+    bottom: 580px;
     left: 309px;
-    top: 355.2px;
+    font-family: 'nexaRegular';
     // margin-left: 309px;
     // margin-top: 355.2px;
     text-align: start;
@@ -25,11 +31,12 @@
     display: flex;
     background-color: #E7F39A;
     // left: 1127px;
-    right: 338.55px;
-    bottom: 27.58vh;
+    position: fixed;
+    right: 309px;
+    top: 320px;
+    bottom: 253px;
     width : 407px;
-    height : 520px;
-    border: solid 1px black;
+    height : 544px;
     border-radius: 20px;
     padding-top: 40px;
     margin: auto;
@@ -53,7 +60,7 @@
     border: solid 1px;
     padding-left: 3.58vh;
     vertical-align: middle;
-    background-color: #F5F8E0;
+    background-color: #E7F39A;
     width : 367px;
     margin: 20px;
     height : 48px;
@@ -104,5 +111,4 @@
     width : 367px;
     height : 48px;
   }
-  //btn activé et survolé
   
