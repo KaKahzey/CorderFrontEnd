@@ -6,9 +6,9 @@
     <title>Merci !</title>
 </head>
 <body>
-    <div class="center">
-        <!-- j'ai rajouté la balise avec la fct pour pouvoir fermer les pop-up-->
-        <div (click)="closeModal()">
+    <!--  fct et restructuration pour pouvoir fermer les pop-up-->
+    <div class="center" (click)="closeModal()">
+        <div>
             <p class="p-style-thanks">Merci !</p>
             <p class="p-style-participation">Merci pour votre participation !</p>
             <p>Un mail de confirmation vous a été envoyé.<br> Votre photo sera prise en charge par notre équipe afin de la valider.</p>
@@ -19,7 +19,8 @@
                 <a class="btn btnStyle2" routerLink="/">Retour sur le site web</a> 
             </div>
         </div>
-<!-- #myModal me permet d'identifier le container à fermer-->
+    </div>
+        <!-- #myModal permet d'identifier le container à fermer-->
         <div id="containe" #myModal>
             <div class="card" id="popup0"> 
                 <h2>Qu'avez vous pensez de ce jeu concours ?</h2>
@@ -76,6 +77,6 @@
                 <br>
             </div>
         </div>
-    </div>
+    
 </body>
 </html>

@@ -15,11 +15,12 @@ export class ThanksComponent {
   
   private statePopup: string[] = ['none','block'];
   
-  @ViewChild('myModal', { static: false }) modal: ElementRef<HTMLElement> | null = null;
   
   isChecked1 = false;
   isChecked2 = false;
   isChecked3 = false;
+  
+  @ViewChild('myModal', { static: false }) modal: ElementRef<HTMLElement> | null = null;
   private renderer: Renderer2;
 
   constructor(private rendererFactory: ɵDomRendererFactory2){
@@ -97,11 +98,12 @@ export class ThanksComponent {
   }
   
   closeModal() {
-    console.log("Close modal called");
+    console.log("CloseModal called");
     if (this.modal) {
       console.log("Modal found, changing style");
       this.renderer.setStyle(this.modal.nativeElement, 'display', 'none');
     }
   }
+
 }
 
