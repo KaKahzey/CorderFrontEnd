@@ -30,16 +30,22 @@ export class LoginComponent {
     if (this.loginForm.valid){
       
       const loginInfo = {
-      login : this.loginForm.get("name")?.value,
+      login : this.loginForm.get("login")?.value,
       password : this.loginForm.get("password")?.value
       }
-
+      console.log(loginInfo);
+      
       this._apiService.login(loginInfo).subscribe({
 
         next : (response) => {
           console.log("User logged in : ", response)
           this._authService.setUser(loginInfo.login, response.token)
-          this._router.navigateByUrl("/admin/dashboard")
+          if(this._authService.getUser() === "cycleenterre"){
+            this._router.navigateByUrl("/admin/validated-photos")
+          }
+          else {
+            this._router.navigateByUrl("/admin/dashboard")
+          }
         },
 
         error : (error) => {
