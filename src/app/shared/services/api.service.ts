@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LoginData } from '../models/loginData';
-import { participantForm } from '../models/participantForm';
+import { ParticipantFullForm } from '../models/participantFullForm';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,7 @@ export class ApiService {
   private _urlGetAllParticipantsNoBlob : string = "http://192.168.200.102:8080/participation/allNoBlob"
   private _urlDeleteUser : string = ""
   private _urlUpdateUser : string = ""
+  private _urlSetPicture : string = "http://192.168.200.102:8080/participation/addPhoto?id="
 
   constructor(private _httpClient : HttpClient) { }
 
@@ -22,7 +23,7 @@ export class ApiService {
     return this._httpClient.post(this._urlLogin, user)
   }
 
-  createUser(user : participantForm) : Observable<any> {
+  createUser(user : ParticipantFullForm) : Observable<any> {
     return this._httpClient.post(this._urlCreateUser, user)
   }
 
@@ -34,9 +35,11 @@ export class ApiService {
     return this._httpClient.delete(this._urlDeleteUser + id)
   }
   
-  updateUser(id : number, user : participantForm) : Observable<any> {
+  updateUser(id : number, user : ParticipantFullForm) : Observable<any> {
     return this._httpClient.put(this._urlUpdateUser + id, user)
   }
 
-  
+  addPicture(id : number, picture : FormData) : Observable<any> {
+    return this._httpClient.post(this._urlSetPicture + id, picture)
+  }
 }

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { DataFormService } from '../../../shared/services/data-form.service';
 
 @Component({
   selector: 'app-thanks',
@@ -14,6 +15,8 @@ import { NgModule } from '@angular/core';
 export class ThanksComponent {
   
   private statePopup: string[] = ['none','block'];
+
+  constructor(private _dataFormService : DataFormService) {}
 
   ngOnInit(): void {
 

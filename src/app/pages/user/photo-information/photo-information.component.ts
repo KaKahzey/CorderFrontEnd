@@ -1,8 +1,8 @@
 import { Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { PesticideChoiceService } from '../../../shared/services/pesticide-choice.service';
 import { FormsModule } from '@angular/forms';
+import { DataFormService } from '../../../shared/services/data-form.service';
 
 @Component({
   selector: 'app-photo-information',
@@ -14,12 +14,12 @@ import { FormsModule } from '@angular/forms';
 export class PhotoInformationComponent {
   inputValue: string = '';
 
-  constructor(private _pesticideService : PesticideChoiceService) {
+  constructor(private _dataFormService : DataFormService) {
 
   }
 
-  choisir(choix : string){
-    this._pesticideService.changerChoix(choix);
+  chooseProduct(choice : string){
+    this._dataFormService.changeProductType(choice);
   }
 
   onInputChange() {
