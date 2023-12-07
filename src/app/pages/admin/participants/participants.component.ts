@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarService } from '../../../shared/services/navbar.service';
+import { ApiService } from '../../../shared/services/api.service';
+import { ParticipantAllDataNoBlob } from '../../../shared/models/participantAllDataNoBlob';
 
 @Component({
   selector: 'app-participants',
@@ -11,10 +12,72 @@ import { NavbarService } from '../../../shared/services/navbar.service';
 })
 export class ParticipantsComponent {
 
-  participantsList : any[] = [{id : 0, lastName :"Doe", firstName : "John", street : "rue à gauche", postcode : "1422", city : "Braine le Compte", productUsed : "Fongicide", validated : true, shipped : false},
-  {id : 0, lastName :"Doe", firstName : "John", street : "rue à gauche", postcode : "1422", city : "Tilly", productUsed : "Fongicide", validated : true, shipped : false} ]
+  participantsList : ParticipantAllDataNoBlob[] = []
+ 
 
-  constructor(private _navbarService : NavbarService){
-    this._navbarService.showNavbar()
+  constructor(private _apiService : ApiService) {
+  }
+
+  ngOnInit(): void {
+    this._apiService.getAllUsersNoBlob().subscribe(data => {
+      this.participantsList = data
+    })
+  }
+
+  sortName() : void {
+    this.participantsList.sort((p1, p2) => {
+      if(p1.participantLastName.toLowerCase() === p2.participantLastName.toLowerCase()) {
+        if (p1.participantFirstName.toLowerCase() < p2.participantFirstName.toLowerCase()) {
+          return -1
+      } else if (p1.participantFirstName.toLowerCase() > p2.participantFirstName.toLowerCase()) {
+          return 1
+      } else {
+          return 0
+      }
+      }
+      if (p1.participantLastName.toLowerCase() < p2.participantLastName.toLowerCase()) {
+          return -1
+      } else if (p1.participantLastName.toLowerCase() > p2.participantLastName.toLowerCase()) {
+          return 1
+      } else {
+          return 0
+      }
+  })
+  }
+
+  sortDate() : void {
+    this.participantsList.sort((p1, p2) => {
+      const date1 = new Date(p1.participationDate)
+      const date2 = new Date(p2.participationDate)
+      return date1.getTime() - date2.getTime()
+  })
+  this.participantsList.forEach(p => {
+      console.log(p.participationDate);
+      
+  });
+  }
+
+  sortState() : void {
+    this.participantsList.sort((p1, p2) => {
+      if (p1.status < p2.status) {
+          return -1
+      } else if (p1.status > p2.status) {
+          return 1
+      } else {
+          return 0
+      }
+  })
+  }
+
+  sortProduct() : void {
+    this.participantsList.sort((p1, p2) => {
+      if (p1.productType < p2.productType) {
+          return -1
+      } else if (p1.productType > p2.productType) {
+          return 1
+      } else {
+          return 0
+      }
+  })
   }
 }

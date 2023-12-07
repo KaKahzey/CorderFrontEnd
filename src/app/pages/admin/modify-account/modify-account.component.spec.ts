@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PhotoCaptureComponent } from './photo-capture.component';
+import { ModifyAccountComponent } from './modify-account.component';
 
-describe('PhotoCaptureComponent', () => {
-  let component: PhotoCaptureComponent;
-  let fixture: ComponentFixture<PhotoCaptureComponent>;
+describe('ModifyAccountComponent', () => {
+  let component: ModifyAccountComponent;
+  let fixture: ComponentFixture<ModifyAccountComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PhotoCaptureComponent]
+      imports: [ModifyAccountComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(PhotoCaptureComponent);
+    fixture = TestBed.createComponent(ModifyAccountComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

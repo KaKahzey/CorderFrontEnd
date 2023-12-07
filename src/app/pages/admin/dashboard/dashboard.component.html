@@ -1,64 +1,117 @@
-<div class="flex p-5">
-    <div class="w-4/6">
-        <div class="box ">
-            <h2>Photos en attente</h2>
-            <div class="on-hold-images ">
+<div id="main">
+    <div class="photo-area">
+        <div class="frame ">
+            <div class="title-frame">
+                Photos en attente
+            </div>
+            <div class="grid-images ">
                 <div class="image-container">
-                    <img src="" alt="Image 1" class="image" />
+                    <img src="/assets/img/placeholder.svg" alt="Image 1" class="image" />
                 </div>
                 <div class="image-container">
-                    <img src="" alt="Image 2" class="image" />
+                    <img src="/assets/img/placeholder.svg" alt="Image 2" class="image" />
                 </div>
                 <div class="image-container">
-                    <img src="" alt="Image 3" class="image" />
+                    <img src="/assets/img/placeholder.svg" alt="Image 3" class="image" />
                 </div>
-                <div class="image-container">
+                <div class="image-container see-more" routerLink="/admin/on-hold-photos">
                     <a>Voir plus</a>
                 </div>
             </div>
         </div>
         
-        <div class="box">
-            <h2>Photos validées</h2>
-            <div class="on-hold-images ">
+        <div class="frame">
+            <div class="title-frame">
+                Photos validées
+            </div>
+            <div class="grid-images">
                 <div class="image-container">
-                    <img src="" alt="Image 1" class="image" />
+                    <img src="/assets/img/placeholder.svg" alt="Image 1" class="image" />
                 </div>
                 <div class="image-container">
-                    <img src="" alt="Image 2" class="image" />
+                    <img src="/assets/img/placeholder.svg" alt="Image 2" class="image" />
                 </div>
                 <div class="image-container">
-                    <img src="" alt="Image 3" class="image" />
+                    <img src="/assets/img/placeholder.svg" alt="Image 3" class="image" />
                 </div>
-                <div class="image-container">
+                <div class="image-container see-more" routerLink="/admin/validated-photos">
                     <a>Voir plus</a>
                 </div>
             </div>
         </div>
     </div>
     <div class="main-info-section">
-        <div class="box">
-            <h2>Participants</h2>
+        <div class="frame frame-total">
+            <div class="title-frame">
+                Participants
+            </div>
+            <div class="big-data">
+                {{totalParticipants}} personnes
+            </div>
             <p>
-                1222 personnes
-            </p>
-            <p>
-                Dernière maj : une date
-            </p>
-        </div>
-        <div class="box">
-            <h2>Emballages jetés</h2>
-            <p>
-                14
-            </p>
-            <p>
-                moyenne quotidienne
+                Dernière mise à jour : 16 juin 2023
             </p>
         </div>
-        <div class="box">
-            <h2>Nombre de jours restants</h2>
-            <p>
-                6 jours
+        <div class="frame frame-week">
+            <div class="title-frame">
+                Participants cette semaine
+            </div>
+            <div class="big-data big-big">
+                {{weekParticipants}}
+            </div>
+            <div class="in-frame">
+                <div class="graph-vertical-week">
+                    <div class="graph-vertical-bars">
+                        <div class="bg-graph-vertical">
+                            <div class="monday"></div>
+                        </div>
+                        <p>L</p>
+                    </div>
+                    <div class="graph-vertical-bars">
+                        <div class="bg-graph-vertical">
+                            <div class="tuesday"></div>
+                        </div>
+                        <p>M</p>
+                    </div>
+                    <div class="graph-vertical-bars">
+                        <div class="bg-graph-vertical">
+                            <div class="wednesday"></div>
+                        </div>
+                        <p>M</p>
+                    </div>
+                    <div class="graph-vertical-bars">
+                        <div class="bg-graph-vertical">
+                            <div class="thursday"></div>
+                        </div>
+                        <p>J</p>
+                    </div>
+                    <div class="graph-vertical-bars">
+                        <div class="bg-graph-vertical">
+                            <div class="friday"></div>
+                        </div>
+                        <p>V</p>
+                    </div>
+                    <div class="graph-vertical-bars">
+                        <div class="bg-graph-vertical">
+                            <div class="saturday"></div>
+                        </div>
+                        <p>S</p>
+                    </div>
+                    <div class="graph-vertical-bars">
+                        <div class="bg-graph-vertical">
+                            <div class="sunday"></div>
+                        </div> 
+                        <p>D</p>
+                    </div>   
+                </div>
+            </div>
+        </div>
+        <div class="frame frame-timer">
+            <div class="title-frame">
+                Nombre de jours restants
+            </div>
+            <p class="big-data">
+                {{timeLeft}} jours
             </p>
             <p>
                 Campagne : du 21 mars au 20 juin

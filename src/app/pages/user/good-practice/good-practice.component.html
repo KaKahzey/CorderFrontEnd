@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merci !</title>
-</head>
-<body>
-    <div class="center">
-        <p class="h2">Saviez-vous <br>que... ?</p>
-        <div class="square-bg">
-            <div class="non-rotate text-square">
-                <img class="bee " src="/assets/img/abeille.svg" alt="">
-                <p class="para non-rotate">{{ texte }}</p> 
-            </div>
-            <div class="btn_all">
-                <a class="btn-style2" routerLink="/photo-information">Retour</a>
-                <a class="btn-style2" routerLink="/user-information">Ca marche</a>
+<div class="center">
+    <header></header>
+    <h2>Saviez-vous <br>que... ?</h2>
+    <div class="square-bg">
+        <div class="non-rotate text-square">
+            <img class="bee " src="/assets/img/img-home/bee.svg" alt="">
+            <div class="borderPara non-rotate">
+                <p>{{ texte }}</p>
             </div>
         </div>
+        <div class="btn_all">
+            <a class="btn-style" routerLink="/photo-information">Retour</a>
+            <a class="btn-style btn-color2" routerLink="/user-information">Ça marche !</a>
+        </div>
     </div>
-</body>
-</html>
+</div>

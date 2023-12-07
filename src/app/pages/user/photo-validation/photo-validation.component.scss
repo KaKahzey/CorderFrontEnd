@@ -1,54 +1,142 @@
-input[type="checkbox"] {
-    /* Cacher la case à cocher native */
-    display: none;
-  }
+header{
+    width: 100%;
+    height: 10%;
+    background-color: #0E103B;
+}
 
-  /* Style personnalisé pour la nouvelle apparence de la case à cocher */
-  .custom-checkbox {
-    display: inline-block;
-    width: 30px; /* Largeur souhaitée de la case à cocher */
-    height: 30px; /* Hauteur souhaitée de la case à cocher */
-    background-color: #3498db; /* Couleur de fond de la case à cocher non cochée */
-    border-radius: 5px; /* Bordure arrondie */
-    border: 2px solid #2980b9; /* Bordure de la case à cocher non cochée */
-    position: relative;
-    cursor: pointer;
-  }
+.center {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-image: url("/assets/img/blurCompletebg.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+    overflow: hidden;
+}
 
-  /* Style pour la coche lorsque la case est cochée */
-  .custom-checkbox.checked {
-    background-color: #27ae60; /* Couleur de fond de la case à cocher cochée */
-    border-color: #2ecc71; /* Bordure de la case à cocher cochée */
-  }
+.title{
+    color: var(--Noir, #0E103B); 
+    font-family: 'nexaRegular';
+    font-size: 3.5rem;
+    font-weight: 900;
+}
 
-  /* Style pour la coche elle-même */
-  .custom-checkbox .checkmark {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 10px; /* Largeur de la coche */
-    height: 15px; /* Hauteur de la coche */
-    border: solid #fff; /* Couleur de la coche */
-    border-width: 0 3px 3px 0; /* Ajustements pour dessiner la coche */
-    transform-origin: bottom left;
-    opacity: 0; /* La coche est initialement invisible */
-    transition: opacity 0.2s ease-in-out; /* Animation de transition pour l'opacité */
-  }
+.imgWhiteSquare{
+    background: #FFF;
+    box-shadow: 0px 4px 14px 0px rgba(14, 16, 59, 0.25);
+    width: 20%;
+    height: 40%; 
+    transform: rotate(-3deg);
+}
 
-  /* Style du texte associé à la case à cocher */
-  .custom-checkbox-label {
-    display: inline-block;
-    vertical-align: middle;
-    margin-left: 10px; /* Espacement entre la case à cocher et le texte */
-  }
+.imgUserContainer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 85%;
+    overflow: hidden;
+}
 
-  /* Styler le texte associé lorsque la case à cocher est cochée */
-  .custom-checkbox.checked .custom-checkbox-label {
-    color: #2ecc71; /* Couleur du texte lorsque la case à cocher est cochée */
-  }
+.userImg{
+    margin-top: 3%;
+    width: 90%;
+}
 
-  /* Style lorsque la case à cocher est cochée pour afficher la coche */
-  .custom-checkbox.checked .checkmark {
-    opacity: 1; /* Rendre la coche visible lorsque la case est cochée */
-  }
+.all-btn{
+    border-radius: 100px;
+    background: #F5F8E0;
+    width: 10%;
+    height: 7%;
+    margin-bottom: 6%;
+    display: flex;
+    justify-content: space-between;
+}
+
+button{
+    margin: 0% 4% 0% 4%;
+}
+
+@media only screen and (max-width: 1300px) {
+    .imgWhiteSquare{
+        width: 35%;
+        height: 45%;
+    }
+
+    .all-btn{
+        width: 20%;
+        height: 8%;
+    }
+}
+
+@media only screen and (max-width: 820px) {
+    header{
+        height: 8%;
+    }
+
+    .title{
+        font-size: 3rem;
+    }
+
+    .imgWhiteSquare{
+        width: 52%;
+        height: 53%;
+    }
+
+    .all-btn{
+        width: 30%;
+        height: 9%;
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    .imgWhiteSquare{
+        width: 60%;
+        height: 55%;
+    }
+
+    .all-btn{
+        width: 35%;
+        height: 9%;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .titleContainer{
+        width: 70%;
+    }
+
+    .title{
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .imgWhiteSquare{
+        width: 70%;
+        height: 60%;
+    }
+
+    .all-btn{
+        width: 40%;
+        height: 9%;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .center{
+        background: var(--Blanc, #F5F8E0); 
+    }
+
+    .imgWhiteSquare{
+        width: 90%;
+        height: 55%;
+    }
+
+    .all-btn{
+        width: 45%;
+        height: 9%;
+    }
+}

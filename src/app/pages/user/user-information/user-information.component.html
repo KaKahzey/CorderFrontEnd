@@ -42,7 +42,6 @@
                 <input type="checkbox" formControlName="conditionJeu"/>
                 J'ai lu et j'accepte
                 <a class="linkFont" href="https://www.pwrp.be/_files/ugd/bbef1f_e1c8d82b848642d593b85d811057df81.pdf"> les conditions du jeu</a>
-
             </label>
 
     <!--CHECKBOX NEWSLETTER-->
@@ -55,10 +54,13 @@
             <label>
                 <input type="checkbox" formControlName="rgpd" />
                 J'ai lu et j'accepte 
-                <a href="https://www.pwrp.be/_files/ugd/bbef1f_e1c8d82b848642d593b85d811057df81.pdf">la politique générale de protections des données</a>
-                
+                <a href="https://www.pwrp.be/_files/ugd/bbef1f_e1c8d82b848642d593b85d811057df81.pdf">la politique générale de protections des données</a>               
             </label>
 
+            <label>
+                <input type="checkbox" (change)="checkState()"/>
+                J'accepte que ma photo soit utilisée dans le cadre des actions de l'ASBL CORDER               
+            </label>
 
             <div class="all-btn">
                 <input class="btn1 btnStyle" routerLink="/good-practice" value="Retour">

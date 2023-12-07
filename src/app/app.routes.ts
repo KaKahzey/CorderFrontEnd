@@ -7,7 +7,7 @@ import { PhotoInformationComponent } from './pages/user/photo-information/photo-
 import { PhotoValidationComponent } from './pages/user/photo-validation/photo-validation.component';
 import { ThanksComponent } from './pages/user/thanks/thanks.component';
 import { UserInformationComponent } from './pages/user/user-information/user-information.component';
-import { connectedGuard } from './shared/guards/connected.guard';
+import { CorderGuard } from './shared/guards/corder.guard';
 import { GoodPracticeComponent } from './pages/user/good-practice/good-practice.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { ValidatedPhotosComponent } from './pages/admin/validated-photos/validated-photos.component';
@@ -15,20 +15,19 @@ import { RejectedPhotosComponent } from './pages/admin/rejected-photos/rejected-
 import { OnHoldPhotosComponent } from './pages/admin/on-hold-photos/on-hold-photos.component';
 import { ParticipantsComponent } from './pages/admin/participants/participants.component';
 import { StatisticsComponent } from './pages/admin/statistics/statistics.component';
-import { PopupValidationComponent } from './shared/components/popup-validation/popup-validation.component';
-import { PhotoCaptureComponent } from './pages/user/photo-capture/photo-capture.component';
+import { ModifyAccountComponent } from './pages/admin/modify-account/modify-account.component';
+import { CycleGuard } from './shared/guards/cycle.guard';
 
 export const routes: Routes = [
     {path : "", component : HomeComponent},
-    {path : "admin/login", component : LoginComponent},
-    {path : "admin/dashboard", component : DashboardComponent}, // canActivate: [connectedGuard]
-    {path : "admin/validated-photos", component : ValidatedPhotosComponent},
-    {path : "admin/rejected-photos", component : RejectedPhotosComponent},
-    {path : "admin/on-hold-photos", component : OnHoldPhotosComponent},
-    {path : "admin/participants", component : ParticipantsComponent},
-    {path : "admin/statistics", component : StatisticsComponent},
-    {path : "admin/popup-validation", component: PopupValidationComponent},
-    {path : "photo-capture", component : PhotoCaptureComponent},
+    {path : "login", component : LoginComponent},
+    {path : "admin/dashboard", component : DashboardComponent, canActivate : [CorderGuard]},
+    {path : "admin/validated-photos", component : ValidatedPhotosComponent, canActivate : [CycleGuard]},
+    {path : "admin/rejected-photos", component : RejectedPhotosComponent, canActivate : [CorderGuard]},
+    {path : "admin/on-hold-photos", component : OnHoldPhotosComponent, canActivate : [CorderGuard]},
+    {path : "admin/participants", component : ParticipantsComponent, canActivate : [CorderGuard]},
+    {path : "admin/statistics", component : StatisticsComponent, canActivate : [CorderGuard]},
+    {path : "modify-account", component : ModifyAccountComponent, canActivate : [CycleGuard]},
     {path : "photo-capture-choice", component : PhotoCaptureChoiceComponent},
     {path : "photo-information", component : PhotoInformationComponent},
     {path : "photo-validation", component : PhotoValidationComponent},

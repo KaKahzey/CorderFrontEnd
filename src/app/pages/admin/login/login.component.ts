@@ -5,7 +5,6 @@ import { AuthService } from '../../../shared/services/auth.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ApiService } from '../../../shared/services/api.service';
-import { NavbarService } from '../../../shared/services/navbar.service';
 
 @Component({
   selector: 'app-login',
@@ -19,26 +18,40 @@ export class LoginComponent {
 
   loginForm : FormGroup
 
-  constructor(private _authService : AuthService,private _apiService : ApiService, private _router : Router, private _fb : FormBuilder, public _navbarService : NavbarService){
+  constructor(private _authService : AuthService,private _apiService : ApiService, private _router : Router, private _fb : FormBuilder){
     this.loginForm = this._fb.group({
-      login : [[null], [Validators.required]],
-      password : [[null], [Validators.required]]
+      login : [null, [Validators.required]],
+      password : [null, [Validators.required]]
     })
   }
-  login() : void{
-    const loginInfo = {
-      login : this.loginForm.get("name")?.value,
-      password : this.loginForm.get("password")?.value
-    }
-    this._apiService.login(loginInfo).subscribe({
-      next : (response) => {
-        console.log("User logged in : ", response)
-        this._authService.setUser(loginInfo.login, response.token)
-        this._router.navigateByUrl("/admin/dashboard")
-      },
-      error : (error) => {
-        console.log("error : ", error)
-      }})
+  loginFormisValid = false;
+
+  login() : void{ 
+    if (this.loginForm.valid){
       
+      const loginInfo = {
+      login : this.loginForm.get("login")?.value,
+      password : this.loginForm.get("password")?.value
+      }
+      console.log(loginInfo);
+      
+      this._apiService.login(loginInfo).subscribe({
+
+        next : (response) => {
+          console.log("User logged in : ", response)
+          this._authService.setUser(loginInfo.login, response.token)
+          if(this._authService.getUser() === "cycleenterre"){
+            this._router.navigateByUrl("/admin/validated-photos")
+          }
+          else {
+            this._router.navigateByUrl("/admin/dashboard")
+          }
+        },
+
+        error : (error) => {
+          console.log("error : ", error)
+        }
+      })
+    }
   }
 }

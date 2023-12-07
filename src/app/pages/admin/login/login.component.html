@@ -1,13 +1,22 @@
-<div class=" bg-gray-100 p-4 rounded-md shadow-md text-center">
-    <form [formGroup]="loginForm" (submit)="login()">
-        <div class="mb-4">
-            <input type="text" formControlName="login" placeholder="Nom d'utilisateur" class="form-control" />
-        </div>
-        <div class="mb-4">
-            <input type="password" formControlName="password" placeholder="Mot de passe" class="form-control" />
-        </div>
-        <div>
-            <button class="btn" type="submit">Se connecter</button>
-        </div>
-    </form>
+<div class="main">
+    <div class="test">
+    </div>
+    <div class="title">
+        Connexion Admin
+    </div>
+    <div class="frame">
+        <form [formGroup]="loginForm" (submit)="login()">
+            <div class="fields">
+                <label>Login</label>
+                <input type="text" formControlName="login" class="form-control" />
+            </div>
+            <div class="fields">
+                <label>Mot de passe</label>
+                <input type="password" formControlName="password" class="form-control" />
+            </div>
+            <div class="button-area">
+                <button [disabled]="!loginForm.valid" type="submit">Connexion</button>
+            </div>
+        </form>
+    </div>
 </div>

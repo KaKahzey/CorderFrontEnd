@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from '../../../pages/admin/dashboard/dashboard.component';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,5 +12,18 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-  username : string = "Username"
+  username : string = "Admin " + this.displayUser()
+
+  constructor(private _AuthService : AuthService){
+    
+  }
+  
+  displayUser() : string {
+    if(this._AuthService.getUser() === "cycleenterre") {
+      return "Cycle en Terre"
+    }
+    else {
+      return "Corder"
+    }
+  }
 }

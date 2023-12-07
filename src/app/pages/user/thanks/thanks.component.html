@@ -6,16 +6,77 @@
     <title>Merci !</title>
 </head>
 <body>
-    <div class="center">
-        <p class="p-style-thanks">Merci !</p>
-        <p class="p-style-participation">Merci pour votre participation !</p>
-        <p>Un mail de confirmation vous a été envoyé.<br> Votre photo sera prise en charge par notre équipe afin de la valider.</p>
-            <div class="line"></div>
-        <p class="informations">Pour plus d'informations, n'hésitez pas à télécharger notre guide</p>
-        <div class="all-btn">
-            <a class="btn btnStyle1" href="https://8264e3fe-fee4-4848-bbcb-66c6942962ea.filesusr.com/ugd/bbef1f_7eea6d7fcc84428cb88e12b77c949901.pdf" target="_blank">Télécharger le PDF</a>
-            <a class="btn btnStyle2" routerLink="/">Retour sur le site web</a> 
+    <!--  fct et restructuration pour pouvoir fermer les pop-up-->
+    <div class="center" (click)="closeModal()">
+        <div>
+            <p class="p-style-thanks">Merci !</p>
+            <p class="p-style-participation">Merci pour votre participation !</p>
+            <p>Un mail de confirmation vous a été envoyé.<br> Votre photo sera prise en charge par notre équipe afin de la valider.</p>
+                <div class="line"></div>
+            <p class="informations">Pour plus d'informations, n'hésitez pas à télécharger notre guide</p>
+            <div class="all-btn">
+                <a class="btn btnStyle1" href="https://8264e3fe-fee4-4848-bbcb-66c6942962ea.filesusr.com/ugd/bbef1f_7eea6d7fcc84428cb88e12b77c949901.pdf" target="_blank">Télécharger le PDF</a>
+                <a class="btn btnStyle2" routerLink="/">Retour sur le site web</a> 
+            </div>
         </div>
     </div>
+        <!-- #myModal permet d'identifier le container à fermer-->
+        <div id="containe" #myModal>
+            <div class="card" id="popup0"> 
+                <h2>Qu'avez vous pensez de ce jeu concours ?</h2>
+                <h4 class="text-center">Faites nous part de votre expérience.</h4>
+
+                    <div class="flex items-center justify-center">
+
+                        <label class="radio-button" for="content">     
+                            <img id="emote1" src="/assets/img/Emotes/smile.svg" alt="content" [ngClass]="{'opacityTrue':isChecked1,'opacityFalse':!isChecked1}">
+                        </label>
+                        <input id="content" type="radio" name="groupRadio" value="content"  (click)="changeState('popup0');changeState('popup3');checkboxChange1()">
+                        
+                        <label class="radio-button" for="bof">
+                            <img id="emote2" src="/assets/img/Emotes/bof.svg" alt="bof" [ngClass]="{'opacityTrue':isChecked2,'opacityFalse':!isChecked2}">
+                        </label>
+                        <input id="bof" type="radio" name="groupRadio" value="bof"  (click)="changeState('popup1');checkBoxChange2()">
+
+                        <label class="radio-button" for="triste">
+                            <img id="emote3" src="/assets/img/Emotes/sad.svg" alt="pas content" [ngClass]="{'opacityTrue':isChecked3,'opacityFalse':!isChecked3}">
+                        </label>
+                        <input id="triste" type="radio" name="groupRadio" value="pas content"  (click)="changeState('popup1');checkBoxChange3()">
+                    </div>
+                    <br>
+                    <div class="all-btn" id="popup1">
+                        <div class="container-button">
+                            <button class="btn2 btnStyle3" (click)="sendMessage('C\'était trop long');changeState('popup0');changeState('popup3') ">C'était trop long</button>
+                            <button class="btn2 btnStyle3" (click)="sendMessage('C\'était trop court');changeState('popup0') ;changeState('popup3')">C'était trop court</button>
+                            <button class="btn2 btnStyle3" (click)="sendMessage('L\'appareil ne fonctionnait pas');changeState('popup0') ;changeState('popup3')">L'appareil ne fonctionnait pas</button>
+                            <button class="btn2 btnStyle3" (click)="sendMessage('Informations pas claires');changeState('popup0') ;changeState('popup3')">Informations pas claires</button>
+                            <button class="btn2 btnStyle3" (click)="changeState('popup0');changeState('popup2')">Autres</button>
+                        </div>
+                        <br>
+                    </div>    
+            </div>
+
+            <div class="card" id="popup2">
+                <h2>Qu'avez-vous pensé de ce jeu concours ?</h2><br>
+                <p>Faites-nous part de votre expérience.</p><br>
+                <h3>Décrivez votre problème</h3>
+
+                <textarea type="text" cols="50" rows="8" #messageInput placeholder="Je vais me peter le crâne"></textarea>
+               
+                <div class="button-comment">
+                    <button class="btn3" (click)="changeState('popup2') ;changeState('popup0')">Retour </button>
+                    <button class="btn3 btnStyle3" (click)="sendMessage(messageInput.value);changeState('popup2');changeState('popup3')"> Envoyer </button>
+                </div>
+            </div>
+
+            <div class="card" id="popup3">
+                <br>
+                <h2>Merci pour votre participation !</h2>
+                <br>
+                <p>Votre avis sera pris en compte pour des futures améliorations !</p>
+                <br>
+            </div>
+        </div>
+    
 </body>
 </html>

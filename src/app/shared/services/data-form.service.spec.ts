@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { NavbarService } from './navbar.service';
+import { DataFormService } from './data-form.service';
 
-describe('NavbarService', () => {
-  let service: NavbarService;
+describe('DataFormService', () => {
+  let service: DataFormService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(NavbarService);
+    service = TestBed.inject(DataFormService);
   });
 
   it('should be created', () => {

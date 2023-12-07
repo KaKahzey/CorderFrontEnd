@@ -72,17 +72,29 @@ p{
 .all-btn{
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
 }
+.container-button{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 
+}
 .btn{
-    width: 250px;
+    width: 350px;
     display: flex;
     justify-content: center;
     padding: 10px 0px;
     border-radius: 50px;
 }
-
+.btn2{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px;
+    border-radius: 50px;
+}
 .btnStyle1{
     background-color: #0E103B;
     color: #fff;
@@ -102,3 +114,99 @@ p{
         cursor: pointer;
         background-color: #91a00b;
     }
+
+.btnStyle3{
+    background-color: #e7f39a;
+    color: #0E103B;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.card{
+    width: 33%;
+    position: absolute;
+    top: 30%;
+    left: 33%;
+    border: dashed 2px;
+    border-radius: 5px;
+    display: none;
+    background-color: #f5f8e0;
+    
+}
+.containe{
+    display: block;
+    width: 100%;
+    height: 100vh;
+
+
+}
+h2{
+    font-weight: 700;
+    text-align: center;
+    font-size: larger;
+    margin-top: 5px;
+}
+input[name="groupRadio"]{
+   visibility: hidden;
+}
+
+#emote1{
+    height:86px;
+    width: 101px;
+    
+    transition:opacity 0.5s;
+}
+#emote2{
+    height:86px;
+    width: 86px;
+    
+    transition: opacity 0.5s;
+}
+#emote3{
+    height: 93px;
+    width: 93px;
+    transition: opacity 0.5s;
+}
+#emote1:hover,#emote2:hover,#emote3:hover{
+    opacity: 1;
+
+}
+.opacityTrue{
+    opacity:1;
+}
+.opacityFalse{
+    opacity:0.6;
+}
+textarea{
+    background-color:#f5f8e0;
+
+    width: 96%;
+  
+    margin-left: 2%;
+    margin-right: 2%;
+    
+
+    border: 2px solid;
+    border-radius: 10px;
+    padding : 10px;
+    resize: none;
+    
+}
+h3{
+    margin-left: 12px;
+    font-weight: 700;
+}
+.button-comment{
+    display: flex;
+    justify-content: space-between;
+}
+.btn3{
+    padding: 10px 0px;
+    border-radius: 25px;
+    padding: 10px;
+    margin-right: 5px;
+    margin-top: 7px;
+    margin-left: 5px;
+}
+
+  
