@@ -1,7 +1,4 @@
-body{
-    margin: 0;
-    padding: 0;
-    height: 100vh;
+.center{
     background-image: url("/assets/img/404/404-desktop.png");
     background-repeat: no-repeat;
     background-position: bottom center;
@@ -11,25 +8,16 @@ body{
 
 header{
     width: 100%;
-    height: 122px;
+    height: 12%;
     background-color: #0E103B;
 }
 
-
 .center{
+    width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-}
-
-a{
-    text-decoration: none;
-}
-
-p{
-    margin: -15px;
 }
 
 .p-style-error{
@@ -39,8 +27,9 @@ p{
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin: -260px 0px 40px 0px;
-
+    text-align: center;
+    margin-top: 6%;
+    margin-bottom: 2%;
 }
 
 .p-style-qcq{
@@ -50,7 +39,6 @@ p{
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin-bottom: 60px;
 }
 
 .p-oops{
@@ -61,13 +49,8 @@ p{
     font-style: normal;
     font-weight: 400;
     line-height: 170%;
-}
-
-.all-btn{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 150px;
+    margin-top: 2%;
+    margin-bottom: 10%;
 }
 
 .btn{
@@ -75,6 +58,7 @@ p{
     height: 48px; 
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 10px 0px;
     border-radius: 50px;
     font-family: 'pantonRegular';
@@ -82,52 +66,30 @@ p{
     font-style: normal;
     font-weight: 700;
     line-height: 25px;
-    text-align: center;
 }
 
-.btnStyle1{
+.btn-style{
     background-color: #B7C90D;
     color: #0E103B;
 }
-    .btnStyle1:hover{
+    .btn-style:hover{
         cursor: pointer;
         background-color: #94a31f;
     }
 
 // Réajuster pour tablette
-@media only screen and (max-width: 800px) {
-    header{
-        height: 65px;
-    }
+@media only screen and (max-width: 820px) {
     .p-style-error{
-        font-size: 34px;
-        margin: -160px 0px 30px 0px;
-    }
-    .p-style-qcq{
-        font-size: 120px;
-        margin-bottom: 40px;
-    }
-    .p-oops{
-        font-size: 20px;
-    }
-    .btn{
-        width: 460px;
-        height: 56px; 
+        margin-top: 10%;
     }
 }
 
 // Réajuster pour mobile
 @media only screen and (max-width: 500px) {
-    body{
-    margin: 0;
-    padding: 0;
+    .center{
     background-image: url("/assets/img/404/404-mobile.png");
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    background-size: cover;
 }
     .btn{
-        width: 330px;
-        font-size: 18px;
+        width: 300px;
     }
 }

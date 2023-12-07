@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PhotoCaptureComponent } from './photo-capture.component';
+import { PopupValidationComponent } from './popup-validation.component';
 
-describe('PhotoCaptureComponent', () => {
-  let component: PhotoCaptureComponent;
-  let fixture: ComponentFixture<PhotoCaptureComponent>;
+describe('PopupValidationComponent', () => {
+  let component: PopupValidationComponent;
+  let fixture: ComponentFixture<PopupValidationComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PhotoCaptureComponent]
+      imports: [PopupValidationComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(PhotoCaptureComponent);
+    fixture = TestBed.createComponent(PopupValidationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -21,3 +21,4 @@ describe('PhotoCaptureComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
