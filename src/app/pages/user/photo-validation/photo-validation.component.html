@@ -1,8 +1,24 @@
-<h1>Waw quel cliché !</h1> <br>
+<div class="center">
+    <header></header>
+    <div class="titleContainer">
+        <div class="title">Waw quel cliché 😱</div>
+    </div>
 
-<img [src]="imgUrl" alt="">
+    <div class="imgWhiteSquare">
+        <div class="imgUserContainer">
+            <img class="userImg" [src]="imgUrl" alt="">
+        </div>
+    </div>
+    
+    <div class="all-btn">
+        <button routerLink="/photo-capture-choice">
+            <img src="/assets/img/captureValidation/btn-rouge.svg" alt="return back">
+        </button>
+        <button (click)="sendPhoto()" >
+            <img src="/assets/img/captureValidation/btn-vert.svg" alt="send picture">
+        </button>
+    </div>
+</div>
 
-<button style="border: solid 2px red;" routerLink="/photo-capture-choice">Bouton rouge Revenir en arrière</button><br>
-<button (click)="sendPhoto()" style="border: solid 2px green;">Bouton vert passer à la suite</button>
 
 <p>{{errorMessage | json}}</p>

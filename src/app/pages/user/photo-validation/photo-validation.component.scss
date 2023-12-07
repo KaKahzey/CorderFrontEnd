@@ -1,0 +1,142 @@
+header{
+    width: 100%;
+    height: 10%;
+    background-color: #0E103B;
+}
+
+.center {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-image: url("/assets/img/blurCompletebg.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.title{
+    color: var(--Noir, #0E103B); 
+    font-family: 'nexaRegular';
+    font-size: 3.5rem;
+    font-weight: 900;
+}
+
+.imgWhiteSquare{
+    background: #FFF;
+    box-shadow: 0px 4px 14px 0px rgba(14, 16, 59, 0.25);
+    width: 20%;
+    height: 40%; 
+    transform: rotate(-3deg);
+}
+
+.imgUserContainer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 85%;
+    overflow: hidden;
+}
+
+.userImg{
+    margin-top: 3%;
+    width: 90%;
+}
+
+.all-btn{
+    border-radius: 100px;
+    background: #F5F8E0;
+    width: 10%;
+    height: 7%;
+    margin-bottom: 6%;
+    display: flex;
+    justify-content: space-between;
+}
+
+button{
+    margin: 0% 4% 0% 4%;
+}
+
+@media only screen and (max-width: 1300px) {
+    .imgWhiteSquare{
+        width: 35%;
+        height: 45%;
+    }
+
+    .all-btn{
+        width: 20%;
+        height: 8%;
+    }
+}
+
+@media only screen and (max-width: 820px) {
+    header{
+        height: 8%;
+    }
+
+    .title{
+        font-size: 3rem;
+    }
+
+    .imgWhiteSquare{
+        width: 52%;
+        height: 53%;
+    }
+
+    .all-btn{
+        width: 30%;
+        height: 9%;
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    .imgWhiteSquare{
+        width: 60%;
+        height: 55%;
+    }
+
+    .all-btn{
+        width: 35%;
+        height: 9%;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .titleContainer{
+        width: 70%;
+    }
+
+    .title{
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .imgWhiteSquare{
+        width: 70%;
+        height: 60%;
+    }
+
+    .all-btn{
+        width: 40%;
+        height: 9%;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .center{
+        background: var(--Blanc, #F5F8E0); 
+    }
+
+    .imgWhiteSquare{
+        width: 90%;
+        height: 55%;
+    }
+
+    .all-btn{
+        width: 45%;
+        height: 9%;
+    }
+}
