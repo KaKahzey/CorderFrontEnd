@@ -63,7 +63,7 @@ export class ThanksComponent {
         popup.style.display = this.statePopup[1];
         console.log(popup.style.display);
         if(popupID == 'popup3'){
-            this.sendOpinion()
+          this.sendOpinion()
           setTimeout(() => {
             this.changeState(popupID);
           }, 5000);
@@ -76,11 +76,39 @@ export class ThanksComponent {
       }
     }
   }
+  sendOpinion(){
+    this.satisfaction = this.defineSatisfaction();
+    this._DataForm.setOpinion(this.satisfaction, this.messages);
+    console.log(this.messages);
+    console.log(this.satisfaction);
+    this._ApiService.sendOpinion(this._DataForm.getOpinion()).subscribe({
+      next : (resp) => {
+        console.log("youpi");
+        
+      },
+      error : (error) => {
+        console.log("probleme",error);
+        
+      }
+    })
+  }
+  
+  defineSatisfaction():number { 
+    if(this.isChecked1){
+        return 1;
+    }
+    else if(this.isChecked2){
+      return 2;
+    }
+    else{
+      return 3;
+    }
+  }
   
   checkboxChange1(){
     this.isChecked1 = !this.isChecked1;
     if(this.isChecked2 == true){
-        this.isChecked2 = !this.isChecked2;
+      this.isChecked2 = !this.isChecked2;
     }
     else if(this.isChecked3 == false){
       this.isChecked3 = !this.isChecked3;
@@ -119,33 +147,6 @@ export class ThanksComponent {
     }
   }
 
-  sendOpinion(){
-    this.satisfaction = this.defineSatisfaction();
-    this._DataForm.setOpinion(this.satisfaction, this.messages);
-    console.log(this.messages);
-    console.log(this.satisfaction);
-    this._ApiService.sendOpinion(this._DataForm.getOpinion()).subscribe({
-      next : (resp) => {
-        console.log("youpi");
-          
-      },
-      error : (error) => {
-        console.log("probleme",error);
-  
-      }
-    })
-  }
 
-  defineSatisfaction():number { 
-    if(this.isChecked1){
-        return 1;
-    }
-    else if(this.isChecked2){
-      return 2;
-    }
-    else{
-      return 3;
-    }
-  }
 }
 

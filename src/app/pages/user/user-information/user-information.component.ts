@@ -17,6 +17,7 @@ export class UserInformationComponent {
   infoForm : FormGroup;
   router = inject(Router);
   newsletter : boolean = false;
+  acceptPhotoUsage : boolean = false;
   
   constructor(private _fb : FormBuilder,private _dataFormService : DataFormService, private _apiService : ApiService){
     this.infoForm = this._fb.group({
@@ -29,7 +30,7 @@ export class UserInformationComponent {
       city : [null,Validators.required],
       conditionJeu : [null, Validators.required],
       rgpd : [null, Validators.required],
-      newsletter: [this.newsletter]
+      newsletter: [this.newsletter],
     })
   }
 
@@ -40,7 +41,7 @@ export class UserInformationComponent {
     console.log(this.infoForm.get('newsletter')?.value);
   }
   getForm(){
-      if(this.infoForm.valid){
+      if(this.infoForm.valid && this.acceptPhotoUsage){
         console.log("formulaire valide");
         this._dataFormService.addForm(this.infoForm.value)
         this._apiService.createUser(this._dataFormService.mergeData()).subscribe({
@@ -58,5 +59,8 @@ export class UserInformationComponent {
         this.infoForm.markAllAsTouched();
         console.log("formulaire pas valide");
       }
+  }
+  checkState(){
+    this.acceptPhotoUsage = !this.acceptPhotoUsage;
   }
 }
