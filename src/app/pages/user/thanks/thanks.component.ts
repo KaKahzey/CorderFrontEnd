@@ -27,7 +27,7 @@ export class ThanksComponent {
     this.renderer = this.rendererFactory.createRenderer(null, null);
   }
   
-  messages: string[] = [];
+  private messages: string = '';
   
   ngOnInit(): void {
     
@@ -75,6 +75,16 @@ export class ThanksComponent {
     }
   }
   
+  checkboxChange1(){
+    this.isChecked1 = !this.isChecked1;
+    if(this.isChecked2 == true){
+        this.isChecked2 = !this.isChecked2;
+    }
+    else if(this.isChecked3 == false){
+      this.isChecked3 = !this.isChecked3; 
+    }
+
+  }
   checkBoxChange2(){
     this.isChecked2 = !this.isChecked2
     if(this.isChecked3 == true){
@@ -93,7 +103,7 @@ export class ThanksComponent {
   
   sendMessage(text: string) {
     if (text.trim() !== '') {
-      this.messages.push(text);
+      this.messages = text;
     }
   }
   

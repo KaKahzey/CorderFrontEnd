@@ -31,7 +31,7 @@
                         <label class="radio-button" for="content">     
                             <img id="emote1" src="/assets/img/Emotes/smile.svg" alt="content" [ngClass]="{'opacityTrue':isChecked1,'opacityFalse':!isChecked1}">
                         </label>
-                        <input id="content" type="radio" name="groupRadio" value="content"  (click)="changeState('popup0');changeState('popup3')">
+                        <input id="content" type="radio" name="groupRadio" value="content"  (click)="changeState('popup0');changeState('popup3');checkboxChange1()">
                         
                         <label class="radio-button" for="bof">
                             <img id="emote2" src="/assets/img/Emotes/bof.svg" alt="bof" [ngClass]="{'opacityTrue':isChecked2,'opacityFalse':!isChecked2}">
@@ -46,10 +46,10 @@
                     <br>
                     <div class="all-btn" id="popup1">
                         <div class="container-button">
-                            <button class="btn2 btnStyle3" (click)="changeState('popup0') ;changeState('popup3') ">C'était trop long</button>
-                            <button class="btn2 btnStyle3" (click)="changeState('popup0') ;changeState('popup3') ">C'était trop court</button>
-                            <button class="btn2 btnStyle3" (click)="changeState('popup0') ;changeState('popup3') ">L'appareil ne fonctionnait pas</button>
-                            <button class="btn2 btnStyle3" (click)="changeState('popup0') ;changeState('popup3') ">Informations pas claires</button>
+                            <button class="btn2 btnStyle3" (click)="changeState('popup0') ;changeState('popup3');sendMessage('C\'était trop long') ">C'était trop long</button>
+                            <button class="btn2 btnStyle3" (click)="changeState('popup0') ;changeState('popup3');sendMessage('C\'était trop court') ">C'était trop court</button>
+                            <button class="btn2 btnStyle3" (click)="changeState('popup0') ;changeState('popup3');sendMessage('L\'appareil ne fonctionnait pas') ">L'appareil ne fonctionnait pas</button>
+                            <button class="btn2 btnStyle3" (click)="changeState('popup0') ;changeState('popup3');sendMessage('Informations pas claires') ">Informations pas claires</button>
                             <button class="btn2 btnStyle3" (click)="changeState('popup0') ;changeState('popup2') ">Autres</button>
                         </div>
                         <br>
