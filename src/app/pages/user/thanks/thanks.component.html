@@ -46,11 +46,11 @@
                     <br>
                     <div class="all-btn" id="popup1">
                         <div class="container-button">
-                            <button class="btn2 btnStyle3" (click)="changeState('popup0') ;changeState('popup3');sendMessage('C\'était trop long') ">C'était trop long</button>
-                            <button class="btn2 btnStyle3" (click)="changeState('popup0') ;changeState('popup3');sendMessage('C\'était trop court') ">C'était trop court</button>
-                            <button class="btn2 btnStyle3" (click)="changeState('popup0') ;changeState('popup3');sendMessage('L\'appareil ne fonctionnait pas') ">L'appareil ne fonctionnait pas</button>
-                            <button class="btn2 btnStyle3" (click)="changeState('popup0') ;changeState('popup3');sendMessage('Informations pas claires') ">Informations pas claires</button>
-                            <button class="btn2 btnStyle3" (click)="changeState('popup0') ;changeState('popup2') ">Autres</button>
+                            <button class="btn2 btnStyle3" (click)="sendMessage('C\'était trop long');changeState('popup0');changeState('popup3') ">C'était trop long</button>
+                            <button class="btn2 btnStyle3" (click)="sendMessage('C\'était trop court');changeState('popup0') ;changeState('popup3')">C'était trop court</button>
+                            <button class="btn2 btnStyle3" (click)="sendMessage('L\'appareil ne fonctionnait pas');changeState('popup0') ;changeState('popup3')">L'appareil ne fonctionnait pas</button>
+                            <button class="btn2 btnStyle3" (click)="sendMessage('Informations pas claires');changeState('popup0') ;changeState('popup3')">Informations pas claires</button>
+                            <button class="btn2 btnStyle3" (click)="changeState('popup0');changeState('popup2')">Autres</button>
                         </div>
                         <br>
                     </div>    
@@ -65,7 +65,7 @@
                
                 <div class="button-comment">
                     <button class="btn3" (click)="changeState('popup2') ;changeState('popup0')">Retour </button>
-                    <button class="btn3 btnStyle3" (click)="changeState('popup2') ;changeState('popup3');sendMessage(messageInput.value)"> Envoyer </button>
+                    <button class="btn3 btnStyle3" (click)="sendMessage(messageInput.value);changeState('popup2');changeState('popup3')"> Envoyer </button>
                 </div>
             </div>
 

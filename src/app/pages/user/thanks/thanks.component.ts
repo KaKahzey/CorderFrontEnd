@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import {Renderer2} from '@angular/core';
 import { ɵDomRendererFactory2 } from '@angular/platform-browser';
 import { ApiService } from '../../../shared/services/api.service';
+import { DataFormService } from '../../../shared/services/data-form.service';
 
 @Component({
   selector: 'app-thanks',
@@ -22,15 +23,15 @@ export class ThanksComponent {
   isChecked3 = false;
 
   private satisfaction : number = 0;
+  private messages: string = '';
   
   @ViewChild('myModal', { static: false }) modal: ElementRef<HTMLElement> | null = null;
   private renderer: Renderer2;
 
-  constructor(private rendererFactory: ɵDomRendererFactory2, private _ApiService : ApiService){
+  constructor(private rendererFactory: ɵDomRendererFactory2, private _ApiService : ApiService ,private _DataForm : DataFormService ){
     this.renderer = this.rendererFactory.createRenderer(null, null);
   }
   
-  private messages: string = '';
   
   ngOnInit(): void {
     
@@ -62,11 +63,9 @@ export class ThanksComponent {
         popup.style.display = this.statePopup[1];
         console.log(popup.style.display);
         if(popupID == 'popup3'){
+            this.sendOpinion()
           setTimeout(() => {
             this.changeState(popupID);
-            console.log(this.isChecked1);
-            console.log(this.isChecked2);
-            console.log(this.isChecked3);
           }, 5000);
         }
       }
@@ -107,6 +106,8 @@ export class ThanksComponent {
   sendMessage(text: string) {
     if (text.trim() !== '') {
       this.messages = text;
+      console.log(this.messages);
+      
     }
   }
   
@@ -117,20 +118,34 @@ export class ThanksComponent {
       this.renderer.setStyle(this.modal.nativeElement, 'display', 'none');
     }
   }
-  sendOpinion(message : string){
-    this.defineSatisfaction()
-  }
-  defineSatisfaction(){
-    if(this.isChecked1 == true){
-        this.satisfaction = 1;
-    }
-    else if(this.isChecked2 == true){
-      this.satisfaction = 2;
-    }
-    else{
-      this.satisfaction = 3;
-    }
+
+  sendOpinion(){
+    this.satisfaction = this.defineSatisfaction();
+    this._DataForm.setOpinion(this.satisfaction, this.messages);
+    console.log(this.messages);
+    console.log(this.satisfaction);
+    this._ApiService.sendOpinion(this._DataForm.getOpinion()).subscribe({
+      next : (resp) => {
+        console.log("youpi");
+          
+      },
+      error : (error) => {
+        console.log("probleme",error);
+  
+      }
+    })
   }
 
+  defineSatisfaction():number { 
+    if(this.isChecked1){
+        return 1;
+    }
+    else if(this.isChecked2){
+      return 2;
+    }
+    else{
+      return 3;
+    }
+  }
 }
 
