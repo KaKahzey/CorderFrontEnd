@@ -14,6 +14,11 @@ TODO
 | ° input en inline                         | ok
 | ° email                                   | ok
 ---------------------------------------------
+
+
+!!!!! Renaud : Enlever le bouton skip dans le formulaire !!!!!
+!!!!! Renaud : Enlever le take picture sur desktop Photo Choice !!!!!
+
 gérer province pour composant participants
 
 

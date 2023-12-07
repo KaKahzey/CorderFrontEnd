@@ -25,7 +25,6 @@ export class ThanksComponent {
   isOpaque : boolean = true;
 
   texteAreaContenu: string = '';
-  previousLength: number = 0;
 
   private satisfaction : number = 0;
   private messages: string = '';
@@ -158,17 +157,6 @@ export class ThanksComponent {
 
   removeOpacity(){
     this.isOpaque = false;
-  }
-
-  limiterCaracteres() {
-    const limiteCaracteres = 120;
-    if (this.texteAreaContenu.length > limiteCaracteres) {
-      // Ne raccourcir que si l'utilisateur ajoute du texte, pas s'il le supprime
-      if (this.texteAreaContenu.length > this.previousLength) {
-        this.texteAreaContenu = this.texteAreaContenu.substring(0, limiteCaracteres);
-      }
-    }
-    this.previousLength = this.texteAreaContenu.length;
   }
 }
 
