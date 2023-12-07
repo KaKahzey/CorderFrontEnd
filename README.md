@@ -20,16 +20,15 @@ gérer province pour composant participants
 rectifications avant rendu final
 
 -> lien checkbox rgpd
-->ajout 4eme checkbox
-->rework checkbox
+->ajout 4eme checkbox ok
+->rework checkbox 
 
 -> lien quand infoform ok
--> lien envoi commentaire et avis
+-> lien envoi commentaire et avis ok
 
--> !!!! tester les endpoints du form 
--->     et popup pour le comment
+-> !!!! tester les endpoints du form ok
+-->     et popup pour le comment ok
 
-->fermeture popup click outside
 -> ptite fleche sur le button Autres
 -> nb Caracteres comment
 
