@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import {Renderer2} from '@angular/core';
 import { ɵDomRendererFactory2 } from '@angular/platform-browser';
+import { ApiService } from '../../../shared/services/api.service';
 
 @Component({
   selector: 'app-thanks',
@@ -19,11 +20,13 @@ export class ThanksComponent {
   isChecked1 = false;
   isChecked2 = false;
   isChecked3 = false;
+
+  private satisfaction : number = 0;
   
   @ViewChild('myModal', { static: false }) modal: ElementRef<HTMLElement> | null = null;
   private renderer: Renderer2;
 
-  constructor(private rendererFactory: ɵDomRendererFactory2){
+  constructor(private rendererFactory: ɵDomRendererFactory2, private _ApiService : ApiService){
     this.renderer = this.rendererFactory.createRenderer(null, null);
   }
   
@@ -81,7 +84,7 @@ export class ThanksComponent {
         this.isChecked2 = !this.isChecked2;
     }
     else if(this.isChecked3 == false){
-      this.isChecked3 = !this.isChecked3; 
+      this.isChecked3 = !this.isChecked3;
     }
 
   }
@@ -112,6 +115,20 @@ export class ThanksComponent {
     if (this.modal) {
       console.log("Modal found, changing style");
       this.renderer.setStyle(this.modal.nativeElement, 'display', 'none');
+    }
+  }
+  sendOpinion(message : string){
+    this.defineSatisfaction()
+  }
+  defineSatisfaction(){
+    if(this.isChecked1 == true){
+        this.satisfaction = 1;
+    }
+    else if(this.isChecked2 == true){
+      this.satisfaction = 2;
+    }
+    else{
+      this.satisfaction = 3;
     }
   }
 
