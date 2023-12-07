@@ -8,9 +8,61 @@
 
 header{
     width: 100%;
-    height: 12%;
+    height: 10%;
     background-color: #0E103B;
 }
+
+.bee,
+    .bee-2 {
+      position: absolute;
+      z-index: 9999999;
+
+      top: 50%;
+
+      @media (min-width: 1200px) {
+        width: 150px;
+      }
+    }
+
+    @keyframes fly {
+      0%,
+      100% {
+        top: 30%;
+      }
+
+      50% {
+        top: calc(30% - 50px);
+      }
+    }
+
+    .bee {
+      top: 20%;
+      left: 10%;
+      width: 60px;
+      @media (min-width: 1200px) {
+        width: 100px;
+        animation: fly 2s ease-in-out infinite;
+      }
+    }
+    .bee-2 {
+      top: 80%;
+      right: 10%;
+      width: 80px;
+      @media (min-width: 1200px) {
+        width: 150px;
+        animation: fly-2 3s ease-in-out infinite;
+      }
+    }
+    @keyframes fly-2 {
+      0%,
+      100% {
+        top: 60%;
+      }
+
+      50% {
+        top: calc(60% - 50px);
+      }
+    }
 
 .center{
     width: 100%;
@@ -82,14 +134,46 @@ header{
     .p-style-error{
         margin-top: 10%;
     }
+    .p-style-qcq{
+        margin: 15% 0% 8% 0%;
+    }
+    .p-oops{
+        margin-top: 15%;
+    }
+    .btn{
+        margin-top: 5%;
+    }
 }
 
 // Réajuster pour mobile
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
     .center{
     background-image: url("/assets/img/404/404-mobile.png");
-}
+    }
+    .p-style-qcq{
+        margin: 20% 0% 10% 0%;
+    }
+    .p-oops{
+        margin-top: 20%;
+    }
     .btn{
+        margin-top: 10%;
         width: 300px;
+    }
+}
+
+
+@media only screen and (max-width: 400px) {
+    .p-style-error{
+        margin-top: 20%;
+    }
+    .bee-2{
+        top: 90%;
+    }
+}
+
+@media only screen and (max-height: 700px) {
+    .bee-2{
+        top: 20%;
     }
 }
