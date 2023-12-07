@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LoginData } from '../models/loginData';
 import { ParticipantFullForm } from '../models/participantFullForm';
+import { Opinion } from '../models/opinion';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class ApiService {
   private _urlDeleteUser : string = ""
   private _urlUpdateUser : string = ""
   private _urlSetPicture : string = "http://192.168.200.102:8080/participation/addPhoto?id="
+  private _urlRating : string = "http://192.168.200.102:8080/participation/createSatisfaction"
 
   constructor(private _httpClient : HttpClient) { }
 
@@ -41,5 +43,8 @@ export class ApiService {
 
   addPicture(id : number, picture : FormData) : Observable<any> {
     return this._httpClient.post(this._urlSetPicture + id, picture)
+  }
+  sendOpinion(opinion : Opinion) : Observable<any> {
+    return this._httpClient.post(this._urlRating, opinion)
   }
 }
