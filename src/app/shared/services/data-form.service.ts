@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {  ParticipantFullForm } from '../models/participantFullForm';
 import { ParticipantContactDetails } from '../models/participantContactDetails';
+import { Opinion } from '../models/opinion';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,12 @@ export class DataFormService {
     acceptNewsletter : false
   }
   private id : number = 0
+
+  private opinion : Opinion = {
+    id : this.getId(),
+    satisfaction : 3,
+    satisfactionComment : ""
+  }
 
   constructor() { }
 
@@ -74,5 +81,17 @@ export class DataFormService {
 
   setId(id : number) : void {
     this.id = id
+  }
+
+  setOpinion(rating : number, comment : string) {
+    this.opinion = {
+      id : this.getId(),
+      satisfaction : rating,
+      satisfactionComment : comment
+    }
+  }
+
+  getOpinion() : Opinion {
+    return this.opinion
   }
 }
