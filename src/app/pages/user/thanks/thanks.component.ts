@@ -5,11 +5,12 @@ import { Renderer2 } from '@angular/core';
 import { ɵDomRendererFactory2 } from '@angular/platform-browser';
 import { ApiService } from '../../../shared/services/api.service';
 import { DataFormService } from '../../../shared/services/data-form.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-thanks',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, FormsModule],
   templateUrl: './thanks.component.html',
   styleUrl: './thanks.component.scss'
 })
@@ -22,6 +23,9 @@ export class ThanksComponent {
   isChecked3 = false;
 
   isOpaque : boolean = true;
+
+  texteAreaContenu: string = '';
+  previousLength: number = 0;
 
   private satisfaction : number = 0;
   private messages: string = '';
@@ -154,6 +158,17 @@ export class ThanksComponent {
 
   removeOpacity(){
     this.isOpaque = false;
+  }
+
+  limiterCaracteres() {
+    const limiteCaracteres = 120;
+    if (this.texteAreaContenu.length > limiteCaracteres) {
+      // Ne raccourcir que si l'utilisateur ajoute du texte, pas s'il le supprime
+      if (this.texteAreaContenu.length > this.previousLength) {
+        this.texteAreaContenu = this.texteAreaContenu.substring(0, limiteCaracteres);
+      }
+    }
+    this.previousLength = this.texteAreaContenu.length;
   }
 }
 

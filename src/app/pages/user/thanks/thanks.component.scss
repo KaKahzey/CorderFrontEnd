@@ -1,17 +1,122 @@
-.center{
+.center {
+    width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    background-image: url("/assets/img/thanksBackgroundDesktop.PNG");
+    justify-content: space-between;
+    background-image: url("/assets/img/blurCompletebg.png");
     background-repeat: no-repeat;
     background-position: bottom center;
     background-size: cover;
+    overflow: hidden;
+}
+
+header{
+    width: 100%;
+    height: 10%;
+    background-color: #0E103B;
 }
 
 .opaque{
-    opacity: 10%;
+    opacity: 6%;
+}
+
+.bigTitle{
+    font-family: 'nexaRegular';
+    font-size: 57px;
+    font-weight: 900;
+    color: var(--Noir, #0E103B);
+    text-align: center;
+}
+
+.litTit_para1{
+    text-align: center;
+}
+
+.littleTitle{
+    font-family: 'pantonRegular';
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--Noir, #0E103B); 
+}
+
+.para1{
+    margin-top: 10%;
+}
+
+.para2{
+    width: 35%;
+}
+
+.para1, .para2{
+    color: var(--Noir, #0E103B);
+    text-align: center; 
+    font-family: 'pantonRegular';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400; 
+}
+
+.line{
+    width: 244px;
+    height: 2px; 
+    background: #0E103B; 
+}
+
+.containerImg{
+    border-radius: 20px;
+    width: 25%;
+    height: 25%;
+    background-image: url("/assets/img/thanks-img/guideBpUHD.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 2%;
+}
+
+.containerPdfBtn{
+    margin-bottom: -2%;
+}
+
+.pdfBtn{
+    background-color: #B7C90D;
+    padding: 10px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #0E103B;
+    text-align: center;
+    font-family: 'pantonRegular';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.pdfBtn:hover{
+    background-color: #91a00b;
+}
+
+.backBtn{
+    background-color: #0E103B;
+    width: 480px;
+    height: 40px;
+    border-radius: 50px;
+    color: #F5F8E0;
+    text-decoration: none;
+    font-family: 'pantonRegular';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    border: none;
+    margin-bottom: 10%;
+}
+
+.backBtn:hover{
+    background-color: #03030c;
+    cursor: pointer;
 }
 
 a{
@@ -23,51 +128,20 @@ p{
     margin: 0px 8px;
 }
 
-.p-style-participation, .line, .btnStyle1{
-    margin: 35px 0px !important;
-}
-
-.p-style-thanks{
-    font-size: 32px;
-    font-weight: 700;
-}
-
-.p-style-participation{
-    margin: 35px 0px;
-    font-size: 20px;
-    font-weight: 700;    
-}
-
-.informations{
-    font-size: 16px;
-}
-
-.line{
-    height: 1px;
-    width: 250px;
-    border-bottom: solid 2px grey;
-    margin: 35px;
-}
-
 .all-btn{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
+
 .container-button{
     display: flex;
     align-items: center;
     flex-direction: column;
 
 }
-.btn{
-    width: 350px;
-    display: flex;
-    justify-content: center;
-    padding: 10px 0px;
-    border-radius: 50px;
-}
+
 .btn2{
     width: 90%;
     display: flex;
@@ -75,25 +149,6 @@ p{
     padding: 10px 0px;
     border-radius: 50px;
 }
-.btnStyle1{
-    background-color: #0E103B;
-    color: #fff;
-    margin-bottom: 35px;
-    margin-top: 35px;
-}
-    .btnStyle1:hover{
-            cursor: pointer;
-            background-color: #03030c;
-    }
-
-.btnStyle2{
-    background-color: #B7C90D;
-    color: #0E103B;
-}
-    .btnStyle2:hover{
-        cursor: pointer;
-        background-color: #91a00b;
-    }
 
 .btnStyle3{
     background-color: #e7f39a;
@@ -105,6 +160,19 @@ p{
 .btnStyle3:hover{
     cursor: pointer;
     background-color: #94a31f;
+}
+
+.chevronRight{
+    display: flex;
+    justify-content: space-between;
+}
+
+.centerTextBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 .card{
@@ -119,6 +187,10 @@ p{
     justify-content: center;
     align-items: center;
 }
+
+.limit{
+    color: red;
+  }
 
 .containe{
     display: flex;
@@ -193,22 +265,67 @@ h3{
     margin-left: 5px;
 }
 
-// Réajuster pour les versions paysages
-@media only screen and (max-width: 850px) {
-    .p-style-participation, .line, .btnStyle1{
-        margin: 20px 0px !important;
+@media only screen and (max-width: 1732px) {
+    .para2{
+        width: 40%;
     }
 }
 
-// Si l'écran passe de bureau à mobile, changer l'image
+@media only screen and (max-width: 1391px) {
+    .para2{
+        width: 50%;
+    }
+    .containerImg{
+        width: 35%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    header{
+        height: 6%;
+    }
+    .containerImg{
+        width: 50%;
+    }
+    .littleTitle{
+        margin-bottom: 5%;
+    }
+    .litTit_para1{
+        width: 80%;
+    }
+    .para2{
+        width: 70%;
+        text-align: center;
+    }
+}
+
 @media only screen and (max-width: 500px) {
     .center{
         background-image: url("/assets/img/thanksBackgroundMobile.png");
     }
 
     .card{
-        top: 30%;
+        top: 25%;
         width: 90%;
         left: 5%;
+    }
+    .containerImg{
+        width: 90%;
+    }
+    .litTit_para1{
+        width: 90%;
+    }
+    .para2{
+        line-height: 170%;
+        width: 90%;
+    }
+    .backBtn{
+        width: 400px;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .backBtn{
+        width: 300px;
     }
 }
