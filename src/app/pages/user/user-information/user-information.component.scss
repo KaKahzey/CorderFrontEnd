@@ -1,111 +1,215 @@
-//////////////////////////////////////////////////TITRES
-h1{
+@font-face {
+	font-family: 'nexaRegular';
+    src: url("/assets/fonts/NexaSlabHeavy.ttf");
+}
+@font-face {
+	font-family: 'pantonRegular';
+    src: url("/assets/fonts/Panton-Regular.ttf");
+}
+@font-face {
+	font-family: 'pantonBold';
+    src: url("/assets/fonts/Panton-Bold.ttf");
+}
+@font-face {
+	font-family: 'pantonExtraBold';
+    src: url("/assets/fonts/Panton-ExtraBold.ttf");
+}
 
-    color: #0E103B;
+body{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+.center {
+    width: 100%;
+    height: 100vh;
     display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    font-size: xx-large;
-    font-weight: 800;
-}
-.titleFont{
-    font-weight: 700;
-    margin-left: 25px;
-}
-
-////////////////////////////////////////////////BOUTONS
-.all-btn{
-    display: flex;
-    padding: 10px 0px;
-}
-.btnStyle{
-    width: 50%;
-    text-align: center;
-    padding: 10px 0px;
-    border-radius: 50px;
-    margin-right: 8px;
-    margin-left: 8px;
-    
-}
-.btn1{
-    background-color: #0E103B;
-    color : white;
-}
-.btn1:hover{
-    background-color:  #000000;
-    color: rgb(228, 228, 228);
-}
-
-.btn2{
-    background-color: #B7C90D;
-    color: #0E103B;
-
-}
-.btn2:hover{
-    background-color: #91a00b;
-}
-////////////////////////////////////////////
-.formContainer{
-    display: flex;
-    width:100%;
     flex-direction: column;
-    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-between;
+    background-image: url("/assets/img/blurCompletebg.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+    overflow: hidden;
 }
 
-.form-row{
-    display :flex;
-    width: 96%;
+header{
+    width: 100%;
+    height: 10%;
+    background-color: #0E103B;
 }
 
+.title{
+    color: var(--Noir, #0E103B);
+    text-align: center;
+    font-family: 'nexaRegular';
+    font-size: 3.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.formSquare{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: 20px;
+    background: var(--Blanc, #F5F8E0);
+    margin-bottom: 5%;
+    max-width: 60%;
+    max-height: 65%;
+}
+
+.firstName, .lastName, .email, .adress{
+    color: var(--Noir, #0E103B);
+    font-family: 'pantonBold';
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 1%;
+}
+
+.adressContainer{
+}
+
+.zip_cityContainer{
+    display: flex;
+}
+
+.zip input{
+    width: 40%;
+}
+
+.upPart{
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    margin: 2% 0% 0% 2%;
+}
+
+.leftPart{
+    flex-grow: 1;
+}
+
+.rightPart{
+    margin-right: 5%;
+}
+
+.downPart{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.rightPart input[type="text"]{
+    width: 100%;
+}
 
 input[type="text"]{
-
     background-color: #f5f8e0;
     border: 1px solid black;
     color: black;
-    
-    width: calc(96% - 20px);
     box-sizing: border-box;
-    padding: 14px 50px;
+    padding: 8px 50px;
     border-radius: 50px;
-    
-    margin-bottom: 20px;
-    margin-top: 2px;
-    margin-left: 20px;
-    
-   
+    margin-bottom: 5%;
 }
+
+// Toute la partie checkbox
+ .containerCheck {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .containerCheck input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #F5F8E0;
+    border: solid 1px black;
+  }
+  
+  .containerCheck:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  .containerCheck input:checked ~ .checkmark {
+    background: url('/assets/img/checkMark.svg');
+    background-position: center;
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .containerCheck input:checked ~ .checkmark:after {
+    display: block;
+  }
+//Fin de la partie checkbox
+  
+
+.all-Btn {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+button{
+    width: 205px;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    border-radius: 50px;
+    font-family: 'pantonRegular';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.backButton{
+    margin-right: 50%;
+    background-color: #0E103B;
+    color: #F5F8E0;
+}
+.backButton:hover{
+    cursor: pointer;
+    background-color: #0E101D;
+}
+
+.nextButton{
+    color: #0E103B;
+    background-color: #B7C90D;
+}
+.nextButton:hover{
+    cursor: pointer;
+    background-color: #94a31f;
+}
+
 .red-container::placeholder  {
     color: red;
 }
 .red-container{
     border:2px solid red !important;
 }
-label{
-    display: block;
-    margin-bottom: 10px;
-    margin-left: 20px;
-}
-label a{
-    text-decoration: underline;
-    color:#0E103B;
-
-}
-label a:hover{
-    color: rgb(112, 200, 227);
-}
-
-input[type="checkbox"] {
-    appearance: none; //Désactive l'apparence native du navigateur
-    width: 14px;
-    height: 14px;
-    background-color: #f5f8e0;
-    border: 1px solid black;
-    border-radius:  5px;
-    cursor: pointer;
-  }
-  
-input[type="checkbox"]:checked {
-    background-color: #B7C90D; 
-    border-color: #0E103B; 
-  }
