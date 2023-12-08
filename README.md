@@ -39,7 +39,15 @@ rectifications avant rendu final
 
 -> !!!! RESPONSIVE
 
+->guard corder : quand pending == valider refuser / cycle : envoyer
+SI valide alors bouton valide hidden ET bouton refuser visible
+SI refusé alors bouton valide visible ET bouton refuser hidden
+SI shipped bouton info envoyé
 ENDPOINTS :
+
+cycleenterre
+
+seulement acces bouton envoyer et envoyé
 
 Tout le formulaire user - POST
 ------------------------------

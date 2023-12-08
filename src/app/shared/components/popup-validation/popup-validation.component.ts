@@ -10,5 +10,12 @@ import { CommonModule } from '@angular/common';
 })
 export class PopupValidationComponent {
 
-  // userData : UserData = {firstName : "John", LastName :"Doe" , street : "rue à gauche", postCode : 1422, city : "Braine le Compte", productUsed : "Fongicide",pictureName : " ",pictureType : " "}
+  userData : any = {firstName : "John", lastName :"Doe" , street : "rue à gauche",email : "JohnDoe@gmail.com" ,blob : [1,0,1] , postCode : 1422, city : "Braine le Compte", productUsed : "Fongicide", newsletter : true}
+  
+  closePopUp(){
+    const popUp = document.getElementById("popup")
+    if(popUp){
+        popUp.style.display= "none";
+    }
+  }
 }

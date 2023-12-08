@@ -3,14 +3,60 @@
     height: 100vh;
 }
 .card{
+    background-color: red;
+    display: flex;
     width: 50%;
+    // flex-wrap: wrap;
+    // flex-direction: column;
+    height: fit-content;
+    width: fit-content;
     position: absolute;
+    top: 15%;
     bottom: 35%;
-    right: 25%;
-    border: solid 1px;
+    right: 33%;
+    border: solid 1px blue;
     border-radius: 25px;
+    padding: 10px;
+    padding-right: 30px;
+    
 }
+
+.card-content-img{
+    display: flexbox;
+    width: 40%;
+    border-radius: 100px;
+}
+
 .card-content-txt{
     display: flex;
-    padding: 10px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 66%;
+}
+.content-txt{
+    display: flex;
+}
+.txt-left{
+    width: fit-content;
+    padding: 5px;
+    margin: 5px;
+}
+.txt-right{
+    width: 100%;
+    margin: 5px;
+    padding: 5px;
+    background-color: greenyellow;
+    border-radius: 100px;
+}
+.photo-button{
+    width: 70px;
+    height: 67px;
+    background-image: url("/assets/img/buttonClose.svg");
+    margin-left: 40%;
+    
+    background-repeat: no-repeat;
+}
+.all-btn{
+    display: flex;
+    justify-content: space-evenly;
 }
