@@ -1,0 +1,75 @@
+.title {
+    font-family: nexaRegular;
+    font-size: 57px;
+    font-weight: 900;
+}
+.sort-area {
+    @apply flex pb-4;
+}
+
+button{
+    color: #0E103B;
+    width: 110px;
+    justify-content: center;
+    border-radius: 50px;
+    font-style: normal;
+    font-weight: 600; 
+    border-color : #0E103B;
+    @apply p-1 border;
+}
+
+button:hover{
+    background-color: #F5F8E0;
+}
+
+button:focus{
+    background-color: #0E103B;
+    color: white;
+}
+.buttons-sort {
+    @apply flex px-4 ;
+}
+.buttons-sort button {
+    margin-right: 10px;
+}
+.row {
+    @apply grid grid-cols-4;
+}
+.card {
+    margin-bottom: 40px;
+}
+.photo img {
+    width: 264px;
+    height: 264px;
+    object-fit: cover;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+.below-area{
+    background-color: #F5F8E0;
+    width:264px;
+    height : 80px;
+    padding-top : 10px;
+    padding-bottom : 10px;
+    padding-left: 10px;
+    @apply flex justify-between items-center;
+}
+.name-date {
+    height:100%;
+}
+.name {
+    font-weight: 700;
+    font-size: 20px;
+
+}
+.date {
+    font-weight: 700;
+    font-size : 14px;  
+    opacity: 50%; 
+}
+.below-area img {
+    margin-right : 10px;
+    width : 38px;
+    height : 38px;
+
+}

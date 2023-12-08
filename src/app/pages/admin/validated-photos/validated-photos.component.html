@@ -2,11 +2,34 @@
     <div class="title">
         Photos validées
     </div>
+    <div class="sort-area">
+        <span>trier par : </span>
+        <span class="buttons-sort">
+            <button (click)="sortName()">nom</button>
+            <button (click)="sortDate()">récent</button>
+            <button (click)="sortState()">état</button>
+            <button (click)="sortProduct()">produit</button>
+        </span>
+</div>
     <div class="row">
         @for (p of listParticipants; track p) {
-            <div>
-
+            <div class="card">
+                <div class="photo">
+                    <img src="/assets/img/placeholder.svg" />
+                </div>
+                <div class="below-area">
+                    <div class="name-date">
+                        <div class="name">
+                            Didier Franchamps
+                        </div>
+                        <div class="date">
+                            participation le 09/12/2023
+                        </div>
+                    </div>
+                    <img src="/assets/img/stateIndicators/validated.svg" alt="validated" />
+                </div>
             </div>
         }
+            
     </div>
 </div>

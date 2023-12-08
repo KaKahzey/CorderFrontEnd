@@ -1,11 +1,76 @@
-<div class="containe">
+<!-- <div class="containe">
       <div class="card h-1/3">
         <div class="card-content-img">
           <img src="" alt="">
         </div>
-        <div class="card-content-txt">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo incidunt vitae commodi accusamus, similique quae voluptas sit provident amet, quaerat voluptate autem laudantium tempore totam expedita? Illum, officiis laudantium! Amet.
+        <div class="card-content-txt-info">
+          <h4 class="txt-info">Nom :</h4>
+          <h4 class="txt-info">Prénom :</h4>
+          <h4 class="txt-info">Adresse mail :</h4>
+          <h4 class="txt-info">Adresse postale :</h4>
+          <h4 class="txt-info">Produit rapporté au recyparc :</h4>
+          <h4 class="txt-info">Newsletter</h4>
+        </div>
+        <div class="card-content-txt-userinfo">
+          <h4 class="txt-user-info">{{userData.firstName}}</h4>
+          <h4 class="txt-user-info">{{userData.lastName}}</h4>
+          <h4 class="txt-user-info">{{userData.email}}</h4>
+          <h4 class="txt-user-info">{{userData.street + " " +userData.city + " " +userData.postCode}}</h4>
+          <h4 class="txt-user-info">{{userData.firstName}}</h4>
+          <h4 class="txt-user-info">{{userData.newsletter}}</h4>
         </div>
       </div>
+</div> -->
+
+<div class="containe">
+  
+  <div class="card" id="popup">
+    <div class="card-content-img">
+      <img src="https://phototrend.fr/wp-content/uploads/2015/11/plans-r%C3%A9cap-770x836.jpg" alt="">
+    </div>
+
+    <div class="card-content-txt">
+
+      <div class="content-txt">
+        <h4 class="txt-left">Nom:</h4>
+        <h4 class="txt-right">{{userData.participantFirstName}}</h4>
+      </div>
+
+      <div class="content-txt">
+        <h4 class="txt-left">Prénom:</h4>
+        <h4 class="txt-right">{{userData.participantLastName}}</h4>
+      </div>
+
+      <div class="content-txt">
+        <h4 class="txt-left">Adresse mail:</h4>
+        <h4 class="txt-right">{{userData.participantEmail}}</h4>
+      </div>
+
+      <div class="content-txt">
+        <h4 class="txt-left">Adresse postale: </h4>
+        <h4 class="txt-right">{{userData.participantAddress.street + " " + userData.participantAddress.city + " " +userData.participantAddress.postCode}}</h4>
+      </div>
+
+      <div class="content-txt">
+        <h4 class="txt-left">Produit rapporté au recyparc:</h4>
+        <h4 class="txt-right">{{userData.productType}}</h4>
+      </div>
+
+      <div class="content-txt">
+        <h4 class="txt-left">Newsletter :</h4>
+        <h4 class="txt-right">{{userData.acceptNewsletter}}</h4>
+      </div>
+
+      <div class="all-btn">
+        <button>refuser</button>
+        <button>valider</button>
+      </div>
+    </div>
+    <div>
+      <button class="photo-button" (click)="closePopUp()"></button>
+    </div>
+  </div>
 </div>
+
+
 

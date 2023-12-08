@@ -14,7 +14,12 @@ export class DashboardComponent {
   weekParticipants : number = 19
   days : number[] = [5, 10, 3, 4, 1, 5, 8]
   timeLeft : number = this.displayTimeLeft("2024-06-20")
-
+  countProvince : {} = {"Hainaut": 0,
+  "Luxembourg": 0,
+  "Brabant wallon": 1,
+  "Liège": 0,
+  "Namur": 0}
+  
   constructor(private _renderer: Renderer2, private _elementRef: ElementRef) {}
 
   ngOnInit() : void {
