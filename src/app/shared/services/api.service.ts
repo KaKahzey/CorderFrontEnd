@@ -36,7 +36,7 @@ export class ApiService {
   deleteUser(id : number) : Observable<any> {
     return this._httpClient.delete(this._urlDeleteUser + id)
   }
-  
+
   updateUser(id : number, user : ParticipantFullForm) : Observable<any> {
     return this._httpClient.put(this._urlUpdateUser + id, user)
   }

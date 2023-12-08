@@ -17,14 +17,15 @@ export class ModifyAccountComponent {
 
   modifyForm : FormGroup
 
-  constructor(private _authService : AuthService,private _apiService : ApiService, private _router : Router, private _fb : FormBuilder){
+  constructor(private _apiService : ApiService, private _router : Router, private _fb : FormBuilder){
     this.modifyForm = this._fb.group({
       oldPassword : [null, [Validators.required]],
       newPassword : [null, [Validators.required]],
       newPasswordRepeat: [null,[Validators.required]]
     })
   }
-  modifyPassword(){
-    
+  modifyPassword() : void{
+    // this._apiService.updateUser().subscribe({
+    // })
   }
 }

@@ -4,7 +4,10 @@
     background-color: #F5F8E0 ;
   }
   .all-container{
-    display: flexbox;
+    align-content: center;
+    vertical-align: center;
+    height: fit-content;
+    display: flex;
     padding: 0;
   }
   .test{
@@ -13,33 +16,66 @@
     background-color: #0E103B;
     position: absolute;
   }
+  .eye{
+    width: 30px;
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+  }
+  .input-fields{
+    display: flex;
+    position: relative;
+    margin: 0;
+    width: 400px;
+  }
+  .txt{
+    flex-direction: column;
+    position: relative;
+    margin-left: 390px;
+    margin-top: 320px;
+    margin-right: 163px;
+    width: 600px;
+    height: fit-content;
+  }
+  p{
+    font-size: 22px;
+    margin-top: 40px;
+    display: inline-flex;
+    position: relative;
+    // bottom: 180px;
+    font-family: "pantonRegular";
+  }
   .title {
+    display: inline-flex;
     width: 590px;
     height: 131.4px;
-    font-family: nexaRegular;
     padding: 0;
-    position: fixed;
-    bottom: 580px;
-    left: 309px;
+    position: relative;
+    // bottom: 580px;
+    // top: 320px;
+    // left: 390px;
     font-family: 'nexaRegular';
+    margin-right: 163px;
     // margin-left: 309px;
     // margin-top: 355.2px;
     text-align: start;
     font-size: 57px;
   }
   .frame {
-    display: flex;
+    // display: flex;
     background-color: #E7F39A;
     // left: 1127px;
-    position: fixed;
-    right: 309px;
-    top: 320px;
-    bottom: 253px;
-    width : 407px;
-    height : 544px;
+    position: relative;
+    // margin-right: 390px;
+    // right: 390px;
+    // top: ;
+    // bottom: 253px;
+    width : fit-content;
+    height : fit-content;
     border-radius: 20px;
     padding-top: 40px;
-    margin: auto;
+    padding-bottom: 40px;
+    margin:  320px 390px 0 0 ;
   }
   form{
     padding: 0;
@@ -52,7 +88,6 @@
     font-weight: 700;
   }
   .fields {
-    padding-bottom: 40px;
     width : 100%;
     @apply space-y-2;
   }

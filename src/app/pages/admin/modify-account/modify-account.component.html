@@ -2,22 +2,39 @@
     <div class="test">
     </div>
     <div class="all-container">
-        <div class="title">
-            Modification de mot de passe
+        <div class="txt">
+            <div class="title"> 
+            Modification de <br> mot de passe 
+            </div>
+        <p>
+            Choisissez un mot de passe sécurisé.
+        </p>
+        <p>
+            Utilisez au moins 8 caractères. Ne choisissez pas un mot de passe que vous utilisez déjà sur un autre site ni un mot de passe qui soit trop évident tel que le nom de votre animal de compagnie
+        </p>
         </div>
+        
         <div class="frame">
             <form [formGroup]="modifyForm" (submit)="modifyPassword()">
                 <div class="fields">
                     <label>Ancien mot de passe</label>
-                    <input type="password" formControlName="oldPassword" class="form-control" />
+                    <div class="input-fields">
+                        <input type="password" formControlName="oldPassword" class="form-control" />
+                        <img class="eye" src="/assets/img/passwordEye/iconmonstr-eye-off-filled.svg" alt="" srcset="">
+                    </div>
                 </div>
                 <div class="fields">
                     <label>Nouveau mot de passe</label>
-                    <input type="password" formControlName="newPassword" class="form-control" />
+                    <div class="input-fields">
+                        <input type="password" formControlName="newPassword" class="form-control" />
+                    </div>
                 </div>
                 <div class="fields">
                     <label>Confirmer le nouveau mot de passe</label>
-                    <input type="password" formControlName="newPasswordRepeat" class="form-control">
+                    <div class="input-fields">
+                        <input type="password" formControlName="newPasswordRepeat" class="form-control" >
+                    </div>
+                    
                 </div>
                 <div class="button-area">
                     <button [disabled]="!modifyForm.valid" type="submit">Modifier le mot de passe</button>
