@@ -32,6 +32,8 @@ export class PopupValidationComponent {
     
      this._apiService.getById(1).subscribe(data => {
       this.userData = data
+      
+      
      })
   }
 
