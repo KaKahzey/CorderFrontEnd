@@ -154,12 +154,9 @@ export class ThanksComponent {
       this.renderer.setStyle(this.modal.nativeElement, 'display', 'none');
     }
   }
-<<<<<<< HEAD
 
   removeOpacity(){
     this.isOpaque = false;
   }
-=======
->>>>>>> popup-validation
 }
 
