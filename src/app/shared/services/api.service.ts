@@ -33,7 +33,6 @@ export class ApiService {
   }
 
   getAllUsersNoBlob() : Observable<any> {
-    console.log("Service");
     return this.httpclient2.get(this._urlGetAllParticipantsNoBlob)
   }
 
