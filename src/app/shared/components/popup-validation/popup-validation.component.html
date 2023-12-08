@@ -24,7 +24,7 @@
 
 <div class="containe">
   
-  <div class="card">
+  <div class="card" id="popup">
     <div class="card-content-img">
       <img src="https://phototrend.fr/wp-content/uploads/2015/11/plans-r%C3%A9cap-770x836.jpg" alt="">
     </div>
@@ -60,9 +60,14 @@
         <h4 class="txt-left">Newsletter :</h4>
         <h4 class="txt-right">{{userData.newsletter}}</h4>
       </div>
+
+      <div class="all-btn">
+        <button>refuser</button>
+        <button>valider</button>
+      </div>
     </div>
-    <div class="photo-span">
-      <img src="/assets/img/buttonClose.svg" alt="">
+    <div>
+      <button class="photo-button" (click)="closePopUp()"></button>
     </div>
   </div>
 </div>

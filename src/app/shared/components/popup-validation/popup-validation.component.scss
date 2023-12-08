@@ -3,6 +3,7 @@
     height: 100vh;
 }
 .card{
+    background-color: red;
     display: flex;
     width: 50%;
     // flex-wrap: wrap;
@@ -13,10 +14,11 @@
     top: 15%;
     bottom: 35%;
     right: 33%;
-    border: solid 1px;
+    border: solid 1px blue;
     border-radius: 25px;
     padding: 10px;
     padding-right: 30px;
+    
 }
 
 .card-content-img{
@@ -46,8 +48,15 @@
     background-color: greenyellow;
     border-radius: 100px;
 }
-.photo-span{
-    position: absolute;
-    margin-left: 5%;
-    border: solid 2px red;
+.photo-button{
+    width: 70px;
+    height: 67px;
+    background-image: url("/assets/img/buttonClose.svg");
+    margin-left: 40%;
+    
+    background-repeat: no-repeat;
+}
+.all-btn{
+    display: flex;
+    justify-content: space-evenly;
 }
