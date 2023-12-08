@@ -856,14 +856,24 @@ header {
           grid-area: map;
         }
       }
+      .maps{
+        @media only screen and (max-device-width : 700px){
+          height: 256px;
+          width: 320px;
+        }
+      }
 
       .placerMap {
         width: 100%;
         height: 400px;
-        background-image: url("/assets/img/img-home/recyparcs.webp");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
+        @media only screen and (max-device-width : 700px){
+          height: 288px;
+          width: 384px;
+        }
+        // background-image: url("/assets/img/img-home/recyparcs.webp");
+        // background-repeat: no-repeat;
+        // background-size: cover;
+        // background-position: center;
       }
     }
   }
