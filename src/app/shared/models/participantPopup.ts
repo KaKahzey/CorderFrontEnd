@@ -8,5 +8,6 @@ export interface ParticipantPopup {
         postCode : number
     },
     status : string,
+    productType : string,
     acceptNewsletter : boolean
 }

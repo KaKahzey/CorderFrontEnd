@@ -22,6 +22,7 @@ export class PopupValidationComponent {
       city : "",
       postCode : 0
     },
+    productType : "",
     status : "PENDING",
     acceptNewsletter : false
   }

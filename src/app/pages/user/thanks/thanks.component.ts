@@ -35,8 +35,6 @@ export class ThanksComponent {
   constructor(private rendererFactory: ɵDomRendererFactory2, private _ApiService : ApiService ,private _DataForm : DataFormService ){
     this.renderer = this.rendererFactory.createRenderer(null, null);
   }
-  
-  
   ngOnInit(): void {
     
     const popup0 = document.getElementById('popup0');
