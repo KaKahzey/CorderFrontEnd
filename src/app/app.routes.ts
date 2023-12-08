@@ -29,6 +29,7 @@ export const routes: Routes = [
     {path : "admin/participants", component : ParticipantsComponent, canActivate : [CorderGuard]},
     {path : "admin/statistics", component : StatisticsComponent, canActivate : [CorderGuard]},
     {path : "modify-account", component : ModifyAccountComponent, canActivate : [CycleGuard]},
+    {path : "popup-validation", component : PopupValidationComponent},
     {path : "photo-capture-choice", component : PhotoCaptureChoiceComponent},
     {path : "photo-information", component : PhotoInformationComponent},
     {path : "photo-validation", component : PhotoValidationComponent},

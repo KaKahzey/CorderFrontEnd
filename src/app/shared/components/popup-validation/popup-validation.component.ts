@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 import { ParticipantPopup } from '../../models/participantPopup';
+import { DataFormService } from '../../services/data-form.service';
 
 @Component({
   selector: 'app-popup-validation',
@@ -25,10 +26,13 @@ export class PopupValidationComponent {
     acceptNewsletter : false
   }
 
-  constructor(private _apiService : ApiService) {}
+  constructor(private _apiService : ApiService, private _dataFormService : DataFormService) {}
 
   ngOnInit() : void {
-     
+    
+     this._apiService.getById(1).subscribe(data => {
+      this.userData = data
+     })
   }
 
   closePopUp(){
