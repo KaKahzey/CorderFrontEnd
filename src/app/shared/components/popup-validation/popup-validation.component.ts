@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ApiService } from '../../services/api.service';
+import { ParticipantPopup } from '../../models/participantPopup';
 
 @Component({
   selector: 'app-popup-validation',
@@ -10,8 +12,25 @@ import { CommonModule } from '@angular/common';
 })
 export class PopupValidationComponent {
 
-  userData : any = {firstName : "John", lastName :"Doe" , street : "rue à gauche",email : "JohnDoe@gmail.com" ,blob : [1,0,1] , postCode : 1422, city : "Braine le Compte", productUsed : "Fongicide", newsletter : true}
-  
+  userData : ParticipantPopup = {
+    participantFirstName : "Jean",
+    participantLastName : "",
+    participantEmail : "",
+    participantAddress : {
+      street : "",
+      city : "",
+      postCode : 0
+    },
+    status : "PENDING",
+    acceptNewsletter : false
+  }
+
+  constructor(private _apiService : ApiService) {}
+
+  ngOnInit() : void {
+     
+  }
+
   closePopUp(){
     const popUp = document.getElementById("popup")
     if(popUp){
