@@ -22,7 +22,7 @@ export const routes: Routes = [
     {path : "", component : HomeComponent},
     {path : "login", component : LoginComponent},
     {path : "admin/dashboard", component : DashboardComponent, canActivate : [CorderGuard]},
-    {path : "admin/validated-photos", component : ValidatedPhotosComponent, canActivate : [CycleGuard]},
+    {path : "admin/validated-photos", component : ValidatedPhotosComponent},
     {path : "admin/rejected-photos", component : RejectedPhotosComponent, canActivate : [CorderGuard]},
     {path : "admin/on-hold-photos", component : OnHoldPhotosComponent, canActivate : [CorderGuard]},
     {path : "admin/participants", component : ParticipantsComponent, canActivate : [CorderGuard]},

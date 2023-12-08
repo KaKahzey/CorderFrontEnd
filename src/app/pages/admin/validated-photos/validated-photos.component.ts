@@ -16,4 +16,22 @@ export class ValidatedPhotosComponent {
 
   constructor(private _apiService : ApiService){}
 
+  sortName() {
+    //requête api 
+  }
+
+  sortDate() {
+    //requête api
+  }
+
+  sortState() {
+    //requête api
+  }
+
+  sortProduct() {
+    //requête api
+  }
+  showNext() {
+    
+  }
 }
