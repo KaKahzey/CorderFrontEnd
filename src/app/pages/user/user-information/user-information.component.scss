@@ -1,27 +1,14 @@
-@font-face {
-	font-family: 'nexaRegular';
-    src: url("/assets/fonts/NexaSlabHeavy.ttf");
-}
-@font-face {
-	font-family: 'pantonRegular';
-    src: url("/assets/fonts/Panton-Regular.ttf");
-}
-@font-face {
-	font-family: 'pantonBold';
-    src: url("/assets/fonts/Panton-Bold.ttf");
-}
-@font-face {
-	font-family: 'pantonExtraBold';
-    src: url("/assets/fonts/Panton-ExtraBold.ttf");
+input{
+    border: solid 1px #0E103B;
+    background: transparent;
+    outline: none;
+    font-family: 'pantonRegular';
 }
 
-body{
-    margin: 0;
-    padding: 0;
+button{
+    border: none;
+    outline:none;
 }
-
-
-
 
 .center {
     width: 100%;
@@ -37,13 +24,13 @@ body{
     overflow: hidden;
 }
 
-header{
+header {
     width: 100%;
     height: 10%;
     background-color: #0E103B;
 }
 
-.title{
+.title {
     color: var(--Noir, #0E103B);
     text-align: center;
     font-family: 'nexaRegular';
@@ -53,74 +40,81 @@ header{
     line-height: normal;
 }
 
+//Le rectangle principal contenant le formulaire
 .formSquare{
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
+    background-color: #F5F8E0;
+    width: 50%;
     border-radius: 20px;
-    background: var(--Blanc, #F5F8E0);
+    padding: 25px;
     margin-bottom: 5%;
-    max-width: 60%;
-    max-height: 65%;
 }
 
-.firstName, .lastName, .email, .adress{
-    color: var(--Noir, #0E103B);
-    font-family: 'pantonBold';
-    font-size: 1.25rem;
-    font-weight: 800;
-    margin-bottom: 1%;
-}
-
-.adressContainer{
-}
-
-.zip_cityContainer{
-    display: flex;
-}
-
-.zip input{
-    width: 40%;
-}
-
+//Div du haut => Contient div gauche et div droite
 .upPart{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    flex-grow: 1;
-    margin: 2% 0% 0% 2%;
 }
 
+//Div gauche => nom, prénom et mail
 .leftPart{
-    flex-grow: 1;
+    width: 40%; 
 }
-
-.rightPart{
-    margin-right: 5%;
+.inputname,.adress{
+    margin-bottom: 6px;
+    color: var(--Noir, #0E103B);
+    font-family: 'pantonBold';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800; 
 }
-
-.downPart{
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
+.input-left{
     width: 100%;
-}
-
-.rightPart input[type="text"]{
-    width: 100%;
-}
-
-input[type="text"]{
-    background-color: #f5f8e0;
-    border: 1px solid black;
-    color: black;
-    box-sizing: border-box;
-    padding: 8px 50px;
+    padding: 12px 10px;
     border-radius: 50px;
-    margin-bottom: 5%;
+    margin: 0px 0px 10px 0px;
+}
+.firstNameContainer input{
+    margin-bottom: 25px;
+}
+.lastNameContainer input{
+    margin-bottom: 25px;
+}
+.emailContainer input{
+    margin-bottom: 25px;
 }
 
-// Toute la partie checkbox
- .containerCheck {
+//Div droite => adresse, code postal et ville + checkbox
+.rightPart{
+    width: 40%;
+}
+.input-right{
+    width: 96%;
+    padding: 12px 10px;
+    border-radius: 50px;
+    margin: 0px 0px 10px 0px;
+}
+.zip_cityContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 99%;
+}
+.zip{
+    width: 29%;
+}
+.city{
+    width: 61%;
+}
+
+// Début partie checkbox !!!!!!!!!!!!!!!!!!!!!!!!!!
+.checkboxContainer{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.containerCheck {
     display: block;
     position: relative;
     padding-left: 35px;
@@ -130,16 +124,17 @@ input[type="text"]{
     -ms-user-select: none;
     user-select: none;
   }
-  
-  .containerCheck input {
+
+.containerCheck input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
     height: 0;
     width: 0;
   }
-  
-  .checkmark {
+
+
+.checkmark {
     position: absolute;
     top: 0;
     left: 0;
@@ -148,68 +143,169 @@ input[type="text"]{
     background-color: #F5F8E0;
     border: solid 1px black;
   }
-  
-  .containerCheck:hover input ~ .checkmark {
+
+
+.containerCheck:hover input ~ .checkmark {
     background-color: #ccc;
   }
-  
-  .containerCheck input:checked ~ .checkmark {
+
+.containerCheck input:checked ~ .checkmark {
     background: url('/assets/img/checkMark.svg');
     background-position: center;
   }
-  
-  .checkmark:after {
+
+.checkmark:after {
     content: "";
     position: absolute;
     display: none;
   }
   
-  .containerCheck input:checked ~ .checkmark:after {
+.containerCheck input:checked ~ .checkmark:after {
     display: block;
   }
-//Fin de la partie checkbox
-  
+//Fin de la partie checkbox !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-.all-Btn {
+
+//Div down => tout les boutons ---------------------
+.all-Btn{
     display: flex;
-    justify-content: space-evenly;
-    width: 100%;
+    justify-content: space-between; 
 }
 
-button{
-    width: 205px;
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-    border-radius: 50px;
-    font-family: 'pantonRegular';
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
+.stylebtn{
+    padding: 10px 40px;
+    border-radius: 100px;
+    width: 200px;
 }
+    .stylebtn:hover{
+        cursor: pointer;
+    }
 
 .backButton{
-    margin-right: 50%;
     background-color: #0E103B;
-    color: #F5F8E0;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 600;
 }
+
 .backButton:hover{
     cursor: pointer;
     background-color: #0E101D;
 }
 
 .nextButton{
-    color: #0E103B;
-    background-color: #B7C90D;
+    background-color: #D6E177;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 600;
 }
+
 .nextButton:hover{
     cursor: pointer;
     background-color: #94a31f;
 }
 
+
+//En cas d'erreur de formulaire ----------------------
 .red-container::placeholder  {
     color: red;
 }
 .red-container{
     border:2px solid red !important;
+}
+
+//Ajuster pour tablette et écrans moyens -----------------
+@media only screen and (max-width: 1024px) {
+    .center{
+        background: #F5F8E0 !important;
+    }
+    header{
+        height: 5%;
+    }
+    .formSquare{
+        width: 90%;
+    }
+    .upPart{
+        flex-direction: column;
+        align-items: center;
+    }
+    .leftPart{
+        width: 100%;
+    }
+    .rightPart{
+        width: 100%;
+    }
+    .input-left{
+        width: 98%;
+    }
+    .input-right{
+        width: 98%;
+    }
+  }
+
+//Ajustements pour les téléphones plus petits en hauteur ------------------------
+@media only screen and (max-height: 930px) {
+    .center{
+        overflow: visible;
+    }
+    .title{
+        font-size: 42px; 
+    }
+    .inputname,.adress{
+        font-size: 18px;
+        margin-bottom: 2px;
+    }
+    .stylebtn{
+        padding: 10px 20px;
+        border-radius: 100px;
+        width: 150px;
+    }
+    .input-left, .input-right{
+        padding: 6px 10px;
+    }
+}
+
+@media only screen and (max-height: 850px) {
+    .title{
+        font-size: 34px;
+    }
+    .inputname,.adress{
+        font-size: 14px;
+        margin-bottom: 2px;
+    }
+    .stylebtn{
+        padding: 10px 20px;
+        border-radius: 100px;
+        width: 150px;
+    }
+    .input-left, .input-right{
+        padding: 6px 10px;
+    }
+    .all-Btn{
+        margin-bottom: -10%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .title{
+        font-size: 28px;
+    }
+    .inputname,.adress{
+        font-size: 12px;
+        margin-bottom: 1px;
+    }
+    .stylebtn{
+        padding: 10px 20px;
+        border-radius: 100px;
+        width: 150px;
+    }
+    .input-left, .input-right{
+        padding: 6px 10px;
+    }
+    .containerCheck input{
+        font-size: 10px;
+    }
+    .checkboxContainer{
+        width: 113%;
+    }
 }

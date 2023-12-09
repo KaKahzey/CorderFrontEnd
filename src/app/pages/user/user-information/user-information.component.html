@@ -1,50 +1,60 @@
-<form class="formContainer" [formGroup]="infoForm" (ngSubmit) ="getForm()">
+<form class="formContainer" [formGroup]="infoForm" (ngSubmit)="getForm()">
     <div class="center">
         <header></header>
 
         <div class="title">Vos infos</div>
 
         <div class="formSquare">
-
             <div class="upPart">
-
                 <div class="leftPart">
                     <div class="firstNameContainer">
-                        <div class="firstName">Prénom</div>
-                        <input type="text" placeholder="Michel"  [ngClass]="{'red-container': infoForm.get('firstName')?.touched && infoForm.get('firstName')?.errors?.['required']}"formControlName="firstName">
+                        <div class="firstName inputname">Prénom</div>
+                        <input class="input-left" type="text" placeholder="Michel"
+                            [ngClass]="{'red-container': infoForm.get('firstName')?.touched && infoForm.get('firstName')?.errors?.['required']}"
+                            formControlName="firstName">
                     </div>
-    
+
                     <div class="lastNameContainer">
-                        <div class="lastName">Nom</div>
-                        <input type="text" placeholder="Biville"  [ngClass]="{'red-container': infoForm.get('lastName')?.touched && infoForm.get('lastName')?.errors?.['required']}"formControlName="lastName">
+                        <div class="lastName inputname">Nom</div>
+                        <input class="input-left" type="text" placeholder="Biville"
+                            [ngClass]="{'red-container': infoForm.get('lastName')?.touched && infoForm.get('lastName')?.errors?.['required']}"
+                            formControlName="lastName">
                     </div>
-    
+
                     <div class="emailContainer">
-                        <div class="email">Adresse mail</div>
-                        <input type="text" placeholder="michelbiville@exemple.be"  [ngClass]="{'red-container': infoForm.get('email')?.touched && infoForm.get('email')?.errors?.['required'] || infoForm.get('email')?.errors?.['pattern']}"formControlName="email">
-            
-                        @if(infoForm.get('email')?.errors?.['pattern']){
-                            Mauvais format
-                        }       
+                        <div class="email inputname">Adresse mail</div>
+                        <input class="input-left" type="text" placeholder="michelbiville@exemple.be"
+                            [ngClass]="{'red-container': infoForm.get('email')?.touched && infoForm.get('email')?.errors?.['required'] || infoForm.get('email')?.errors?.['pattern']}"
+                            formControlName="email">
+
+                            @if(infoForm.get('email')?.errors?.['pattern']){
+                                <p style="color: red;">Mauvais format</p>
+                            }
 
                     </div>
                 </div>
-    
+
                 <div class="rightPart">
                     <div class="adressContainer">
                         <div class="adress">Adresse postale</div>
-                        <input type="text" placeholder="Adresse + numéro"  [ngClass]="{'red-container': infoForm.get('street')?.touched && infoForm.get('street')?.errors?.['required']}"formControlName="street">
+                        <input class="input-right" type="text" placeholder="Rue du Paradis, 15"
+                            [ngClass]="{'red-container': infoForm.get('street')?.touched && infoForm.get('street')?.errors?.['required']}"
+                            formControlName="street">
                     </div>
-    
+
                     <div class="zip_cityContainer">
                         <div class="zip">
-                            <input type="text" placeholder="Code postal"  [ngClass]="{'red-container': infoForm.get('postCode')?.touched && infoForm.get('postCode')?.errors?.['required']}"formControlName="postCode">
+                            <input class="input-right" type="text" placeholder="1000" maxlength="4" 
+                                [ngClass]="{'red-container': infoForm.get('postCode')?.touched && infoForm.get('postCode')?.errors?.['required']}"
+                                formControlName="postCode">
                         </div>
                         <div class="city">
-                            <input type="text" placeholder="Ville"   [ngClass]="{'red-container': infoForm.get('city')?.touched && infoForm.get('city')?.errors?.['required']}"formControlName="city">
+                            <input class="input-right" type="text" placeholder="Bruxelles"
+                                [ngClass]="{'red-container': infoForm.get('city')?.touched && infoForm.get('city')?.errors?.['required']}"
+                                formControlName="city">
                         </div>
                     </div>
-    
+
                     <div class="checkboxContainer">
                         <label class="containerCheck">
                             <input type="checkbox" checked="checked" formControlName="conditionJeu"> J'ai lu et j'accepte
@@ -70,12 +80,10 @@
 
             </div>
 
-            <div class="downPart">
                 <div class="all-Btn">
-                    <button class="backButton" routerLink="/good-practice">Retour</button>
-                    <button class="nextButton" type="submit" value="Je participe !">C'est bon !</button>
-                </div>   
-            </div>
+                    <button class="backButton stylebtn" routerLink="/good-practice">Retour</button>
+                    <button class="nextButton stylebtn" type="submit" value="Je participe !">C'est bon !</button>
+                </div>
 
         </div>
     </div>
