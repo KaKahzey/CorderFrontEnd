@@ -26,7 +26,7 @@ export class UserInformationComponent {
       lastName : [null, [Validators.required]],
       email : [null,[Validators.required,Validators.pattern(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)]],
       street : [null,Validators.required],
-      postCode : [null,Validators.required],
+      postCode: [null, [Validators.required, Validators.pattern(/^[0-9]{4}$/)]],
       city : [null,Validators.required],
       conditionJeu : [null, Validators.required],
       rgpd : [null, Validators.required],
@@ -42,7 +42,7 @@ export class UserInformationComponent {
   }
   getForm(){
       if(this.infoForm.valid && this.acceptPhotoUsage){
-        console.log("formulaire valide");
+        console.log("Le formulaire est valide ! ♥");
         this._dataFormService.addForm(this.infoForm.value)
         this._apiService.createUser(this._dataFormService.mergeData()).subscribe({
           next : (resp) => {
@@ -60,13 +60,13 @@ export class UserInformationComponent {
             })  
           },
           error : (error) => {
-            console.log("probleme",error);
+            console.log("_apiService.createUser > échec de la requête",error);
           }
         })
       }
       else{
         this.infoForm.markAllAsTouched();
-        console.log("formulaire pas valide");
+        console.log("Le formulaire n'est pas valide");
       }
   }
   checkState(){

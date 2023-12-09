@@ -1,111 +1,311 @@
-//////////////////////////////////////////////////TITRES
-h1{
+input{
+    border: solid 1px #0E103B;
+    background: transparent;
+    outline: none;
+    font-family: 'pantonRegular';
+}
 
-    color: #0E103B;
+button{
+    border: none;
+    outline:none;
+}
+
+.center {
+    width: 100%;
+    height: 100vh;
     display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    font-size: xx-large;
-    font-weight: 800;
-}
-.titleFont{
-    font-weight: 700;
-    margin-left: 25px;
-}
-
-////////////////////////////////////////////////BOUTONS
-.all-btn{
-    display: flex;
-    padding: 10px 0px;
-}
-.btnStyle{
-    width: 50%;
-    text-align: center;
-    padding: 10px 0px;
-    border-radius: 50px;
-    margin-right: 8px;
-    margin-left: 8px;
-    
-}
-.btn1{
-    background-color: #0E103B;
-    color : white;
-}
-.btn1:hover{
-    background-color:  #000000;
-    color: rgb(228, 228, 228);
-}
-
-.btn2{
-    background-color: #B7C90D;
-    color: #0E103B;
-
-}
-.btn2:hover{
-    background-color: #91a00b;
-}
-////////////////////////////////////////////
-.formContainer{
-    display: flex;
-    width:100%;
     flex-direction: column;
-    box-sizing: border-box;
+    align-items: center;
+    justify-content: space-between;
+    background-image: url("/assets/img/blurCompletebg.png");
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+    overflow: hidden;
 }
 
-.form-row{
-    display :flex;
-    width: 96%;
+header {
+    width: 100%;
+    height: 10%;
+    background-color: #0E103B;
 }
 
+.title {
+    color: var(--Noir, #0E103B);
+    text-align: center;
+    font-family: 'nexaRegular';
+    font-size: 3.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
 
-input[type="text"]{
+//Le rectangle principal contenant le formulaire
+.formSquare{
+    background-color: #F5F8E0;
+    width: 50%;
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 5%;
+}
 
-    background-color: #f5f8e0;
-    border: 1px solid black;
-    color: black;
-    
-    width: calc(96% - 20px);
-    box-sizing: border-box;
-    padding: 14px 50px;
+//Div du haut => Contient div gauche et div droite
+.upPart{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+//Div gauche => nom, prénom et mail
+.leftPart{
+    width: 40%; 
+}
+.inputname,.adress{
+    margin-bottom: 6px;
+    color: var(--Noir, #0E103B);
+    font-family: 'pantonBold';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 800; 
+}
+.input-left{
+    width: 100%;
+    padding: 12px 10px;
     border-radius: 50px;
-    
-    margin-bottom: 20px;
-    margin-top: 2px;
-    margin-left: 20px;
-    
-   
+    margin: 0px 0px 10px 0px;
 }
+.firstNameContainer input{
+    margin-bottom: 25px;
+}
+.lastNameContainer input{
+    margin-bottom: 25px;
+}
+.emailContainer input{
+    margin-bottom: 25px;
+}
+
+//Div droite => adresse, code postal et ville + checkbox
+.rightPart{
+    width: 40%;
+}
+.input-right{
+    width: 96%;
+    padding: 12px 10px;
+    border-radius: 50px;
+    margin: 0px 0px 10px 0px;
+}
+.zip_cityContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 99%;
+}
+.zip{
+    width: 29%;
+}
+.city{
+    width: 61%;
+}
+
+// Début partie checkbox !!!!!!!!!!!!!!!!!!!!!!!!!!
+.checkboxContainer{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.containerCheck {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+.containerCheck input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #F5F8E0;
+    border: solid 1px black;
+  }
+
+
+.containerCheck:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+
+.containerCheck input:checked ~ .checkmark {
+    background: url('/assets/img/checkMark.svg');
+    background-position: center;
+  }
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+.containerCheck input:checked ~ .checkmark:after {
+    display: block;
+  }
+//Fin de la partie checkbox !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+//Div down => tout les boutons ---------------------
+.all-Btn{
+    display: flex;
+    justify-content: space-between; 
+}
+
+.stylebtn{
+    padding: 10px 40px;
+    border-radius: 100px;
+    width: 200px;
+}
+    .stylebtn:hover{
+        cursor: pointer;
+    }
+
+.backButton{
+    background-color: #0E103B;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.backButton:hover{
+    cursor: pointer;
+    background-color: #0E101D;
+}
+
+.nextButton{
+    background-color: #D6E177;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 600;
+}
+
+.nextButton:hover{
+    cursor: pointer;
+    background-color: #94a31f;
+}
+
+
+//En cas d'erreur de formulaire ----------------------
 .red-container::placeholder  {
     color: red;
 }
 .red-container{
     border:2px solid red !important;
 }
-label{
-    display: block;
-    margin-bottom: 10px;
-    margin-left: 20px;
-}
-label a{
-    text-decoration: underline;
-    color:#0E103B;
 
-}
-label a:hover{
-    color: rgb(112, 200, 227);
+//Ajuster pour tablette et écrans moyens -----------------
+@media only screen and (max-width: 1024px) {
+    .center{
+        background: #F5F8E0 !important;
+    }
+    header{
+        height: 5%;
+    }
+    .formSquare{
+        width: 90%;
+    }
+    .upPart{
+        flex-direction: column;
+        align-items: center;
+    }
+    .leftPart{
+        width: 100%;
+    }
+    .rightPart{
+        width: 100%;
+    }
+    .input-left{
+        width: 98%;
+    }
+    .input-right{
+        width: 98%;
+    }
+  }
+
+//Ajustements pour les téléphones plus petits en hauteur ------------------------
+@media only screen and (max-height: 930px) {
+    .center{
+        overflow: visible;
+    }
+    .title{
+        font-size: 42px; 
+    }
+    .inputname,.adress{
+        font-size: 18px;
+        margin-bottom: 2px;
+    }
+    .stylebtn{
+        padding: 10px 20px;
+        border-radius: 100px;
+        width: 150px;
+    }
+    .input-left, .input-right{
+        padding: 6px 10px;
+    }
 }
 
-input[type="checkbox"] {
-    appearance: none; //Désactive l'apparence native du navigateur
-    width: 14px;
-    height: 14px;
-    background-color: #f5f8e0;
-    border: 1px solid black;
-    border-radius:  5px;
-    cursor: pointer;
-  }
-  
-input[type="checkbox"]:checked {
-    background-color: #B7C90D; 
-    border-color: #0E103B; 
-  }
+@media only screen and (max-height: 850px) {
+    .title{
+        font-size: 34px;
+    }
+    .inputname,.adress{
+        font-size: 14px;
+        margin-bottom: 2px;
+    }
+    .stylebtn{
+        padding: 10px 20px;
+        border-radius: 100px;
+        width: 150px;
+    }
+    .input-left, .input-right{
+        padding: 6px 10px;
+    }
+    .all-Btn{
+        margin-bottom: -10%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .title{
+        font-size: 28px;
+    }
+    .inputname,.adress{
+        font-size: 12px;
+        margin-bottom: 1px;
+    }
+    .stylebtn{
+        padding: 10px 20px;
+        border-radius: 100px;
+        width: 150px;
+    }
+    .input-left, .input-right{
+        padding: 6px 10px;
+    }
+    .containerCheck input{
+        font-size: 10px;
+    }
+    .checkboxContainer{
+        width: 113%;
+    }
+}
