@@ -66,11 +66,13 @@
         <p>Faites-nous part de votre expérience.</p><br>
         <h3>Décrivez votre problème</h3>
 
-        <textarea [(ngModel)]="texteAreaContenu" maxlength="120" type="text" cols="50" rows="8" #messageInput placeholder="J’ai beaucoup aimé l’expérience ! C’était pas trop long et chouette. J’ai hâte de recevoir mes graines😊"></textarea>
-        <p [ngClass]="{ 'limit': texteAreaContenu.length >= 120 }">Nombre de caractères : {{ texteAreaContenu.length }}/120</p>
+        <div class="textarea-container">
+            <textarea [(ngModel)]="texteAreaContenu" maxlength="120" type="text" cols="50" rows="8" #messageInput placeholder="Je suis un peu déçu(e). J'ai rencontré quelques problèmes de performances et éprouvé des difficultés à utiliser certaines fonctionnalités. 😓"></textarea>
+            <p [ngClass]="{ 'limit': texteAreaContenu.length >= 120 }">{{ texteAreaContenu.length }}/120 caractères</p>
+        </div>
         
         <div class="button-comment">
-            <button class="btn3" (click)="changeState('popup2') ;changeState('popup0')">Retour </button>
+            <button class="btn3 btnStyle4" (click)="changeState('popup2') ;changeState('popup0')">Retour </button>
             <button class="btn3 btnStyle3" (click)="sendMessage(messageInput.value);changeState('popup2');changeState('popup3')"> Envoyer </button>
         </div>
     </div>
