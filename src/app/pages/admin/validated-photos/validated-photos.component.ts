@@ -12,26 +12,93 @@ import { ApiService } from '../../../shared/services/api.service';
 export class ValidatedPhotosComponent {
 
   
-  listParticipants : Object[] = [{id : 0, src : "/assets/img/placeholder.svg"}, {id : 0, src : "/assets/img/placeholder.svg"}]
+  listParticipants : Object[] = [{id : 0, src : "/assets/img/placeholder.svg"}]
+  currentSettingsPage : any = {status : "validated", sort : "date", page : 0  }
 
   constructor(private _apiService : ApiService){}
 
-  sortName() {
-    //requête api 
+  ngOnInit() : void {
+    this._apiService.getPageByStatus(this.currentSettingsPage.status, this.currentSettingsPage.sort, this.currentSettingsPage).subscribe(data => {
+      this.listParticipants = data.content
+    })
+  }
+
+  updateButtonColor(status : string) {
+    const buttonValidated = document.getElementById("validated")
+    const buttonShipped = document.getElementById("shipped")
+    if(buttonValidated && buttonShipped) {
+      if(status === "validated"){
+          buttonValidated.style.backgroundColor = "#4D9C18"
+          buttonShipped.style.backgroundColor = "white"
+          buttonShipped.style.color = "black"
+        }
+        else if(status === "shipped"){
+          buttonShipped.style.backgroundColor = "#4D9C18"
+          buttonValidated.style.backgroundColor = "white"
+          buttonValidated.style.color = "black"
+        }
+    }
   }
 
   sortDate() {
-    //requête api
+    this.currentSettingsPage.sort = "date"
+    this.currentSettingsPage.page = 0
+    this._apiService.getPageByStatus(this.currentSettingsPage.status, this.currentSettingsPage.sort, this.currentSettingsPage).subscribe(data => {
+      this.listParticipants = data.content
+    })
+  }
+  
+  sortDateDecreasing() {
+    this.currentSettingsPage.sort = "date"
+    this.currentSettingsPage.page = 0
+    this._apiService.getPageByStatus(this.currentSettingsPage.status, this.currentSettingsPage.sort, this.currentSettingsPage).subscribe(data => {
+      this.listParticipants = data.content
+    })
   }
 
-  sortState() {
-    //requête api
+  sortName() {
+    this.currentSettingsPage.sort = "name"
+    this.currentSettingsPage.page = 0
+    this._apiService.getPageByStatus(this.currentSettingsPage.status, this.currentSettingsPage.sort, this.currentSettingsPage).subscribe(data => {
+      this.listParticipants = data.content
+    })
   }
 
-  sortProduct() {
-    //requête api
+  showValidated() {
+    this.currentSettingsPage.status = "validated"
+    this.currentSettingsPage.sort = "date"
+    this.currentSettingsPage.page = 0
+    this.updateButtonColor("validated")
+    this._apiService.getPageByStatus(this.currentSettingsPage.status, this.currentSettingsPage.sort, this.currentSettingsPage).subscribe(data => {
+      this.listParticipants = data.content
+    })
   }
+
+  showShipped() {
+    this.currentSettingsPage.status = "shipped"
+    this.currentSettingsPage.sort = "date"
+    this.currentSettingsPage.page = 0
+    this.updateButtonColor("shipped")
+    this._apiService.getPageByStatus(this.currentSettingsPage.status, this.currentSettingsPage.sort, this.currentSettingsPage).subscribe(data => {
+      this.listParticipants = data.content
+    })
+  }
+
   showNext() {
-    
+    this.currentSettingsPage.page += 1
+    this._apiService.getPageByStatus(this.currentSettingsPage.status, this.currentSettingsPage.sort, this.currentSettingsPage).subscribe(data => {
+      this.listParticipants = data.content
+      
+    })
+  }
+
+  showPrevious() {
+    if(this.currentSettingsPage.page >= 1){
+      this.currentSettingsPage.page -= 1
+      this._apiService.getPageByStatus(this.currentSettingsPage.status, this.currentSettingsPage.sort, this.currentSettingsPage).subscribe(data => {
+        this.listParticipants = data.content
+        
+      })
+    }
   }
 }

@@ -4,12 +4,15 @@
 }
 .photo-area {
     width : 70%;
+    height : fit-content;
+    align-content: center;
 }
 .frame {
     background-color: #F5F8E0;
     border-radius : 20px; 
     margin-bottom: 1.79vh;
-    @apply pl-2;
+    height : 31.42vh;
+    @apply pl-3;
 }
 .title-frame {
     color: #81848d;
@@ -21,8 +24,8 @@
 .grid-images {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 8px;
     padding-right: 5%;
+    padding-top : 1.79vh;
 }
 .see-more {
     font-weight: bold;
@@ -30,18 +33,18 @@
 }
 
 .image-container {
-    height: 100%;
+    width : 11.57vw;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    @apply pb-4;
+    height : 23vh;
 }
 .image-container:hover {
     cursor: pointer;
 }
 .see-more {
-    height : 90%;
+    
+    width : 11.57vw;
 }
 .image-container.see-more:hover {
     cursor: pointer;
@@ -49,8 +52,10 @@
     @apply border
 }
 
-img {
-    height : 23vh;
+.image {
+    max-height: 100%;
+    object-fit: cover;
+    
 }
 .main-info-section {
     width : 28%;

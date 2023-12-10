@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { Router, RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
 import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -13,7 +13,7 @@ import { AuthTokenInterceptor } from './shared/interceptors/auth-token.intercept
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   providers: [ApiService,
-    {provide : HTTP_INTERCEPTORS, useClass : AuthTokenInterceptor, multi : true}]
+    {provide : HTTP_INTERCEPTORS, useClass : AuthTokenInterceptor, multi : true}, DatePipe]
 })
 export class AppComponent {
   title = 'CorderFrontEnd';

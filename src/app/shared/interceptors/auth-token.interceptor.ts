@@ -13,6 +13,9 @@ export class AuthTokenInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+
+    console.log("Test interceptor");
+    //On tente de récupérer le token dans le localStorage
     let token = localStorage.getItem('token');
     if(token && token !== '') {
       
@@ -22,7 +25,8 @@ export class AuthTokenInterceptor implements HttpInterceptor {
       
       return next.handle(requestClone);
     }
-    
+    //Sinon, on next juste
+
     return next.handle(request);
   }
 }
