@@ -1,106 +1,228 @@
 <div id="main">
-    <div class="frame graphs">
+    <div class="frame graph-count">
         <div class="in-frame">
-            <div class="top-title">
-                <div class="title-frame">
-                    Nombre de participants
-                </div>
-            </div>
-            <div class="top-graph">
-                <div class="top-buttons">
-                    <button class="btn-graph">Par semaine</button>
-                    <button class="btn-graph">Par mois</button>
-                </div>
-                <div class="top-graph-total">
-                    Participations cette semaine : 19
-                </div>
-            </div>  
-            <div class="graph-vertical-week">
-                <div class="graph-vertical-bars">
-                    <div class="bg-graph-vertical">
-                        <div class="monday"></div>
+            <!-- Grapique des semaines -->
+            <div class="both-graphs" id="weeks-months-graph">
+                <div class="top-title">
+                    <div class="title-frame">
+                        Nombre de participants
                     </div>
-                    <p>Lun 10/06</p>
                 </div>
-                <div class="graph-vertical-bars">
-                    <div class="bg-graph-vertical">
-                        <div class="tuesday"></div>
+                <div class="top-graph">
+                    <div class="top-buttons">
+                        <button (click)="changeGraphic('weeks')" class="btn-graph">Par semaine</button>
+                        <button (click)="changeGraphic('months')" class="btn-graph">Par mois</button>
                     </div>
-                    <p>Mar 10/06</p>
-                </div>
-                <div class="graph-vertical-bars">
-                    <div class="bg-graph-vertical">
-                        <div class="wednesday"></div>
+                    <div class="top-graph-total">
+                        @if (!showMonths) {
+                            Participations cette semaine : {{weekParticipants}}
+                        }
+                        @else {
+                            Participations ce mois : 
+                            {{monthParticipants}}
+                        }
                     </div>
-                    <p>Mer 10/06</p>
-                </div>
-                <div class="graph-vertical-bars">
-                    <div class="bg-graph-vertical">
-                        <div class="thursday"></div>
+                </div>  
+                    <div [ngStyle]="{ display: !showMonths ? 'block' : 'none' }" id="weeks-graph">
+                        <div class="graph-vertical-week">
+                            <div class="graph-vertical-bars">
+                                <div class="bg-graph-vertical">
+                                    <div class="monday"></div>
+                                </div>
+                                <p>Lun 10/06</p>
+                            </div>
+                            <div class="graph-vertical-bars">
+                                <div class="bg-graph-vertical">
+                                    <div class="tuesday"></div>
+                                </div>
+                                <p>Mar 10/06</p>
+                            </div>
+                            <div class="graph-vertical-bars">
+                                <div class="bg-graph-vertical">
+                                    <div class="wednesday"></div>
+                                </div>
+                                <p>Mer 10/06</p>
+                            </div>
+                            <div class="graph-vertical-bars">
+                                <div class="bg-graph-vertical">
+                                    <div class="thursday"></div>
+                                </div>
+                                <p>Jeu 10/06</p>
+                            </div>
+                            <div class="graph-vertical-bars">
+                                <div class="bg-graph-vertical">
+                                    <div class="friday"></div>
+                                </div>
+                                <p>Ven 10/06</p>
+                            </div>
+                            <div class="graph-vertical-bars">
+                                <div class="bg-graph-vertical">
+                                    <div class="saturday"></div>
+                                </div>
+                                <p>Sam 10/06</p>
+                            </div>
+                            <div class="graph-vertical-bars">
+                                <div class="bg-graph-vertical">
+                                    <div class="sunday"></div>
+                                </div> 
+                                <p>Dim 10/06</p>
+                            </div>   
+                        </div>
+                        <div class="below-graph">
+                            <div class="previous-week">
+                                <span (click)="showPrevious()" class="link-style">Semaine précédente</span>
+                            </div>
+                            <div class="next-week">
+                                <span (click)="showNext()" class="link-style">Semaine suivante</span>
+                            </div>
+                        </div>
                     </div>
-                    <p>Jeu 10/06</p>
-                </div>
-                <div class="graph-vertical-bars">
-                    <div class="bg-graph-vertical">
-                        <div class="friday"></div>
+            <!-- Graphique des mois -->
+                    <div [ngStyle]="{ display: showMonths ? 'block' : 'none' }" id="months-graph">
+                        <div class="graph-vertical-week">
+                            <div class="graph-vertical-bars">
+                                <div class="bg-graph-vertical">
+                                    <div class="fifth-month"></div>
+                                </div>
+                                <p>{{translateMonth(getMonthKey(4))}}</p>
+                            </div>
+                            <div class="graph-vertical-bars">
+                                <div class="bg-graph-vertical">
+                                    <div class="fourth-month"></div>
+                                </div>
+                                <p>{{translateMonth(getMonthKey(3))}}</p>
+                            </div>
+                            <div class="graph-vertical-bars">
+                                <div class="bg-graph-vertical">
+                                    <div class="third-month"></div>
+                                </div>
+                                <p>{{translateMonth(getMonthKey(2))}}</p>
+                            </div>
+                            <div class="graph-vertical-bars">
+                                <div class="bg-graph-vertical">
+                                    <div class="second-month"></div>
+                                </div>
+                                <p>{{translateMonth(getMonthKey(1))}}</p>
+                            </div>
+                            <div class="graph-vertical-bars">
+                                <div class="bg-graph-vertical">
+                                    <div class="first-month"></div>
+                                </div>
+                                <p>{{translateMonth(getMonthKey(0))}}</p>
+                            </div>
+                        </div>
+                        <div class="below-graph">
+                            <div class="previous-week">
+                            </div>
+                            <div class="next-week">
+                            </div>
+                        </div>
                     </div>
-                    <p>Ven 10/06</p>
-                </div>
-                <div class="graph-vertical-bars">
-                    <div class="bg-graph-vertical">
-                        <div class="saturday"></div>
-                    </div>
-                    <p>Sam 10/06</p>
-                </div>
-                <div class="graph-vertical-bars">
-                    <div class="bg-graph-vertical">
-                        <div class="sunday"></div>
-                    </div> 
-                    <p>Dim 10/06</p>
-                </div>   
-            </div>
-            <div class="below-graph">
-                <div class="previous-week">
-                    <span class="link-style">Semaine précédente</span>
-                </div>
-                <div class="next-week">
-                    <span class="link-style">Semaine suivante</span>
-                </div>
             </div>
         </div>
     </div>
     <!-- side total -->
     <div class="frame side-area">
-        <div>
+        <div class="title-frame">
+            Au total
+        </div>
+        <div class="total-count">
             <div class="title-frame">
-                Au total
+                {{totalParticipants}}
             </div>
-            <div class="total-count">
-                <div class="title-frame">
-                    123
-                </div>
-                <div>
-                    participants
-                </div>
-            </div>
-            <div class="total-count">
-                <div class="title-frame">
-                    timer
-                </div>
-                <div>
-                    jours restants
-                </div>
+            <div>
+                participants
             </div>
         </div>
+        <div class="total-count time-left">
+            <div class="title-frame">
+                {{timeLeft}}
+            </div>
+            <div>
+                jours restants
+            </div>
+        </div>
+        <p>
+            Durée de la campagne : du 21 mars au 20 juin
+        </p>
     </div>
     <!-- Localisation des participants -->
-    <div class="frame graphs">
+    <div class="frame graph-count">
         <div class="in-frame">
-            <div class="title-frame">
-                Localisation des participants
-            </div>                
-        </div>
-    </div>
-    <div class="frame side-area">
-    </div>
+            <!-- Grapique des semaines -->
+            <div class="both-graphs" id="weeks-months-graph">
+                <div class="top-title">
+                    <div class="title-frame">
+                        Nombre de participants
+                    </div>
+                </div>
+                <div class="top-graph">
+                    <div class="top-buttons">
+                        <button (click)="changeGraphic('weeks')" class="btn-graph">Par semaine</button>
+                        <button (click)="changeGraphic('months')" class="btn-graph">Par mois</button>
+                    </div>
+                    <div class="top-graph-total">
+                        @if (!showMonths) {
+                            Participations cette semaine : {{weekParticipants}}
+                        }
+                        @else {
+                            Participations ce mois : 
+                            {{monthParticipants}}
+                        }
+                    </div>
+                </div>  
+                    <div [ngStyle]="{ display: !showMonths ? 'block' : 'none' }" id="weeks-graph">
+                        <div class="graph-vertical-week">
+                            <div class="graph-vertical-bars">
+                                <div class="bg-graph-vertical">
+                                    <div class="monday"></div>
+                                </div>
+                                <p>Lun 10/06</p>
+                            </div>
+                            <div class="graph-vertical-bars">
+                                <div class="bg-graph-vertical">
+                                    <div class="tuesday"></div>
+                                </div>
+                                <p>Mar 10/06</p>
+                            </div>
+                            <div class="graph-vertical-bars">
+                                <div class="bg-graph-vertical">
+                                    <div class="wednesday"></div>
+                                </div>
+                                <p>Mer 10/06</p>
+                            </div>
+                            <div class="graph-vertical-bars">
+                                <div class="bg-graph-vertical">
+                                    <div class="thursday"></div>
+                                </div>
+                                <p>Jeu 10/06</p>
+                            </div>
+                            <div class="graph-vertical-bars">
+                                <div class="bg-graph-vertical">
+                                    <div class="friday"></div>
+                                </div>
+                                <p>Ven 10/06</p>
+                            </div>
+                            <div class="graph-vertical-bars">
+                                <div class="bg-graph-vertical">
+                                    <div class="saturday"></div>
+                                </div>
+                                <p>Sam 10/06</p>
+                            </div>
+                            <div class="graph-vertical-bars">
+                                <div class="bg-graph-vertical">
+                                    <div class="sunday"></div>
+                                </div> 
+                                <p>Dim 10/06</p>
+                            </div>   
+                        </div>
+                        <div class="below-graph">
+                            <div class="previous-week">
+                                <span (click)="showPrevious()" class="link-style">Semaine précédente</span>
+                            </div>
+                            <div class="next-week">
+                                <span (click)="showNext()" class="link-style">Semaine suivante</span>
+                            </div>
+                        </div>
+                    </div>
 </div>

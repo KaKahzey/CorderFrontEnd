@@ -5,12 +5,13 @@
     <div class="sort-area">
         <span>trier par : </span>
         <span class="buttons-sort">
-            <button (click)="sortName()">nom</button>
             <button (click)="sortDate()">récent</button>
-            <button (click)="sortState()">état</button>
-            <button (click)="sortProduct()">produit</button>
+            <button (click)="sortDateDecreasing()">ancien</button>
+            <button (click)="sortName()">nom</button>
+            <button id="validated" (click)="showValidated()">validé</button>
+            <button id="shipped" (click)="showShipped()">envoyé</button>
         </span>
-</div>
+    </div>
     <div class="row">
         @for (p of listParticipants; track p) {
             <div class="card">
@@ -20,7 +21,7 @@
                 <div class="below-area">
                     <div class="name-date">
                         <div class="name">
-                            Didier Franchamps
+                            Didier Franchampsss
                         </div>
                         <div class="date">
                             participation le 09/12/2023
@@ -30,6 +31,13 @@
                 </div>
             </div>
         }
-            
+    </div>
+    <div class="move-page-area">
+        <div class="previous-page">
+            <a (click)="showPrevious()">Page précédente</a>
+        </div>
+        <div class="next-page">
+            <a (click)="showNext()">Page suivante</a>
+        </div>
     </div>
 </div>
