@@ -34,9 +34,12 @@ rectifications avant rendu final
 -> ptite fleche sur le button Autres
 -> nb Caracteres comment
 
--> !!!! RESPONSIVE
-
-PENDING, VALIDATED, DENIED, SHIPPED
+-> !!!! RESPONSIVE            a envoyer
+                                  |
+PENDING, VALIDATED|| DENIED,   SHIPPED, envoyé !  
+                                  |
+                            corder| cycleEnTerre
+envoyé !  
 
 ->guard corder : quand pending == valider refuser / cycle : envoyer
 SI valide alors bouton valide hidden ET bouton refuser visible
