@@ -14,6 +14,7 @@ TODO
 | ° input en inline                         | ok
 | ° email                                   | ok
 ---------------------------------------------
+
 gérer province pour composant participants
 
 
