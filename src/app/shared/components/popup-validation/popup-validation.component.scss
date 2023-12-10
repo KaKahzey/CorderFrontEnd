@@ -3,7 +3,7 @@
     height: 100vh;
 }
 .card{
-    background-color: red;
+    background-color:#F5F8E0;
     display: flex;
     width: 50%;
     // flex-wrap: wrap;
@@ -45,8 +45,9 @@
     width: 100%;
     margin: 5px;
     padding: 5px;
-    background-color: greenyellow;
+    background-color: #E7F39A;
     border-radius: 100px;
+    text-align: center;
 }
 .photo-button{
     width: 70px;
@@ -59,4 +60,28 @@
 .all-btn{
     display: flex;
     justify-content: space-evenly;
+}
+.pdfBtn{
+    background-color: red;
+    padding: 10px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    font-family: 'pantonRegular';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+}
+.validBtn{
+    background-color:green;
+    padding: 10px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    font-family: 'pantonRegular';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
 }

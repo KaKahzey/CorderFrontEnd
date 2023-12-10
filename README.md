@@ -14,11 +14,6 @@ TODO
 | ° input en inline                         | ok
 | ° email                                   | ok
 ---------------------------------------------
-
-
-!!!!! Renaud : Enlever le bouton skip dans le formulaire !!!!!
-!!!!! Renaud : Enlever le take picture sur desktop Photo Choice !!!!!
-
 gérer province pour composant participants
 
 
@@ -31,13 +26,16 @@ rectifications avant rendu final
 -> lien quand infoform ok
 -> lien envoi commentaire et avis ok
 
--> !!!! tester les endpoints du form ok
+-> !!!! tester les endpoints du form
+
 -->     et popup pour le comment ok
 
 -> ptite fleche sur le button Autres
 -> nb Caracteres comment
 
 -> !!!! RESPONSIVE
+
+PENDING, VALIDATED, DENIED, SHIPPED
 
 ->guard corder : quand pending == valider refuser / cycle : envoyer
 SI valide alors bouton valide hidden ET bouton refuser visible
@@ -46,7 +44,7 @@ SI shipped bouton info envoyé
 ENDPOINTS :
 
 cycleenterre
-
+VALIDATED-> SHIPPED
 seulement acces bouton envoyer et envoyé
 
 Tout le formulaire user - POST

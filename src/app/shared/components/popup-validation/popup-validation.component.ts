@@ -42,6 +42,16 @@ export class PopupValidationComponent {
     const popUp = document.getElementById("popup")
     if(popUp){
         popUp.style.display= "none";
-    }
+    }1
+  }
+  userDenied(){
+    //faire l'appel à l'api
+    this.userData.status ="DENIED"
+    this.closePopUp();
+  }
+  userAccepted(){
+    //faire l'appel à l'api
+    this.userData.status ="VALIDATED"
+    this.closePopUp();
   }
 }
