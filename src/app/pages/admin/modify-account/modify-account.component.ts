@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../shared/services/auth.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { PasswordModule } from 'primeng/password';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ApiService } from '../../../shared/services/api.service';
 
 @Component({
   selector: 'app-modify-account',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [CommonModule,ReactiveFormsModule,PasswordModule],
   templateUrl: './modify-account.component.html',
   styleUrl: './modify-account.component.scss'
 })
