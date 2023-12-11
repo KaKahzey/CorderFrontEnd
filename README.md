@@ -1,50 +1,13 @@
 # CorderFrontEnd
 
-TODO
----------------------------------------------
-| ° background                              | ok
-| ° style centre champs                     | ok
-| ° navbar partagee                         | ok
-| ° envoi formulaire                        | ok
-| ° changer le CSS quand bouton désactivé   | ok
-| ° check les conditions du formulaire      | ok
-| ° rendre fonctionnelle les checkboxs      | ok
-| ° responsive  mi-ok / en cours            | 
-| ° agrandir et centrer le h1               | ok
-| ° input en inline                         | ok
-| ° email                                   | ok
----------------------------------------------
 
-gérer province pour composant participants
+popup qui suit quand on scroll
+bien dimensionner la photo
+decaler les txt right a droite
+css boutons
+newsletter oui /non
 
 
-rectifications avant rendu final
-
--> lien checkbox rgpd
-->ajout 4eme checkbox ok
-->rework checkbox 
-
--> lien quand infoform ok
--> lien envoi commentaire et avis ok
-
--> !!!! tester les endpoints du form
-
--->     et popup pour le comment ok
-
--> ptite fleche sur le button Autres
--> nb Caracteres comment
-
--> !!!! RESPONSIVE            a envoyer
-                                  |
-PENDING, VALIDATED|| DENIED,   SHIPPED, envoyé !  
-                                  |
-                            corder| cycleEnTerre
-envoyé !  
-
-->guard corder : quand pending == valider refuser / cycle : envoyer
-SI valide alors bouton valide hidden ET bouton refuser visible
-SI refusé alors bouton valide visible ET bouton refuser hidden
-SI shipped bouton info envoyé
 ENDPOINTS :
 
 cycleenterre
