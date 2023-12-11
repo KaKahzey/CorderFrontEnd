@@ -78,17 +78,17 @@ small {
   }
 }
 
-header {
-  height: 65px;
-  position: fixed;
-  width: 100%;
-  background-color: #0e103b;
-  z-index: 99999999999;
+// header {
+//   height: 65px;
+//   position: fixed;
+//   width: 100%;
+//   background-color: #0e103b;
+//   z-index: 99999999999;
 
-  @media (min-width: 700px) {
-    height: 65px;
-  }
-}
+//   @media (min-width: 700px) {
+//     height: 65px;
+//   }
+// }
 
 .swipe {
   color: #f5f8e0;

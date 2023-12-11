@@ -27,7 +27,6 @@ export class ModifyAccountComponent {
 
   modifyPassword() : void{
     if (this.modifyForm.valid) {
-
       if (this.modifyForm.get("newPassword")?.value === this.modifyForm.get("newPasswordRepeat")?.value) {
         this._apiService.changePassword(this._authservice.getUser()!,
         this.modifyForm.get("oldPassword")?.value,
