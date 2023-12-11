@@ -11,7 +11,8 @@ import { ApiService } from '../../../shared/services/api.service';
 })
 export class OnHoldPhotosComponent {
   
-  listParticipants : Object[] = [{id : 0, src : "/assets/img/placeholder.svg"}]
+  listParticipants : Object[] = [{id : 204, src : "/assets/img/placeholder.svg"}]
+  imagesParticipants : any[] = []
   currentsettingsPage : any = {status : "pending", sort : "date", page : 0  }
 
   constructor(private _apiService : ApiService){}
@@ -19,7 +20,12 @@ export class OnHoldPhotosComponent {
   ngOnInit() : void {
     this._apiService.getPageByStatus(this.currentsettingsPage.status, this.currentsettingsPage.sort, this.currentsettingsPage).subscribe(data => {
       this.listParticipants = data.content
+      for (let i = 0; i < this.listParticipants.length; i++) {
+        
+        
+      }
     })
+    
   }
   sortDate() {
     this.currentsettingsPage.sort = "date"
