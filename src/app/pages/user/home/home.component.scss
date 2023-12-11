@@ -63,6 +63,7 @@ small {
 .body {
   margin: 0;
   padding: 0;
+  width: 100%;
   background-color: #f5f8e0;
   font-size: 18px;
   font-family: "panton";
@@ -818,11 +819,10 @@ header {
         padding-left: 22px;
         display: grid;
         grid-column-gap: 22px;
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(7, 1fr);
         grid-template-areas:
-          "title title title . . ."
-          "bar bar bar bar bar . "
-          "map map map map map map";
+          ". title title title . . ."
+          ". map map map map map .";
         .title--h2 {
           grid-area: title;
           z-index: 99999;
@@ -842,8 +842,8 @@ header {
         grid-column-gap: 20px;
         grid-template-columns: repeat(12, 1fr);
         grid-template-areas:
-          "title title title title title . . map map map map map"
-          "bar bar bar bar bar . . map map map map map";
+          ". . . title title title title title  . . . ."
+          ". . . map map map map map   . . . . ";
 
         .title--h2 {
           grid-area: title;
@@ -856,20 +856,34 @@ header {
           grid-area: map;
         }
       }
-      .maps{
-        @media only screen and (max-device-width : 700px){
-          height: 256px;
-          width: 320px;
-        }
+      iframe{
+        padding: 0;
+        margin: 0;
+        // width: 640px;
+        // height: 480px;
+        // @media only screen and (min-device-width : 1200px){
+        //   margin-right: 450px;
+        //   width: 640px;
+        // }
       }
 
       .placerMap {
-        width: 100%;
+        width: 640px;
         height: 400px;
+        padding-right: 40px;
         @media only screen and (max-device-width : 700px){
-          height: 288px;
-          width: 384px;
+          // height: 200px;
+          padding-left: 40px;
+          width: 100%;
         }
+        // @media only screen and (max-device-width : 800px){
+        //   // height: 200px;
+        //   padding-left: 40px;
+        //   width: 300px;
+        // }
+
+        
+
         // background-image: url("/assets/img/img-home/recyparcs.webp");
         // background-repeat: no-repeat;
         // background-size: cover;
