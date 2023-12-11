@@ -46,12 +46,16 @@ export class ApiService {
   private _urlSetPicture : string = "http://192.168.200.102:8080/participation/addPhoto?id="
   private _urlRating : string = "http://192.168.200.102:8080/participation/createSatisfaction"
   private _urlPageByStatus : string = "http://192.168.200.102:8080/participation/PageByStatus?status="
-
+  private _urlChangePassword : string = "http://192.168.200.102:8080/user/changePassword/"
 
   constructor(private _httpClient : HttpClient, private _AuthService : AuthService ) { }
 
   login(user : LoginData) : Observable<any> {
     return this._httpClient.post(this._urlLogin, user)
+  }
+
+  changePassword(user : string, newPassword : string) : Observable<any> {
+    return this._httpClient.post(this._urlChangePassword + user, newPassword)
   }
 
   createUser(user : ParticipantFullForm) : Observable<any> {
