@@ -25,8 +25,13 @@ export class ModifyAccountComponent {
       newPasswordRepeat: [null,[Validators.required]]
     })
   }
+
   modifyPassword() : void{
-    // this._apiService.updateUser().subscribe({
-    // })
+    if (this.modifyForm.valid) {
+      if (this.modifyForm.get("newPassword")?.value === this.modifyForm.get("newPasswordRepeat")?.value) {
+        //add this.api.etcccc
+    }
+    }
+    
   }
 }
