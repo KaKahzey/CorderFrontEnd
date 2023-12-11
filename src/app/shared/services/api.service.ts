@@ -73,13 +73,13 @@ export class ApiService {
   getPhoto(id : number) : Observable<any> {
     return this._httpClient.get(this._urlGetPhoto + id)
   }
-  Validate(id : number) : Observable<any> {
+  validate(id : number) : Observable<any> {
     return this._httpClient.get(this._urlValidate + id)
   }
-  Deny(id : number) : Observable<any> {
+  deny(id : number) : Observable<any> {
     return this._httpClient.get(this._urlDeny + id)
   }
-  Ship(id : number) : Observable<any> {
+  ship(id : number) : Observable<any> {
     return this._httpClient.get(this._urlShip + id)
   }
   //#endregion
