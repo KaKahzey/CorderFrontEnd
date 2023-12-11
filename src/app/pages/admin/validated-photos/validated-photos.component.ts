@@ -13,6 +13,7 @@ export class ValidatedPhotosComponent {
 
   
   listParticipants : Object[] = [{id : 0, src : "/assets/img/placeholder.svg"}]
+  
   currentSettingsPage : any = {status : "validated", sort : "date", page : 0  }
 
   constructor(private _apiService : ApiService){}
