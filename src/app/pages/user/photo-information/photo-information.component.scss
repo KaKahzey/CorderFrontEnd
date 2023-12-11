@@ -78,6 +78,10 @@ button:hover{
     background-color: #B7C90D;
 }
 
+button:focus{
+    background-color: #B7C90D !important;
+}
+
 input{
     border-radius: 100px;
     width: 430px;

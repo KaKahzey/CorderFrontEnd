@@ -1,1 +1,41 @@
-<p>rejected-photos works!</p>
+<div class="main">
+    <div class="title">
+        Photos validées
+    </div>
+    <div class="sort-area">
+        <span>trier par : </span>
+        <span class="buttons-sort">
+            <button (click)="sortDate()">récent</button>
+            <button (click)="sortDateDecreasing()">ancien</button>
+            <button (click)="sortName()">nom</button>
+        </span>
+    </div>
+    <div class="row">
+        @for (p of listParticipants; track p) {
+            <div class="card">
+                <div class="photo">
+                    <img src="/assets/img/placeholder.svg" />
+                </div>
+                <div class="below-area">
+                    <div class="name-date">
+                        <div class="name">
+                            Didier Franchampsss
+                        </div>
+                        <div class="date">
+                            participation le 09/12/2023
+                        </div>
+                    </div>
+                    <img src="/assets/img/stateIndicators/denied.svg" alt="validated" />
+                </div>
+            </div>
+        }
+    </div>
+    <div class="move-page-area">
+        <div class="previous-page">
+            <a (click)="showPrevious()">Page précédente</a>
+        </div>
+        <div class="next-page">
+            <a (click)="showNext()">Page suivante</a>
+        </div>
+    </div>
+</div>

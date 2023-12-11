@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { DataFormService } from '../../../shared/services/data-form.service';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-photo-capture-choice',
@@ -12,8 +13,14 @@ import { DataFormService } from '../../../shared/services/data-form.service';
 })
 export class PhotoCaptureChoiceComponent {
 
-  constructor(private _DataFormService : DataFormService, private _Router : Router) {
-    
+  mobileQuery: MediaQueryList;
+
+  constructor(private _DataFormService : DataFormService, private _Router : Router, private _mediaMatcher: MediaMatcher) {
+    this.mobileQuery = _mediaMatcher.matchMedia('(max-width: 951px)');
+  }
+
+  ngOnInit() {
+ 
   }
 
   setupFileService(event : any){

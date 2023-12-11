@@ -12,7 +12,7 @@
         <div class="square-bg">
             <div class="borderImg">
                 <label for="takePicture">
-                    <img style="cursor: pointer; width: 100%;" src="/assets/img/captureChoice/cameraYellow.png" alt="img-camera">
+                    <img class="cameraImg" *ngIf="mobileQuery.matches" src="/assets/img/captureChoice/cameraYellow.png" alt="img-camera">
                 </label>
                 <input (change)="setupFileService($event)" type="file" id="takePicture" accept="image/*" capture="user" style="visibility: hidden;">
             </div>

@@ -4,7 +4,12 @@
         <div id="navbar-left">
             <div id="content-left">
                 <div id="logo-area">
-                    <img src="/assets/img/logoCorder.svg" alt="logo corder"/>
+                    @if (displayUser() === "Cycle en Terre") {
+                        <img src="/assets/img/logoCycle.svg" alt="logo cycle en terre"/>
+                    }
+                    @else {
+                        <img src="/assets/img/logoCorder.svg" alt="logo corder"/>
+                    }
                 </div>
                 <ul id="list">
                     <li><a routerLink="/admin/dashboard" routerLinkActive="active-link"><img src="assets/img/logos-navbar/house.svg" alt="house" /><span>Dashboard</span> </a></li>
@@ -20,15 +25,14 @@
         <div id="right-side">
             <div id="navbar-top">
                 <div id="search-bar">
-                    <div id="border-search">
-                        <input type="text" size="80" placeholder="Rechercher" />
-                        <img src="/assets/img/logos-navbar/magnifying-glass.svg" alt="loupe" />
-                    </div>
                 </div>
                 <div id="name-photo">
                     <img routerLink="/admin/modify-account" id="modify-logo" src="/assets/img/logos-navbar/modify.svg" alt="User avatar" />
                     {{username}}
-                    <img id="avatar-logo" src="/assets/img/logos-navbar/placeholder-avatar.svg" alt="User avatar" />
+                    <img id="toggleMenuButton" src="/assets/img/logos-navbar/placeholder-avatar.svg" alt="User avatar" (click)="toggleMenu()" />
+                    <div class="scrolling-menu" id="menu">
+                        <a (click)="logout()">Se déconnecter</a>
+                    </div>
                 </div>
             </div>
             <!-- Component -->

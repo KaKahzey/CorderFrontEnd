@@ -85,20 +85,28 @@ li{
 #search-bar {
     @apply  pl-4;
 }
-
-#border-search {
-    padding-top: 3vh;
-    align-items: center;
-    border-color: #BCBCBC;
-    float : left;
-    @apply flex border-0 border-b-2 items-center pb-2;
-}
 #name-photo {
+    position: relative;
     @apply flex justify-end items-center;
 }
-#search-bar img {
-    width : 18px;
-    height : 18px;
+#menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 90%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px;
+  }
+.scrolling-menu a {
+    cursor: pointer;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+.scrolling-menu a:hover {
+    background-color: #f5f5f5;
 }
 #modify-logo {
     width : 40px;
@@ -108,7 +116,8 @@ li{
 #modify-logo:hover {
     cursor: pointer;
 }
-#avatar-logo {
+#toggleMenuButton {
+    cursor : pointer;
     padding-left: 12px;
     width : 64px;
     height : 64px;

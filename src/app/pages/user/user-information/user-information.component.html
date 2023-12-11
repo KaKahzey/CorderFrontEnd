@@ -1,71 +1,90 @@
-    <button style="background-color: red;" routerLink="/thanks">skip et go thanks</button>
+<form class="formContainer" [formGroup]="infoForm" (ngSubmit)="getForm()">
+    <div class="center">
+        <header></header>
 
-    <form class="formContainer" [formGroup]="infoForm" (ngSubmit) ="getForm()">
-            <h1>Vos infos</h1>
-    <!--PRENOM-->
-            <div>
-                <p class="titleFont">Prénom</p>
-                <input type="text" placeholder="Remy"   [ngClass]="{'red-container': infoForm.get('firstName')?.touched && infoForm.get('firstName')?.errors?.['required']}"formControlName="firstName">          
+        <div class="title">Vos infos</div>
+
+        <div class="formSquare">
+            <div class="upPart">
+                <div class="leftPart">
+                    <div class="firstNameContainer">
+                        <div class="firstName inputname">Prénom</div>
+                        <input class="input-left" type="text" placeholder="Michel"
+                            [ngClass]="{'red-container': infoForm.get('firstName')?.touched && infoForm.get('firstName')?.errors?.['required']}"
+                            formControlName="firstName">
+                    </div>
+
+                    <div class="lastNameContainer">
+                        <div class="lastName inputname">Nom</div>
+                        <input class="input-left" type="text" placeholder="Biville"
+                            [ngClass]="{'red-container': infoForm.get('lastName')?.touched && infoForm.get('lastName')?.errors?.['required']}"
+                            formControlName="lastName">
+                    </div>
+
+                    <div class="emailContainer">
+                        <div class="email inputname">Adresse mail</div>
+                        <input class="input-left" type="text" placeholder="michelbiville@exemple.be"
+                            [ngClass]="{'red-container': infoForm.get('email')?.touched && infoForm.get('email')?.errors?.['required'] || infoForm.get('email')?.errors?.['pattern']}"
+                            formControlName="email">
+
+                            @if(infoForm.get('email')?.errors?.['pattern']){
+                                <p style="color: red;">Mauvais format</p>
+                            }
+
+                    </div>
+                </div>
+
+                <div class="rightPart">
+                    <div class="adressContainer">
+                        <div class="adress">Adresse postale</div>
+                        <input class="input-right" type="text" placeholder="Rue du Paradis, 15"
+                            [ngClass]="{'red-container': infoForm.get('street')?.touched && infoForm.get('street')?.errors?.['required']}"
+                            formControlName="street">
+                    </div>
+
+                    <div class="zip_cityContainer">
+                        <div class="zip">
+                            <input class="input-right" type="text" placeholder="1000" maxlength="4" 
+                                [ngClass]="{'red-container': infoForm.get('postCode')?.touched && infoForm.get('postCode')?.errors?.['required']}"
+                                formControlName="postCode">
+                        </div>
+                        <div class="city">
+                            <input class="input-right" type="text" placeholder="Bruxelles"
+                                [ngClass]="{'red-container': infoForm.get('city')?.touched && infoForm.get('city')?.errors?.['required']}"
+                                formControlName="city">
+                        </div>
+                    </div>
+
+                    <div class="checkboxContainer">
+                        <label class="containerCheck">
+                            <input type="checkbox" checked="checked" formControlName="conditionJeu"> J'ai lu et j'accepte
+                            <a class="linkFont" href="https://www.pwrp.be/_files/ugd/bbef1f_e1c8d82b848642d593b85d811057df81.pdf" target="_blank"><u>les conditions du jeu</u></a>
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="containerCheck">
+                            <input type="checkbox" formControlName="newsletter" (change)="onCheckBoxChange()" formControlName="newsletter" (change)="onCheckBoxChange()"/> Je désire rester informé de l'actualité de l'asbl CORDER
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="containerCheck">
+                            <input type="checkbox" formControlName="rgpd" />J'ai lu et j'accepte
+                            <a href="/assets/ressource/Politique_generale_de_protection_des_donnees_Jeu_Plantez_protegez_triez_Trions_les_dechets_de_pesticides.pdf" target="_blank"><u>la politique générale de protection des données</u></a>
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="containerCheck">
+                            <input type="checkbox" (change)="checkState()"/>J'accepte que ma photo soit utilisée dans le cadre des actions de l'asbl CORDER
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+
+                </div>
+
             </div>
 
-    <!--NOM-->
-            <div>
-                <p class="titleFont">Nom</p>
-                <input type="text" placeholder="Dos"   [ngClass]="{'red-container': infoForm.get('lastName')?.touched && infoForm.get('lastName')?.errors?.['required']}"formControlName="lastName">
-            </div>
+                <div class="all-Btn">
+                    <button class="backButton stylebtn" routerLink="/good-practice">Retour</button>
+                    <button class="nextButton stylebtn" type="submit" value="Je participe !">C'est bon !</button>
+                </div>
 
-    <!-- ADRESSE MAIL -->
-            <div>
-                <p class="titleFont">Adresse email</p>
-                <input type="text" placeholder="abc@exemple.be"   [ngClass]="{'red-container': infoForm.get('email')?.touched && infoForm.get('email')?.errors?.['required'] || infoForm.get('email')?.errors?.['pattern']}"formControlName="email">
-                
-                @if(infoForm.get('email')?.errors?.['pattern']){
-                    Mauvais format
-                }
-            </div>
-
-    <!--ADRESSE-->
-            <div>
-                <p class="titleFont">Adresse</p>
-                <input type="text" placeholder="Adresse complète"   [ngClass]="{'red-container': infoForm.get('street')?.touched && infoForm.get('street')?.errors?.['required']}"formControlName="street">
-            </div>
-
-    <!--POSTAL-->
-            <div class="form-row">
-                <input type="text" placeholder="Code postal"   [ngClass]="{'red-container': infoForm.get('postCode')?.touched && infoForm.get('postCode')?.errors?.['required']}"formControlName="postCode">
-    <!--VILLE-->
-                <input type="text" placeholder="Ville"   [ngClass]="{'red-container': infoForm.get('city')?.touched && infoForm.get('city')?.errors?.['required']}"formControlName="city">
-            </div>
-
-
-    <!--CHECKBOX CONDITIONS-->
-            <label>
-                <input type="checkbox" formControlName="conditionJeu"/>
-                J'ai lu et j'accepte
-                <a class="linkFont" href="https://www.pwrp.be/_files/ugd/bbef1f_e1c8d82b848642d593b85d811057df81.pdf"> les conditions du jeu</a>
-            </label>
-
-    <!--CHECKBOX NEWSLETTER-->
-            <label>
-                <input type="checkbox" formControlName="newsletter" (change)="onCheckBoxChange()"/>
-                Je désire rester informé de l'actualité de l'asbl CORDER
-            </label>
-
-    <!--CHECKBOX RGPD-->
-            <label>
-                <input type="checkbox" formControlName="rgpd" />
-                J'ai lu et j'accepte 
-                <a href="https://www.pwrp.be/_files/ugd/bbef1f_e1c8d82b848642d593b85d811057df81.pdf">la politique générale de protections des données</a>               
-            </label>
-
-            <label>
-                <input type="checkbox" (change)="checkState()"/>
-                J'accepte que ma photo soit utilisée dans le cadre des actions de l'ASBL CORDER               
-            </label>
-
-            <div class="all-btn">
-                <input class="btn1 btnStyle" routerLink="/good-practice" value="Retour">
-                <input class="btn2 btnStyle" type="submit" value="Je participe !">
-            </div>
-    </form>
-
+        </div>
+    </div>
+</form>
