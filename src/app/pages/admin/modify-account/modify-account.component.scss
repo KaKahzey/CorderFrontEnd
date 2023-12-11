@@ -157,19 +157,19 @@
     height : 48px;
   }
   //btn désactivé
-  button[type="submit"][disabled]{
-    cursor: not-allowed;
-    opacity: 50%;
-    color : #0E103B;
-    font-weight: 700;
-    display: inline-block;
-    background-color: #B7C90D;
-    text-decoration: none;
-    border-radius: 100px;
-    transition: background-color 0.2s;
-    width : 367px;
-    height : 48px;
-  }
+  // button[type="submit"][disabled]{
+  //   cursor: not-allowed;
+  //   opacity: 50%;
+  //   color : #0E103B;
+  //   font-weight: 700;
+  //   display: inline-block;
+  //   background-color: #B7C90D;
+  //   text-decoration: none;
+  //   border-radius: 100px;
+  //   transition: background-color 0.2s;
+  //   width : 367px;
+  //   height : 48px;
+  // }
   button[type="submit"]{
     cursor: pointer;
     opacity: 100%;

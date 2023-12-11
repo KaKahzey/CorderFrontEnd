@@ -26,18 +26,18 @@
                 <div class="fields">
                     <label>Nouveau mot de passe</label>
                     <div class="input-fields">
-                        <p-password formControlName="oldPassword" class="form-control" [toggleMask]="true"></p-password>
+                        <p-password formControlName="newPassword" class="form-control" [toggleMask]="true"></p-password>
                     </div>
                 </div>
                 <div class="fields">
                     <label>Confirmer le nouveau mot de passe</label>
                     <div class="input-fields">
-                        <p-password formControlName="oldPassword" class="form-control" [toggleMask]="true"></p-password>
+                        <p-password formControlName="newPasswordRepeat" class="form-control" [toggleMask]="true"></p-password>
                     </div>
                     
                 </div>
                 <div class="button-area">
-                    <button [disabled]="!modifyForm.valid" type="submit">Modifier le mot de passe</button>
+                    <button type="submit">Modifier le mot de passe</button>
                 </div>
             </form>
         </div>
