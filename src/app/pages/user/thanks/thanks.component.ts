@@ -110,7 +110,7 @@ export class ThanksComponent {
     }
   }
   
-  checkboxChange1(){
+  checkBoxChange1(){
     this.isChecked1 = !this.isChecked1;
     
       this.isChecked2 = false;
