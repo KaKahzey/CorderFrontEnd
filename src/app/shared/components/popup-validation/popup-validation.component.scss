@@ -59,12 +59,16 @@
     font-weight: 600;
 }
 .photo-button{
-    width: 60px;
-    height: 67px;
+    display:flex;
+
+    transform: translate(50%, -50%);
+    width: 68px;
+    height: 68px;
     background-image: url("/assets/img/buttonClose.svg");
-    margin-left: 40%;
-    
+    margin-left: 35%;
+    margin-top: -10%;
     background-repeat: no-repeat;
+    border-radius: 100px
 }
 .all-btn{
     display: flex;

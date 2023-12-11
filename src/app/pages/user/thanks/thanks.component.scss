@@ -18,9 +18,9 @@ header{
     background-color: #0E103B;
 }
 
-.opaque{
-    opacity: 6%;
-}
+// .opaque{
+//     opacity: 6%;
+// }
 
 .bigTitle{
     font-family: 'nexaRegular';
@@ -207,6 +207,11 @@ p{
 
 .containe{
     display: flex;
+    position: absolute;
+    top:0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 h2{

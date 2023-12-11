@@ -31,7 +31,7 @@
       <div class="all-btn">
         <button class="pdfBtn" *ngIf="userData.status.includes('PENDING') || userData.status.includes('VALIDATED') && admin.includes('Corder')" (click)="userDenied()">Refuser</button>
         <button class="validBtn" *ngIf="userData.status.includes('PENDING') || userData.status.includes('DENIED') && admin.includes('Corder')" (click)="userValidated()">Valider</button>
-        <button class="shippedBtn" *ngIf="userData.status.includes('VALIDATED') && admin.includes('CycleEnTerre')"(click)="userShipped()">Valider</button>
+        <button class="shippedBtn" *ngIf="userData.status.includes('VALIDATED') && admin.includes('cycleenterre')"(click)="userShipped()">Valider</button>
       </div>
     </div>
 

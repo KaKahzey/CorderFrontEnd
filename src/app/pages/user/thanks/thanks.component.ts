@@ -74,13 +74,12 @@ export class ThanksComponent {
       else{
         if(popupID != 'popup1' || this.isChecked2 == false && this.isChecked3 == false){
           popup.style.display = this.statePopup[0];
-          if(popupID == 'popup3'){
-            this.removeOpacity();
-          }
         }
       }
     }
   }
+
+  //méthode appelée lors de la fermeture du dernier popup
   sendOpinion(){
     this.satisfaction = this.defineSatisfaction();
     this._DataForm.setOpinion(this.satisfaction, this.messages);
@@ -98,6 +97,7 @@ export class ThanksComponent {
     })
   }
   
+  //méthode appelée pour définir la satisfaction dans sendOpinion
   defineSatisfaction():number { 
     if(this.isChecked1){
         return 1;
@@ -112,27 +112,20 @@ export class ThanksComponent {
   
   checkboxChange1(){
     this.isChecked1 = !this.isChecked1;
-    if(this.isChecked2 == true){
-      this.isChecked2 = !this.isChecked2;
-    }
-    else if(this.isChecked3 == false){
-      this.isChecked3 = !this.isChecked3;
-    }
+    
+      this.isChecked2 = false;
+      this.isChecked3 = false;
 
   }
   checkBoxChange2(){
     this.isChecked2 = !this.isChecked2
-    if(this.isChecked3 == true){
-      this.isChecked3 = !this.isChecked3;
-    }
+    this.isChecked3 = false;
     this.changeState('popup1')
   }
   
   checkBoxChange3(){
     this.isChecked3 = !this.isChecked3
-    if(this.isChecked2 != false){
-      this.isChecked2 = !this.isChecked2
-    }
+    this.isChecked2 = false;
     this.changeState('popup1')
   }
   
@@ -144,17 +137,14 @@ export class ThanksComponent {
     }
   }
   
-  closeModal() {
+  closeModal(event : any) {
+    console.log(event.target);
+    
     console.log("CloseModal called");
-    this.removeOpacity();
-    if (this.modal) {
+    if (this.modal && event.target.classList.contains("containe")) {
       console.log("Modal found, changing style");
       this.renderer.setStyle(this.modal.nativeElement, 'display', 'none');
     }
-  }
-
-  removeOpacity(){
-    this.isOpaque = false;
   }
 }
 
