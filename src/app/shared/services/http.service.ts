@@ -14,6 +14,5 @@ export class MyHttpBackend implements HttpBackend {
 export function createHttpClient() {
   const myBackend = new MyHttpBackend(new AuthTokenInterceptor());
   const httpClient = new HttpClient(myBackend);
-
   return httpClient;
 }

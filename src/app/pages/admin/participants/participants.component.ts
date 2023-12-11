@@ -20,6 +20,7 @@ export class ParticipantsComponent {
 
   ngOnInit(): void {
     this._apiService.getAllUsersNoBlob().subscribe(data => {
+      
       this.participantsList = data
     })
   }

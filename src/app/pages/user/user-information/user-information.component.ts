@@ -18,6 +18,7 @@ export class UserInformationComponent {
   router = inject(Router);
   newsletter : boolean = false;
   acceptPhotoUsage : boolean = false;
+  errorMsg : any
   
   constructor(private _fb : FormBuilder,private _dataFormService : DataFormService, private _apiService : ApiService){
     this.infoForm = this._fb.group({
@@ -60,6 +61,7 @@ export class UserInformationComponent {
             })  
           },
           error : (error) => {
+            this.errorMsg = error
             console.log("_apiService.createUser > échec de la requête",error);
           }
         })

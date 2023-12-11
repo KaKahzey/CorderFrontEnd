@@ -32,12 +32,10 @@ export class LoginComponent {
       const loginInfo = {
       login : this.loginForm.get("login")?.value,
       password : this.loginForm.get("password")?.value
-      }
-      console.log(loginInfo);
-      
-      this._apiService.login(loginInfo).subscribe({
-
+      }      
+      this._apiService.login(loginInfo).subscribe({        
         next : (response) => {
+          
           console.log("User logged in : ", response)
           this._authService.setUser(loginInfo.login, response.token)
           if(this._authService.getUser() === "cycleenterre"){

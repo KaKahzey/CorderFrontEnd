@@ -6,11 +6,9 @@ import { Observable } from 'rxjs';
 export class AuthTokenInterceptor implements HttpInterceptor {
 
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    //On tente de récupérer le token dans le localStorage
-    console.log("nickel");
-    
+  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {    
     let token = localStorage.getItem('token');
+    
     if(token && token !== '') {
       
       let requestClone = request.clone( {setHeaders : {
@@ -19,7 +17,6 @@ export class AuthTokenInterceptor implements HttpInterceptor {
       
       return next.handle(requestClone);
     }
-    //Sinon, on next juste
 
     return next.handle(request);
   }

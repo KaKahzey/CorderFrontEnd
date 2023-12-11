@@ -61,7 +61,7 @@ export class DataFormService {
     this.form = form
   }
 
-  mergeData() : ParticipantFullForm {
+  mergeData() : ParticipantFullForm {    
     this.user = {
       firstName : this.form.firstName,
       lastName : this.form.lastName,

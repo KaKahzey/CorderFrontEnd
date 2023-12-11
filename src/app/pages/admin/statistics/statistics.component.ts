@@ -117,8 +117,8 @@ export class StatisticsComponent {
     //#endregion
     this._apiService.getCountProvince().subscribe(data => {
       this.countRegions = data
+      this.setAllRegions()
     })
-    this.setAllRegions()
     //#region set all products ONE REQUEST AT A TIME
     this._apiService.getCountInsecticide().subscribe(data => {
       this.productsUsed.insecticide = data
@@ -131,8 +131,8 @@ export class StatisticsComponent {
     })
     this._apiService.getCountInsecticide().subscribe(data => {
       this.productsUsed.autre = data
+      this.setAllProducts()
     })
-    this.setAllProducts()
     //#region set notes
     this._apiService.getCountNote(3).subscribe(data => {
       this.countNote.happy = data
