@@ -1,37 +1,13 @@
-<!-- <div class="containe">
-      <div class="card h-1/3">
-        <div class="card-content-img">
-          <img src="" alt="">
-        </div>
-        <div class="card-content-txt-info">
-          <h4 class="txt-info">Nom :</h4>
-          <h4 class="txt-info">Prénom :</h4>
-          <h4 class="txt-info">Adresse mail :</h4>
-          <h4 class="txt-info">Adresse postale :</h4>
-          <h4 class="txt-info">Produit rapporté au recyparc :</h4>
-          <h4 class="txt-info">Newsletter</h4>
-        </div>
-        <div class="card-content-txt-userinfo">
-          <h4 class="txt-user-info">{{userData.firstName}}</h4>
-          <h4 class="txt-user-info">{{userData.lastName}}</h4>
-          <h4 class="txt-user-info">{{userData.email}}</h4>
-          <h4 class="txt-user-info">{{userData.street + " " +userData.city + " " +userData.postCode}}</h4>
-          <h4 class="txt-user-info">{{userData.firstName}}</h4>
-          <h4 class="txt-user-info">{{userData.newsletter}}</h4>
-        </div>
-      </div>
-</div> -->
-
 <div class="containe">
   
   <div class="card" id="popup">
     <div class="card-content-img">
-      <img src="https://phototrend.fr/wp-content/uploads/2015/11/plans-r%C3%A9cap-770x836.jpg" alt="">
+      <img [src]="urlPhoto" alt="https://phototrend.fr/wp-content/uploads/2015/11/plans-r%C3%A9cap-770x836.jpg">
       <br>
       <div class="all-btn">
         <button class="pdfBtn" *ngIf="userData.status.includes('PENDING') || userData.status.includes('VALIDATED') && admin.includes('Corder')" (click)="userDenied()">Refuser</button>
         <button class="validBtn" *ngIf="userData.status.includes('PENDING') || userData.status.includes('DENIED') && admin.includes('Corder')" (click)="userValidated()">Valider</button>
-        <button class="shippedBtn" *ngIf="userData.status.includes('VALIDATED') && admin.includes('cycleenterre')"(click)="userShipped()">Valider</button>
+        <button class="shippedBtn" *ngIf="userData.status.includes('VALIDATED')"(click)="userShipped()">Envoyer</button>
       </div>
     </div>
 

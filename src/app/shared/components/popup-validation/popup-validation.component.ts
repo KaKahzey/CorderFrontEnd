@@ -31,25 +31,28 @@ export class PopupValidationComponent {
   
   urlPhoto: any;
   admin : string | any = "";
-  showPopup = false;
 
   constructor(private _apiService : ApiService, private _authService : AuthService, private _showPopup : ShowPopupService) { }
 
   ngOnInit() : void {
+    const reader : FileReader = new FileReader()
+    //Définir sur l'évènement onload, que l'image URL devienne le résultat du reader
+    reader.onload = ()=>{
+      this.urlPhoto = reader.result as string
+    }
 
       this.admin = this._authService.getUser()
         
-     this._apiService.getById(1).subscribe(data => {
+     this._apiService.getById(226).subscribe(data => {
       this.userData = data
+      this._apiService.getPhoto(this.userData.id).subscribe({
+        next : (photo) => reader.readAsDataURL(photo),
       })
-      this.urlPhoto =this._apiService.getPhoto(this.userData.id)
+      })
+     
   }
 
   closePopUp(){
-    // const popUp = document.getElementById("popup")
-    // if(popUp){
-    //     popUp.style.display= "none";
-    // }
     this._showPopup.togglePopup()
   }
 
