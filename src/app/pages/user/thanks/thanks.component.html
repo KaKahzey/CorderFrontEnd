@@ -1,5 +1,5 @@
 <!--  fct et restructuration pour pouvoir fermer les pop-up-->
-<div class="center">
+<div class="center" [ngClass]="{'opaque': isOpaque}" (click)="closeModal()">
     <header></header>
     <div class="bigTitle">Merci !</div>
     <div class="litTit_para1">
@@ -22,7 +22,7 @@
 </div>
 
 <!-- #myModal permet d'identifier le container à fermer-->
-<div class="containe" (click)="closeModal($event)" #myModal>
+<div class="containe" #myModal>
     <div class="card" id="popup0"> 
         <h2>Qu'avez vous pensé de ce jeu-concours ?</h2>
         <h4 class="text-center">Faites nous part de votre expérience.</h4>
@@ -32,7 +32,7 @@
                 <label class="radio-button" for="content">     
                     <img id="emote1" src="/assets/img/Emotes/smile.svg" alt="content" [ngClass]="{'opacityTrue':isChecked1,'opacityFalse':!isChecked1}">
                 </label>
-                <input id="content" type="radio" name="groupRadio" value="content"  (click)="changeState('popup0');changeState('popup3');checkboxChange1()">
+                <input id="content" type="radio" name="groupRadio" value="content"  (click)="checkboxChange3();changeState('popup0');changeState('popup3')">
                 
                 <label class="radio-button" for="bof">
                     <img id="emote2" src="/assets/img/Emotes/bof.svg" alt="bof" [ngClass]="{'opacityTrue':isChecked2,'opacityFalse':!isChecked2}">
@@ -42,7 +42,7 @@
                 <label class="radio-button" for="triste">
                     <img id="emote3" src="/assets/img/Emotes/sad.svg" alt="pas content" [ngClass]="{'opacityTrue':isChecked3,'opacityFalse':!isChecked3}">
                 </label>
-                <input id="triste" type="radio" name="groupRadio" value="pas content"  (click)="changeState('popup1');checkBoxChange3()">
+                <input id="triste" type="radio" name="groupRadio" value="pas content"  (click)="changeState('popup1');checkBoxChange1()">
             </div>
             <br>
             <div class="all-btn" id="popup1">

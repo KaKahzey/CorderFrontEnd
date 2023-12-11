@@ -134,13 +134,13 @@ export class StatisticsComponent {
       this.setAllProducts()
     })
     //#region set notes
-    this._apiService.getCountNote(3).subscribe(data => {
+    this._apiService.getCountNote(1).subscribe(data => {
       this.countNote.happy = data
     })
     this._apiService.getCountNote(2).subscribe(data => {
       this.countNote.neutral = data
     })
-    this._apiService.getCountNote(1).subscribe(data => {
+    this._apiService.getCountNote(3).subscribe(data => {
       this.countNote.sad = data
     })
     //#endregion
