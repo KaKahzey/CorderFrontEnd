@@ -4,7 +4,6 @@ import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../shared/services/auth.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PasswordModule } from 'primeng/password';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ApiService } from '../../../shared/services/api.service';
 
 @Component({
@@ -18,7 +17,7 @@ export class ModifyAccountComponent {
 
   modifyForm : FormGroup
 
-  constructor(private _apiService : ApiService, private _router : Router, private _fb : FormBuilder){
+  constructor(private _apiService : ApiService, private _router : Router, private _fb : FormBuilder, private _authservice : AuthService){
     this.modifyForm = this._fb.group({
       oldPassword : [null, [Validators.required]],
       newPassword : [null, [Validators.required]],
@@ -28,9 +27,19 @@ export class ModifyAccountComponent {
 
   modifyPassword() : void{
     if (this.modifyForm.valid) {
+
       if (this.modifyForm.get("newPassword")?.value === this.modifyForm.get("newPasswordRepeat")?.value) {
-        //add this.api.etcccc
-    }
+        this._apiService.changePassword(this._authservice.getUser()!,
+        this.modifyForm.get("oldPassword")?.value,
+        this.modifyForm.get("newPassword")?.value).subscribe({
+          next : ()=>{
+            this._router.navigateByUrl("/admin/dashboard");
+          },
+          error : () => {
+            console.log("mauvais mdp")
+          }
+        })
+      }
     }
     
   }
