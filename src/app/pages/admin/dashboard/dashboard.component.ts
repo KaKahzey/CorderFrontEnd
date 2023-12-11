@@ -20,8 +20,8 @@ export class DashboardComponent {
   timeLeft : number = this.displayTimeLeft("2024-06-20")
   currentDate : string = this._datePipe.transform(new Date(), 
   'yyyy-MM-dd')!
-  lastThreeValidated : any[] = [] 
-  lastThreePending : any[] = [] 
+  lastThreeValidated : any[] = [{id : 0, photo : ""}, {id : 0, photo : ""}, {id : 0, photo : ""}] 
+  lastThreePending : any[] = [{id : 0, photo : ""}, {id : 0, photo : ""},{id : 0, photo : ""}] 
   
 
   constructor(private _renderer: Renderer2, private _elementRef: ElementRef, private _apiService : ApiService, private _datePipe : DatePipe, private _showPopupService : ShowPopupService) {}
@@ -47,10 +47,33 @@ export class DashboardComponent {
     //#endregion
     //#region get last 3 validated/pending
     this._apiService.getLastThreeValidated().subscribe(data => {
-      this.lastThreeValidated = data
+      for (let i = 0; i < 3; i++) {
+        this.lastThreeValidated[i].id = data[i].id
+        this._apiService.getPhoto(this.lastThreeValidated[i].id).subscribe({
+          next: (photo) => {
+            const reader: FileReader = new FileReader()
+            reader.onload = () => {
+              this.lastThreeValidated[i].photo = reader.result as string
+            }
+            reader.readAsDataURL(photo)
+          }
+        })
+      }
     })
+
     this._apiService.getLastThreePending().subscribe(data => {
-      this.lastThreePending = data
+      for (let i = 0; i < 3; i++) {
+        this.lastThreePending[i].id = data[i].id
+        this._apiService.getPhoto(this.lastThreePending[i].id).subscribe({
+          next: (photo) => {
+            const reader: FileReader = new FileReader();
+            reader.onload = () => {
+              this.lastThreePending[i].photo = reader.result as string;
+            }
+            reader.readAsDataURL(photo);
+          }
+        })
+      }
     })
     //#endregion
   }

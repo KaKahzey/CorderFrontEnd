@@ -5,14 +5,14 @@
                 Photos en attente
             </div>
             <div class="grid-images ">
-                <div class="image-container">
-                    <img src="/assets/img/placeholder.svg" alt="Image 1" class="image" />
+                <div class="image-container" (click)="setId(lastThreeValidated[0].id )">
+                    <img [src]="this.lastThreeValidated[0].photo" alt="Image 1" class="image" />
                 </div>
-                <div class="image-container">
-                    <img src="/assets/img/placeholder.svg" alt="Image 2" class="image" />
+                <div class="image-container" (click)="setId(lastThreeValidated[1].id )">
+                    <img [src]="this.lastThreeValidated[1].photo" alt="Image 2" class="image" />
                 </div>
-                <div class="image-container">
-                    <img src="/assets/img/placeholder.svg" alt="Image 3" class="image" />
+                <div class="image-container" (click)="setId(lastThreeValidated[2].id )">
+                    <img [src]="this.lastThreeValidated[2].photo" alt="Image 3" class="image" />
                 </div>
                 <div class="image-container see-more" routerLink="/admin/on-hold-photos">
                     <a>Voir plus</a>
@@ -25,14 +25,14 @@
                 Photos validées
             </div>
             <div class="grid-images">
-                <div class="image-container">
-                    <img src="/assets/img/placeholder.svg" alt="Image 1" class="image" />
+                <div class="image-container" (click)="setId(lastThreePending[0].id )">
+                    <img [src]="this.lastThreePending[0].photo" alt="Image 1" class="image" />
                 </div>
-                <div class="image-container">
-                    <img src="/assets/img/placeholder.svg" alt="Image 2" class="image" />
+                <div class="image-container" (click)="setId(lastThreePending[1].id )">
+                    <img [src]="this.lastThreePending[1].photo" alt="Image 2" class="image" />
                 </div>
-                <div class="image-container">
-                    <img src="/assets/img/placeholder.svg" alt="Image 3" class="image" />
+                <div class="image-container" (click)="setId(lastThreePending[2].id )">
+                    <img [src]="this.lastThreePending[2].photo" alt="Image 3" class="image" />
                 </div>
                 <div class="image-container see-more" routerLink="/admin/validated-photos">
                     <a>Voir plus</a>
