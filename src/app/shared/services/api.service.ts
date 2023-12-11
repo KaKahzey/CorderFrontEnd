@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { LoginData } from '../models/loginData';
 import { ParticipantFullForm } from '../models/participantFullForm';
 import { Opinion } from '../models/opinion';
-import { createHttpClient } from './http.service';
 import { AuthService } from './auth.service';
 @Injectable({
   providedIn: 'root'
@@ -54,8 +53,13 @@ export class ApiService {
     return this._httpClient.post(this._urlLogin, user)
   }
 
-  changePassword(user : string, newPassword : string) : Observable<any> {
-    return this._httpClient.post(this._urlChangePassword + user, newPassword)
+  changePassword(user : string,oldPassword : string ,newPassword : string) : Observable<any> {
+    const header : any = {
+      headers: new HttpHeaders()
+        .set('Authorization',  `${this._AuthService.getToken()!}`),
+      responseType : "text"
+    }
+    return this._httpClient.post(this._urlChangePassword + user, {newPassword, oldPassword},header)
   }
 
   createUser(user : ParticipantFullForm) : Observable<any> {
