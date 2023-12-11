@@ -20,16 +20,19 @@ export class OnHoldPhotosComponent {
   ngOnInit() : void {
     this._apiService.getPageByStatus(this.currentsettingsPage.status, this.currentsettingsPage.sort, this.currentsettingsPage.page).subscribe(data => {
       this.listParticipants = data.content
-      this.listParticipants.forEach(p => {
-        this._apiService.getPhoto(p.id).subscribe(data => {
-          this.imagesParticipants.push(data)
-          console.log("oui");
-          
-        })
-      });
+      this.getPhotos()
     })
     
   }
+
+  getPhotos() : void {
+    this.listParticipants.forEach(p => {
+      this._apiService.getPhoto(p.id).subscribe(data => {
+        this.imagesParticipants.push(data)          
+      })
+    })
+  }
+
   sortDate() {
     this.currentsettingsPage.sort = "DATEASC"
     this.currentsettingsPage.page = 0
