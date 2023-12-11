@@ -2,11 +2,13 @@ import { Component, ElementRef, Renderer2 } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ApiService } from '../../../shared/services/api.service';
+import { PopupValidationComponent } from '../../../shared/components/popup-validation/popup-validation.component';
+import { ShowPopupService } from '../../../shared/services/show-popup.service';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, PopupValidationComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })
@@ -22,7 +24,7 @@ export class DashboardComponent {
   lastThreePending : any[] = [] 
   
 
-  constructor(private _renderer: Renderer2, private _elementRef: ElementRef, private _apiService : ApiService, private _datePipe : DatePipe) {}
+  constructor(private _renderer: Renderer2, private _elementRef: ElementRef, private _apiService : ApiService, private _datePipe : DatePipe, private _showPopupService : ShowPopupService) {}
 
   ngOnInit() : void {
     //#region set total participants
@@ -85,5 +87,17 @@ export class DashboardComponent {
     const today = new Date();
     const formattedDate = this._datePipe.transform(today, 'd MMMM yyyy');
     return formattedDate || '';
+  }
+
+  setId(id : number) : void {
+    this._showPopupService.setId(id)    
+  }
+  
+  displayPopup() : void {
+    this._showPopupService.togglePopup()
+  }
+
+  getstate() : boolean {
+    return this._showPopupService.getState()
   }
 }

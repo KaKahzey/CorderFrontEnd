@@ -33,11 +33,7 @@ export class PopupValidationComponent {
   admin : string | any = "";
   showPopup = false;
 
-  constructor(private _apiService : ApiService, private _authService : AuthService, private _showPopup : ShowPopupService) {
-      this._showPopup.popupState$.subscribe((state) => {
-      this.showPopup = state;
-    })
-  }
+  constructor(private _apiService : ApiService, private _authService : AuthService, private _showPopup : ShowPopupService) { }
 
   ngOnInit() : void {
 
@@ -50,10 +46,11 @@ export class PopupValidationComponent {
   }
 
   closePopUp(){
-    const popUp = document.getElementById("popup")
-    if(popUp){
-        popUp.style.display= "none";
-    }
+    // const popUp = document.getElementById("popup")
+    // if(popUp){
+    //     popUp.style.display= "none";
+    // }
+    this._showPopup.togglePopup()
   }
 
   userDenied(){

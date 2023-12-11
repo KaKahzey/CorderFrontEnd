@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../../shared/services/api.service';
+import { PopupValidationComponent } from '../../../shared/components/popup-validation/popup-validation.component';
+import { ShowPopupService } from '../../../shared/services/show-popup.service';
 
 @Component({
   selector: 'app-on-hold-photos',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, PopupValidationComponent],
   templateUrl: './on-hold-photos.component.html',
   styleUrl: './on-hold-photos.component.scss'
 })
@@ -15,7 +17,7 @@ export class OnHoldPhotosComponent {
   imagesParticipants : any[] = []
   currentsettingsPage : any = {status : "PENDING", sort : "DATEASC", page : 0  }
 
-  constructor(private _apiService : ApiService){}
+  constructor(private _apiService : ApiService, private _showPopupService : ShowPopupService){}
 
   ngOnInit() : void {
     this._apiService.getPageByStatus(this.currentsettingsPage.status, this.currentsettingsPage.sort, this.currentsettingsPage.page).subscribe(data => {
@@ -73,5 +75,17 @@ export class OnHoldPhotosComponent {
         
       })
     }
+  }
+
+  setId(id : number) : void {
+    this._showPopupService.setId(id)    
+  }
+  
+  displayPopup() : void {
+    this._showPopupService.togglePopup()
+  }
+
+  getstate() : boolean {
+    return this._showPopupService.getState()
   }
 }

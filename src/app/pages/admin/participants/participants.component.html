@@ -19,7 +19,7 @@
                 <th class="state-head">Etat</th>
             </tr>
             @for (p of participantsList; track p.id){
-                <tr>
+                <tr (click)="setId(p.id); displayPopup()">
                     <td>{{p.id}}</td>
                     <td>{{p.participantLastName}}</td>
                     <td>{{p.participantFirstName}}</td>
@@ -39,3 +39,6 @@
         </table>
     </div>
 </div>
+@if (getstate()) {
+    <app-popup-validation></app-popup-validation>
+}

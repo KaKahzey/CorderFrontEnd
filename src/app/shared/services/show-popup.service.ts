@@ -6,11 +6,25 @@ import { Subject } from 'rxjs';
 })
 export class ShowPopupService {
 
-  private popupSubject = new Subject<boolean>();
+  private id : number = 0
+  
+  isDisplayed : boolean = false
 
-  popupState$ = this.popupSubject.asObservable();
-
+constructor() {}
+  
   togglePopup() {
-    this.popupSubject.next(true);
+    this.isDisplayed = !this.isDisplayed
+  }
+  
+  getState() : boolean {
+    return this.isDisplayed
+  }
+
+  setId(id : number) : void {
+    this.id = id
+  }
+  
+  getId() : number {
+    return this.id
   }
 }

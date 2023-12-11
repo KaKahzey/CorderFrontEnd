@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../../shared/services/api.service';
 import { ParticipantAllDataNoBlob } from '../../../shared/models/participantAllDataNoBlob';
+import { ShowPopupService } from '../../../shared/services/show-popup.service';
+import { PopupValidationComponent } from '../../../shared/components/popup-validation/popup-validation.component';
 
 @Component({
   selector: 'app-participants',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, PopupValidationComponent],
   templateUrl: './participants.component.html',
   styleUrl: './participants.component.scss'
 })
@@ -15,7 +17,7 @@ export class ParticipantsComponent {
   participantsList : ParticipantAllDataNoBlob[] = []
  
 
-  constructor(private _apiService : ApiService) {
+  constructor(private _apiService : ApiService, private _showPopupService : ShowPopupService) {
   }
 
   ngOnInit(): void {
@@ -80,5 +82,16 @@ export class ParticipantsComponent {
           return 0
       }
   })
+  }
+  setId(id : number) : void {
+    this._showPopupService.setId(id)    
+  }
+  
+  displayPopup() : void {
+    this._showPopupService.togglePopup()
+  }
+
+  getstate() : boolean {
+    return this._showPopupService.getState()
   }
 }

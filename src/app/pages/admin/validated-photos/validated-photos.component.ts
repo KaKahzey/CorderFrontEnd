@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../../shared/services/api.service';
+import { ShowPopupService } from '../../../shared/services/show-popup.service';
+import { PopupValidationComponent } from '../../../shared/components/popup-validation/popup-validation.component';
 
 @Component({
   selector: 'app-validated-photos',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, PopupValidationComponent],
   templateUrl: './validated-photos.component.html',
   styleUrl: './validated-photos.component.scss'
 })
@@ -16,7 +18,7 @@ export class ValidatedPhotosComponent {
   
   currentSettingsPage : any = {status : "validated", sort : "date", page : 0  }
 
-  constructor(private _apiService : ApiService){}
+  constructor(private _apiService : ApiService, private _showPopupService : ShowPopupService){}
 
   ngOnInit() : void {
     this.showValidated()
@@ -102,5 +104,17 @@ export class ValidatedPhotosComponent {
         
       })
     }
+  }
+
+  setId(id : number) : void {
+    this._showPopupService.setId(id)    
+  }
+  
+  displayPopup() : void {
+    this._showPopupService.togglePopup()
+  }
+
+  getstate() : boolean {
+    return this._showPopupService.getState()
   }
 }
