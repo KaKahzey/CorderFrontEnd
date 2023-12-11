@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { LoginData } from '../models/loginData';
 import { ParticipantFullForm } from '../models/participantFullForm';
 import { Opinion } from '../models/opinion';
+import { createHttpClient } from './http.service';
 // import {createHttpClient} from "../interceptorResolution/http.service";
 @Injectable({
   providedIn: 'root'
@@ -41,10 +42,9 @@ export class ApiService {
   private _urlSetPicture : string = "http://192.168.200.102:8080/participation/addPhoto?id="
   private _urlRating : string = "http://192.168.200.102:8080/participation/createSatisfaction"
   private _urlPageByStatus : string = "http://192.168.200.102:8080/participation/PageByStatus?status="
-  // private httpclient2;
 
   constructor(private _httpClient : HttpClient) {
-    // this.httpclient2 = createHttpClient();
+    this._httpClient = createHttpClient();
   }
 
   login(user : LoginData) : Observable<any> {
