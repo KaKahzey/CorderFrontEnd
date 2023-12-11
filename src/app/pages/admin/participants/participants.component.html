@@ -24,7 +24,12 @@
                     <td>{{p.participantLastName}}</td>
                     <td>{{p.participantFirstName}}</td>
                     <td>{{p.participantAddress.street}} {{p.participantAddress.postCode}} {{p.participantAddress.city}}</td>
-                    <td>{{p.productType}}</td>
+                    @if (p.productType != "herbicide" && p.productType != "fongicide" && p.productType != "insecticide"){
+                        <td>autre</td>
+                    }
+                    @else {
+                        <td>{{p.productType}}</td>
+                    }
                     @if (p.status === "DENIED" ) {
                         <td class="rejected">refusé</td>
                     }
@@ -33,6 +38,9 @@
                     }
                     @else if (p.status === "PENDING") {
                         <td class="onHold">en attente</td>
+                    }
+                    @else if (p.status === "VALIDATED") {
+                        <td class="validated">validé</td>
                     }
                 </tr>
             }

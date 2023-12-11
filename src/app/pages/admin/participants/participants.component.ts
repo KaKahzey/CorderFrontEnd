@@ -15,7 +15,7 @@ import { PopupValidationComponent } from '../../../shared/components/popup-valid
 export class ParticipantsComponent {
 
   participantsList : ParticipantAllDataNoBlob[] = []
- 
+
 
   constructor(private _apiService : ApiService, private _showPopupService : ShowPopupService) {
   }
