@@ -11,49 +11,52 @@ import { ApiService } from '../../../shared/services/api.service';
 })
 export class OnHoldPhotosComponent {
   
-  listParticipants : Object[] = [{id : 204, src : "/assets/img/placeholder.svg"}]
+  listParticipants : any[] = [{id : 204, src : "/assets/img/placeholder.svg"}]
   imagesParticipants : any[] = []
-  currentsettingsPage : any = {status : "pending", sort : "date", page : 0  }
+  currentsettingsPage : any = {status : "PENDING", sort : "DATEASC", page : 0  }
 
   constructor(private _apiService : ApiService){}
 
   ngOnInit() : void {
-    this._apiService.getPageByStatus(this.currentsettingsPage.status, this.currentsettingsPage.sort, this.currentsettingsPage).subscribe(data => {
+    this._apiService.getPageByStatus(this.currentsettingsPage.status, this.currentsettingsPage.sort, this.currentsettingsPage.page).subscribe(data => {
       this.listParticipants = data.content
-      for (let i = 0; i < this.listParticipants.length; i++) {
-        
-        
-      }
+      this.listParticipants.forEach(p => {
+        this._apiService.getPhoto(p.id).subscribe(data => {
+          this.imagesParticipants.push(data)
+          console.log("oui");
+          
+        })
+      });
     })
     
   }
   sortDate() {
-    this.currentsettingsPage.sort = "date"
+    this.currentsettingsPage.sort = "DATEASC"
     this.currentsettingsPage.page = 0
-    this._apiService.getPageByStatus(this.currentsettingsPage.status, this.currentsettingsPage.sort, this.currentsettingsPage).subscribe(data => {
+    this._apiService.getPageByStatus(this.currentsettingsPage.status, this.currentsettingsPage.sort, this.currentsettingsPage.page).subscribe(data => {
       this.listParticipants = data.content
     })
   }
   
   sortDateDecreasing() {
-    this.currentsettingsPage.sort = "date"
+    this.currentsettingsPage.sort = "DATEDESC"
     this.currentsettingsPage.page = 0
-    this._apiService.getPageByStatus(this.currentsettingsPage.status, this.currentsettingsPage.sort, this.currentsettingsPage).subscribe(data => {
+    this._apiService.getPageByStatus(this.currentsettingsPage.status, this.currentsettingsPage.sort, this.currentsettingsPage.page).subscribe(data => {
       this.listParticipants = data.content
     })
   }
 
   sortName() {
-    this.currentsettingsPage.sort = "name"
+    this.currentsettingsPage.sort = "NAME"
     this.currentsettingsPage.page = 0
-    this._apiService.getPageByStatus(this.currentsettingsPage.status, this.currentsettingsPage.sort, this.currentsettingsPage).subscribe(data => {
+    this._apiService.getPageByStatus(this.currentsettingsPage.status, this.currentsettingsPage.sort, this.currentsettingsPage.page).subscribe(data => {
       this.listParticipants = data.content
     })
   }
 
   showNext() {
     this.currentsettingsPage.page += 1
-    this._apiService.getPageByStatus(this.currentsettingsPage.status, this.currentsettingsPage.sort, this.currentsettingsPage).subscribe(data => {
+    this._apiService.getPageByStatus(this.currentsettingsPage.status, this.currentsettingsPage.sort, this.currentsettingsPage.page).subscribe(data => {
       this.listParticipants = data.content
       
     })
@@ -62,7 +65,7 @@ export class OnHoldPhotosComponent {
   showPrevious() {
     if(this.currentsettingsPage.page >= 1){
       this.currentsettingsPage.page -= 1
-      this._apiService.getPageByStatus(this.currentsettingsPage.status, this.currentsettingsPage.sort, this.currentsettingsPage).subscribe(data => {
+      this._apiService.getPageByStatus(this.currentsettingsPage.status, this.currentsettingsPage.sort, this.currentsettingsPage.page).subscribe(data => {
         this.listParticipants = data.content
         
       })
