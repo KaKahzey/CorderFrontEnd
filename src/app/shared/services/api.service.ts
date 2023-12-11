@@ -121,7 +121,13 @@ export class ApiService {
     return this._httpClient.get(this._urlGetById + id, this.header)
   }
   getPhoto(id : number) : Observable<any> {
-    return this._httpClient.get(this._urlGetPhoto + id, this.header)
+
+    const header = {
+      headers: new HttpHeaders()
+      .set('Authorization',  `${this._AuthService.getToken()!}`),
+      responseType : "blob" as "json"
+    }
+    return this._httpClient.get(this._urlGetPhoto + id, header)
   }
   validate(id : number) : Observable<any> {
     return this._httpClient.get(this._urlValidate + id, this.header)
