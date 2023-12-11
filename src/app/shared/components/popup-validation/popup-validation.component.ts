@@ -1,10 +1,10 @@
-import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 import { ParticipantPopup } from '../../models/participantPopup';
 import { AuthService } from '../../services/auth.service';
 import { ShowPopupService } from '../../services/show-popup.service';
-import { ɵDomRendererFactory2 } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-popup-validation',
@@ -31,15 +31,10 @@ export class PopupValidationComponent {
     acceptNewsletter : false
   }
   
-  @ViewChild('myModal', { static: false }) modal: ElementRef<HTMLElement> | null = null;
-  
   urlPhoto: any;
   admin : string | any = "corder";
 
-  private renderer: Renderer2;
-  
-  constructor(private rendererFactory: ɵDomRendererFactory2, private _apiService : ApiService, private _authService : AuthService, private _showPopup : ShowPopupService) { 
-    this.renderer = this.rendererFactory.createRenderer(null, null);
+  constructor( private _apiService : ApiService, private _authService : AuthService, private _showPopup : ShowPopupService) {
   }
 
   ngOnInit() : void {
@@ -82,13 +77,4 @@ export class PopupValidationComponent {
     this.closePopUp();
   }
 
-  closeModal(event : any) {
-    console.log(event.target);
-    
-    console.log("CloseModal called");
-    if (this.modal && event.target.classList.contains("containe")) {
-      console.log("Modal found, changing style");
-      this.renderer.setStyle(this.modal.nativeElement, 'display', 'none');
-    }
-  }
 }
