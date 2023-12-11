@@ -32,6 +32,7 @@
                 <label class="radio-button" for="content">     
                     <img id="emote1" src="/assets/img/Emotes/smile.svg" alt="content" [ngClass]="{'opacityTrue':isChecked1,'opacityFalse':!isChecked1}">
                 </label>
+                <input id="content" type="radio" name="groupRadio" value="content"  (click)="checkboxChange1();changeState('popup0');changeState('popup3');">
                 <input id="content" type="radio" name="groupRadio" value="content"  (click)="checkboxChange3();changeState('popup0');changeState('popup3')">
                 
                 <label class="radio-button" for="bof">
