@@ -11,12 +11,15 @@ import { ApiService } from '../../../shared/services/api.service';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent {
+  //todo les mois apparaissent en Anglais top right
   totalParticipants : number = 1297
   weekParticipants : number = 19
   days : any = {monday : 5, tuesday : 10, wednesday : 3, thursday : 4, friday : 1, saturday : 5, sunday : 8}
   timeLeft : number = this.displayTimeLeft("2024-06-20")
   currentDate : string = this._datePipe.transform(new Date(), 
   'yyyy-MM-dd')!
+  lastThreeValidated : any[] = [] 
+  lastThreePending : any[] = [] 
   
 
   constructor(private _renderer: Renderer2, private _elementRef: ElementRef, private _apiService : ApiService, private _datePipe : DatePipe) {}
@@ -38,6 +41,14 @@ export class DashboardComponent {
       this.setHeight(this.days.saturday, "saturday")
       this.setHeight(this.days.sunday, "sunday")
       this.weekParticipants = this.countTotal7Days()
+    })
+    //#endregion
+    //#region get last 3 validated/pending
+    this._apiService.getLastThreeValidated().subscribe(data => {
+      this.lastThreeValidated = data
+    })
+    this._apiService.getLastThreePending().subscribe(data => {
+      this.lastThreePending = data
     })
     //#endregion
   }

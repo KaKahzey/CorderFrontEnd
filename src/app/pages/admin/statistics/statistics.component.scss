@@ -9,9 +9,10 @@
     border-radius : 20px; 
     padding-bottom: 10px;
     height : 57.74vh;
-    @apply m-2;
+    @apply m-2 p-5;
+    margin-bottom: 5vh;
 }
-.graph-count {
+.graph-period {
     width : 56.48vw;
     
 }
@@ -20,7 +21,7 @@
     font-family : nexaRegular;
     color: #0E103B;
     font-weight:900;
-    font-size: 3.7vh;
+    font-size: 5.5vh;
 }
 .top-title {
     
@@ -50,7 +51,6 @@ button:focus{
 }
 #weeks-months-graph {
     height : 57.75vh;
-    @apply p-5;
 }
 
 .top-graph-total {
@@ -109,9 +109,17 @@ button:focus{
     text-align: center;
 }
 .below-graph {
-    @apply grid grid-cols-2 items-end;
+    margin-top: 5vh;
+    @apply grid grid-cols-3 items-end;
+}
+.below-graph span {
+    cursor : pointer;
 }
 .previous-week {
+    @apply col-span-1;
+}
+.week-info {
+    text-align: center;
     @apply col-span-1;
 }
 .next-week {
@@ -147,8 +155,8 @@ button:focus{
 }
 
 .side-area {
-    max-width: 23vw;
-    @apply m-2 p-5 flex-grow;
+    width: 27%;
+    @apply m-2 p-5;
 }
 .total-count {
     background-color: #E7F39A;
@@ -163,5 +171,208 @@ button:focus{
 .side-area p {
     font-size: 15px;
     font-weight: 700;
+    height : 15vh;
     text-align: center;
+    position: absolute;
+    bottom : 18vh;
+}
+.graph-region {
+    width : 70%;
+    
+}
+.graph-vertical-region {
+    column-gap: 10%;
+    width : 87%;
+    margin: auto;
+    margin-top: 10vh;
+    @apply grid grid-cols-5;
+}
+.graph-vertical-bars-region {
+    height : 100%;
+}
+.bg-graph-vertical-region {
+    height : 22.29vh;
+    width : 100%;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #E7F39A;
+    display: flex;
+    flex-direction: column-reverse;
+}
+.graph-vertical-bars-region p {
+    text-align: center;
+}
+.brabant {
+    border-radius: 4px;
+    height : 50%;
+    background-color: #12A19A;
+}
+.hainaut {
+    border-radius: 4px;
+    height : 50%;
+    background-color: #12A19A;
+}
+.liege {
+    border-radius: 4px;
+    height : 50%;
+    background-color: #12A19A;
+}
+.luxembourg {
+    border-radius: 4px;
+    height : 50%;
+    background-color: #12A19A;
+}
+.namur {
+    border-radius: 4px;
+    height : 50%;
+    background-color: #12A19A;
+}
+.products-used {
+    width : 48%;
+}
+.products-other {
+    width : 48%;
+}
+.graph-horizontal-products {
+    width : 100%;
+    height  : 100%;
+    margin: auto;
+    margin-top: 5vh;
+    @apply space-y-4;
+}
+.graph-horizontal-bars-products {
+    height : 100%;
+    width : 95%;
+    @apply grid grid-cols-4;
+}
+.graph-horizontal-bars-products p {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    @apply col-span-1
+}
+.bg-graph-horizontal-products {
+    height : 7vh;
+    width : 100%;
+    border-radius: 5px;
+    background-color: #E7F39A;
+    @apply col-span-3;
+}
+.fongicide {
+    height : 100%;
+    width : 100%;
+    border-radius: 4px;
+    background-color: #12A19A;
+}
+.herbicide {
+    height : 100%;
+    width : 60%;
+    border-radius: 4px;
+    background-color: #12A19A;
+}
+.insecticide {
+    height : 100%;
+    width : 20%;
+    border-radius: 4px;
+    background-color: #12A19A;
+}
+.autre {
+    height : 100%;
+    width : 40%;
+    border-radius: 4px;
+    background-color: #12A19A;
+}
+.subhead {
+    font-weight : 700;
+}
+.list-comment {
+    width : 100%;
+    overflow-y: auto;
+    max-height: 40vh;
+}
+.row-comment {
+    width : 100%;
+    margin-top : 2vh;
+    @apply flex justify-between;
+}
+.index {
+    width : 10%;
+}
+.comment-area {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; 
+    width : 70%;
+}
+.btn-comment-area {
+    width : 13%;
+}
+.btn-comment {
+    background-color: #B7C90D;
+    width : 100%;
+    justify-content: center;
+    border-radius: 50px;
+    font-style: normal;
+    font-weight: 600; 
+    @apply p-1 border;
+}
+.notes-frame {
+    width : 25%;
+}
+.graph-horizontal-notes {
+    width : 100%;
+    height  : 100%;
+    margin: auto;
+    margin-top: 5vh;
+    @apply space-y-4;
+}
+.graph-horizontal-bars-notes {
+    height : 100%;
+    width : 100%;
+    margin: auto;
+}
+.bg-graph-horizontal-notes {
+    height : 7vh;
+    width : 100%;
+    border-radius: 15px;
+    background-color: #12A19A;
+    @apply col-span-3;
+}
+.bar-emote {
+    height : 100%;
+    width : 100%;
+    border-radius: 15px;
+    background-color: #12A19A;
+    @apply flex justify-between;
+}
+.bar-emote img {
+    height : 100%;
+    align-items: center;
+    @apply flex;
+}
+#happy-emote {
+    width:64.3167px;
+}
+.bar-emote span {
+    align-items: center;
+    margin-right: 3vh;
+    font-weight: 800;
+    font-size: 2.5vh;
+    @apply flex;
+}
+.notes-text-frame {
+    width : 25%;
+}
+.notes-text {
+    margin-top: 3vh;
+    height : 42%;
+    width : 95%;
+    @apply flex flex-col justify-between;
+}
+.row-notes {
+    font-weight: 700;
+    @apply flex justify-between;
+}
+.note-other {
+    width : 45%;
 }

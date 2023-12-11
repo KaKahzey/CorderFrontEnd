@@ -1,5 +1,5 @@
 <div id="main">
-    <div class="frame graph-count">
+    <div class="frame graph-period">
         <div class="in-frame">
             <!-- Grapique des semaines -->
             <div class="both-graphs" id="weeks-months-graph">
@@ -23,101 +23,104 @@
                         }
                     </div>
                 </div>  
-                    <div [ngStyle]="{ display: !showMonths ? 'block' : 'none' }" id="weeks-graph">
-                        <div class="graph-vertical-week">
-                            <div class="graph-vertical-bars">
-                                <div class="bg-graph-vertical">
-                                    <div class="monday"></div>
-                                </div>
-                                <p>Lun 10/06</p>
+                <div [ngStyle]="{ display: !showMonths ? 'block' : 'none' }" id="weeks-graph">
+                    <div class="graph-vertical-week">
+                        <div class="graph-vertical-bars">
+                            <div class="bg-graph-vertical">
+                                <div class="monday"></div>
                             </div>
-                            <div class="graph-vertical-bars">
-                                <div class="bg-graph-vertical">
-                                    <div class="tuesday"></div>
-                                </div>
-                                <p>Mar 10/06</p>
-                            </div>
-                            <div class="graph-vertical-bars">
-                                <div class="bg-graph-vertical">
-                                    <div class="wednesday"></div>
-                                </div>
-                                <p>Mer 10/06</p>
-                            </div>
-                            <div class="graph-vertical-bars">
-                                <div class="bg-graph-vertical">
-                                    <div class="thursday"></div>
-                                </div>
-                                <p>Jeu 10/06</p>
-                            </div>
-                            <div class="graph-vertical-bars">
-                                <div class="bg-graph-vertical">
-                                    <div class="friday"></div>
-                                </div>
-                                <p>Ven 10/06</p>
-                            </div>
-                            <div class="graph-vertical-bars">
-                                <div class="bg-graph-vertical">
-                                    <div class="saturday"></div>
-                                </div>
-                                <p>Sam 10/06</p>
-                            </div>
-                            <div class="graph-vertical-bars">
-                                <div class="bg-graph-vertical">
-                                    <div class="sunday"></div>
-                                </div> 
-                                <p>Dim 10/06</p>
-                            </div>   
+                            <p></p>
                         </div>
-                        <div class="below-graph">
-                            <div class="previous-week">
-                                <span (click)="showPrevious()" class="link-style">Semaine précédente</span>
+                        <div class="graph-vertical-bars">
+                            <div class="bg-graph-vertical">
+                                <div class="tuesday"></div>
                             </div>
-                            <div class="next-week">
-                                <span (click)="showNext()" class="link-style">Semaine suivante</span>
+                            <p></p>
+                        </div>
+                        <div class="graph-vertical-bars">
+                            <div class="bg-graph-vertical">
+                                <div class="wednesday"></div>
                             </div>
+                            <p></p>
+                        </div>
+                        <div class="graph-vertical-bars">
+                            <div class="bg-graph-vertical">
+                                <div class="thursday"></div>
+                            </div>
+                            <p></p>
+                        </div>
+                        <div class="graph-vertical-bars">
+                            <div class="bg-graph-vertical">
+                                <div class="friday"></div>
+                            </div>
+                            <p></p>
+                        </div>
+                        <div class="graph-vertical-bars">
+                            <div class="bg-graph-vertical">
+                                <div class="saturday"></div>
+                            </div>
+                            <p></p>
+                        </div>
+                        <div class="graph-vertical-bars">
+                            <div class="bg-graph-vertical">
+                                <div class="sunday"></div>
+                            </div> 
+                            <p></p>
+                        </div>   
+                    </div>
+                    <div class="below-graph">
+                        <div class="previous-week">
+                            <span (click)="showPrevious()" class="link-style">Semaine précédente</span>
+                        </div>
+                        <div class="week-info">
+                            Entre le {{sevenDaysAgo | date: 'dd/MM/yyyy' }} et le {{ currentDate | date: 'dd/MM/yyyy' }}
+                        </div>
+                        <div class="next-week">
+                            <span (click)="showNext()" class="link-style">Semaine suivante</span>
                         </div>
                     </div>
+                </div>
             <!-- Graphique des mois -->
-                    <div [ngStyle]="{ display: showMonths ? 'block' : 'none' }" id="months-graph">
-                        <div class="graph-vertical-week">
-                            <div class="graph-vertical-bars">
-                                <div class="bg-graph-vertical">
-                                    <div class="fifth-month"></div>
-                                </div>
-                                <p>{{translateMonth(getMonthKey(4))}}</p>
+                <div [ngStyle]="{ display: showMonths ? 'block' : 'none' }" id="months-graph">
+                    <div class="graph-vertical-week">
+                        <div class="graph-vertical-bars">
+                            <div class="bg-graph-vertical">
+                                <div class="fifth-month"></div>
                             </div>
-                            <div class="graph-vertical-bars">
-                                <div class="bg-graph-vertical">
-                                    <div class="fourth-month"></div>
-                                </div>
-                                <p>{{translateMonth(getMonthKey(3))}}</p>
-                            </div>
-                            <div class="graph-vertical-bars">
-                                <div class="bg-graph-vertical">
-                                    <div class="third-month"></div>
-                                </div>
-                                <p>{{translateMonth(getMonthKey(2))}}</p>
-                            </div>
-                            <div class="graph-vertical-bars">
-                                <div class="bg-graph-vertical">
-                                    <div class="second-month"></div>
-                                </div>
-                                <p>{{translateMonth(getMonthKey(1))}}</p>
-                            </div>
-                            <div class="graph-vertical-bars">
-                                <div class="bg-graph-vertical">
-                                    <div class="first-month"></div>
-                                </div>
-                                <p>{{translateMonth(getMonthKey(0))}}</p>
-                            </div>
+                            <p>{{translateMonth(getKey(this.months, 4))}}</p>
                         </div>
-                        <div class="below-graph">
-                            <div class="previous-week">
+                        <div class="graph-vertical-bars">
+                            <div class="bg-graph-vertical">
+                                <div class="fourth-month"></div>
                             </div>
-                            <div class="next-week">
+                            <p>{{translateMonth(getKey(this.months, 3))}}</p>
+                        </div>
+                        <div class="graph-vertical-bars">
+                            <div class="bg-graph-vertical">
+                                <div class="third-month"></div>
                             </div>
+                            <p>{{translateMonth(getKey(this.months, 2))}}</p>
+                        </div>
+                        <div class="graph-vertical-bars">
+                            <div class="bg-graph-vertical">
+                                <div class="second-month"></div>
+                            </div>
+                            <p>{{translateMonth(getKey(this.months, 1))}}</p>
+                        </div>
+                        <div class="graph-vertical-bars">
+                            <div class="bg-graph-vertical">
+                                <div class="first-month"></div>
+                            </div>
+                            <p>{{translateMonth(getKey(this.months, 0))}}</p>
                         </div>
                     </div>
+                    <div class="below-graph">
+                        <div class="previous-week">
+                        </div>
+                        <div class="next-week">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -147,82 +150,224 @@
         </p>
     </div>
     <!-- Localisation des participants -->
-    <div class="frame graph-count">
+    <div class="frame graph-region">
         <div class="in-frame">
             <!-- Grapique des semaines -->
             <div class="both-graphs" id="weeks-months-graph">
                 <div class="top-title">
                     <div class="title-frame">
-                        Nombre de participants
+                        Localisation des participants
                     </div>
                 </div>
-                <div class="top-graph">
-                    <div class="top-buttons">
-                        <button (click)="changeGraphic('weeks')" class="btn-graph">Par semaine</button>
-                        <button (click)="changeGraphic('months')" class="btn-graph">Par mois</button>
-                    </div>
-                    <div class="top-graph-total">
-                        @if (!showMonths) {
-                            Participations cette semaine : {{weekParticipants}}
-                        }
-                        @else {
-                            Participations ce mois : 
-                            {{monthParticipants}}
-                        }
-                    </div>
-                </div>  
-                    <div [ngStyle]="{ display: !showMonths ? 'block' : 'none' }" id="weeks-graph">
-                        <div class="graph-vertical-week">
-                            <div class="graph-vertical-bars">
-                                <div class="bg-graph-vertical">
-                                    <div class="monday"></div>
-                                </div>
-                                <p>Lun 10/06</p>
-                            </div>
-                            <div class="graph-vertical-bars">
-                                <div class="bg-graph-vertical">
-                                    <div class="tuesday"></div>
-                                </div>
-                                <p>Mar 10/06</p>
-                            </div>
-                            <div class="graph-vertical-bars">
-                                <div class="bg-graph-vertical">
-                                    <div class="wednesday"></div>
-                                </div>
-                                <p>Mer 10/06</p>
-                            </div>
-                            <div class="graph-vertical-bars">
-                                <div class="bg-graph-vertical">
-                                    <div class="thursday"></div>
-                                </div>
-                                <p>Jeu 10/06</p>
-                            </div>
-                            <div class="graph-vertical-bars">
-                                <div class="bg-graph-vertical">
-                                    <div class="friday"></div>
-                                </div>
-                                <p>Ven 10/06</p>
-                            </div>
-                            <div class="graph-vertical-bars">
-                                <div class="bg-graph-vertical">
-                                    <div class="saturday"></div>
-                                </div>
-                                <p>Sam 10/06</p>
-                            </div>
-                            <div class="graph-vertical-bars">
-                                <div class="bg-graph-vertical">
-                                    <div class="sunday"></div>
-                                </div> 
-                                <p>Dim 10/06</p>
-                            </div>   
+                <div class="graph-vertical-region">
+                    <div class="graph-vertical-bars-region">
+                        <div class="bg-graph-vertical-region">
+                            <div class="brabant"></div>
                         </div>
-                        <div class="below-graph">
-                            <div class="previous-week">
-                                <span (click)="showPrevious()" class="link-style">Semaine précédente</span>
-                            </div>
-                            <div class="next-week">
-                                <span (click)="showNext()" class="link-style">Semaine suivante</span>
-                            </div>
+                        <p>Braban wallon</p>
+                    </div>
+                    <div class="graph-vertical-bars-region">
+                        <div class="bg-graph-vertical-region">
+                            <div class="hainaut"></div>
+                        </div>
+                        <p>Hainaut</p>
+                    </div>
+                    <div class="graph-vertical-bars-region">
+                        <div class="bg-graph-vertical-region">
+                            <div class="liege"></div>
+                        </div>
+                        <p>Liège</p>
+                    </div>
+                    <div class="graph-vertical-bars-region">
+                        <div class="bg-graph-vertical-region">
+                            <div class="luxembourg"></div>
+                        </div>
+                        <p>Luxembourg</p>
+                    </div>
+                    <div class="graph-vertical-bars-region">
+                        <div class="bg-graph-vertical-region">
+                            <div class="namur"></div>
+                        </div>
+                        <p>Namur</p>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Graphique des produits triés -->
+    <div class="frame products-used">
+        <div class="both-graphs">
+            <div class="top-title">
+                <div class="title-frame">
+                    Produits triés
+                </div>
+            </div>
+            <div class="graph-horizontal-products">
+                <div class="graph-horizontal-bars-products">
+                    <p>Fongicides</p>
+                    <div class="bg-graph-horizontal-products">
+                        <div class="fongicide"></div>
+                    </div>
+                </div>
+                <div class="graph-horizontal-bars-products">
+                    <p>Herbicides</p>
+                    <div class="bg-graph-horizontal-products">
+                        <div class="herbicide"></div>
+                    </div>
+                </div>
+                <div class="graph-horizontal-bars-products">
+                    <p>Insecticides</p>
+                    <div class="bg-graph-horizontal-products">
+                        <div class="insecticide"></div>
+                    </div>
+                </div>
+                <div class="graph-horizontal-bars-products">
+                    <p>Autres</p>
+                    <div class="bg-graph-horizontal-products">
+                        <div class="autre"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <!-- Produits "autres" -->
+    <div class="frame products-other">
+        <div class="both-graphs">
+            <div class="top-title">
+                <div class="title-frame">
+                    Produits &lt;&lt; autres &gt;&gt;
+                </div>
+            </div>
+            <div class="subhead">
+                Nombre de produits &lt;&lt; autres &gt;&gt; : {{otherComments.length}}
+            </div>
+            <div class="list-comment">
+                @for (comment of otherComments; track $index) {
+                <div class="row-comment">
+                    <div class="index">
+                        {{$index + 1}}
+                    </div>
+                    <div class="comment-area" id="commentArea{{$index}}">
+                        &lt;&lt; {{comment.satisfactionComment}} &gt;&gt;
+                    </div>
+                    <div class="btn-comment-area">
+                        <button class="btn-comment" (click)="removeNoWrap($index)" id="btn-comment-hide{{$index}}">Voir</button>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </div> 
+    <!-- Notes -->
+    <div class="frame notes-frame">
+        <div class="both-graphs">
+            <div class="top-title">
+                <div class="title-frame">
+                    Notes
+                </div>
+            </div>
+            <div class="graph-horizontal-notes">
+                <div class="graph-horizontal-bars-notes">
+                    <div class="bg-graph-horizontal-notes">
+                        <div class="bar-emote">
+                            <img id="happy-emote" src="/assets/img/Emotes/smile.svg" alt="happy" />
+                            <span>{{countNote.happy}}</span>
                         </div>
                     </div>
+                </div>
+                <div class="graph-horizontal-bars-notes">
+                    <div class="bg-graph-horizontal-notes">
+                        <div class="bar-emote">
+                            <img src="/assets/img/Emotes/bof.svg" alt="neutral" />
+                            <span>{{countNote.neutral}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="graph-horizontal-bars-notes">
+                    <div class="bg-graph-horizontal-notes">
+                        <div class="bar-emote">
+                            <img src="/assets/img/Emotes/sad.svg" alt="sad" />
+                            <span>{{countNote.sad}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <!-- Liste des problèmes -->
+    <div class="frame notes-text-frame">
+        <div class="top-title">
+            <div class="title-frame">
+                Problèmes
+            </div>
+        </div>
+        <div class="notes-text">
+            <div class="row-notes">
+                <div class="note-category">
+                    {{getKey(countSatisfactionComments, 0)}}
+                </div>
+                <div class="note-count">
+                    {{countSatisfactionComments[getKey(countSatisfactionComments, 0)]}}
+                </div>
+            </div>
+            <div class="row-notes">
+                <div class="note-category">
+                    {{getKey(countSatisfactionComments, 1)}}
+                </div>
+                <div class="note-count">
+                    {{countSatisfactionComments[getKey(countSatisfactionComments, 1)]}}
+                </div>
+            </div>
+            <div class="row-notes">
+                <div class="note-category">
+                    {{getKey(countSatisfactionComments, 2)}}
+                </div>
+                <div class="note-count">
+                    {{countSatisfactionComments[getKey(countSatisfactionComments, 2)]}}
+                </div>
+            </div>
+            <div class="row-notes">
+                <div class="note-category">
+                    {{getKey(countSatisfactionComments, 3)}}
+                </div>
+                <div class="note-count">
+                    {{countSatisfactionComments[getKey(countSatisfactionComments, 3)]}}
+                </div>
+            </div>
+            <div class="row-notes">
+                <div class="note-category">
+                    {{getKey(countSatisfactionComments, 4)}}
+                </div>
+                <div class="note-count">
+                    {{countSatisfactionComments[getKey(countSatisfactionComments, 4)]}}
+                </div>
+            </div>
+        </div>
+    </div> 
+    <!-- satisfaction autre commentaires -->
+    <div class="frame note-other">
+        <div class="top-title">
+            <div class="title-frame">
+                Remarques
+            </div>
+        </div>
+        <div class="subhead">
+            Rubrique &lt;&lt; autres &gt;&gt;
+        </div>
+        <div class="list-comment">
+            @for (comment of listSatisfactionComments; track $index) {
+            <div class="row-comment">
+                <div class="index">
+                    {{$index + 1}}
+                </div>
+                <div class="comment-area" id="noteCommentArea{{$index}}">
+                    &lt;&lt; {{listSatisfactionComments[$index]}} &gt;&gt;
+                </div>
+                <div class="btn-comment-area">
+                    <button class="btn-comment" (click)="removeNoWrapNote($index)" id="btn-note-comment-hide{{$index}}">Voir</button>
+                </div>
+            </div>
+            }
+        </div>
+    </div> 
 </div>
