@@ -15,7 +15,12 @@ export class ValidatedPhotosComponent {
   listParticipants : Object[] = [{id : 0, src : "/assets/img/placeholder.svg"}, {id : 0, src : "/assets/img/placeholder.svg"}]
 
   constructor(private _apiService : ApiService){}
-
+  ngOnInit() {
+    this._apiService.getCountProvince().subscribe(data => {
+      console.log(data);
+      
+    })
+  }
   sortName() {
     //requête api 
   }
