@@ -16,12 +16,12 @@
     background-color: #0E103B;
     position: absolute;
   }
-  .eye{
-    width: 30px;
-    position: absolute;
-    right: 30px;
-    bottom: 30px;
-  }
+  // .eye{
+  //   width: 30px;
+  //   position: absolute;
+  //   right: 30px;
+  //   bottom: 30px;
+  // }
   .input-fields{
     display: flex;
     position: relative;
@@ -91,16 +91,53 @@
     width : 100%;
     @apply space-y-2;
   }
-  input {
+  // .form-control{
+  //   border: solid 1px;
+  //   padding-left: 3.58vh;
+  //   vertical-align: middle;
+  //   background-color: #E7F39A;
+  //   width : 367px;
+  //   margin: 20px;
+  //   height : 48px;
+  //   border-radius: 100px;
+  // }
+
+:host{
+  ::ng-deep {
+
+  .p-inputtext
+  {
     border: solid 1px;
     padding-left: 3.58vh;
     vertical-align: middle;
-    background-color: #E7F39A;
+    background-color: #E7F39A !important;
     width : 367px;
     margin: 20px;
     height : 48px;
     border-radius: 100px;
+}
+  .p-icon-wrapper{
+    width: 30px;
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
   }
+  .p-icon{
+    width: 30px;
+    height: 30px;
+  }
+}
+}
+  // input {
+  //   border: solid 1px;
+  //   padding-left: 3.58vh;
+  //   vertical-align: middle;
+  //   background-color: #E7F39A;
+  //   width : 367px;
+  //   margin: 20px;
+  //   height : 48px;
+  //   border-radius: 100px;
+  // }
   .button-area {
     padding-top: 20px;
     text-align: center;
