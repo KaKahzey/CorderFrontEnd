@@ -1,4 +1,5 @@
 export interface ParticipantPopup {
+    id : number,
     participantFirstName : string,
     participantLastName : string,
     participantEmail : string,

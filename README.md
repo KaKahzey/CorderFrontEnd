@@ -27,13 +27,19 @@ rectifications avant rendu final
 -> lien quand infoform ok
 -> lien envoi commentaire et avis ok
 
--> !!!! tester les endpoints du form ok
+-> !!!! tester les endpoints du form
+
 -->     et popup pour le comment ok
 
 -> ptite fleche sur le button Autres
 -> nb Caracteres comment
 
--> !!!! RESPONSIVE
+-> !!!! RESPONSIVE            a envoyer
+                                  |
+PENDING, VALIDATED|| DENIED,   SHIPPED, envoyé !  
+                                  |
+                            corder| cycleEnTerre
+envoyé !  
 
 ->guard corder : quand pending == valider refuser / cycle : envoyer
 SI valide alors bouton valide hidden ET bouton refuser visible
@@ -42,7 +48,7 @@ SI shipped bouton info envoyé
 ENDPOINTS :
 
 cycleenterre
-
+VALIDATED-> SHIPPED
 seulement acces bouton envoyer et envoyé
 
 Tout le formulaire user - POST

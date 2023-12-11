@@ -27,44 +27,46 @@
   <div class="card" id="popup">
     <div class="card-content-img">
       <img src="https://phototrend.fr/wp-content/uploads/2015/11/plans-r%C3%A9cap-770x836.jpg" alt="">
+      <br>
+      <div class="all-btn">
+        <button class="pdfBtn" *ngIf="userData.status.includes('PENDING') || userData.status.includes('VALIDATED') && admin.includes('Corder')" (click)="userDenied()">Refuser</button>
+        <button class="validBtn" *ngIf="userData.status.includes('PENDING') || userData.status.includes('DENIED') && admin.includes('Corder')" (click)="userValidated()">Valider</button>
+        <button class="shippedBtn" *ngIf="userData.status.includes('VALIDATED') && admin.includes('cycleenterre')"(click)="userShipped()">Valider</button>
+      </div>
     </div>
 
     <div class="card-content-txt">
+      
+        <div class="content-txt">
+          <p class="txt-left">Nom:</p>
+          <p class="txt-right">{{userData.participantFirstName}}</p>
+        </div>
 
-      <div class="content-txt">
-        <h4 class="txt-left">Nom:</h4>
-        <h4 class="txt-right">{{userData.participantFirstName}}</h4>
-      </div>
+        <div class="content-txt">
+          <p class="txt-left">Prénom:</p>
+          <p class="txt-right">{{userData.participantLastName}}</p>
+        </div>
 
-      <div class="content-txt">
-        <h4 class="txt-left">Prénom:</h4>
-        <h4 class="txt-right">{{userData.participantLastName}}</h4>
-      </div>
+        <div class="content-txt">
+          <p class="txt-left">Adresse mail:</p>
+          <p class="txt-right">{{userData.participantEmail}}</p>
+        </div>
 
-      <div class="content-txt">
-        <h4 class="txt-left">Adresse mail:</h4>
-        <h4 class="txt-right">{{userData.participantEmail}}</h4>
-      </div>
+          <br>
+          <p class="txt-left">Adresse postale:</p>
+          <p class="txt-right2">{{userData.participantAddress.street}}<br>{{userData.participantAddress.postCode + ", " +userData.participantAddress.city}}</p>
+        
+        <div class="content-txt">
+          <p class="txt-left">Produit rapporté au recyparc:</p>
+          <p class="txt-right">{{userData.productType}}</p>
+        </div>
 
-      <div class="content-txt">
-        <h4 class="txt-left">Adresse postale: </h4>
-        <h4 class="txt-right">{{userData.participantAddress.street + " " + userData.participantAddress.city + " " +userData.participantAddress.postCode}}</h4>
-      </div>
-
-      <div class="content-txt">
-        <h4 class="txt-left">Produit rapporté au recyparc:</h4>
-        <h4 class="txt-right">{{userData.productType}}</h4>
-      </div>
-
-      <div class="content-txt">
-        <h4 class="txt-left">Newsletter :</h4>
-        <h4 class="txt-right">{{userData.acceptNewsletter}}</h4>
-      </div>
-
-      <div class="all-btn">
-        <button>refuser</button>
-        <button>valider</button>
-      </div>
+        <div class="content-txt">
+          <p class="txt-left">Newsletter :</p>
+          <p class="txt-right">{{userData.acceptNewsletter}}</p>
+        </div>
+        <div> <br><br> </div>
+      
     </div>
     <div>
       <button class="photo-button" (click)="closePopUp()"></button>
