@@ -27,45 +27,66 @@
                     <div class="graph-vertical-week">
                         <div class="graph-vertical-bars">
                             <div class="bg-graph-vertical">
-                                <div class="monday"></div>
+                                <div class="monday place-ball">
+                                    <div class="ball">
+                                        {{this.days[this.getKey(this.days, 6)]}}
+                                    </div>
+                                </div>
                             </div>
-                            <p></p>
                         </div>
                         <div class="graph-vertical-bars">
                             <div class="bg-graph-vertical">
-                                <div class="tuesday"></div>
+                                <div class="tuesday place-ball">
+                                    <div class="ball">
+                                        {{this.days[this.getKey(this.days, 5)]}}
+                                    </div>
+                                </div>
                             </div>
-                            <p></p>
                         </div>
                         <div class="graph-vertical-bars">
                             <div class="bg-graph-vertical">
-                                <div class="wednesday"></div>
+                                <div class="wednesday place-ball">
+                                    <div class="ball">
+                                        {{this.days[this.getKey(this.days, 4)]}}
+                                    </div>
+                                </div>
                             </div>
-                            <p></p>
                         </div>
                         <div class="graph-vertical-bars">
                             <div class="bg-graph-vertical">
-                                <div class="thursday"></div>
+                                <div class="thursday place-ball">
+                                    <div class="ball">
+                                        {{this.days[this.getKey(this.days, 3)]}}
+                                    </div>
+                                </div>
                             </div>
-                            <p></p>
                         </div>
                         <div class="graph-vertical-bars">
                             <div class="bg-graph-vertical">
-                                <div class="friday"></div>
+                                <div class="friday place-ball">
+                                    <div class="ball">
+                                        {{this.days[this.getKey(this.days, 2)]}}
+                                    </div>
+                                </div>
                             </div>
-                            <p></p>
                         </div>
                         <div class="graph-vertical-bars">
                             <div class="bg-graph-vertical">
-                                <div class="saturday"></div>
+                                <div class="saturday place-ball">
+                                    <div class="ball">
+                                        {{this.days[this.getKey(this.days, 1)]}}
+                                    </div>
+                                </div>
                             </div>
-                            <p></p>
                         </div>
                         <div class="graph-vertical-bars">
                             <div class="bg-graph-vertical">
-                                <div class="sunday"></div>
+                                <div class="sunday place-ball">
+                                    <div class="ball">
+                                        {{this.days[this.getKey(this.days, 0)]}}
+                                    </div>
+                                </div>
                             </div> 
-                            <p></p>
                         </div>   
                     </div>
                     <div class="below-graph">
@@ -85,33 +106,53 @@
                     <div class="graph-vertical-week">
                         <div class="graph-vertical-bars">
                             <div class="bg-graph-vertical">
-                                <div class="fifth-month"></div>
+                                <div class="fifth-month place-ball">
+                                    <div class="ball">
+                                        {{this.months[this.getKey(this.months, 4)]}}
+                                    </div>
+                                </div>
                             </div>
-                            <p>{{translateMonth(getKey(this.months, 4))}}</p>
+                            <p>{{translateMonth(getMonthFromDateAndSubtract(currentDateFull, 4))}}</p>
                         </div>
                         <div class="graph-vertical-bars">
                             <div class="bg-graph-vertical">
-                                <div class="fourth-month"></div>
+                                <div class="fourth-month place-ball">
+                                    <div class="ball">
+                                        {{this.months[this.getKey(this.months, 3)]}}
+                                    </div>
+                                </div>
                             </div>
-                            <p>{{translateMonth(getKey(this.months, 3))}}</p>
+                            <p>{{translateMonth(getMonthFromDateAndSubtract(currentDateFull, 3))}}</p>
                         </div>
                         <div class="graph-vertical-bars">
                             <div class="bg-graph-vertical">
-                                <div class="third-month"></div>
+                                <div class="third-month place-ball">
+                                    <div class="ball">
+                                        {{this.months[this.getKey(this.months, 2)]}}
+                                    </div>
+                                </div>
                             </div>
-                            <p>{{translateMonth(getKey(this.months, 2))}}</p>
+                            <p>{{translateMonth(getMonthFromDateAndSubtract(currentDateFull, 2))}}</p>
                         </div>
                         <div class="graph-vertical-bars">
                             <div class="bg-graph-vertical">
-                                <div class="second-month"></div>
+                                <div class="second-month place-ball">
+                                    <div class="ball">
+                                        {{this.months[this.getKey(this.months, 1)]}}
+                                    </div>
+                                </div>
                             </div>
-                            <p>{{translateMonth(getKey(this.months, 1))}}</p>
+                            <p>{{translateMonth(getMonthFromDateAndSubtract(currentDateFull, 1))}}</p>
                         </div>
                         <div class="graph-vertical-bars">
                             <div class="bg-graph-vertical">
-                                <div class="first-month"></div>
+                                <div class="first-month place-ball">
+                                    <div class="ball">
+                                        {{this.months[this.getKey(this.months, 0)]}}
+                                    </div>
+                                </div>
                             </div>
-                            <p>{{translateMonth(getKey(this.months, 0))}}</p>
+                            <p>{{translateMonth(getMonthFromDateAndSubtract(currentDateFull, 0))}}</p>
                         </div>
                     </div>
                     <div class="below-graph">
@@ -152,7 +193,6 @@
     <!-- Localisation des participants -->
     <div class="frame graph-region">
         <div class="in-frame">
-            <!-- Grapique des semaines -->
             <div class="both-graphs" id="weeks-months-graph">
                 <div class="top-title">
                     <div class="title-frame">
@@ -162,31 +202,51 @@
                 <div class="graph-vertical-region">
                     <div class="graph-vertical-bars-region">
                         <div class="bg-graph-vertical-region">
-                            <div class="brabant"></div>
+                            <div class="brabant place-ball">
+                                <div class="ball">
+                                    {{countRegions["Brabant wallon"]}}
+                                </div>
+                            </div>
                         </div>
                         <p>Braban wallon</p>
                     </div>
                     <div class="graph-vertical-bars-region">
                         <div class="bg-graph-vertical-region">
-                            <div class="hainaut"></div>
+                            <div class="hainaut place-ball">
+                                <div class="ball">
+                                    {{countRegions["Hainaut"]}}
+                                </div>
+                            </div>
                         </div>
                         <p>Hainaut</p>
                     </div>
                     <div class="graph-vertical-bars-region">
                         <div class="bg-graph-vertical-region">
-                            <div class="liege"></div>
+                            <div class="liege place-ball">
+                                <div class="ball">
+                                    {{countRegions["Liège"]}}
+                                </div>
+                            </div>
                         </div>
                         <p>Liège</p>
                     </div>
                     <div class="graph-vertical-bars-region">
                         <div class="bg-graph-vertical-region">
-                            <div class="luxembourg"></div>
+                            <div class="luxembourg place-ball">
+                                <div class="ball">
+                                    {{countRegions["Luxembourg"]}}
+                                </div>
+                            </div>
                         </div>
                         <p>Luxembourg</p>
                     </div>
                     <div class="graph-vertical-bars-region">
                         <div class="bg-graph-vertical-region">
-                            <div class="namur"></div>
+                            <div class="namur place-ball">
+                                <div class="ball">
+                                    {{countRegions["Namur"]}}
+                                </div>
+                            </div>
                         </div>
                         <p>Namur</p>
                     </div> 
@@ -206,25 +266,41 @@
                 <div class="graph-horizontal-bars-products">
                     <p>Fongicides</p>
                     <div class="bg-graph-horizontal-products">
-                        <div class="fongicide"></div>
+                        <div class="fongicide place-ball-horizontal">
+                            <div class="ball">
+                                {{productsUsed.fongicide}}
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="graph-horizontal-bars-products">
                     <p>Herbicides</p>
                     <div class="bg-graph-horizontal-products">
-                        <div class="herbicide"></div>
+                        <div class="herbicide place-ball-horizontal">
+                            <div class="ball">
+                                {{productsUsed.herbicide}}
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="graph-horizontal-bars-products">
                     <p>Insecticides</p>
                     <div class="bg-graph-horizontal-products">
-                        <div class="insecticide"></div>
+                        <div class="insecticide place-ball-horizontal">
+                            <div class="ball">
+                                {{productsUsed.insecticide}}
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="graph-horizontal-bars-products">
                     <p>Autres</p>
                     <div class="bg-graph-horizontal-products">
-                        <div class="autre"></div>
+                        <div class="autre place-ball-horizontal">
+                            <div class="ball">
+                                {{productsUsed.autre}}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -248,7 +324,7 @@
                         {{$index + 1}}
                     </div>
                     <div class="comment-area" id="commentArea{{$index}}">
-                        &lt;&lt; {{comment.satisfactionComment}} &gt;&gt;
+                        &lt;&lt; {{comment}} &gt;&gt;
                     </div>
                     <div class="btn-comment-area">
                         <button class="btn-comment" (click)="removeNoWrap($index)" id="btn-comment-hide{{$index}}">Voir</button>
@@ -304,7 +380,7 @@
         <div class="notes-text">
             <div class="row-notes">
                 <div class="note-category">
-                    {{getKey(countSatisfactionComments, 0)}}
+                    C'était trop long
                 </div>
                 <div class="note-count">
                     {{countSatisfactionComments[getKey(countSatisfactionComments, 0)]}}
@@ -312,7 +388,7 @@
             </div>
             <div class="row-notes">
                 <div class="note-category">
-                    {{getKey(countSatisfactionComments, 1)}}
+                    C'était trop court
                 </div>
                 <div class="note-count">
                     {{countSatisfactionComments[getKey(countSatisfactionComments, 1)]}}
@@ -320,7 +396,7 @@
             </div>
             <div class="row-notes">
                 <div class="note-category">
-                    {{getKey(countSatisfactionComments, 2)}}
+                    L'appareil ne fonctionnait pas
                 </div>
                 <div class="note-count">
                     {{countSatisfactionComments[getKey(countSatisfactionComments, 2)]}}
@@ -328,7 +404,7 @@
             </div>
             <div class="row-notes">
                 <div class="note-category">
-                    {{getKey(countSatisfactionComments, 3)}}
+                    Informations pas claires
                 </div>
                 <div class="note-count">
                     {{countSatisfactionComments[getKey(countSatisfactionComments, 3)]}}
@@ -336,7 +412,7 @@
             </div>
             <div class="row-notes">
                 <div class="note-category">
-                    {{getKey(countSatisfactionComments, 4)}}
+                    Autre
                 </div>
                 <div class="note-count">
                     {{countSatisfactionComments[getKey(countSatisfactionComments, 4)]}}

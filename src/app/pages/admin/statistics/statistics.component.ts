@@ -19,24 +19,11 @@ export class StatisticsComponent {
   graphDisplayStyle: { [key: string]: string } = { display: 'block' }
   timeLeft : number = this.displayTimeLeft("2024-06-20")
   fiveLastMonths : string[] = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY"]
-  days : any = {
-    monday : 5,
-    tuesday : 10,
-    wednesday : 3,
-    thursday : 4,
-    friday : 1,
-    saturday : 5,
-    sunday : 8
-  }
-  months : any = {
-    february : 6,
-    march : 16,
-    april : 10,
-    may : 5,
-    june : 2
-  }
+  days : any = {MONDAY : 5, SUNDAY : 10, SATURDAY : 3, FRIDAY : 4, THURSDAY : 1, WEDNESDAY : 5, TUESDAY : 8}
+  months : any = { }
   currentDate : string = this._datePipe.transform(new Date(), 
   'yyyy-MM-dd')!
+  currentDateFull : Date = new Date()
   sevenDaysAgo : string = "yyyy-MM-dd"
   countRegions : any = {
     "Hainaut": 15,
@@ -51,46 +38,20 @@ export class StatisticsComponent {
     fongicide : 10,
     autre : 15
   }
-  otherComments : any[] = [{satisfactionComment : "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr"},
-  {satisfactionComment : "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr"},
-  {satisfactionComment : "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr"},
-  {satisfactionComment : "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr"},
-  {satisfactionComment : "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr"},
-  {satisfactionComment : "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr"},
-  {satisfactionComment : "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr"},
-  {satisfactionComment : "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr"},
-  {satisfactionComment : "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr"},
-  {satisfactionComment : "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr"},
-  {satisfactionComment : "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr"},
-  {satisfactionComment : "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr"},
-  {satisfactionComment : "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr"},
-  {satisfactionComment : "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr"},
-  {satisfactionComment : "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr"},
-  {satisfactionComment : "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr"},
-  {satisfactionComment : "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr"},
-  {satisfactionComment : "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr"},
-  {satisfactionComment : "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr"},
-  {satisfactionComment : "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr"}]
+  otherComments : any[] = [
+  ]
   countNote : any = {
     happy : 22,
     neutral : 5,
     sad : 7
   }
-  listSatisfactionComments : string[] = [
-    "J'ai utilment long haha quelle longue phrase je me marre mdr", 
-    "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr",
-    "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr",
-    "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr",
-    "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr",
-    "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr",
-    "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr",
-    "J'ai utilisé un très long pesticide, en parler serait long, tout le procédé serait péniblement long haha quelle longue phrase je me marre mdr",
+  listSatisfactionComments : any[] = [
     ]
   countSatisfactionComments : any = {
-    'C\'était trop long' : 6,
-    'C\'était trop court' : 3,
-    'L\'appareil ne fonctionnait pas' : 8,
-    'Informations pas claires' : 4,
+    "C'était trop long" : 6,
+    "C'était trop court" : 3,
+    "L'appareil ne fonctionnait pas" : 8,
+    "Informations pas claires" : 4,
     Autre : this.listSatisfactionComments.length
   }
   
@@ -106,14 +67,14 @@ export class StatisticsComponent {
     //#region set days and total last week
     this._apiService.getCountLast7Days(this.currentDate).subscribe(data => {
       this.days = data
+      this.setAllDays()
     })    
-    this.setAllDays()
     //#endregion
     //#region set months and total last month
     this._apiService.getLastMonths().subscribe(data => {
       this.months = data
+      this.setAllMonths()
     })
-    this.setAllMonths()
     //#endregion
     this._apiService.getCountProvince().subscribe(data => {
       this.countRegions = data
@@ -123,15 +84,22 @@ export class StatisticsComponent {
     this._apiService.getCountInsecticide().subscribe(data => {
       this.productsUsed.insecticide = data
     })
-    this._apiService.getCountInsecticide().subscribe(data => {
+    this._apiService.getCountHerbicide().subscribe(data => {
       this.productsUsed.herbicide = data
     })
-    this._apiService.getCountInsecticide().subscribe(data => {
+    this._apiService.getCountFongicide().subscribe(data => {
       this.productsUsed.fongicide = data
+      this._apiService.getCountOtherProducts().subscribe(data => {
+        this.productsUsed.autre = data
+        this.setAllProducts()
+      })
     })
-    this._apiService.getCountInsecticide().subscribe(data => {
-      this.productsUsed.autre = data
-      this.setAllProducts()
+    this._apiService.getProductComments().subscribe(data => {
+      data.forEach((element : any) => {
+        if(element){
+          this.otherComments.push(element)
+        }
+      })
     })
     //#region set notes
     this._apiService.getCountNote(1).subscribe(data => {
@@ -146,24 +114,32 @@ export class StatisticsComponent {
     //#endregion
     //#region set satisfaction comments
     //trop long
-    this._apiService.getCountSatisfactionComment(this.countSatisfactionComments[0]).subscribe(data => {
+    this._apiService.getCountSatisfactionComment(this.getKey(this.countSatisfactionComments, 0)).subscribe(data => {
       this.countSatisfactionComments[0] = data
     })
     //trop court
-    this._apiService.getCountSatisfactionComment(this.countSatisfactionComments[1]).subscribe(data => {
+    this._apiService.getCountSatisfactionComment(this.getKey(this.countSatisfactionComments, 1)).subscribe(data => {
       this.countSatisfactionComments[1] = data
     })
     //fonctionne pas
-    this._apiService.getCountSatisfactionComment(this.countSatisfactionComments[2]).subscribe(data => {
+    this._apiService.getCountSatisfactionComment(this.getKey(this.countSatisfactionComments, 2)).subscribe(data => {
       this.countSatisfactionComments[2] = data
     })
     //pas clair
-    this._apiService.getCountSatisfactionComment(this.countSatisfactionComments[3]).subscribe(data => {
+    this._apiService.getCountSatisfactionComment(this.getKey(this.countSatisfactionComments, 3)).subscribe(data => {
       this.countSatisfactionComments[3] = data
+    })
+    //autre
+    this._apiService.getCountOtherSatisfactionComment().subscribe(data => {
+      this.countSatisfactionComments[4] = data
     })
     //une liste de tous les autres commentaires
     this._apiService.getSatisfactionCommments().subscribe(data => {
-      this.listSatisfactionComments = data
+      data.forEach((element : string) => {
+        if(element) {
+          this.listSatisfactionComments.push(element)
+        }
+      })
     })
     //#endregion
   }
@@ -189,14 +165,14 @@ export class StatisticsComponent {
 
   //set graph all days
   setAllDays() : void {
-    this.setHeightDays(this.days.monday, "monday")
-    this.setHeightDays(this.days.tuesday, "tuesday")
-    this.setHeightDays(this.days.wednesday, "wednesday")
-    this.setHeightDays(this.days.thursday, "thursday")
-    this.setHeightDays(this.days.friday, "friday")
-    this.setHeightDays(this.days.saturday, "saturday")
-    this.setHeightDays(this.days.sunday, "sunday")
-    this.weekParticipants = this.countTotal7Days()
+    this.setHeightDays(this.days[this.getKey(this.days, 6)], "monday")
+      this.setHeightDays(this.days[this.getKey(this.days, 5)], "tuesday")
+      this.setHeightDays(this.days[this.getKey(this.days, 4)], "wednesday")
+      this.setHeightDays(this.days[this.getKey(this.days, 3)], "thursday")
+      this.setHeightDays(this.days[this.getKey(this.days, 2)], "friday")
+      this.setHeightDays(this.days[this.getKey(this.days, 1)], "saturday")
+      this.setHeightDays(this.days[this.getKey(this.days, 0)], "sunday")
+      this.weekParticipants = this.countTotal7Days()
   }
   
   //set graph all months
@@ -231,7 +207,8 @@ export class StatisticsComponent {
     const valuesArray: number[] = Object.values(this.days)
     const highestNumber: number = Math.max(...valuesArray)
     const selectedDay = this._elementRef.nativeElement.querySelector(`.${day}`)
-    this._renderer.setStyle(selectedDay, 'height', `${(height / highestNumber * 100) -5}%`)
+    this._renderer.setStyle(selectedDay, 'height', `${(height / highestNumber * 90)}%`)
+      this._renderer.setStyle(selectedDay, 'min-height', `52px`)
   }
 
   //fait grandir les baguettes pour les mois
@@ -240,7 +217,8 @@ export class StatisticsComponent {
     const highestNumber: number = Math.max(...valuesArray)
     const selectedMonth = this._elementRef.nativeElement.querySelector(`.${month}`)
     if (selectedMonth) {
-      this._renderer.setStyle(selectedMonth, 'height', `${(height / highestNumber * 100) -5}%`)
+      this._renderer.setStyle(selectedMonth, 'height', `${(height / highestNumber * 90)}%`)
+      this._renderer.setStyle(selectedMonth, 'min-height', `52px`)
     }
   }
 
@@ -249,17 +227,20 @@ export class StatisticsComponent {
     const highestNumber: number = Math.max(...valuesArray)
     const selectedRegion = this._elementRef.nativeElement.querySelector(`.${region}`)
     if (selectedRegion) {      
-      this._renderer.setStyle(selectedRegion, 'height', `${(height / highestNumber * 100) -5}%`)
+      this._renderer.setStyle(selectedRegion, 'height', `${(height / highestNumber * 90)}%`)
+      this._renderer.setStyle(selectedRegion, 'min-height', `52px`)
     }
   }
 
   //set baguettes graphique produits utilisés
   setWidthProducts(width: number, product: string): void {
-    const valuesArray: number[] = Object.values(this.months)
+    const valuesArray: number[] = Object.values(this.productsUsed)
     const highestNumber: number = Math.max(...valuesArray)
     const selectedProduct = this._elementRef.nativeElement.querySelector(`.${product}`)
     if (selectedProduct) {
       this._renderer.setStyle(selectedProduct, 'width', `${(width / highestNumber * 100) -5}%`)
+      this._renderer.setStyle(selectedProduct, 'min-width', `52px`)
+      
     }
   }
 
@@ -281,8 +262,19 @@ export class StatisticsComponent {
 
   //return la valeur du dernier mot reçu
   countTotalLastMonth() : number {
-    const valuesArray: number[] = Object.values(this.months)
-    return valuesArray[valuesArray.length-1]
+    const valuesArray: number[] = Object.values(this.months)    
+    return valuesArray[0]
+  }
+
+  getMonthFromDateAndSubtract(inputDate : Date, monthsToSubtract : number) : string {
+    const date = new Date(inputDate)
+    date.setMonth(date.getMonth() - monthsToSubtract)
+    const monthNames = [
+      'January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'
+    ]
+    const subtractedMonth = monthNames[date.getMonth()]
+    return subtractedMonth
   }
 
   //on recoit les mois en anglais, on les traduit ici
@@ -339,10 +331,10 @@ export class StatisticsComponent {
       futureDate.setDate(futureDate.getDate() + 7)
       this.currentDate = this._datePipe.transform(futureDate, "yyyy-MM-dd")!
       this.getSevenDaysAgo() 
-      
       this._apiService.getCountLast7Days(this.currentDate).subscribe(data => {
         this.days = data
-      }) 
+        this.setAllDays()
+      })    
     }
   }
 
@@ -354,7 +346,9 @@ export class StatisticsComponent {
     this.getSevenDaysAgo()
     this._apiService.getCountLast7Days(this.currentDate).subscribe(data => {
       this.days = data
-    }) 
+      
+      this.setAllDays()
+    })    
     }
 
     //remove nowrap du comment

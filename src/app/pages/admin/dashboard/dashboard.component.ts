@@ -16,7 +16,7 @@ export class DashboardComponent {
   //todo les mois apparaissent en Anglais top right
   totalParticipants : number = 1297
   weekParticipants : number = 19
-  days : any = {monday : 5, tuesday : 10, wednesday : 3, thursday : 4, friday : 1, saturday : 5, sunday : 8}
+  days : any = {MONDAY : 5, SUNDAY : 10, SATURDAY : 3, FRIDAY : 4, THURSDAY : 1, WEDNESDAY : 5, TUESDAY : 8}
   timeLeft : number = this.displayTimeLeft("2024-06-20")
   currentDate : string = this._datePipe.transform(new Date(), 
   'yyyy-MM-dd')!
@@ -35,14 +35,7 @@ export class DashboardComponent {
     //#region set days and total week
     this._apiService.getCountLast7Days(this.currentDate).subscribe(data => {
       this.days = data
-      this.setHeight(this.days.monday, "monday")
-      this.setHeight(this.days.tuesday, "tuesday")
-      this.setHeight(this.days.wednesday, "wednesday")
-      this.setHeight(this.days.thursday, "thursday")
-      this.setHeight(this.days.friday, "friday")
-      this.setHeight(this.days.saturday, "saturday")
-      this.setHeight(this.days.sunday, "sunday")
-      this.weekParticipants = this.countTotal7Days()
+      this.setAllDays()
     })
     //#endregion
     //#region get last 3 validated/pending
@@ -76,6 +69,17 @@ export class DashboardComponent {
       }
     })
     //#endregion
+  }
+
+  setAllDays() : void {
+      this.setHeight(this.days.MONDAY, "monday")
+      this.setHeight(this.days.TUESDAY, "tuesday")
+      this.setHeight(this.days.WEDNESDAY, "wednesday")
+      this.setHeight(this.days.THURSDAY, "thursday")
+      this.setHeight(this.days.FRIDAY, "friday")
+      this.setHeight(this.days.SATURDAY, "saturday")
+      this.setHeight(this.days.SUNDAY, "sunday")
+      this.weekParticipants = this.countTotal7Days()
   }
 
   //set la taille de chaque baguette dans le graphique

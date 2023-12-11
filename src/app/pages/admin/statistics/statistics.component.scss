@@ -224,6 +224,7 @@ button:focus{
     border-radius: 4px;
     height : 50%;
     background-color: #12A19A;
+    
 }
 .products-used {
     width : 48%;
@@ -373,4 +374,38 @@ button:focus{
 }
 .note-other {
     width : 45%;
+}
+.bal {
+    background-color: #0E103B;
+    color:#FFFFFF;
+    font-weight: 700;
+    line-height: 34px;
+    text-align: center;
+    width:fit-content;
+    height: fit-content;
+    border-radius: 200px;
+}
+.ball {
+    background-color: #0E103B;
+    color:#FFFFFF;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    position: relative;
+  }
+.place-ball {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.place-ball-horizontal{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-right: 4%;
 }

@@ -13,6 +13,7 @@ import { DataFormService } from '../../../shared/services/data-form.service';
 })
 export class PhotoInformationComponent {
   inputValue: string = '';
+  chosenInput : boolean = false
 
   constructor(private _dataFormService : DataFormService) {
 
@@ -22,8 +23,12 @@ export class PhotoInformationComponent {
     this._dataFormService.changeProductType(choice);
   }
 
-  onInputChange() {
-    console.log('Nouvelle valeur de l\'input:', this.inputValue);
-    //Envoyer cette valeur à l'Userdata, peut-être dans le good practice, à voir
+  onInputClick(): void {
+    this.chooseProduct(this.inputValue);
+  }
+
+  changeChoice(choice : boolean) : void {
+    this.chosenInput = choice
+    
   }
 }

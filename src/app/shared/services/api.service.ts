@@ -30,8 +30,9 @@ export class ApiService {
   private _urlGetCountHerbicide : string = "http://192.168.200.102:8080/participation/countHerbicide"
   private _urlGetCountFongicide : string = "http://192.168.200.102:8080/participation/countFongicide"
   private _urlGetCountOtherProducts : string = "http://192.168.200.102:8080/participation/countAllOtherProductType"
-  private _urlGetComments : string = "http://192.168.200.102:8080/participation/getComments"
+  private _urlGetProductsComments : string = "http://192.168.200.102:8080/participation/findAllOtherProductType"
   private _urlGetCountSatisfactionComment : string = "http://192.168.200.102:8080/participation/countBySatisfactionComment?satisfactionComment="
+  private _urlGetCountOtherSatisfactionComment : string = "http://192.168.200.102:8080/participation/countByOthersSatisfactionComment"
   private _urlGetSatisfactionComments : string = "http://192.168.200.102:8080/participation/allOthersSatisfactionComment"
   //#endregion
   //#region popup-validation
@@ -101,13 +102,16 @@ export class ApiService {
     return this._httpClient.get(this._urlGetCountOtherProducts, this.header)
   }
   getProductComments() : Observable<any> {
-    return this._httpClient.get(this._urlGetComments, this.header)
+    return this._httpClient.get(this._urlGetProductsComments, this.header)
   }
   getCountNote(note : number) : Observable<any> {
     return this._httpClient.get(this._urlCountNote + note, this.header)
   }
   getCountSatisfactionComment(comment : string) : Observable<any> {
     return this._httpClient.get(this._urlGetCountSatisfactionComment + comment, this.header)
+  }
+  getCountOtherSatisfactionComment() : Observable<any> {
+    return this._httpClient.get(this._urlGetCountOtherSatisfactionComment, this.header)
   }
   getSatisfactionCommments() : Observable<any> {
     return this._httpClient.get(this._urlGetSatisfactionComments, this.header)

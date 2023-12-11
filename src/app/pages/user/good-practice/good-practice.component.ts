@@ -16,6 +16,8 @@ export class GoodPracticeComponent{
 
   constructor(private _dataFormService : DataFormService){
     this.choix = this._dataFormService.displayProductType();
+    console.log(this.choix);
+    
   }
 
   ngOnInit(){

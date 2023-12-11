@@ -7,14 +7,19 @@
     <div class="square-bg">
         <div class="text-square">
             <p class="p1-desktop">Quel type de pesticide venez-vous de prendre en photo ?</p>
-            <button class="btnHerbi" (click)="chooseProduct('Herbicide')">Herbicide</button>
-            <button (click)="chooseProduct('Fongicide')">Fongicide</button>
-            <button (click)="chooseProduct('Insecticide')">Insecticide</button>
-            <input type="text" (focus)="chooseProduct('D')" [(ngModel)]="inputValue" (input)="onInputChange()" placeholder="Autre">
+            <button class="btnHerbi" (click)="chooseProduct('Herbicide'); changeChoice(false)">Herbicide</button>
+            <button (click)="chooseProduct('Fongicide'); changeChoice(false)">Fongicide</button>
+            <button (click)="chooseProduct('Insecticide'); changeChoice(false)">Insecticide</button>
+            <input type="text" [(ngModel)]="inputValue"  placeholder="Autre" (click)="changeChoice(true)" />
         </div>
         <div class="btn_all">
             <a class="btn-style btn-leftm" routerLink="/photo-validation">Retour</a>
-            <a class="btn-style btn-color2" routerLink="/good-practice">Continuer</a>
+            @if (chosenInput) {
+                <a class="btn-style btn-color2" routerLink="/good-practice" (click)="onInputClick()" >Continuer</a>
+            }
+            @else {
+                <a class="btn-style btn-color2" routerLink="/good-practice" >Continuer</a>
+            }
         </div>
     </div>
 </div>
