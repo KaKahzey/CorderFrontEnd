@@ -43,7 +43,7 @@ export class PopupValidationComponent {
 
       this.admin = this._authService.getUser()
         
-     this._apiService.getById(226).subscribe(data => {
+     this._apiService.getById(this._showPopup.getId()).subscribe(data => {
       this.userData = data
       this._apiService.getPhoto(this.userData.id).subscribe({
         next : (photo) => reader.readAsDataURL(photo),
