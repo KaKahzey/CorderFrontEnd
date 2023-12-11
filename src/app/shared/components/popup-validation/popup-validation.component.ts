@@ -5,6 +5,7 @@ import { ParticipantPopup } from '../../models/participantPopup';
 import { AuthService } from '../../services/auth.service';
 import { ShowPopupService } from '../../services/show-popup.service';
 
+
 @Component({
   selector: 'app-popup-validation',
   standalone: true,
@@ -13,6 +14,7 @@ import { ShowPopupService } from '../../services/show-popup.service';
   styleUrl: './popup-validation.component.scss'
 })
 export class PopupValidationComponent {
+  [x: string]: any;
 
   userData : ParticipantPopup = {
     id : 1,
@@ -30,9 +32,10 @@ export class PopupValidationComponent {
   }
   
   urlPhoto: any;
-  admin : string | any = "";
+  admin : string | any = "corder";
 
-  constructor(private _apiService : ApiService, private _authService : AuthService, private _showPopup : ShowPopupService) { }
+  constructor( private _apiService : ApiService, private _authService : AuthService, private _showPopup : ShowPopupService) {
+  }
 
   ngOnInit() : void {
     const reader : FileReader = new FileReader()
@@ -42,7 +45,7 @@ export class PopupValidationComponent {
     }
 
       this.admin = this._authService.getUser()
-        
+      console.log(this.admin);
      this._apiService.getById(this._showPopup.getId()).subscribe(data => {
       this.userData = data
       this._apiService.getPhoto(this.userData.id).subscribe({
@@ -73,4 +76,5 @@ export class PopupValidationComponent {
     this._apiService.ship(this.userData.id);
     this.closePopUp();
   }
+
 }

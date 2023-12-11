@@ -5,13 +5,28 @@
       <img [src]="urlPhoto" alt="https://phototrend.fr/wp-content/uploads/2015/11/plans-r%C3%A9cap-770x836.jpg">
       <br>
       <div class="all-btn">
-        <button class="pdfBtn" *ngIf="userData.status.includes('PENDING') || userData.status.includes('VALIDATED') && admin.includes('Corder')" (click)="userDenied()">Refuser</button>
-        <button class="validBtn" *ngIf="userData.status.includes('PENDING') || userData.status.includes('DENIED') && admin.includes('Corder')" (click)="userValidated()">Valider</button>
-        <button class="shippedBtn" *ngIf="userData.status.includes('VALIDATED')"(click)="userShipped()">Envoyer</button>
+        <div class="pendingStatus"  *ngIf="userData.status.includes('PENDING') && admin.includes('corder')" (click)="userDenied()">
+          <button class="pdfBtn" >Refuser</button>
+          <button class="validBtn">Valider</button>
+        </div>
+        <div class="singleStatus" *ngIf="userData.status.includes('DENIED') && admin.includes('corder')">
+          <button class="validBtn">Valider</button>
+        </div>
+        <div class="validatedStatus" *ngIf="userData.status.includes('VALIDATED') && admin.includes('corder')">
+            <button class="pdfBtn"> Refuser</button>
+            <button class="shippedBtn">Envoyer</button>
+        </div>
+        <div class="singleStatus" *ngIf="userData.status.includes('VALIDATED') && admin.includes('cycleenterre')">
+            <button class="shippedBtn">Envoyer</button>
+        </div>
+
+        <div class="singleStatus" *ngIf="userData.status.includes('SHIPPED')">
+          <button class="shippedBtn">Envoyé</button>
+        </div>
       </div>
     </div>
 
-    <div class="card-content-txt">
+    <div class="card-content-txt no-overflow">
       
         <div class="content-txt">
           <p class="txt-left">Nom:</p>
@@ -39,12 +54,14 @@
 
         <div class="content-txt">
           <p class="txt-left">Newsletter :</p>
-          <p class="txt-right">{{userData.acceptNewsletter}}</p>
+          <p class="txt-right">@if(userData.acceptNewsletter){Oui
+            }@else{Non}</p>
+
         </div>
         <div> <br><br> </div>
       
     </div>
-    <div>
+    <div class="w-10">
       <button class="photo-button" (click)="closePopUp()"></button>
     </div>
   </div>
