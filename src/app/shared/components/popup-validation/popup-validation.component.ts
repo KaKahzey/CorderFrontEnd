@@ -45,7 +45,6 @@ export class PopupValidationComponent {
     }
 
       this.admin = this._authService.getUser()
-      console.log(this.admin);
      this._apiService.getById(this._showPopup.getId()).subscribe(data => {
       this.userData = data
       this._apiService.getPhoto(this.userData.id).subscribe({
@@ -60,19 +59,24 @@ export class PopupValidationComponent {
   }
 
   userDenied(){
-    //faire l'appel à l'api
     this._apiService.deny(this.userData.id);
     this.closePopUp();
   }
 
   userValidated(){
-    //faire l'appel à l'api
-    this._apiService.validate(this.userData.id);
-    this.closePopUp();
+    this._apiService.validate(this.userData.id).subscribe({
+      next : (resp) => {
+        console.log(resp);
+        this.closePopUp();
+      },
+      error : (error) => {
+        console.log("erreur : ", error);
+        
+      }
+    })
   }
 
   userShipped(){
-    //faire l'appel à l'api
     this._apiService.ship(this.userData.id);
     this.closePopUp();
   }

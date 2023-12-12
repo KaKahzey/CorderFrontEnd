@@ -19,7 +19,7 @@
                 <th class="state-head">Etat</th>
             </tr>
             @for (p of participantsList; track p.id){
-                <tr (click)="setId(p.id); displayPopup()">
+                <tr class="show-hover" (click)="setId(p.id); displayPopup()">
                     <td>{{p.id}}</td>
                     <td>{{p.participantLastName}}</td>
                     <td>{{p.participantFirstName}}</td>
@@ -33,7 +33,7 @@
                     @if (p.status === "DENIED" ) {
                         <td class="rejected">refusé</td>
                     }
-                    @else if (p.status === "SENT") {
+                    @else if (p.status === "SHIPPED") {
                         <td class="sent">envoyé</td>
                     }
                     @else if (p.status === "PENDING") {

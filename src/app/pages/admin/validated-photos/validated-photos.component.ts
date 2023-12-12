@@ -14,16 +14,31 @@ import { PopupValidationComponent } from '../../../shared/components/popup-valid
 export class ValidatedPhotosComponent {
 
   
-  listParticipants : Object[] = [{id : 0, src : "/assets/img/placeholder.svg"}]
+  listParticipants : any[] = []
+  photosParticipants : any[] = []
   
   currentSettingsPage : any = {status : "validated", sort : "date", page : 0  }
 
   constructor(private _apiService : ApiService, private _showPopupService : ShowPopupService){}
 
   ngOnInit() : void {
-    this.showValidated()
-    this._apiService.getPageByStatus(this.currentSettingsPage.status, this.currentSettingsPage.sort, this.currentSettingsPage).subscribe(data => {
-      this.listParticipants = data.content
+    this._apiService.getAllUsersNoBlob().subscribe(data => {
+      for (let i = 0; i < data.length; i++) {
+        if(data[i].status == "VALIDATED"){
+          this.listParticipants.push(data[i])
+      }
+      for (let i = 0; i < this.listParticipants.length; i++) {
+          this.photosParticipants[i] = {id : data[i].id, photo : ""}
+          this._apiService.getPhoto(this.photosParticipants[i].id).subscribe({
+            next: (photo) => {
+              const reader: FileReader = new FileReader()
+              reader.onload = () => {
+                this.photosParticipants[i].photo = reader.result as string
+              }
+              reader.readAsDataURL(photo)
+            }
+          })
+        }}
     })
   }
 
@@ -61,11 +76,12 @@ export class ValidatedPhotosComponent {
   }
 
   sortName() {
-    this.currentSettingsPage.sort = "name"
-    this.currentSettingsPage.page = 0
-    this._apiService.getPageByStatus(this.currentSettingsPage.status, this.currentSettingsPage.sort, this.currentSettingsPage).subscribe(data => {
-      this.listParticipants = data.content
-    })
+
+    // this.currentSettingsPage.sort = "name"
+    // this.currentSettingsPage.page = 0
+    // this._apiService.getPageByStatus(this.currentSettingsPage.status, this.currentSettingsPage.sort, this.currentSettingsPage).subscribe(data => {
+    //   this.listParticipants = data.content
+    // })
   }
 
   showValidated() {
@@ -106,7 +122,7 @@ export class ValidatedPhotosComponent {
     }
   }
 
-  setId(id : number) : void {
+  setId(id : number) : void {    
     this._showPopupService.setId(id)    
   }
   

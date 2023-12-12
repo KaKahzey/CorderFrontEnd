@@ -12,14 +12,30 @@ import { PopupValidationComponent } from '../../../shared/components/popup-valid
   styleUrl: './rejected-photos.component.scss'
 })
 export class RejectedPhotosComponent {
-  listParticipants : Object[] = [{id : 0, src : "/assets/img/placeholder.svg"}]
+  listParticipants : any[] = []
+  photosParticipants : any[] = []
   currentsettingsPage : any = {status : "denied", sort : "date", page : 0  }
 
   constructor(private _apiService : ApiService, private _showPopupService : ShowPopupService){}
 
   ngOnInit() : void {
-    this._apiService.getPageByStatus(this.currentsettingsPage.status, this.currentsettingsPage.sort, this.currentsettingsPage).subscribe(data => {
-      this.listParticipants = data.content
+    this._apiService.getAllUsersNoBlob().subscribe(data => {
+      for (let i = 0; i < data.length; i++) {
+        if(data[i].status == "DENIED"){
+          this.listParticipants.push(data[i])
+      }
+      for (let i = 0; i < this.listParticipants.length; i++) {
+          this.photosParticipants[i] = {id : this.listParticipants[i].id, photo : ""}
+          this._apiService.getPhoto(this.photosParticipants[i].id).subscribe({
+            next: (photo) => {
+              const reader: FileReader = new FileReader()
+              reader.onload = () => {
+                this.photosParticipants[i].photo = reader.result as string
+              }
+              reader.readAsDataURL(photo)
+            }
+          })
+        }}
     })
   }
   

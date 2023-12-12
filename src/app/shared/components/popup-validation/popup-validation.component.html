@@ -6,18 +6,18 @@
       <br>
       <div class="all-btn">
         <div class="pendingStatus"  *ngIf="userData.status.includes('PENDING') && admin.includes('corder')" (click)="userDenied()">
-          <button class="pdfBtn" >Refuser</button>
-          <button class="validBtn">Valider</button>
+          <button class="pdfBtn" (click)="userDenied()" >Refuser</button>
+          <button class="validBtn" (click)="userValidated()">Valider</button>
         </div>
         <div class="singleStatus" *ngIf="userData.status.includes('DENIED') && admin.includes('corder')">
-          <button class="validBtn">Valider</button>
+          <button class="validBtn" (click)="userValidated()">Valider</button>
         </div>
         <div class="validatedStatus" *ngIf="userData.status.includes('VALIDATED') && admin.includes('corder')">
-            <button class="pdfBtn"> Refuser</button>
-            <button class="shippedBtn">Envoyer</button>
+            <button class="pdfBtn" (click)="userDenied()"> Refuser</button>
+            <button class="shippedBtn" (click)="userShipped()">Envoyer</button>
         </div>
         <div class="singleStatus" *ngIf="userData.status.includes('VALIDATED') && admin.includes('cycleenterre')">
-            <button class="shippedBtn">Envoyer</button>
+            <button class="shippedBtn" (click)="userShipped()">Envoyer</button>
         </div>
 
         <div class="singleStatus" *ngIf="userData.status.includes('SHIPPED')">

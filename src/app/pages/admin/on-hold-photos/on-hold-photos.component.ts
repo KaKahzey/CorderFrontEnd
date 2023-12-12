@@ -13,27 +13,33 @@ import { ShowPopupService } from '../../../shared/services/show-popup.service';
 })
 export class OnHoldPhotosComponent {
   
-  listParticipants : any[] = [{id : 204, src : "/assets/img/placeholder.svg"}]
-  imagesParticipants : any[] = []
+  listParticipants : any[] = []
+  photosParticipants : any[] = []
   currentsettingsPage : any = {status : "PENDING", sort : "DATEASC", page : 0  }
 
   constructor(private _apiService : ApiService, private _showPopupService : ShowPopupService){}
 
   ngOnInit() : void {
-    this._apiService.getPageByStatus(this.currentsettingsPage.status, this.currentsettingsPage.sort, this.currentsettingsPage.page).subscribe(data => {
-      this.listParticipants = data.content
-      this.getPhotos()
+    this._apiService.getAllUsersNoBlob().subscribe(data => {
+      for (let i = 0; i < data.length; i++) {
+        if(data[i].status == "PENDING"){
+          this.listParticipants.push(data[i])
+      }
+      for (let i = 0; i < this.listParticipants.length; i++) {
+          this.photosParticipants[i] = {id : data[i].id, photo : ""}
+          this._apiService.getPhoto(this.photosParticipants[i].id).subscribe({
+            next: (photo) => {
+              const reader: FileReader = new FileReader()
+              reader.onload = () => {
+                this.photosParticipants[i].photo = reader.result as string
+              }
+              reader.readAsDataURL(photo)
+            }
+          })
+        }}
     })
-    
   }
 
-  getPhotos() : void {
-    this.listParticipants.forEach(p => {
-      this._apiService.getPhoto(p.id).subscribe(data => {
-        this.imagesParticipants.push(data)          
-      })
-    })
-  }
 
   sortDate() {
     this.currentsettingsPage.sort = "DATEASC"

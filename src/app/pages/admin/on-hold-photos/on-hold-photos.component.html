@@ -11,18 +11,18 @@
         </span>
     </div>
     <div class="row">
-        @for (p of listParticipants; track p) {
-            <div class="card">
+        @for (p of listParticipants; track $index) {
+            <div class="card" (click)="setId(p.id); displayPopup()">
                 <div class="photo">
-                    <img src="/assets/img/placeholder.svg" />
+                    <img [src]="photosParticipants[$index].photo" />
                 </div>
                 <div class="below-area">
                     <div class="name-date">
                         <div class="name">
-                            Didier Franchampsss
+                            {{p.participantFirstName}} {{p.participantLastName}}
                         </div>
                         <div class="date">
-                            participation le 09/12/2023
+                            participation le {{p.participationDate | date:'dd/MM/yyyy'}}
                         </div>
                     </div>
                     <img src="/assets/img/stateIndicators/pending.svg" alt="validated" />
