@@ -4,6 +4,7 @@ import { RouterLink } from '@angular/router';
 import { ApiService } from '../../../shared/services/api.service';
 import { PopupValidationComponent } from '../../../shared/components/popup-validation/popup-validation.component';
 import { ShowPopupService } from '../../../shared/services/show-popup.service';
+import { AllButSpecificWeek } from '../../../shared/models/stats-comp/allButSpecificWeek';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,11 +23,12 @@ export class DashboardComponent {
   'yyyy-MM-dd')!
   lastThreeValidated : any[] = [{id : 0, photo : ""}, {id : 0, photo : ""}, {id : 0, photo : ""}] 
   lastThreePending : any[] = [{id : 0, photo : ""}, {id : 0, photo : ""},{id : 0, photo : ""}] 
-  
+ 
 
   constructor(private _renderer: Renderer2, private _elementRef: ElementRef, private _apiService : ApiService, private _datePipe : DatePipe, private _showPopupService : ShowPopupService) {}
 
   ngOnInit() : void {
+
     //#region set total participants
     this._apiService.getCountParticipants().subscribe(data => {
       this.totalParticipants = data

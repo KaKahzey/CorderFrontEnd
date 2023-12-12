@@ -1,6 +1,8 @@
 import { Component, ElementRef, Renderer2 } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { ApiService } from '../../../shared/services/api.service';
+import { AllButSpecificWeek } from '../../../shared/models/stats-comp/allButSpecificWeek';
+import { SpecificWeek } from '../../../shared/models/stats-comp/specificWeek';
 
 @Component({
   selector: 'app-statistics',
@@ -25,7 +27,7 @@ export class StatisticsComponent {
   'yyyy-MM-dd')!
   currentDateFull : Date = new Date()
   sevenDaysAgo : string = "yyyy-MM-dd"
-  countRegions : any = {
+  countByProvince : any = {
     "Hainaut": 15,
     "Luxembourg": 9,
     "Brabant wallon": 24,
@@ -40,7 +42,7 @@ export class StatisticsComponent {
   }
   otherComments : any[] = [
   ]
-  countNote : any = {
+  countNotes : any = {
     happy : 22,
     neutral : 5,
     sad : 7
@@ -54,41 +56,86 @@ export class StatisticsComponent {
     "Informations pas claires" : 4,
     Autre : this.listSatisfactionComments.length
   }
-  
-  constructor(private _renderer: Renderer2, private _elementRef: ElementRef, private _apiService : ApiService, private _datePipe : DatePipe) {}
+  allStats : AllButSpecificWeek = {
+    countParticipants : 0,
+    countParticipantsEachLast5Months : [],
+    countByProvince : {
+      "Hainaut": 0,
+      "Luxembourg": 0,
+      "Brabant wallon": 0,
+      "Liège": 0,
+      "Namur": 0
+    },
+    productsUsed : {
+      insecticide : 0,
+      herbicide : 0,
+      fongicide : 0,
+      autre : 0
+    },
+    otherProductsUsed : [],
+    countNotes : [],
+    countSatisfactionComments : {
+      "C'était trop long" : 0,
+      "C'était trop court" : 0,
+      "L'appareil ne fonctionnait pas" : 0,
+      "Informations pas claires" : 0,
+    },
+    allOthersSatisfactionComment : []
+  }
+  countLast7Days : SpecificWeek = {days : []}
+  constructor(private _renderer: Renderer2, private _elementRef: ElementRef, private _apiService : ApiService, private _datePipe : DatePipe) {
+  }
 
   ngOnInit() : void {   
     this.getSevenDaysAgo()
     //#region set total participants
     this._apiService.getCountParticipants().subscribe(data => {
       this.totalParticipants = data
+      this.allStats.countParticipants = data
     })
     //#endregion
     //#region set days and total last week
     this._apiService.getCountLast7Days(this.currentDate).subscribe(data => {
       this.days = data
+      this.countLast7Days.days.push(data.TUESDAY)
+      this.countLast7Days.days.push(data.MONDAY)
+      this.countLast7Days.days.push(data.SUNDAY)
+      this.countLast7Days.days.push(data.SATURDAY)
+      this.countLast7Days.days.push(data.FRIDAY)
+      this.countLast7Days.days.push(data.THURSDAY)
+      this.countLast7Days.days.push(data.WEDNESDAY) 
       this.setAllDays()
     })    
     //#endregion
     //#region set months and total last month
     this._apiService.getLastMonths().subscribe(data => {
       this.months = data
+      this.allStats.countParticipantsEachLast5Months.push(data.DECEMBER)
+      this.allStats.countParticipantsEachLast5Months.push(data.NOVEMBER)
+      this.allStats.countParticipantsEachLast5Months.push(data.OCTOBER)
+      this.allStats.countParticipantsEachLast5Months.push(data.SEPTEMBER)
+      this.allStats.countParticipantsEachLast5Months.push(data.AUGUST)
+      
       this.setAllMonths()
     })
     //#endregion
     this._apiService.getCountProvince().subscribe(data => {
-      this.countRegions = data
+      this.countByProvince = data
+      this.allStats.countByProvince = data
       this.setAllRegions()
     })
     //#region set all products ONE REQUEST AT A TIME
     this._apiService.getCountInsecticide().subscribe(data => {
       this.productsUsed.insecticide = data
+      this.allStats.productsUsed.insecticide = data
     })
     this._apiService.getCountHerbicide().subscribe(data => {
       this.productsUsed.herbicide = data
+      this.allStats.productsUsed.herbicide = data
     })
     this._apiService.getCountFongicide().subscribe(data => {
       this.productsUsed.fongicide = data
+      this.allStats.productsUsed.fongicide = data
       this._apiService.getCountOtherProducts().subscribe(data => {
         this.productsUsed.autre = data
         this.setAllProducts()
@@ -98,18 +145,20 @@ export class StatisticsComponent {
       data.forEach((element : any) => {
         if(element){
           this.otherComments.push(element)
+          this.allStats.otherProductsUsed.push(element)
         }
       })
+      console.log(this.allStats);
     })
     //#region set notes
     this._apiService.getCountNote(1).subscribe(data => {
-      this.countNote.happy = data
+      this.countNotes.happy = data
     })
     this._apiService.getCountNote(2).subscribe(data => {
-      this.countNote.neutral = data
+      this.countNotes.neutral = data
     })
     this._apiService.getCountNote(3).subscribe(data => {
-      this.countNote.sad = data
+      this.countNotes.sad = data
     })
     //#endregion
     //#region set satisfaction comments
@@ -187,11 +236,11 @@ export class StatisticsComponent {
 
   //set graph all regions
   setAllRegions() : void {
-    this.setHeightRegions(this.countRegions.Hainaut, "hainaut")
-    this.setHeightRegions(this.countRegions.Luxembourg, "luxembourg")
-    this.setHeightRegions(this.countRegions["Brabant wallon"], "brabant")
-    this.setHeightRegions(this.countRegions.Liège, "liege")
-    this.setHeightRegions(this.countRegions.Namur, "namur")
+    this.setHeightRegions(this.countByProvince.Hainaut, "hainaut")
+    this.setHeightRegions(this.countByProvince.Luxembourg, "luxembourg")
+    this.setHeightRegions(this.countByProvince["Brabant wallon"], "brabant")
+    this.setHeightRegions(this.countByProvince.Liège, "liege")
+    this.setHeightRegions(this.countByProvince.Namur, "namur")
   }
 
   //set graph all products
@@ -223,7 +272,7 @@ export class StatisticsComponent {
   }
 
   setHeightRegions(height: number, region: string): void {
-    const valuesArray: number[] = Object.values(this.countRegions)
+    const valuesArray: number[] = Object.values(this.countByProvince)
     const highestNumber: number = Math.max(...valuesArray)
     const selectedRegion = this._elementRef.nativeElement.querySelector(`.${region}`)
     if (selectedRegion) {      

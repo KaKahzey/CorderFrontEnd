@@ -14,16 +14,35 @@ export class ApiService {
       .set('Authorization',  `${this._AuthService.getToken()!}`)
   }
 
+  //------------------------------------------------
+
+  //#region admin account requests
   private _urlLogin : string = "http://192.168.200.102:8080/user/login"
   private _urlCreateUser : string = "http://192.168.200.102:8080/participation/create"
-  private _urlGetAllParticipantsNoBlob : string = "http://192.168.200.102:8080/participation/allNoBlob"
+  private _urlChangePassword : string = "http://192.168.200.102:8080/user/changePassword/"
+  //#endregion
   //#region dashboard
+  //#endregion
+  //#region participants
+  
+  //#endregion
+  //#region stats - model folder : stats-comp
+  // Model : AllButSpecificWeek
+  private _urlStatsGetAll : string = "http://192.168.200.102:8080/participation/getAllStats"
+  // Model : specificWeek
+  private _urlStatsGetWeek : string = "http://192.168.200.102:8080/participation/getWeek"
+  //#endregion
+  //#region popup-validation
+  
+  //#endregion
+
+  //------------------------------------------------
+
+  private _urlGetAllParticipantsNoBlob : string = "http://192.168.200.102:8080/participation/allNoBlob"
   private _urlCountParticipants : string = "http://192.168.200.102:8080/participation/nbrparticipations"
   private _urlCountLast7Days : string = "http://192.168.200.102:8080/participation/countParticipationsPreceeding7Days?date="
   private _urlLastThreeValidated : string = "http://192.168.200.102:8080/participation/getLasts3Validated"
   private _urlLastThreePending : string = "http://192.168.200.102:8080/participation/getLasts3NonValidated"
-  //#endregion
-  //#region stats
   private _urlCountProvince : string = "http://192.168.200.102:8080/participation/countByProvince"
   private _urlLastMonths : string = "http://192.168.200.102:8080/participation/countParticipationsFor5LastMonths"
   private _urlGetCountInsecticide : string = "http://192.168.200.102:8080/participation/countInsecticide"
@@ -34,19 +53,16 @@ export class ApiService {
   private _urlGetCountSatisfactionComment : string = "http://192.168.200.102:8080/participation/countBySatisfactionComment?satisfactionComment="
   private _urlGetCountOtherSatisfactionComment : string = "http://192.168.200.102:8080/participation/countByOthersSatisfactionComment"
   private _urlGetSatisfactionComments : string = "http://192.168.200.102:8080/participation/allOthersSatisfactionComment"
-  //#endregion
-  //#region popup-validation
   private _urlGetById : string = "http://192.168.200.102:8080/participation/findById/"
   private _urlGetPhoto : string = "http://192.168.200.102:8080/participation/getPhoto?id="
   private _urlValidate : string = "http://192.168.200.102:8080/participation/validate/"
   private _urlDeny : string ="http://192.168.200.102:8080/participation/denied/"
   private _urlShip : string = "http://192.168.200.102:8080/participation/ship/"
   private _urlCountNote : string = "http://192.168.200.102:8080/participation/countNote?note="
-  //#endregion
   private _urlSetPicture : string = "http://192.168.200.102:8080/participation/addPhoto?id="
   private _urlRating : string = "http://192.168.200.102:8080/participation/createSatisfaction"
   private _urlPageByStatus : string = "http://192.168.200.102:8080/participation/PageByStatus?status="
-  private _urlChangePassword : string = "http://192.168.200.102:8080/user/changePassword/"
+  
 
   constructor(private _httpClient : HttpClient, private _AuthService : AuthService ) { }
 
