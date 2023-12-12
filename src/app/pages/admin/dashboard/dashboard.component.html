@@ -14,11 +14,12 @@
                 <div class="image-container" (click)="setId(lastThreePending[2].id); displayPopup()">
                     <img [src]="this.lastThreePending[2].photo" alt="Image 3" class="image" />
                 </div>
-                <div class="image-container see-more" routerLink="/admin/participants">
+                <div class="image-container see-more" routerLink="/admin/validated-photos">
                     <a>Voir plus</a>
                 </div>
             </div>
         </div>
+        
         <div class="frame">
             <div class="title-frame">
                 Photos validées
@@ -33,7 +34,7 @@
                 <div class="image-container" (click)="setId(lastThreeValidated[2].id); displayPopup()">
                     <img [src]="this.lastThreeValidated[2].photo" alt="Image 3" class="image" />
                 </div>
-                <div class="image-container see-more" routerLink="/admin/participants">
+                <div class="image-container see-more" routerLink="/admin/on-hold-photos">
                     <a>Voir plus</a>
                 </div>
             </div>

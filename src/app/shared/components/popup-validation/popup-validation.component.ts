@@ -59,16 +59,8 @@ export class PopupValidationComponent {
   }
 
   userDenied(){
-    this._apiService.deny(this.userData.id).subscribe({
-      next : (resp) => {
-        console.log(resp);
-        this.closePopUp();
-      },
-      error : (error) => {
-        console.log("erreur : ", error);
-        
-      }
-    })
+    this._apiService.deny(this.userData.id);
+    this.closePopUp();
   }
 
   userValidated(){
@@ -85,16 +77,8 @@ export class PopupValidationComponent {
   }
 
   userShipped(){
-    this._apiService.ship(this.userData.id).subscribe({
-      next : (resp) => {
-        console.log(resp);
-        this.closePopUp();
-      },
-      error : (error) => {
-        console.log("erreur : ", error);
-        
-      }
-    })
+    this._apiService.ship(this.userData.id);
+    this.closePopUp();
   }
 
 }
