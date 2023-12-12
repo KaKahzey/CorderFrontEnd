@@ -131,16 +131,16 @@ export class ApiService {
       .set('Authorization',  `${this._AuthService.getToken()!}`),
       responseType : "blob" as "json"
     }
-    return this._httpClient.get(this._urlGetPhoto + id, header)
+    return this._httpClient.get(this._urlGetPhoto + id, this.header)
   }
   validate(id : number) : Observable<any> {
-    return this._httpClient.get(this._urlValidate + id, this.header)
+    return this._httpClient.patch(this._urlValidate + id, this._AuthService.getUser(), this.header)
   }
   deny(id : number) : Observable<any> {
-    return this._httpClient.get(this._urlDeny + id, this.header)
+    return this._httpClient.patch(this._urlDeny + id, this._AuthService.getUser(), this.header)
   }
   ship(id : number) : Observable<any> {
-    return this._httpClient.get(this._urlShip + id, this.header)
+    return this._httpClient.patch(this._urlShip + id, this._AuthService.getUser(), this.header)
   }
   //#endregion
 

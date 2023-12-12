@@ -4,6 +4,7 @@ import { ApiService } from '../../../shared/services/api.service';
 import { ParticipantAllDataNoBlob } from '../../../shared/models/participantAllDataNoBlob';
 import { ShowPopupService } from '../../../shared/services/show-popup.service';
 import { PopupValidationComponent } from '../../../shared/components/popup-validation/popup-validation.component';
+import { AuthService } from '../../../shared/services/auth.service';
 
 @Component({
   selector: 'app-participants',
@@ -15,9 +16,11 @@ import { PopupValidationComponent } from '../../../shared/components/popup-valid
 export class ParticipantsComponent {
 
   participantsList : ParticipantAllDataNoBlob[] = []
+  lastSortedProperty: string = '';
+  lastSortingOrder: boolean | undefined;
+  sortedArray: any[] = [];
 
-
-  constructor(private _apiService : ApiService, private _showPopupService : ShowPopupService) {
+  constructor(private _apiService : ApiService, private _showPopupService : ShowPopupService, private _authService : AuthService) {
   }
 
   ngOnInit(): void {
@@ -25,6 +28,46 @@ export class ParticipantsComponent {
       
       this.participantsList = data
     })
+  }
+
+  sortArray(sortBy: string): void {
+    if (sortBy === this.lastSortedProperty) {
+      // Toggle sorting order for the same property
+      this.lastSortingOrder = !this.lastSortingOrder;
+    } else {
+      // Set default sorting order for a new property
+      this.lastSortingOrder = undefined;
+    }
+
+    this.lastSortedProperty = sortBy;
+    this.sortedArray = this.customSort([...this.participantsList], sortBy, this.lastSortingOrder);
+  }
+
+  private customSort(array: any[], sortBy: string, descending: boolean | undefined): any[] {
+    array.sort((a, b) => {
+      const compareResult = descending ? -1 : 1;
+
+      switch (sortBy) {
+        case 'id':
+          return (a.id - b.id) * compareResult;
+        case 'dateCreation':
+          return (a.dateCreation.getTime() - b.dateCreation.getTime()) * compareResult;
+        case 'lastName':
+          if (a.lastName === b.lastName) {
+            // If last names are the same, compare by firstName
+            return a.firstName.localeCompare(b.firstName) * compareResult;
+          }
+          return a.lastName.localeCompare(b.lastName) * compareResult;
+        case 'product':
+          return a.product.localeCompare(b.product) * compareResult;
+        case 'state':
+          return a.state.localeCompare(b.state) * compareResult;
+        default:
+          return 0; // Default case, no sorting
+      }
+    });
+
+    return array;
   }
 
   sortName() : void {
@@ -85,6 +128,9 @@ export class ParticipantsComponent {
   }
   setId(id : number) : void {
     this._showPopupService.setId(id)    
+  }
+  getRole() : string | null {
+    return this._authService.getUser()
   }
   
   displayPopup() : void {
