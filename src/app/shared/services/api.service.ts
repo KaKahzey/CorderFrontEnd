@@ -30,7 +30,7 @@ export class ApiService {
   // Model : AllButSpecificWeek
   private _urlStatsGetAll : string = "http://192.168.200.102:8080/participation/getAllStats"
   // Model : specificWeek
-  private _urlStatsGetWeek : string = "http://192.168.200.102:8080/participation/getWeek"
+  private _urlStatsGetWeek : string = "http://192.168.200.102:8080/participation/getWeek="
   //#endregion
   //#region popup-validation
   
@@ -66,10 +66,10 @@ export class ApiService {
 
   constructor(private _httpClient : HttpClient, private _AuthService : AuthService ) { }
 
+  //#region admin account requests
   login(user : LoginData) : Observable<any> {
     return this._httpClient.post(this._urlLogin, user)
   }
-
   changePassword(user : string,oldPassword : string ,newPassword : string) : Observable<any> {
     const header : any = {
       headers: new HttpHeaders()
@@ -78,11 +78,33 @@ export class ApiService {
     }
     return this._httpClient.post(this._urlChangePassword + user, {newPassword, oldPassword},header)
   }
-
   createUser(user : ParticipantFullForm) : Observable<any> {
     return this._httpClient.post(this._urlCreateUser, user)
   }
+  //#endregion
 
+   //#region dashboard
+  //#endregion
+
+  //#region participants
+  
+  //#endregion
+
+  //#region stats - model folder : stats-comp
+  // Model : AllButSpecificWeek
+  getAllStats() : Observable<any> {
+    return this._httpClient.get(this._urlStatsGetAll, this.header)
+  }
+  // Model : specificWeek
+  getSpecificWeek(day : string) : Observable<any> {
+    return this._httpClient.get(this._urlStatsGetWeek + day, this.header)
+  }
+  //#endregion
+
+  //#region popup-validation
+  
+  //#endregion
+  
   //#region dashboard
   getCountParticipants() : Observable<any> {
     return this._httpClient.get(this._urlCountParticipants, this.header)

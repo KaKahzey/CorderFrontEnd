@@ -14,183 +14,73 @@ import { SpecificWeek } from '../../../shared/models/stats-comp/specificWeek';
 export class StatisticsComponent {
   //todo mettre toutes les fonctions set dans les subscribes
   //todo mettre boules dans graphes
-  totalParticipants : number = 197
   weekParticipants : number = 19
-  monthParticipants : number = 39
   showMonths : boolean = false
   graphDisplayStyle: { [key: string]: string } = { display: 'block' }
   timeLeft : number = this.displayTimeLeft("2024-06-20")
-  fiveLastMonths : string[] = ["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY"]
-  days : any = {MONDAY : 5, SUNDAY : 10, SATURDAY : 3, FRIDAY : 4, THURSDAY : 1, WEDNESDAY : 5, TUESDAY : 8}
-  months : any = { }
   currentDate : string = this._datePipe.transform(new Date(), 
   'yyyy-MM-dd')!
   currentDateFull : Date = new Date()
   sevenDaysAgo : string = "yyyy-MM-dd"
-  countByProvince : any = {
-    "Hainaut": 15,
-    "Luxembourg": 9,
-    "Brabant wallon": 24,
-    "Liège": 5,
-    "Namur": 12
-  }
-  productsUsed : any = {
-    insecticide : 6,
-    herbicide : 3,
-    fongicide : 10,
-    autre : 15
-  }
-  otherComments : any[] = [
-  ]
-  countNotes : any = {
-    happy : 22,
-    neutral : 5,
-    sad : 7
-  }
-  listSatisfactionComments : any[] = [
-    ]
-  countSatisfactionComments : any = {
-    "C'était trop long" : 6,
-    "C'était trop court" : 3,
-    "L'appareil ne fonctionnait pas" : 8,
-    "Informations pas claires" : 4,
-    Autre : this.listSatisfactionComments.length
-  }
   allStats : AllButSpecificWeek = {
-    countParticipants : 0,
-    countParticipantsEachLast5Months : [],
+    countParticipants : 1,
+    countParticipantsEachLast5Months : [1, 2, 3, 4, 5],
     countByProvince : {
-      "Hainaut": 0,
-      "Luxembourg": 0,
-      "Brabant wallon": 0,
-      "Liège": 0,
-      "Namur": 0
+      "Hainaut": 15,
+      "Luxembourg": 7,
+      "Brabant wallon": 10,
+      "Liège": 4,
+      "Namur": 2
     },
     productsUsed : {
-      insecticide : 0,
-      herbicide : 0,
-      fongicide : 0,
-      autre : 0
+      insecticide : 5,
+      herbicide : 2,
+      fongicide : 6,
+      autre : 1
     },
     otherProductsUsed : [],
-    countNotes : [],
+    countNotes : [1, 2, 3],
     countSatisfactionComments : {
-      "C'était trop long" : 0,
-      "C'était trop court" : 0,
-      "L'appareil ne fonctionnait pas" : 0,
-      "Informations pas claires" : 0,
+      "C'était trop long" : 1,
+      "C'était trop court" : 2,
+      "L'appareil ne fonctionnait pas" : 3,
+      "Informations pas claires" : 4,
     },
     allOthersSatisfactionComment : []
   }
-  countLast7Days : SpecificWeek = {days : []}
+  countLast7Days : SpecificWeek = {days : [1, 2, 3, 4, 5, 6, 7]}
   constructor(private _renderer: Renderer2, private _elementRef: ElementRef, private _apiService : ApiService, private _datePipe : DatePipe) {
   }
 
+  // On initialise en remplissant la variable allStats avec le get
+  // On fait de même avec countLast7Days mais on appelle une fonction
+  // qui sera aussi utilisé ailleurs
   ngOnInit() : void {   
     this.getSevenDaysAgo()
-    //#region set total participants
-    this._apiService.getCountParticipants().subscribe(data => {
-      this.totalParticipants = data
-      this.allStats.countParticipants = data
+    this.setAllDays()
+    this.setAllMonths()
+    this.setAllProducts()
+    this.setAllRegions()
+    this._apiService.getAllStats().subscribe({
+      next : (resp) => {
+        this.allStats = resp
+      },
+      error : (error) => {
+        console.log("erreur : ", error);
+        
+      }
     })
-    //#endregion
-    //#region set days and total last week
-    this._apiService.getCountLast7Days(this.currentDate).subscribe(data => {
-      this.days = data
-      this.countLast7Days.days.push(data.TUESDAY)
-      this.countLast7Days.days.push(data.MONDAY)
-      this.countLast7Days.days.push(data.SUNDAY)
-      this.countLast7Days.days.push(data.SATURDAY)
-      this.countLast7Days.days.push(data.FRIDAY)
-      this.countLast7Days.days.push(data.THURSDAY)
-      this.countLast7Days.days.push(data.WEDNESDAY) 
-      this.setAllDays()
-    })    
-    //#endregion
-    //#region set months and total last month
-    this._apiService.getLastMonths().subscribe(data => {
-      this.months = data
-      this.allStats.countParticipantsEachLast5Months.push(data.DECEMBER)
-      this.allStats.countParticipantsEachLast5Months.push(data.NOVEMBER)
-      this.allStats.countParticipantsEachLast5Months.push(data.OCTOBER)
-      this.allStats.countParticipantsEachLast5Months.push(data.SEPTEMBER)
-      this.allStats.countParticipantsEachLast5Months.push(data.AUGUST)
-      
-      this.setAllMonths()
+    
+    this._apiService.getSpecificWeek(this.currentDate).subscribe({
+      next : (resp) => {
+        this.countLast7Days = resp
+      },
+      error : (error) => {
+        console.log("erreur : ", error);
+        
+      }
     })
-    //#endregion
-    this._apiService.getCountProvince().subscribe(data => {
-      this.countByProvince = data
-      this.allStats.countByProvince = data
-      this.setAllRegions()
-    })
-    //#region set all products ONE REQUEST AT A TIME
-    this._apiService.getCountInsecticide().subscribe(data => {
-      this.productsUsed.insecticide = data
-      this.allStats.productsUsed.insecticide = data
-    })
-    this._apiService.getCountHerbicide().subscribe(data => {
-      this.productsUsed.herbicide = data
-      this.allStats.productsUsed.herbicide = data
-    })
-    this._apiService.getCountFongicide().subscribe(data => {
-      this.productsUsed.fongicide = data
-      this.allStats.productsUsed.fongicide = data
-      this._apiService.getCountOtherProducts().subscribe(data => {
-        this.productsUsed.autre = data
-        this.setAllProducts()
-      })
-    })
-    this._apiService.getProductComments().subscribe(data => {
-      data.forEach((element : any) => {
-        if(element){
-          this.otherComments.push(element)
-          this.allStats.otherProductsUsed.push(element)
-        }
-      })
-      console.log(this.allStats);
-    })
-    //#region set notes
-    this._apiService.getCountNote(1).subscribe(data => {
-      this.countNotes.happy = data
-    })
-    this._apiService.getCountNote(2).subscribe(data => {
-      this.countNotes.neutral = data
-    })
-    this._apiService.getCountNote(3).subscribe(data => {
-      this.countNotes.sad = data
-    })
-    //#endregion
-    //#region set satisfaction comments
-    //trop long
-    this._apiService.getCountSatisfactionComment(this.getKey(this.countSatisfactionComments, 0)).subscribe(data => {
-      this.countSatisfactionComments[0] = data
-    })
-    //trop court
-    this._apiService.getCountSatisfactionComment(this.getKey(this.countSatisfactionComments, 1)).subscribe(data => {
-      this.countSatisfactionComments[1] = data
-    })
-    //fonctionne pas
-    this._apiService.getCountSatisfactionComment(this.getKey(this.countSatisfactionComments, 2)).subscribe(data => {
-      this.countSatisfactionComments[2] = data
-    })
-    //pas clair
-    this._apiService.getCountSatisfactionComment(this.getKey(this.countSatisfactionComments, 3)).subscribe(data => {
-      this.countSatisfactionComments[3] = data
-    })
-    //autre
-    this._apiService.getCountOtherSatisfactionComment().subscribe(data => {
-      this.countSatisfactionComments[4] = data
-    })
-    //une liste de tous les autres commentaires
-    this._apiService.getSatisfactionCommments().subscribe(data => {
-      data.forEach((element : string) => {
-        if(element) {
-          this.listSatisfactionComments.push(element)
-        }
-      })
-    })
-    //#endregion
+
   }
 
   getSevenDaysAgo() : void {
@@ -207,53 +97,52 @@ export class StatisticsComponent {
 
   //return total participants des 7 derniers jours
   countTotal7Days() : number {
-    const valuesArray: number[] = Object.values(this.days)
+    const valuesArray: number[] = Object.values(this.countLast7Days.days)
     const total: number = valuesArray.reduce((acc, currentValue) => acc + currentValue, 0)
     return total
   }
 
   //set graph all days
   setAllDays() : void {
-    this.setHeightDays(this.days[this.getKey(this.days, 6)], "monday")
-      this.setHeightDays(this.days[this.getKey(this.days, 5)], "tuesday")
-      this.setHeightDays(this.days[this.getKey(this.days, 4)], "wednesday")
-      this.setHeightDays(this.days[this.getKey(this.days, 3)], "thursday")
-      this.setHeightDays(this.days[this.getKey(this.days, 2)], "friday")
-      this.setHeightDays(this.days[this.getKey(this.days, 1)], "saturday")
-      this.setHeightDays(this.days[this.getKey(this.days, 0)], "sunday")
+    this.setHeightDays(this.countLast7Days.days[6], "monday")
+      this.setHeightDays(this.countLast7Days.days[5], "tuesday")
+      this.setHeightDays(this.countLast7Days.days[4], "wednesday")
+      this.setHeightDays(this.countLast7Days.days[3], "thursday")
+      this.setHeightDays(this.countLast7Days.days[2], "friday")
+      this.setHeightDays(this.countLast7Days.days[1], "saturday")
+      this.setHeightDays(this.countLast7Days.days[0], "sunday")
       this.weekParticipants = this.countTotal7Days()
   }
   
   //set graph all months
   setAllMonths() : void {
-    this.setHeightMonths(this.months[this.getKey(this.months, 4)], "fifth-month")
-    this.setHeightMonths(this.months[this.getKey(this.months, 3)], "fourth-month")
-    this.setHeightMonths(this.months[this.getKey(this.months, 2)], "third-month")
-    this.setHeightMonths(this.months[this.getKey(this.months, 1)], "second-month")
-    this.setHeightMonths(this.months[this.getKey(this.months, 0)], "first-month")
-    this.monthParticipants = this.countTotalLastMonth()
+    this.setHeightMonths(this.allStats.countParticipantsEachLast5Months[4], "fifth-month")
+    this.setHeightMonths(this.allStats.countParticipantsEachLast5Months[3], "fourth-month")
+    this.setHeightMonths(this.allStats.countParticipantsEachLast5Months[2], "third-month")
+    this.setHeightMonths(this.allStats.countParticipantsEachLast5Months[1], "second-month")
+    this.setHeightMonths(this.allStats.countParticipantsEachLast5Months[0], "first-month")
   }
 
   //set graph all regions
   setAllRegions() : void {
-    this.setHeightRegions(this.countByProvince.Hainaut, "hainaut")
-    this.setHeightRegions(this.countByProvince.Luxembourg, "luxembourg")
-    this.setHeightRegions(this.countByProvince["Brabant wallon"], "brabant")
-    this.setHeightRegions(this.countByProvince.Liège, "liege")
-    this.setHeightRegions(this.countByProvince.Namur, "namur")
+    this.setHeightRegions(this.allStats.countByProvince["Hainaut"], "hainaut")
+    this.setHeightRegions(this.allStats.countByProvince["Luxembourg"], "luxembourg")
+    this.setHeightRegions(this.allStats.countByProvince["Brabant wallon"], "brabant")
+    this.setHeightRegions(this.allStats.countByProvince["Liège"], "liege")
+    this.setHeightRegions(this.allStats.countByProvince["Namur"], "namur")
   }
 
   //set graph all products
   setAllProducts() : void {
-    this.setWidthProducts(this.productsUsed.fongicide, "fongicide")
-    this.setWidthProducts(this.productsUsed.herbicide, "herbicide")
-    this.setWidthProducts(this.productsUsed.insecticide, "insecticide")
-    this.setWidthProducts(this.productsUsed.autre, "autre")
+    this.setWidthProducts(this.allStats.productsUsed.fongicide, "fongicide")
+    this.setWidthProducts(this.allStats.productsUsed.herbicide, "herbicide")
+    this.setWidthProducts(this.allStats.productsUsed.insecticide, "insecticide")
+    this.setWidthProducts(this.allStats.productsUsed.autre, "autre")
   }
 
   //fait grandir les baguettes pour les jours
   setHeightDays(height: number, day: string): void {
-    const valuesArray: number[] = Object.values(this.days)
+    const valuesArray: number[] = Object.values(this.countLast7Days.days)
     const highestNumber: number = Math.max(...valuesArray)
     const selectedDay = this._elementRef.nativeElement.querySelector(`.${day}`)
     this._renderer.setStyle(selectedDay, 'height', `${(height / highestNumber * 90)}%`)
@@ -262,7 +151,7 @@ export class StatisticsComponent {
 
   //fait grandir les baguettes pour les mois
   setHeightMonths(height: number, month: string): void {
-    const valuesArray: number[] = Object.values(this.months)
+    const valuesArray: number[] = Object.values(this.allStats.countParticipantsEachLast5Months)
     const highestNumber: number = Math.max(...valuesArray)
     const selectedMonth = this._elementRef.nativeElement.querySelector(`.${month}`)
     if (selectedMonth) {
@@ -272,7 +161,7 @@ export class StatisticsComponent {
   }
 
   setHeightRegions(height: number, region: string): void {
-    const valuesArray: number[] = Object.values(this.countByProvince)
+    const valuesArray: number[] = Object.values(this.allStats.countByProvince)
     const highestNumber: number = Math.max(...valuesArray)
     const selectedRegion = this._elementRef.nativeElement.querySelector(`.${region}`)
     if (selectedRegion) {      
@@ -283,12 +172,12 @@ export class StatisticsComponent {
 
   //set baguettes graphique produits utilisés
   setWidthProducts(width: number, product: string): void {
-    const valuesArray: number[] = Object.values(this.productsUsed)
+    const valuesArray: number[] = Object.values(this.allStats.productsUsed)
     const highestNumber: number = Math.max(...valuesArray)
     const selectedProduct = this._elementRef.nativeElement.querySelector(`.${product}`)
     if (selectedProduct) {
       this._renderer.setStyle(selectedProduct, 'width', `${(width / highestNumber * 100) -5}%`)
-      this._renderer.setStyle(selectedProduct, 'min-width', `52px`)
+      this._renderer.setStyle(selectedProduct, 'min-width', `72px`)
       
     }
   }
@@ -298,20 +187,26 @@ export class StatisticsComponent {
   //ça remet la date et la semaine du jour actuel
   changeGraphic(choice : string) : void {
     if (choice === 'weeks' && this.showMonths) {
-      this._apiService.getCountLast7Days(this.currentDate).subscribe(data => {
-        this.days = data
+      this._apiService.getCountLast7Days(this.currentDate).subscribe({
+        next : (resp) => {
+        this.countLast7Days.days = resp
+        this.setAllDays()
+        this.showMonths = false
+        },
+        error : (error) => {
+          console.log("erreur : ", error);
+          
+        }
       })    
-      this.setAllDays()
-      this.showMonths = false
     }
     if (choice === 'months') {
       this.showMonths = true
     }
   }
 
-  //return la valeur du dernier mot reçu
+  //return la valeur du dernier mois reçu
   countTotalLastMonth() : number {
-    const valuesArray: number[] = Object.values(this.months)    
+    const valuesArray: number[] = Object.values(this.allStats.countParticipantsEachLast5Months)    
     return valuesArray[0]
   }
 
@@ -380,10 +275,16 @@ export class StatisticsComponent {
       futureDate.setDate(futureDate.getDate() + 7)
       this.currentDate = this._datePipe.transform(futureDate, "yyyy-MM-dd")!
       this.getSevenDaysAgo() 
-      this._apiService.getCountLast7Days(this.currentDate).subscribe(data => {
-        this.days = data
-        this.setAllDays()
-      })    
+      this._apiService.getCountLast7Days(this.currentDate).subscribe({
+        next : (resp) => {
+          this.countLast7Days.days = resp
+          this.setAllDays()
+        },
+        error : (error) => {
+          console.log("error : ", error);
+          
+        }
+      })   
     }
   }
 
@@ -393,11 +294,16 @@ export class StatisticsComponent {
     pastDate.setDate(pastDate.getDate() - 7)
     this.currentDate = this._datePipe.transform(pastDate, "yyyy-MM-dd")!
     this.getSevenDaysAgo()
-    this._apiService.getCountLast7Days(this.currentDate).subscribe(data => {
-      this.days = data
-      
-      this.setAllDays()
-    })    
+    this._apiService.getCountLast7Days(this.currentDate).subscribe({
+      next : (resp) => {
+        this.countLast7Days.days = resp
+        this.setAllDays()
+      },
+      error : (error) => {
+        console.log("error : ", error);
+        
+      }
+    })      
     }
 
     //remove nowrap du comment

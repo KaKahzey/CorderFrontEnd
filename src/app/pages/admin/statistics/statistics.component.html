@@ -19,7 +19,7 @@
                         }
                         @else {
                             Participations ce mois : 
-                            {{monthParticipants}}
+                            {{allStats.countParticipantsEachLast5Months[0]}}
                         }
                     </div>
                 </div>  
@@ -29,7 +29,7 @@
                             <div class="bg-graph-vertical">
                                 <div class="monday place-ball">
                                     <div class="ball">
-                                        {{this.days[this.getKey(this.days, 6)]}}
+                                        {{this.countLast7Days.days[6]}}
                                     </div>
                                 </div>
                             </div>
@@ -38,7 +38,7 @@
                             <div class="bg-graph-vertical">
                                 <div class="tuesday place-ball">
                                     <div class="ball">
-                                        {{this.days[this.getKey(this.days, 5)]}}
+                                        {{this.countLast7Days.days[5]}}
                                     </div>
                                 </div>
                             </div>
@@ -47,7 +47,7 @@
                             <div class="bg-graph-vertical">
                                 <div class="wednesday place-ball">
                                     <div class="ball">
-                                        {{this.days[this.getKey(this.days, 4)]}}
+                                        {{this.countLast7Days.days[4]}}
                                     </div>
                                 </div>
                             </div>
@@ -56,7 +56,7 @@
                             <div class="bg-graph-vertical">
                                 <div class="thursday place-ball">
                                     <div class="ball">
-                                        {{this.days[this.getKey(this.days, 3)]}}
+                                        {{this.countLast7Days.days[3]}}
                                     </div>
                                 </div>
                             </div>
@@ -65,7 +65,7 @@
                             <div class="bg-graph-vertical">
                                 <div class="friday place-ball">
                                     <div class="ball">
-                                        {{this.days[this.getKey(this.days, 2)]}}
+                                        {{this.countLast7Days.days[2]}}
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
                             <div class="bg-graph-vertical">
                                 <div class="saturday place-ball">
                                     <div class="ball">
-                                        {{this.days[this.getKey(this.days, 1)]}}
+                                        {{this.countLast7Days.days[1]}}
                                     </div>
                                 </div>
                             </div>
@@ -83,7 +83,7 @@
                             <div class="bg-graph-vertical">
                                 <div class="sunday place-ball">
                                     <div class="ball">
-                                        {{this.days[this.getKey(this.days, 0)]}}
+                                        {{this.countLast7Days.days[0]}}
                                     </div>
                                 </div>
                             </div> 
@@ -108,7 +108,7 @@
                             <div class="bg-graph-vertical">
                                 <div class="fifth-month place-ball">
                                     <div class="ball">
-                                        {{this.months[this.getKey(this.months, 4)]}}
+                                        {{this.allStats.countParticipantsEachLast5Months[4]}}
                                     </div>
                                 </div>
                             </div>
@@ -118,7 +118,7 @@
                             <div class="bg-graph-vertical">
                                 <div class="fourth-month place-ball">
                                     <div class="ball">
-                                        {{this.months[this.getKey(this.months, 3)]}}
+                                        {{this.allStats.countParticipantsEachLast5Months[3]}}
                                     </div>
                                 </div>
                             </div>
@@ -128,7 +128,7 @@
                             <div class="bg-graph-vertical">
                                 <div class="third-month place-ball">
                                     <div class="ball">
-                                        {{this.months[this.getKey(this.months, 2)]}}
+                                        {{this.allStats.countParticipantsEachLast5Months[2]}}
                                     </div>
                                 </div>
                             </div>
@@ -138,7 +138,7 @@
                             <div class="bg-graph-vertical">
                                 <div class="second-month place-ball">
                                     <div class="ball">
-                                        {{this.months[this.getKey(this.months, 1)]}}
+                                        {{this.allStats.countParticipantsEachLast5Months[1]}}
                                     </div>
                                 </div>
                             </div>
@@ -148,7 +148,7 @@
                             <div class="bg-graph-vertical">
                                 <div class="first-month place-ball">
                                     <div class="ball">
-                                        {{this.months[this.getKey(this.months, 0)]}}
+                                        {{this.allStats.countParticipantsEachLast5Months[0]}}
                                     </div>
                                 </div>
                             </div>
@@ -172,7 +172,7 @@
         </div>
         <div class="total-count">
             <div class="title-frame">
-                {{totalParticipants}}
+                {{allStats.countParticipants}}
             </div>
             <div>
                 participants
@@ -204,17 +204,17 @@
                         <div class="bg-graph-vertical-region">
                             <div class="brabant place-ball">
                                 <div class="ball">
-                                    {{countByProvince["Brabant wallon"]}}
+                                    {{allStats.countByProvince["Brabant wallon"]}}
                                 </div>
                             </div>
                         </div>
-                        <p>Braban wallon</p>
+                        <p>Brabant wallon</p>
                     </div>
                     <div class="graph-vertical-bars-region">
                         <div class="bg-graph-vertical-region">
                             <div class="hainaut place-ball">
                                 <div class="ball">
-                                    {{countByProvince["Hainaut"]}}
+                                    {{allStats.countByProvince["Hainaut"]}}
                                 </div>
                             </div>
                         </div>
@@ -224,7 +224,7 @@
                         <div class="bg-graph-vertical-region">
                             <div class="liege place-ball">
                                 <div class="ball">
-                                    {{countByProvince["Liège"]}}
+                                    {{allStats.countByProvince["Liège"]}}
                                 </div>
                             </div>
                         </div>
@@ -234,7 +234,7 @@
                         <div class="bg-graph-vertical-region">
                             <div class="luxembourg place-ball">
                                 <div class="ball">
-                                    {{countByProvince["Luxembourg"]}}
+                                    {{allStats.countByProvince["Luxembourg"]}}
                                 </div>
                             </div>
                         </div>
@@ -244,7 +244,7 @@
                         <div class="bg-graph-vertical-region">
                             <div class="namur place-ball">
                                 <div class="ball">
-                                    {{countByProvince["Namur"]}}
+                                    {{allStats.countByProvince["Namur"]}}
                                 </div>
                             </div>
                         </div>
@@ -268,7 +268,7 @@
                     <div class="bg-graph-horizontal-products">
                         <div class="fongicide place-ball-horizontal">
                             <div class="ball">
-                                {{productsUsed.fongicide}}
+                                {{allStats.productsUsed.fongicide}}
                             </div>
                         </div>
                     </div>
@@ -278,7 +278,7 @@
                     <div class="bg-graph-horizontal-products">
                         <div class="herbicide place-ball-horizontal">
                             <div class="ball">
-                                {{productsUsed.herbicide}}
+                                {{allStats.productsUsed.herbicide}}
                             </div>
                         </div>
                     </div>
@@ -288,7 +288,7 @@
                     <div class="bg-graph-horizontal-products">
                         <div class="insecticide place-ball-horizontal">
                             <div class="ball">
-                                {{productsUsed.insecticide}}
+                                {{allStats.productsUsed.insecticide}}
                             </div>
                         </div>
                     </div>
@@ -298,7 +298,7 @@
                     <div class="bg-graph-horizontal-products">
                         <div class="autre place-ball-horizontal">
                             <div class="ball">
-                                {{productsUsed.autre}}
+                                {{allStats.productsUsed.autre}}
                             </div>
                         </div>
                     </div>
@@ -315,10 +315,10 @@
                 </div>
             </div>
             <div class="subhead">
-                Nombre de produits &lt;&lt; autres &gt;&gt; : {{otherComments.length}}
+                Nombre de produits &lt;&lt; autres &gt;&gt; : {{allStats.otherProductsUsed.length}}
             </div>
             <div class="list-comment">
-                @for (comment of otherComments; track $index) {
+                @for (comment of allStats.otherProductsUsed; track $index) {
                 <div class="row-comment">
                     <div class="index">
                         {{$index + 1}}
@@ -347,7 +347,7 @@
                     <div class="bg-graph-horizontal-notes">
                         <div class="bar-emote">
                             <img id="happy-emote" src="/assets/img/Emotes/smile.svg" alt="happy" />
-                            <span>{{countNotes.happy}}</span>
+                            <span>{{allStats.countNotes[0]}}</span>
                         </div>
                     </div>
                 </div>
@@ -355,7 +355,7 @@
                     <div class="bg-graph-horizontal-notes">
                         <div class="bar-emote">
                             <img src="/assets/img/Emotes/bof.svg" alt="neutral" />
-                            <span>{{countNotes.neutral}}</span>
+                            <span>{{allStats.countNotes[1]}}</span>
                         </div>
                     </div>
                 </div>
@@ -363,7 +363,7 @@
                     <div class="bg-graph-horizontal-notes">
                         <div class="bar-emote">
                             <img src="/assets/img/Emotes/sad.svg" alt="sad" />
-                            <span>{{countNotes.sad}}</span>
+                            <span>{{allStats.countNotes[2]}}</span>
                         </div>
                     </div>
                 </div>
@@ -383,7 +383,7 @@
                     C'était trop long
                 </div>
                 <div class="note-count">
-                    {{countSatisfactionComments[getKey(countSatisfactionComments, 0)]}}
+                    {{allStats.countSatisfactionComments["C'était trop long"]}}
                 </div>
             </div>
             <div class="row-notes">
@@ -391,7 +391,7 @@
                     C'était trop court
                 </div>
                 <div class="note-count">
-                    {{countSatisfactionComments[getKey(countSatisfactionComments, 1)]}}
+                    {{allStats.countSatisfactionComments["C'était trop court"]}}
                 </div>
             </div>
             <div class="row-notes">
@@ -399,7 +399,7 @@
                     L'appareil ne fonctionnait pas
                 </div>
                 <div class="note-count">
-                    {{countSatisfactionComments[getKey(countSatisfactionComments, 2)]}}
+                    {{allStats.countSatisfactionComments["L'appareil ne fonctionnait pas"]}}
                 </div>
             </div>
             <div class="row-notes">
@@ -407,7 +407,7 @@
                     Informations pas claires
                 </div>
                 <div class="note-count">
-                    {{countSatisfactionComments[getKey(countSatisfactionComments, 3)]}}
+                    {{allStats.countSatisfactionComments["Informations pas claires"]}}
                 </div>
             </div>
             <div class="row-notes">
@@ -415,7 +415,7 @@
                     Autre
                 </div>
                 <div class="note-count">
-                    {{countSatisfactionComments[getKey(countSatisfactionComments, 4)]}}
+                    {{allStats.allOthersSatisfactionComment.length}}
                 </div>
             </div>
         </div>
@@ -431,13 +431,13 @@
             Rubrique &lt;&lt; autres &gt;&gt;
         </div>
         <div class="list-comment">
-            @for (comment of listSatisfactionComments; track $index) {
+            @for (comment of allStats.allOthersSatisfactionComment; track $index) {
             <div class="row-comment">
                 <div class="index">
                     {{$index + 1}}
                 </div>
                 <div class="comment-area" id="noteCommentArea{{$index}}">
-                    &lt;&lt; {{listSatisfactionComments[$index]}} &gt;&gt;
+                    &lt;&lt; {{allStats.allOthersSatisfactionComment[$index]}} &gt;&gt;
                 </div>
                 <div class="btn-comment-area">
                     <button class="btn-comment" (click)="removeNoWrapNote($index)" id="btn-note-comment-hide{{$index}}">Voir</button>
