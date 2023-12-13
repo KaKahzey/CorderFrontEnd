@@ -1,14 +1,15 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LoginData } from '../models/loginData';
-import { ParticipantFullForm } from '../models/participantFullForm';
-import { Opinion } from '../models/opinion';
+import { LoginData } from '../models/admin/loginData';
+import { ParticipantFullForm } from '../models/user/participantFullForm';
+import { Opinion } from '../models/user/opinion';
 import { AuthService } from './auth.service';
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
+  // Faut mettre manuellement le token dans chaque requête
   header : any = {
     headers: new HttpHeaders()
       .set('Authorization',  `${this._AuthService.getToken()!}`)
@@ -16,57 +17,59 @@ export class ApiService {
 
   //------------------------------------------------
 
-  //#region admin account requests
+  //#region admin account requests - model folder : admin
+  // Model : loginData
   private _urlLogin : string = "http://192.168.200.102:8080/user/login"
-  private _urlCreateUser : string = "http://192.168.200.102:8080/participation/create"
+  // pas de modèle, ça envoie :
+  // le user (corder ou cycleenterre),
+  // l'ancien mdp (oldPassword),
+  // le nouveau mdp (newPassword)
   private _urlChangePassword : string = "http://192.168.200.102:8080/user/changePassword/"
   //#endregion
-  //#region dashboard
-  //#endregion
-  //#region participants
+
+  //#region creation participant - model folder : user
+  // Model : participantFullForm (ajout "acceptExposure")
+  private _urlCreateUser : string = "http://192.168.200.102:8080/participation/create"
+  // Model : onlyBlob (dossier models/shared)
+  private _urlSetPicture : string = "http://192.168.200.102:8080/participation/addPhoto?id="
+  // Model : opinion (changé Satisfaction -> Rating)
+  private _urlRating : string = "http://192.168.200.102:8080/participation/createRating"
   
+  //#region dashboard - model folder : dashboard-comp
+  // Model : dashboard
+  private _urlDashboard : string = "http://192.168.200.102:8080/participation/getDashboard"
   //#endregion
+
+  //#region participants - model folder : participants-comp
+  // Model : participantMostData
+  private _urlAllParticipants : string = "http://192.168.200.102:8080/participation/getAllParticipants"
+  //#endregion
+
   //#region stats - model folder : stats-comp
-  // Model : AllButSpecificWeek
+  // Model : allButSpecificWeek
   private _urlStatsGetAll : string = "http://192.168.200.102:8080/participation/getAllStats"
   // Model : specificWeek
   private _urlStatsGetWeek : string = "http://192.168.200.102:8080/participation/getWeek="
   //#endregion
-  //#region popup-validation
-  
+
+  //#region popup-validation - model folder : popup-comp
+  // Model : participantPopup
+  private _urlGetById : string = "http://192.168.200.102:8080/participation/findById/"
+  // Model : onlyBlob (same model as post)
+  private _urlGetPhoto : string = "http://192.168.200.102:8080/participation/getPhoto?id="
+  // Patch id sera dans l'url
+  private _urlValidate : string = "http://192.168.200.102:8080/participation/validate/"
+  // Patch id sera dans l'url (changé le verbe denied -> deny)
+  private _urlDeny : string ="http://192.168.200.102:8080/participation/deny/"
+  // Patch id sera dans l'url
+  private _urlShip : string = "http://192.168.200.102:8080/participation/ship/"
   //#endregion
 
   //------------------------------------------------
 
-  private _urlGetAllParticipantsNoBlob : string = "http://192.168.200.102:8080/participation/allNoBlob"
-  private _urlCountParticipants : string = "http://192.168.200.102:8080/participation/nbrparticipations"
-  private _urlCountLast7Days : string = "http://192.168.200.102:8080/participation/countParticipationsPreceeding7Days?date="
-  private _urlLastThreeValidated : string = "http://192.168.200.102:8080/participation/getLasts3Validated"
-  private _urlLastThreePending : string = "http://192.168.200.102:8080/participation/getLasts3NonValidated"
-  private _urlCountProvince : string = "http://192.168.200.102:8080/participation/countByProvince"
-  private _urlLastMonths : string = "http://192.168.200.102:8080/participation/countParticipationsFor5LastMonths"
-  private _urlGetCountInsecticide : string = "http://192.168.200.102:8080/participation/countInsecticide"
-  private _urlGetCountHerbicide : string = "http://192.168.200.102:8080/participation/countHerbicide"
-  private _urlGetCountFongicide : string = "http://192.168.200.102:8080/participation/countFongicide"
-  private _urlGetCountOtherProducts : string = "http://192.168.200.102:8080/participation/countAllOtherProductType"
-  private _urlGetProductsComments : string = "http://192.168.200.102:8080/participation/findAllOtherProductType"
-  private _urlGetCountSatisfactionComment : string = "http://192.168.200.102:8080/participation/countBySatisfactionComment?satisfactionComment="
-  private _urlGetCountOtherSatisfactionComment : string = "http://192.168.200.102:8080/participation/countByOthersSatisfactionComment"
-  private _urlGetSatisfactionComments : string = "http://192.168.200.102:8080/participation/allOthersSatisfactionComment"
-  private _urlGetById : string = "http://192.168.200.102:8080/participation/findById/"
-  private _urlGetPhoto : string = "http://192.168.200.102:8080/participation/getPhoto?id="
-  private _urlValidate : string = "http://192.168.200.102:8080/participation/validate/"
-  private _urlDeny : string ="http://192.168.200.102:8080/participation/denied/"
-  private _urlShip : string = "http://192.168.200.102:8080/participation/ship/"
-  private _urlCountNote : string = "http://192.168.200.102:8080/participation/countNote?note="
-  private _urlSetPicture : string = "http://192.168.200.102:8080/participation/addPhoto?id="
-  private _urlRating : string = "http://192.168.200.102:8080/participation/createSatisfaction"
-  private _urlPageByStatus : string = "http://192.168.200.102:8080/participation/PageByStatus?status="
-  
-
   constructor(private _httpClient : HttpClient, private _AuthService : AuthService ) { }
 
-  //#region admin account requests
+  //#region admin account
   login(user : LoginData) : Observable<any> {
     return this._httpClient.post(this._urlLogin, user)
   }
@@ -78,92 +81,28 @@ export class ApiService {
     }
     return this._httpClient.post(this._urlChangePassword + user, {newPassword, oldPassword},header)
   }
+  //#endregion
+
+  //#region user
   createUser(user : ParticipantFullForm) : Observable<any> {
     return this._httpClient.post(this._urlCreateUser, user)
   }
-  //#endregion
-
-   //#region dashboard
-  //#endregion
-
-  //#region participants
   
-  //#endregion
-
-  //#region stats - model folder : stats-comp
-  // Model : AllButSpecificWeek
-  getAllStats() : Observable<any> {
-    return this._httpClient.get(this._urlStatsGetAll, this.header)
+  addPicture(id : number, picture : FormData) : Observable<any> {
+    return this._httpClient.post(this._urlSetPicture + id, picture)
   }
-  // Model : specificWeek
-  getSpecificWeek(day : string) : Observable<any> {
-    return this._httpClient.get(this._urlStatsGetWeek + day, this.header)
+  
+  sendOpinion(opinion : Opinion) : Observable<any> {
+    return this._httpClient.post(this._urlRating, opinion)
   }
   //#endregion
 
-  //#region popup-validation
-  
-  //#endregion
-  
   //#region dashboard
-  getCountParticipants() : Observable<any> {
-    return this._httpClient.get(this._urlCountParticipants, this.header)
+  getDashboard() : Observable<any> {
+    return this._httpClient.get(this._urlDashboard, this.header)
   }
 
-  getCountLast7Days(date : string) : Observable<any> {
-    return this._httpClient.get(this._urlCountLast7Days + date, this.header)
-  }
-  getLastThreeValidated() : Observable<any> {
-    return this._httpClient.get(this._urlLastThreeValidated, this.header)
-  }
-  getLastThreePending() : Observable<any> {
-    return this._httpClient.get(this._urlLastThreePending, this.header)
-  }
-  //#endregion
-  //#region stats
-  getLastMonths() : Observable<any> {
-    return this._httpClient.get(this._urlLastMonths, this.header)
-  }
-  getCountProvince() : Observable<any> {
-    return this._httpClient.get(this._urlCountProvince, this.header)
-  }
-  getCountInsecticide() : Observable<any> {
-    return this._httpClient.get(this._urlGetCountInsecticide, this.header)
-  }
-  getCountHerbicide() : Observable<any> {
-    return this._httpClient.get(this._urlGetCountHerbicide, this.header)
-  }
-  getCountFongicide() : Observable<any> {
-    return this._httpClient.get(this._urlGetCountFongicide, this.header)
-  }
-  getCountOtherProducts() : Observable<any> {
-    return this._httpClient.get(this._urlGetCountOtherProducts, this.header)
-  }
-  getProductComments() : Observable<any> {
-    return this._httpClient.get(this._urlGetProductsComments, this.header)
-  }
-  getCountNote(note : number) : Observable<any> {
-    return this._httpClient.get(this._urlCountNote + note, this.header)
-  }
-  getCountSatisfactionComment(comment : string) : Observable<any> {
-    return this._httpClient.get(this._urlGetCountSatisfactionComment + comment, this.header)
-  }
-  getCountOtherSatisfactionComment() : Observable<any> {
-    return this._httpClient.get(this._urlGetCountOtherSatisfactionComment, this.header)
-  }
-  getSatisfactionCommments() : Observable<any> {
-    return this._httpClient.get(this._urlGetSatisfactionComments, this.header)
-  }
-  //#endregion
-  getAllUsersNoBlob() : Observable<any> {
-    return this._httpClient.get(this._urlGetAllParticipantsNoBlob, this.header)
-  }
-  //#region popup-validation
-  getById(id : number) : Observable<any> {
-    return this._httpClient.get(this._urlGetById + id, this.header)
-  }
   getPhoto(id : number) : Observable<any> {
-
     const header = {
       headers: new HttpHeaders()
       .set('Authorization',  `${this._AuthService.getToken()!}`),
@@ -171,25 +110,41 @@ export class ApiService {
     }
     return this._httpClient.get(this._urlGetPhoto + id, header)
   }
-  validate(id : number) : Observable<any> {
-    return this._httpClient.get(this._urlValidate + id, this.header)
-  }
-  deny(id : number) : Observable<any> {
-    return this._httpClient.get(this._urlDeny + id, this.header)
-  }
-  ship(id : number) : Observable<any> {
-    return this._httpClient.get(this._urlShip + id, this.header)
+  //#endregion
+
+  //#region participants
+  getAllParticipants() : Observable<any> {
+    return this._httpClient.get(this._urlAllParticipants, this.header)
   }
   //#endregion
 
-  addPicture(id : number, picture : FormData) : Observable<any> {
-    return this._httpClient.post(this._urlSetPicture + id, picture)
+  //#region stats
+  getAllStats() : Observable<any> {
+    return this._httpClient.get(this._urlStatsGetAll, this.header)
   }
 
-  sendOpinion(opinion : Opinion) : Observable<any> {
-    return this._httpClient.post(this._urlRating, opinion)
+  getSpecificWeek(day : string) : Observable<any> {
+    return this._httpClient.get(this._urlStatsGetWeek + day, this.header)
   }
-  getPageByStatus(status : string, sort : string, nbPage : number) : Observable<any> {
-    return this._httpClient.get(`${this._urlPageByStatus}${status.toUpperCase()}&sort=${sort}&page=${nbPage}&size=15`, this.header)
+  //#endregion
+
+  //#region popup-validation
+  getById(id : number) : Observable<any> {
+    return this._httpClient.get(this._urlGetById + id, this.header)
   }
+  
+  validate(id : number) : Observable<any> {
+    return this._httpClient.patch(this._urlValidate + id, this.header)
+  }
+
+  deny(id : number) : Observable<any> {
+    return this._httpClient.patch(this._urlDeny + id, this.header)
+  }
+
+  ship(id : number) : Observable<any> {
+    return this._httpClient.patch(this._urlShip + id, this.header)
+  }
+  //#endregion
+
+  
 }

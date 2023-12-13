@@ -2,47 +2,49 @@
     <div class="sort-area">
             <span>trier par : </span>
             <span class="buttons-sort">
-                <button (click)="sortName()">nom</button>
-                <button (click)="sortDate()">récent</button>
-                <button (click)="sortState()">état</button>
-                <button (click)="sortProduct()">produit</button>
+                <button (click)="sortName()" [ngClass]="{'button-selected' : lastButton=='name'}">nom</button>
+                <button (click)="sortDate()" [ngClass]="{'button-selected' : lastButton=='date'}">récent</button>
+                <button (click)="sortState()" [ngClass]="{'button-selected' : lastButton=='status'}">état</button>
+                <button (click)="sortProduct()" [ngClass]="{'button-selected' : lastButton=='product'}">produit</button>
             </span>
     </div>
     <div class="list">
         <table>
             <tr>
-                <th>Id</th>
+                <th></th>
                 <th>Nom</th>
                 <th>Prénom</th>
                 <th>Coordonnées</th>
                 <th>Produit</th>
                 <th class="state-head">Etat</th>
             </tr>
-            @for (p of participantsList; track p.id){
-                <tr class="show-hover" (click)="setId(p.id); displayPopup()">
-                    <td>{{p.id}}</td>
-                    <td>{{p.participantLastName}}</td>
-                    <td>{{p.participantFirstName}}</td>
-                    <td>{{p.participantAddress.street}} {{p.participantAddress.postCode}} {{p.participantAddress.city}}</td>
-                    @if (p.productType != "herbicide" && p.productType != "fongicide" && p.productType != "insecticide"){
-                        <td>autre</td>
-                    }
-                    @else {
-                        <td>{{p.productType}}</td>
-                    }
-                    @if (p.status === "DENIED" ) {
-                        <td class="rejected">refusé</td>
-                    }
-                    @else if (p.status === "SHIPPED") {
-                        <td class="sent">envoyé</td>
-                    }
-                    @else if (p.status === "PENDING") {
-                        <td class="onHold">en attente</td>
-                    }
-                    @else if (p.status === "VALIDATED") {
-                        <td class="validated">validé</td>
-                    }
-                </tr>
+            @for (p of listParticipants; track p.id){
+                @if((getUser() === "cycleenterre" && (p.status === "VALIDATED" || p.status === "SHIPPED")) || getUser() === "corder"){
+                    <tr class="show-hover" (click)="setId(p.id); displayPopup()">
+                        <td>{{p.id}}</td>
+                        <td class="no-over">{{p.participantLastName}}</td>
+                        <td class="no-over">{{p.participantFirstName}}</td>
+                        <td class="address no-over">{{p.participantAddress.street}}, {{p.participantAddress.postCode}}, {{p.participantAddress.city}}</td>
+                        @if (p.productType != "herbicide" && p.productType != "fongicide" && p.productType != "insecticide"){
+                            <td>Autre</td>
+                        }
+                        @else {
+                            <td>{{p.productType.charAt(0).toUpperCase() + p.productType.slice(1)}}</td>
+                        }
+                        @if (p.status === "DENIED" ) {
+                            <td class="rejected">refusé</td>
+                        }
+                        @else if (p.status === "SHIPPED") {
+                            <td class="sent">envoyé</td>
+                        }
+                        @else if (p.status === "PENDING") {
+                            <td class="onHold">en attente</td>
+                        }
+                        @else if (p.status === "VALIDATED") {
+                            <td class="validated">validé</td>
+                        }
+                    </tr>
+                }
             }
         </table>
     </div>

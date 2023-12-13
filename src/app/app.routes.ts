@@ -10,9 +10,6 @@ import { UserInformationComponent } from './pages/user/user-information/user-inf
 import { CorderGuard } from './shared/guards/corder.guard';
 import { GoodPracticeComponent } from './pages/user/good-practice/good-practice.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
-import { ValidatedPhotosComponent } from './pages/admin/validated-photos/validated-photos.component';
-import { RejectedPhotosComponent } from './pages/admin/rejected-photos/rejected-photos.component';
-import { OnHoldPhotosComponent } from './pages/admin/on-hold-photos/on-hold-photos.component';
 import { ParticipantsComponent } from './pages/admin/participants/participants.component';
 import { StatisticsComponent } from './pages/admin/statistics/statistics.component';
 import { ModifyAccountComponent } from './pages/admin/modify-account/modify-account.component';
@@ -23,14 +20,11 @@ export const routes: Routes = [
     {path : "", component : HomeComponent},
     {path : "login", component : LoginComponent},
     {path : "admin/dashboard", component : DashboardComponent, canActivate : [CorderGuard]},
-    {path : "admin/validated-photos", component : ValidatedPhotosComponent, canActivate : [CycleGuard]},
-    {path : "admin/rejected-photos", component : RejectedPhotosComponent, canActivate : [CorderGuard]},
-    {path : "admin/on-hold-photos", component : OnHoldPhotosComponent, canActivate : [CorderGuard]},
-    {path : "admin/participants", component : ParticipantsComponent, canActivate : [CorderGuard]},
+    {path : "admin/participants", component : ParticipantsComponent, canActivate : [CycleGuard]},
     {path : "admin/statistics", component : StatisticsComponent, canActivate : [CorderGuard]},
     { path : "admin", redirectTo : "/admin/dashboard"},
     {path : "modify-account", component : ModifyAccountComponent, canActivate : [CycleGuard]},
-    {path : "popup-validation", component : PopupValidationComponent},
+    {path : "popup-validation", component : PopupValidationComponent, canActivate : [CycleGuard]},
     {path : "photo-capture-choice", component : PhotoCaptureChoiceComponent},
     {path : "photo-information", component : PhotoInformationComponent},
     {path : "photo-validation", component : PhotoValidationComponent},

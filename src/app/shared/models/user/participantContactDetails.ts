@@ -5,5 +5,6 @@ export interface ParticipantContactDetails {
     street : string,
     city : string,
     postCode : string,
-    newsletter : boolean
+    newsletter : boolean,
+    exposure : boolean
 }

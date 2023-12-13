@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../../shared/services/api.service';
-import { ParticipantAllDataNoBlob } from '../../../shared/models/participantAllDataNoBlob';
 import { ShowPopupService } from '../../../shared/services/show-popup.service';
 import { PopupValidationComponent } from '../../../shared/components/popup-validation/popup-validation.component';
+import { ParticipantMostData } from '../../../shared/models/participants-comp/participantMostData';
+import { AuthService } from '../../../shared/services/auth.service';
 
 @Component({
   selector: 'app-participants',
@@ -14,74 +15,133 @@ import { PopupValidationComponent } from '../../../shared/components/popup-valid
 })
 export class ParticipantsComponent {
 
-  participantsList : ParticipantAllDataNoBlob[] = []
+  isNameSorted : boolean = false
+  isDateSorted : boolean = false
+  isProductSorted : boolean = false
+  isStatusSorted : boolean = false
+  lastButton : string = ""
 
+  listParticipants : ParticipantMostData[] = [
+    {
+      id : 1,
+      participantLastName : "jean",
+      participantFirstName : "baptou",
+      participationDate : new Date("2023-12-14"),
+      participantAddress : {
+        street : "Rue du Filou 12",
+        city : "Marbais",
+        postCode : "1495"
+      },
+      productType : "herbicide",
+      status : "SHIPPED"
+    },
+    {
+      id : 2,
+      participantLastName : "damien",
+      participantFirstName : "dupont",
+      participationDate : new Date("2024-12-14"),
+      participantAddress : {
+        street : "Rue du Filou 12",
+        city : "Marbais",
+        postCode : "1495"
+      },
+      productType : "fongicide",
+      status : "VALIDATED"
+    },
+    {
+      id : 3,
+      participantLastName : "damien",
+      participantFirstName : "alberta",
+      participationDate : new Date("2022-12-14"),
+      participantAddress : {
+        street : "Rue du Filou 12",
+        city : "Marbais",
+        postCode : "1495"
+      },
+      productType : "fongicide",
+      status : "VALIDATED"
+    }
+  ]
 
-  constructor(private _apiService : ApiService, private _showPopupService : ShowPopupService) {
+  constructor(private _apiService : ApiService, private _showPopupService : ShowPopupService, private _authService : AuthService) {
   }
 
   ngOnInit(): void {
-    this._apiService.getAllUsersNoBlob().subscribe(data => {
-      
-      this.participantsList = data
+    this._apiService.getAllParticipants().subscribe({
+      next : (resp) => {
+        resp.forEach((element : any) => {
+          this.listParticipants.push({
+            id : element.id,
+            participantLastName : element.participantLastName,
+            participantFirstName : element.participantFirstName,
+            participationDate : new Date(element.participationDate),
+            participantAddress : {
+              street : element.street,
+              city : element.city,
+              postCode : element.postCode
+            },
+            productType : element.productType,
+            status : element.status
+          })
+        })
+      },
+      error : (error) => {
+        console.log("erreur : ", error)
+        
+      }
     })
   }
 
   sortName() : void {
-    this.participantsList.sort((p1, p2) => {
-      if(p1.participantLastName.toLowerCase() === p2.participantLastName.toLowerCase()) {
-        if (p1.participantFirstName.toLowerCase() < p2.participantFirstName.toLowerCase()) {
-          return -1
-      } else if (p1.participantFirstName.toLowerCase() > p2.participantFirstName.toLowerCase()) {
-          return 1
-      } else {
-          return 0
+    this.listParticipants.sort((a, b) => {
+      const lastNameComparison = a.participantLastName.toLowerCase().localeCompare(b.participantLastName.toLowerCase());
+  
+      if (lastNameComparison === 0) {
+        return a.participantFirstName.toLowerCase().localeCompare(b.participantFirstName.toLowerCase());
       }
+      if (this.isNameSorted) {
+        return lastNameComparison * -1;
       }
-      if (p1.participantLastName.toLowerCase() < p2.participantLastName.toLowerCase()) {
-          return -1
-      } else if (p1.participantLastName.toLowerCase() > p2.participantLastName.toLowerCase()) {
-          return 1
-      } else {
-          return 0
-      }
-  })
+      return lastNameComparison;
+    })
+    this.isNameSorted = !this.isNameSorted
+    this.lastButton = "name"
   }
 
-  sortDate() : void {
-    this.participantsList.sort((p1, p2) => {
-      const date1 = new Date(p1.participationDate)
-      const date2 = new Date(p2.participationDate)
-      return date1.getTime() - date2.getTime()
-  })
-  this.participantsList.forEach(p => {
-      console.log(p.participationDate);
-      
-  });
+  sortDate(): void {
+    this.listParticipants.sort((a, b) => {
+      const dateA = new Date(a.participationDate).getTime()
+      const dateB = new Date(b.participationDate).getTime()
+  
+      if (this.isDateSorted) {
+        return dateB - dateA
+      }
+      return dateA - dateB
+    })
+    this.isDateSorted = !this.isDateSorted
+    this.lastButton = "date"
   }
 
   sortState() : void {
-    this.participantsList.sort((p1, p2) => {
-      if (p1.status < p2.status) {
-          return -1
-      } else if (p1.status > p2.status) {
-          return 1
-      } else {
-          return 0
+    this.listParticipants.sort((a, b) => {
+      if(this.isStatusSorted){
+        return b.status.localeCompare(a.status)
       }
-  })
+      return a.status.localeCompare(b.status)
+    })
+    this.isStatusSorted = !this.isStatusSorted
+    this.lastButton = "status"
   }
 
   sortProduct() : void {
-    this.participantsList.sort((p1, p2) => {
-      if (p1.productType < p2.productType) {
-          return -1
-      } else if (p1.productType > p2.productType) {
-          return 1
-      } else {
-          return 0
+    this.listParticipants.sort((a, b) => {
+      if(this.isProductSorted){
+        return b.productType.localeCompare(a.productType)
       }
-  })
+      return a.productType.localeCompare(b.productType)
+    })
+    this.isProductSorted = !this.isProductSorted
+    this.lastButton = "product"
   }
   setId(id : number) : void {
     this._showPopupService.setId(id)    
@@ -93,5 +153,9 @@ export class ParticipantsComponent {
 
   getstate() : boolean {
     return this._showPopupService.getState()
+  }
+
+  getUser() : string | null {
+    return this._authService.getUser()
   }
 }

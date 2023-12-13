@@ -20,11 +20,7 @@ button{
     @apply p-1 border;
 }
 
-button:hover{
-    background-color: #F5F8E0;
-}
-
-button:focus{
+.button-selected{
     background-color: #0E103B;
     color: white;
 }
@@ -52,6 +48,17 @@ td {
 }
 .state-head {
     width : 100px
+}
+.no-over {
+    width : 10vw;
+    max-width: 10vw;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.address {
+    width : 25vw;
+    max-width: 25vw;
 }
 
 .sent {

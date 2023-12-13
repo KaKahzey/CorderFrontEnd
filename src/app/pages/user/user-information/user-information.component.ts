@@ -17,7 +17,7 @@ export class UserInformationComponent {
   infoForm : FormGroup;
   router = inject(Router);
   newsletter : boolean = false;
-  acceptPhotoUsage : boolean = false;
+  exposure : boolean = false
   errorMsg : any
   
   constructor(private _fb : FormBuilder,private _dataFormService : DataFormService, private _apiService : ApiService){
@@ -32,6 +32,7 @@ export class UserInformationComponent {
       conditionJeu : [null, Validators.required],
       rgpd : [null, Validators.required],
       newsletter: [this.newsletter],
+      exposure: [this.exposure]
     })
   }
 
@@ -41,8 +42,14 @@ export class UserInformationComponent {
     this.newsletter = this.infoForm.get('newsletter')?.value;
     console.log(this.infoForm.get('newsletter')?.value);
   }
+  onCheckBoxChange2(){
+    this.exposure = !this.exposure;
+    // Mettre à jour la valeur du bool dans le formulaire
+    this.exposure = this.infoForm.get('exposure')?.value;
+    console.log(this.infoForm.get('exposure')?.value);
+  }
   getForm(){
-      if(this.infoForm.valid && this.acceptPhotoUsage){
+      if(this.infoForm.valid){
         console.log("Le formulaire est valide ! ♥");
         this._dataFormService.addForm(this.infoForm.value)
         this._apiService.createUser(this._dataFormService.mergeData()).subscribe({
@@ -70,8 +77,5 @@ export class UserInformationComponent {
         this.infoForm.markAllAsTouched();
         console.log("Le formulaire n'est pas valide");
       }
-  }
-  checkState(){
-    this.acceptPhotoUsage = !this.acceptPhotoUsage;
   }
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
-import { ParticipantPopup } from '../../models/participantPopup';
+import { ParticipantPopup } from '../../models/popup-comp/participantPopup';
 import { AuthService } from '../../services/auth.service';
 import { ShowPopupService } from '../../services/show-popup.service';
 
@@ -28,7 +28,8 @@ export class PopupValidationComponent {
     },
     productType : "fongicide",
     status : "PENDING",
-    acceptNewsletter : false
+    acceptNewsletter : false,
+    acceptExposure : false
   }
   
   urlPhoto: any;

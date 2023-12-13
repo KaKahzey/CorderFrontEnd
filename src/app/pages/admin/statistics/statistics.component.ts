@@ -55,15 +55,15 @@ export class StatisticsComponent {
   // On initialise en remplissant la variable allStats avec le get
   // On fait de même avec countLast7Days mais on appelle une fonction
   // qui sera aussi utilisé ailleurs
-  ngOnInit() : void {   
+  ngOnInit() : void {
+     
     this.getSevenDaysAgo()
-    this.setAllDays()
-    this.setAllMonths()
-    this.setAllProducts()
-    this.setAllRegions()
     this._apiService.getAllStats().subscribe({
       next : (resp) => {
         this.allStats = resp
+        this.setAllMonths()
+        this.setAllProducts()
+        this.setAllRegions()
       },
       error : (error) => {
         console.log("erreur : ", error);
@@ -74,6 +74,7 @@ export class StatisticsComponent {
     this._apiService.getSpecificWeek(this.currentDate).subscribe({
       next : (resp) => {
         this.countLast7Days = resp
+        this.setAllDays()
       },
       error : (error) => {
         console.log("erreur : ", error);
@@ -83,6 +84,9 @@ export class StatisticsComponent {
 
   }
 
+  /**
+   * donne la date 7 jours avant la date actuelle
+   */
   getSevenDaysAgo() : void {
     const pastDate: Date = new Date(this.currentDate)
     pastDate.setDate(pastDate.getDate() - 7)
@@ -187,7 +191,7 @@ export class StatisticsComponent {
   //ça remet la date et la semaine du jour actuel
   changeGraphic(choice : string) : void {
     if (choice === 'weeks' && this.showMonths) {
-      this._apiService.getCountLast7Days(this.currentDate).subscribe({
+      this._apiService.getSpecificWeek(this.currentDate).subscribe({
         next : (resp) => {
         this.countLast7Days.days = resp
         this.setAllDays()
@@ -275,7 +279,7 @@ export class StatisticsComponent {
       futureDate.setDate(futureDate.getDate() + 7)
       this.currentDate = this._datePipe.transform(futureDate, "yyyy-MM-dd")!
       this.getSevenDaysAgo() 
-      this._apiService.getCountLast7Days(this.currentDate).subscribe({
+      this._apiService.getSpecificWeek(this.currentDate).subscribe({
         next : (resp) => {
           this.countLast7Days.days = resp
           this.setAllDays()
@@ -294,7 +298,7 @@ export class StatisticsComponent {
     pastDate.setDate(pastDate.getDate() - 7)
     this.currentDate = this._datePipe.transform(pastDate, "yyyy-MM-dd")!
     this.getSevenDaysAgo()
-    this._apiService.getCountLast7Days(this.currentDate).subscribe({
+    this._apiService.getSpecificWeek(this.currentDate).subscribe({
       next : (resp) => {
         this.countLast7Days.days = resp
         this.setAllDays()

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import {  ParticipantFullForm } from '../models/participantFullForm';
-import { ParticipantContactDetails } from '../models/participantContactDetails';
-import { Opinion } from '../models/opinion';
+import {  ParticipantFullForm } from '../models/user/participantFullForm';
+import { ParticipantContactDetails } from '../models/user/participantContactDetails';
+import { Opinion } from '../models/user/opinion';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,8 @@ export class DataFormService {
     street : "",
     city : "",
     postCode : "",
-    newsletter : false
+    newsletter : false,
+    exposure : false
   }
   private user : ParticipantFullForm = {
     firstName : "",
@@ -28,7 +29,8 @@ export class DataFormService {
     street : "",
     city : "",
     postCode : "",
-    acceptNewsletter : false
+    acceptNewsletter : false,
+    acceptExposure : false,
   }
   private id : number = 0
 
@@ -72,7 +74,8 @@ export class DataFormService {
       street : this.form.street,
       city : this.form.city,
       postCode : this.form.postCode,
-      acceptNewsletter : this.form.newsletter
+      acceptNewsletter : this.form.newsletter,
+      acceptExposure : this.form.exposure
     }
     return this.user
   }

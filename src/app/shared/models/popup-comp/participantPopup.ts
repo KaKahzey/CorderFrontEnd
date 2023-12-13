@@ -1,15 +1,15 @@
-export interface ParticipantAllDataNoBlob {
+export interface ParticipantPopup {
     id : number,
     participantFirstName : string,
     participantLastName : string,
     participantEmail : string,
-    productType : string,
     participantAddress : {
         street : string,
         city : string,
-        postCode : string
-    }
+        postCode : number
+    },
+    status : string,
+    productType : string,
     acceptNewsletter : boolean,
-    participationDate : string,
-    status : string
+    acceptExposure : boolean
 }

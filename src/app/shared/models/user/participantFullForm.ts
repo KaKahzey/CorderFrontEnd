@@ -7,5 +7,6 @@ export interface ParticipantFullForm {
     street : string,
     city : string,
     postCode : string,
-    acceptNewsletter : boolean
+    acceptNewsletter : boolean,
+    acceptExposure : boolean
 }
