@@ -1,8 +1,8 @@
-<div class="containe">
+<div class="container">
   
   <div class="card" id="popup">
     <div class="card-content-img">
-      <img [src]="urlPhoto" alt="https://phototrend.fr/wp-content/uploads/2015/11/plans-r%C3%A9cap-770x836.jpg">
+      <img src="/assets/img/placeholder.svg" alt="image participant">
       <br>
       <div class="all-btn">
         <div class="pendingStatus"  *ngIf="userData.status.includes('PENDING') && admin.includes('corder')" (click)="userDenied()">
@@ -54,11 +54,26 @@
 
         <div class="content-txt">
           <p class="txt-left">Newsletter :</p>
-          <p class="txt-right">@if(userData.acceptNewsletter){Oui
-            }@else{Non}</p>
-
+          <p class="txt-right">
+            @if(userData.acceptNewsletter){
+              Oui
+            }
+            @else{
+              Non
+            }
+          </p>
         </div>
-        <div> <br><br> </div>
+        <div class="content-txt">
+          <p class="txt-left">Autorisation d'utiliser la photo :</p>
+          <p class="txt-right">
+            @if(userData.acceptExposure){
+              Oui
+            }
+            @else{
+              Non
+            }
+          </p>
+        </div>
       
     </div>
     <div class="w-10">

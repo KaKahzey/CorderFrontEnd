@@ -5,6 +5,7 @@ import { AuthService } from '../../../shared/services/auth.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PasswordModule } from 'primeng/password';
 import { ApiService } from '../../../shared/services/api.service';
+import { modifyAccount } from '../../../shared/models/admin/modifyAccount';
 
 @Component({
   selector: 'app-modify-account',
@@ -14,6 +15,12 @@ import { ApiService } from '../../../shared/services/api.service';
   styleUrl: './modify-account.component.scss'
 })
 export class ModifyAccountComponent {
+
+  userData : modifyAccount = {
+    user : "",
+    oldPassword : "",
+    newPassword : ""
+  }
 
   modifyForm : FormGroup
 
@@ -28,9 +35,12 @@ export class ModifyAccountComponent {
   modifyPassword() : void{
     if (this.modifyForm.valid) {
       if (this.modifyForm.get("newPassword")?.value === this.modifyForm.get("newPasswordRepeat")?.value) {
-        this._apiService.changePassword(this._authservice.getUser()!,
-        this.modifyForm.get("oldPassword")?.value,
-        this.modifyForm.get("newPassword")?.value).subscribe({
+        this.userData = {
+          user : this._authservice.getUser()!,
+          oldPassword : this.modifyForm.get("oldPassword")?.value,
+          newPassword : this.modifyForm.get("newPassword")?.value
+        }
+        this._apiService.changePassword(this.userData).subscribe({
           next : ()=>{
             this._router.navigateByUrl("/admin/dashboard");
           },

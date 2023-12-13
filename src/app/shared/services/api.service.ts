@@ -5,6 +5,7 @@ import { LoginData } from '../models/admin/loginData';
 import { ParticipantFullForm } from '../models/user/participantFullForm';
 import { Opinion } from '../models/user/opinion';
 import { AuthService } from './auth.service';
+import { modifyAccount } from '../models/admin/modifyAccount';
 @Injectable({
   providedIn: 'root'
 })
@@ -20,10 +21,7 @@ export class ApiService {
   //#region admin account requests - model folder : admin
   // Model : loginData
   private _urlLogin : string = "http://192.168.200.102:8080/user/login"
-  // pas de modèle, ça envoie :
-  // le user (corder ou cycleenterre),
-  // l'ancien mdp (oldPassword),
-  // le nouveau mdp (newPassword)
+  // Model : modifyAccount
   private _urlChangePassword : string = "http://192.168.200.102:8080/user/changePassword/"
   //#endregion
 
@@ -73,13 +71,13 @@ export class ApiService {
   login(user : LoginData) : Observable<any> {
     return this._httpClient.post(this._urlLogin, user)
   }
-  changePassword(user : string,oldPassword : string ,newPassword : string) : Observable<any> {
+  changePassword(userData : modifyAccount) : Observable<any> {
     const header : any = {
       headers: new HttpHeaders()
         .set('Authorization',  `${this._AuthService.getToken()!}`),
       responseType : "text"
     }
-    return this._httpClient.post(this._urlChangePassword + user, {newPassword, oldPassword},header)
+    return this._httpClient.post(this._urlChangePassword, userData, header)
   }
   //#endregion
 
