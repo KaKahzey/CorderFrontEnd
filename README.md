@@ -1,123 +1,52 @@
 # CorderFrontEnd
 
 
-popup qui suit quand on scroll
-bien dimensionner la photo
-decaler les txt right a droite
-css boutons
-newsletter oui /non
+  //------------------------------------------------
 
+  //#region admin account requests - model folder : admin
+  // Model : loginData
+  private _urlLogin : string = "http://192.168.200.102:8080/user/login"
+  // Model : modifyAccount
+  private _urlChangePassword : string = "http://192.168.200.102:8080/user/changePassword/"
+  //#endregion
 
-ENDPOINTS :
+  //#region creation participant - model folder : user
+  // Model : participantFullForm (ajout "acceptExposure")
+  private _urlCreateUser : string = "http://192.168.200.102:8080/participation/create"
+  // Model : onlyBlob (dossier models/shared)
+  private _urlSetPicture : string = "http://192.168.200.102:8080/participation/addPhoto?id="
+  // Model : opinion (changé Satisfaction -> Rating)
+  private _urlRating : string = "http://192.168.200.102:8080/participation/createRating"
+  //#endregion
+  
+  //#region dashboard - model folder : dashboard-comp
+  // Model : dashboard
+  private _urlDashboard : string = "http://192.168.200.102:8080/participation/getDashboard"
+  //#endregion
 
-cycleenterre
-VALIDATED-> SHIPPED
-seulement acces bouton envoyer et envoyé
+  //#region participants - model folder : participants-comp
+  // Model : participantMostData
+  private _urlAllParticipants : string = "http://192.168.200.102:8080/participation/getAllParticipants"
+  //#endregion
 
-Tout le formulaire user - POST
-------------------------------
-    firstName : string
-    lastName : string
-    email : string
-    pictureName : string
-    pictureType : string
-    blob : string  // photo
-    street : string
-    city : string
-    postCode : string
-    newsletter : boolean
-    productUsed : string
-    rating : number
-    comment : string
-------------------------------
+  //#region stats - model folder : stats-comp
+  // Model : allButSpecificWeek
+  private _urlStatsGetAll : string = "http://192.168.200.102:8080/participation/getAllStats"
+  // Model : specificWeek
+  private _urlStatsGetWeek : string = "http://192.168.200.102:8080/participation/getWeek="
+  //#endregion
 
-Login - POST
-------------------------------
-    login : string
-    password : string
-------------------------------
+  //#region popup-validation - model folder : popup-comp
+  // Model : participantPopup
+  private _urlGetById : string = "http://192.168.200.102:8080/participation/getById/"
+  // Model : onlyBlob (same model as post)
+  private _urlGetPhoto : string = "http://192.168.200.102:8080/participation/getPhoto?id="
+  // Patch id sera dans l'url
+  private _urlValidate : string = "http://192.168.200.102:8080/participation/validate/"
+  // Patch id sera dans l'url (changé le verbe denied -> deny)
+  private _urlDeny : string ="http://192.168.200.102:8080/participation/deny/"
+  // Patch id sera dans l'url
+  private _urlShip : string = "http://192.168.200.102:8080/participation/ship/"
+  //#endregion
 
-Modifier login - UPDATE
-------------------------------
-    login : string
-    password : string
-------------------------------
-
-Dashboard - GET
-------------------------------
-    [ {id : number, blob : string} * 3] // 3  derniers en attente where !isSeen
-    [ {id : number, blob : string} * 3] // 3 derniers validés where isValidated
-    totalParticipants : number
-    dateParticipants : number // get 7 derniers jours je suppose
-------------------------------
-
-Popup admin - GET
-------------------------------
-    id : number
-    firstName : string
-    lastName : string
-    email : string
-    blob : string  // photo
-    street : string
-    city : string
-    postCode : string
-    newsletter : boolean
-    productUsed : string
-------------------------------
-
-Popup admin - UPDATE
-------------------------------
-    id : number
-    validated : boolean
-------------------------------
-
-Stats (oh boy) - GET
-------------------------------
-    [{totalParticipants : number, dateIncription : Date}] //tous les jours
-    city : string 
-    productUsed : string
-    rating : number
-    comment : string
-------------------------------
-
-Liste participants - GET
-------------------------------
-    id : number
-    lastName : string
-    firstName : string
-    street : string
-    city : string
-    postCode : string
-    productUsed : string
-    isSeen : boolean
-    isValidated : boolean
-    isShipped : boolean
-    dateInscription : Date
-------------------------------
-
-Photos validées - GET (where validated)
-------------------------------
-    id : number
-    lastName : string
-    firstName : string
-    dateInscritpion : Date
-    blob : string
-------------------------------
-
-Photos rejetées - GET (where !validated)
-------------------------------
-    id : number
-    lastName : string
-    firstName : string
-    dateInscritpion : Date
-    blob : string
-------------------------------
-
-Photos en attente - GET (where !isSeen)
-------------------------------
-    id : number
-    lastName : string
-    firstName : string
-    dateInscritpion : Date
-    blob : string
-------------------------------
+  //------------------------------------------------
