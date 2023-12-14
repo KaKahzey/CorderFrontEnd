@@ -178,7 +178,7 @@ ENPOINTS
         blob : string
     }
   ---
-  Patch status 
+  Patch status <br>
   http://192.168.200.102:8080/participation/validate/<br>
   http://192.168.200.102:8080/participation/deny/<br>
   http://192.168.200.102:8080/participation/ship/
