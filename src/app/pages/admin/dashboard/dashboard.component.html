@@ -1,4 +1,4 @@
-<div id="main">
+<div id="main" [ngClass]="{'pointer-activated' : getstate()==true}">
     <div class="photo-area">
         <div class="frame ">
             <div class="title-frame">
@@ -6,13 +6,16 @@
             </div>
             <div class="grid-images ">
                 <div class="image-container" (click)="setId(dashboard.lastThreePending[0]); displayPopup()">
-                    <img [src]="this.lastThreePending[0]" alt="Image 1" class="image" />
+                    <img *ngIf="lastThreePending[0]" [src]="lastThreePending[0]" alt="Image 1" class="image" />
+                    <img *ngIf="!lastThreePending[0]" src="/assets/img/placeholder.svg" alt="Image 1" class="image" />
                 </div>
                 <div class="image-container" (click)="setId(dashboard.lastThreePending[0]); displayPopup()">
-                    <img [src]="this.lastThreePending[1]" alt="Image 2" class="image" />
+                    <img *ngIf="lastThreePending[1]" [src]="lastThreePending[1]" alt="Image 2" class="image" />
+                    <img *ngIf="!lastThreePending[1]" src="/assets/img/placeholder.svg" alt="Image 2" class="image" />
                 </div>
                 <div class="image-container" (click)="setId(dashboard.lastThreePending[0]); displayPopup()">
-                    <img [src]="this.lastThreePending[2]" alt="Image 3" class="image" />
+                    <img *ngIf="lastThreePending[2]" [src]="lastThreePending[2]" alt="Image 3" class="image" />
+                    <img *ngIf="!lastThreePending[2]" src="/assets/img/placeholder.svg" alt="Image 3" class="image" />
                 </div>
                 <div class="image-container see-more" routerLink="/admin/participants">
                     <a>Voir plus</a>
@@ -26,13 +29,16 @@
             </div>
             <div class="grid-images">
                 <div class="image-container" (click)="setId(dashboard.lastThreeValidated[0]); displayPopup()">
-                    <img [src]="this.lastThreeValidated[0]" alt="Image 1" class="image" />
+                    <img *ngIf="lastThreeValidated[0]" [src]="lastThreeValidated[0]" alt="Image 1" class="image" />
+                    <img *ngIf="!lastThreeValidated[0]" src="/assets/img/placeholder.svg" alt="Image 1" class="image" />
                 </div>
                 <div class="image-container" (click)="setId(dashboard.lastThreeValidated[1]); displayPopup()">
-                    <img [src]="this.lastThreeValidated[1]" alt="Image 2" class="image" />
+                    <img *ngIf="lastThreeValidated[1]" [src]="lastThreeValidated[1]" alt="Image 2" class="image" />
+                    <img *ngIf="!lastThreeValidated[1]" src="/assets/img/placeholder.svg" alt="Image 2" class="image" />
                 </div>
                 <div class="image-container" (click)="setId(dashboard.lastThreeValidated[2]); displayPopup()">
-                    <img [src]="this.lastThreeValidated[2]" alt="Image 3" class="image" />
+                    <img *ngIf="lastThreeValidated[2]" [src]="lastThreeValidated[2]" alt="Image 3" class="image" />
+                    <img *ngIf="!lastThreeValidated[2]" src="/assets/img/placeholder.svg" alt="Image 3" class="image" />
                 </div>
                 <div class="image-container see-more" routerLink="/admin/participants">
                     <a>Voir plus</a>

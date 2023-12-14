@@ -10,6 +10,7 @@ import { modifyAccount } from '../models/admin/modifyAccount';
   providedIn: 'root'
 })
 export class ApiService {
+
   // Faut mettre manuellement le token dans chaque requête
   header : any = {
     headers: new HttpHeaders()
@@ -32,6 +33,7 @@ export class ApiService {
   private _urlSetPicture : string = "http://192.168.200.102:8080/participation/addPhoto?id="
   // Model : opinion (changé Satisfaction -> Rating)
   private _urlRating : string = "http://192.168.200.102:8080/participation/createRating"
+  //#endregion
   
   //#region dashboard - model folder : dashboard-comp
   // Model : dashboard
@@ -52,7 +54,7 @@ export class ApiService {
 
   //#region popup-validation - model folder : popup-comp
   // Model : participantPopup
-  private _urlGetById : string = "http://192.168.200.102:8080/participation/findById/"
+  private _urlGetById : string = "http://192.168.200.102:8080/participation/getById/"
   // Model : onlyBlob (same model as post)
   private _urlGetPhoto : string = "http://192.168.200.102:8080/participation/getPhoto?id="
   // Patch id sera dans l'url

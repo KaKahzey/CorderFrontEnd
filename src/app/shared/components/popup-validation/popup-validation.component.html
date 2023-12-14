@@ -5,7 +5,7 @@
       <img src="/assets/img/placeholder.svg" alt="image participant">
       <br>
       <div class="all-btn">
-        <div class="pendingStatus"  *ngIf="userData.status.includes('PENDING') && admin.includes('corder')" (click)="userDenied()">
+        <div class="pendingStatus"  *ngIf="userData.status.includes('PENDING') && admin.includes('corder')">
           <button class="pdfBtn" (click)="userDenied()" >Refuser</button>
           <button class="validBtn" (click)="userValidated()">Valider</button>
         </div>
@@ -76,9 +76,7 @@
         </div>
       
     </div>
-    <div class="w-10">
       <button class="photo-button" (click)="closePopUp()"></button>
-    </div>
   </div>
 </div>
 

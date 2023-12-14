@@ -45,13 +45,13 @@ export class PopupValidationComponent {
       this.urlPhoto = reader.result as string
     }
 
-      this.admin = this._authService.getUser()
-     this._apiService.getById(this._showPopup.getId()).subscribe(data => {
+    this.admin = this._authService.getUser()
+    this._apiService.getById(this._showPopup.getId()).subscribe(data => {
       this.userData = data
       this._apiService.getPhoto(this.userData.id).subscribe({
         next : (photo) => reader.readAsDataURL(photo),
       })
-      })
+    })
      
   }
 
@@ -59,12 +59,20 @@ export class PopupValidationComponent {
     this._showPopup.togglePopup()
   }
 
-  userDenied(){
-    this._apiService.deny(this.userData.id);
-    this.closePopUp();
+  userDenied(){    
+    this._apiService.deny(this.userData.id).subscribe({
+      next : (resp) => {
+        console.log(resp);
+        this.closePopUp();
+      },
+      error : (error) => {
+        console.log("erreur : ", error);
+        
+      }
+    })
   }
 
-  userValidated(){
+  userValidated(){    
     this._apiService.validate(this.userData.id).subscribe({
       next : (resp) => {
         console.log(resp);
@@ -77,9 +85,17 @@ export class PopupValidationComponent {
     })
   }
 
-  userShipped(){
-    this._apiService.ship(this.userData.id);
-    this.closePopUp();
+  userShipped(){    
+    this._apiService.ship(this.userData.id).subscribe({
+      next : (resp) => {
+        console.log(resp);
+        this.closePopUp();
+      },
+      error : (error) => {
+        console.log("erreur : ", error);
+        
+      }
+    })
   }
 
 }

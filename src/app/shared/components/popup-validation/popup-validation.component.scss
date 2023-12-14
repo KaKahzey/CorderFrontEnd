@@ -1,15 +1,16 @@
 .container{
     overflow: hidden;
+    position: fixed;
     top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
+    left: 0;
+    width: 100vw;
+    min-width: 100vw;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
 }
-
 .card{
     background-color:#F5F8E0;
     display: flex;
@@ -19,9 +20,8 @@
     left: 50%;
     transform: translate(-50%, -50%);  
     border-radius: 20px;
-    padding: 10px;
+    padding: 0.6%;
     padding-right: 26px;
-    
 }
 
 .card-content-img{
@@ -31,7 +31,7 @@
     height: 55vh;
     max-height: 55vh;
     border-radius: 100px;
-    margin-right: 40px;
+    margin-right: 5%;
     margin-left: 10px;
     margin-top: 10px;
     max-height: 55vh;
@@ -49,12 +49,14 @@
 }
 .content-txt{
     display: flex;
-    margin-top: 15px;
+    margin-top: 1.5vh;
 }
 .txt-left{
     
     white-space: nowrap;
-    margin: 10px;
+    margin: 1%;
+    display: flex;
+    align-items: center;
     font-weight: 400;
     font-size: 15px;
     vertical-align: center;
@@ -79,20 +81,21 @@
     font-weight: 600;
 }
 .photo-button{
-    display:flex;
-    
+
     transform: translate(50%, -50%);
     width: 68px;
     height: 68px;
+    top: 0;
+    right : 0;
     background-image: url("/assets/img/buttonClose.svg");
-    margin-left: 2%;
-    margin-top: -10%;
+    position: fixed;
+    border-radius: 100px;
     background-repeat: no-repeat;
-    border-radius: 100px
 }
 .pdfBtn{
     background-color: #E3254E;
-    padding: 4px 45px;
+    padding: 3%;
+    width : 45%;
     border-radius: 50px;
     text-decoration: none;
     color: white;
@@ -104,7 +107,8 @@
 }
 .validBtn{
     background-color:#B7C90D;
-    padding: 4px 45px;
+    padding: 3%;
+    width : 45%;
     border-radius: 50px;
     text-decoration: none;
     color: white;
@@ -118,7 +122,8 @@
 }
 .shippedBtn{
     background-color:#4D9C18;
-    padding: 4px 45px;
+    padding: 3%;
+    width : 45%;
     border-radius: 50px;
     text-decoration: none;
     color: white;

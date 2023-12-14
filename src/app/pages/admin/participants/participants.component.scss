@@ -92,3 +92,6 @@ td {
 .show-hover :hover {
     cursor: pointer;
 }
+.popup-activated {
+    pointer-events: none;
+}
