@@ -61,7 +61,6 @@ export class UserInformationComponent {
             formPicture.append("file", file, file.name)
             this._apiService.addPicture(resp.id, formPicture).subscribe({
               next : (resp)=>{
-                console.log(resp)
                 this.router.navigateByUrl("/thanks");
               },
               error : (error) => {

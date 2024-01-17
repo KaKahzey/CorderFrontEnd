@@ -15,7 +15,7 @@ export class NavbarComponent {
   username : string = "Admin " + this.displayUser()
 
   constructor(private _AuthService : AuthService ){
-    
+
   }
 
   //affiche le menu "déroulant" pour se déconnecter
@@ -26,7 +26,7 @@ export class NavbarComponent {
 
   //return le nom du user
   displayUser() : string {
-    if(this._AuthService.getUser() === "cycleenterre") {
+    if(this._AuthService.getRole() === "LOGISTIC") {
       return "Cycle en Terre"
     }
     else {
@@ -36,6 +36,6 @@ export class NavbarComponent {
 
   //vide le cache
   logout() : void {
-    this._AuthService.logout()    
+    this._AuthService.logout()
   }
 }

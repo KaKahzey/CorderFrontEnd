@@ -39,8 +39,8 @@ export class LoginComponent {
 
           console.log("User logged in : ", response)
           this._authService.setUser(response.login, response.token, response.roles[0])
-          if(this._authService.getUser() === "cycleenterre"){
-            this._router.navigateByUrl("/admin/validated-photos")
+          if(this._authService.getRole() === "LOGISTIC"){
+            this._router.navigateByUrl("/admin/participants")
           }
           else {
             this._router.navigateByUrl("/admin/dashboard")

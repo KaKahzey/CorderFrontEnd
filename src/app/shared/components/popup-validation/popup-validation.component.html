@@ -5,18 +5,18 @@
       <img [src]="photoUrl || '/assets/img/placeholder.svg'" alt="image participant">
       <br>
       <div class="all-btn">
-        <div class="pendingStatus"  *ngIf="userData.status.includes('PENDING') && admin.includes('corder')">
+        <div class="pendingStatus"  *ngIf="userData.status.includes('PENDING') && admin === 'ADMIN'">
           <button class="pdfBtn" (click)="userDenied()" >Refuser</button>
           <button class="validBtn" (click)="userValidated()">Valider</button>
         </div>
-        <div class="singleStatus" *ngIf="userData.status.includes('DENIED') && admin.includes('corder')">
+        <div class="singleStatus" *ngIf="userData.status.includes('DENIED') && admin === 'ADMIN'">
           <button class="validBtn" (click)="userValidated()">Valider</button>
         </div>
-        <div class="validatedStatus" *ngIf="userData.status.includes('VALIDATED') && admin.includes('corder')">
+        <div class="validatedStatus" *ngIf="userData.status.includes('VALIDATED') && admin === 'ADMIN'">
             <button class="pdfBtn" (click)="userDenied()"> Refuser</button>
             <button class="shippedBtn" (click)="userShipped()">Envoyer</button>
         </div>
-        <div class="singleStatus" *ngIf="userData.status.includes('VALIDATED') && admin.includes('cycleenterre')">
+        <div class="singleStatus" *ngIf="userData.status.includes('VALIDATED') && admin === 'LOGISTIC'">
             <button class="shippedBtn" (click)="userShipped()">Envoyer</button>
         </div>
 

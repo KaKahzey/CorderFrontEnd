@@ -73,8 +73,6 @@ export class ParticipantsComponent {
     this.role = this._authService.getRole()
     this._apiService.getAllParticipants().subscribe({
       next : (resp) => {
-        console.log(this.listParticipants)
-        console.log(this._authService.getRole())
         resp.forEach((element : any) => {
           this.listParticipants.push({
             id : element.id,

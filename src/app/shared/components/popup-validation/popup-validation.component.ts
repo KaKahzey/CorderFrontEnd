@@ -48,6 +48,7 @@ export class PopupValidationComponent {
 
     this._apiService.getById(this._showPopup.getId()).subscribe(data => {
       this.userData = data;
+      this.admin = this._authService.getRole()
       this._apiService.getPhoto(this.userData.id).subscribe({
         next: (photo) => {
           const reader: FileReader = new FileReader();
