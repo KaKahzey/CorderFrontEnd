@@ -19,7 +19,7 @@
                 <th class="state-head">Etat</th>
             </tr>
             @for (p of listParticipants; track p.id){
-                @if((getUser() === "cycleenterre" && (p.status === "VALIDATED" || p.status === "SHIPPED")) || getUser() === "corder"){
+                @if((role === "LOGISTIC" && (p.status === "VALIDATED" || p.status === "SHIPPED")) || role === "ADMIN"){
                     <tr class="show-hover" (click)="setId(p.id); displayPopup()">
                         <td>{{p.id}}</td>
                         <td class="no-over">{{p.participantLastName}}</td>

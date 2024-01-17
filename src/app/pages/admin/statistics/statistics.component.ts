@@ -18,7 +18,7 @@ export class StatisticsComponent {
   showMonths : boolean = false
   graphDisplayStyle: { [key: string]: string } = { display: 'block' }
   timeLeft : number = this.displayTimeLeft("2024-06-20")
-  currentDate : string = this._datePipe.transform(new Date(), 
+  currentDate : string = this._datePipe.transform(new Date(),
   'yyyy-MM-dd')!
   currentDateFull : Date = new Date()
   sevenDaysAgo : string = "yyyy-MM-dd"
@@ -28,7 +28,7 @@ export class StatisticsComponent {
     countByProvince : {
       "Hainaut": 15,
       "Luxembourg": 7,
-      "Brabant wallon": 10,
+      "Brabant Wallon": 10,
       "Liège": 4,
       "Namur": 2
     },
@@ -56,7 +56,7 @@ export class StatisticsComponent {
   // On fait de même avec countLast7Days mais on appelle une fonction
   // qui sera aussi utilisé ailleurs
   ngOnInit() : void {
-     
+
     this.getSevenDaysAgo()
     this._apiService.getAllStats().subscribe({
       next : (resp) => {
@@ -67,10 +67,10 @@ export class StatisticsComponent {
       },
       error : (error) => {
         console.log("erreur : ", error);
-        
+
       }
     })
-    
+
     this._apiService.getSpecificWeek(this.currentDate).subscribe({
       next : (resp) => {
         this.countLast7Days = resp
@@ -78,7 +78,7 @@ export class StatisticsComponent {
       },
       error : (error) => {
         console.log("erreur : ", error);
-        
+
       }
     })
 
@@ -91,7 +91,7 @@ export class StatisticsComponent {
     const pastDate: Date = new Date(this.currentDate)
     pastDate.setDate(pastDate.getDate() - 7)
     this.sevenDaysAgo = this._datePipe.transform(pastDate, "yyyy-MM-dd")!
-    
+
   }
 
   //return le nom de l'index de la clé en paramètre
@@ -117,7 +117,7 @@ export class StatisticsComponent {
       this.setHeightDays(this.countLast7Days.days[0], "sunday")
       this.weekParticipants = this.countTotal7Days()
   }
-  
+
   //set graph all months
   setAllMonths() : void {
     this.setHeightMonths(this.allStats.countParticipantsEachLast5Months[4], "fifth-month")
@@ -131,7 +131,7 @@ export class StatisticsComponent {
   setAllRegions() : void {
     this.setHeightRegions(this.allStats.countByProvince["Hainaut"], "hainaut")
     this.setHeightRegions(this.allStats.countByProvince["Luxembourg"], "luxembourg")
-    this.setHeightRegions(this.allStats.countByProvince["Brabant wallon"], "brabant")
+    this.setHeightRegions(this.allStats.countByProvince["Brabant Wallon"], "brabant")
     this.setHeightRegions(this.allStats.countByProvince["Liège"], "liege")
     this.setHeightRegions(this.allStats.countByProvince["Namur"], "namur")
   }
@@ -168,7 +168,7 @@ export class StatisticsComponent {
     const valuesArray: number[] = Object.values(this.allStats.countByProvince)
     const highestNumber: number = Math.max(...valuesArray)
     const selectedRegion = this._elementRef.nativeElement.querySelector(`.${region}`)
-    if (selectedRegion) {      
+    if (selectedRegion) {
       this._renderer.setStyle(selectedRegion, 'height', `${(height / highestNumber * 90)}%`)
       this._renderer.setStyle(selectedRegion, 'min-height', `52px`)
     }
@@ -182,7 +182,7 @@ export class StatisticsComponent {
     if (selectedProduct) {
       this._renderer.setStyle(selectedProduct, 'width', `${(width / highestNumber * 100) -5}%`)
       this._renderer.setStyle(selectedProduct, 'min-width', `72px`)
-      
+
     }
   }
 
@@ -199,9 +199,9 @@ export class StatisticsComponent {
         },
         error : (error) => {
           console.log("erreur : ", error);
-          
+
         }
-      })    
+      })
     }
     if (choice === 'months') {
       this.showMonths = true
@@ -210,7 +210,7 @@ export class StatisticsComponent {
 
   //return la valeur du dernier mois reçu
   countTotalLastMonth() : number {
-    const valuesArray: number[] = Object.values(this.allStats.countParticipantsEachLast5Months)    
+    const valuesArray: number[] = Object.values(this.allStats.countParticipantsEachLast5Months)
     return valuesArray[0]
   }
 
@@ -246,7 +246,7 @@ export class StatisticsComponent {
         return "Août"
       case "september" :
         return "Septembre"
-      case "october" : 
+      case "october" :
         return "Octobre"
       case "november" :
         return "Novembre"
@@ -278,7 +278,7 @@ export class StatisticsComponent {
       const futureDate: Date = new Date(this.currentDate)
       futureDate.setDate(futureDate.getDate() + 7)
       this.currentDate = this._datePipe.transform(futureDate, "yyyy-MM-dd")!
-      this.getSevenDaysAgo() 
+      this.getSevenDaysAgo()
       this._apiService.getSpecificWeek(this.currentDate).subscribe({
         next : (resp) => {
           this.countLast7Days.days = resp
@@ -286,9 +286,9 @@ export class StatisticsComponent {
         },
         error : (error) => {
           console.log("error : ", error);
-          
+
         }
-      })   
+      })
     }
   }
 
@@ -305,9 +305,9 @@ export class StatisticsComponent {
       },
       error : (error) => {
         console.log("error : ", error);
-        
+
       }
-    })      
+    })
     }
 
     //remove nowrap du comment

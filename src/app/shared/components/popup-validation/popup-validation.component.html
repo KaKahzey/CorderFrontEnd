@@ -1,8 +1,8 @@
 <div class="container">
-  
+
   <div class="card" id="popup">
     <div class="card-content-img">
-      <img src="/assets/img/placeholder.svg" alt="image participant">
+      <img [src]="photoUrl || '/assets/img/placeholder.svg'" alt="image participant">
       <br>
       <div class="all-btn">
         <div class="pendingStatus"  *ngIf="userData.status.includes('PENDING') && admin.includes('corder')">
@@ -27,7 +27,7 @@
     </div>
 
     <div class="card-content-txt no-overflow">
-      
+
         <div class="content-txt">
           <p class="txt-left">Nom:</p>
           <p class="txt-right">{{userData.participantFirstName}}</p>
@@ -46,7 +46,7 @@
           <br>
           <p class="txt-left">Adresse postale:</p>
           <p class="txt-right2">{{userData.participantAddress.street}}<br>{{userData.participantAddress.postCode + ", " +userData.participantAddress.city}}</p>
-        
+
         <div class="content-txt">
           <p class="txt-left">Produit rapporté au recyparc:</p>
           <p class="txt-right">{{userData.productType}}</p>
@@ -74,7 +74,7 @@
             }
           </p>
         </div>
-      
+
     </div>
       <button class="photo-button" (click)="closePopUp()"></button>
   </div>

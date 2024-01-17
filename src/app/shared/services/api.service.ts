@@ -19,50 +19,54 @@ export class ApiService {
 
   //------------------------------------------------
 
+  //192.168.200.102 (Technobel)
+  static readonly URL: string = 'localhost';
+  static readonly PORT: string = '8080';
+
   //#region admin account requests - model folder : admin
   // Model : loginData
-  private _urlLogin : string = "http://192.168.200.102:8080/user/login"
+  private _urlLogin : string = "http://" + ApiService.URL + ":" + ApiService.PORT + "/user/login"
   // Model : modifyAccount
-  private _urlChangePassword : string = "http://192.168.200.102:8080/user/changePassword/"
+  private _urlChangePassword : string = "http://" + ApiService.URL + ":" + ApiService.PORT + "/user/changePassword"
   //#endregion
 
   //#region creation participant - model folder : user
   // Model : participantFullForm (ajout "acceptExposure")
-  private _urlCreateUser : string = "http://192.168.200.102:8080/participation/create"
+  private _urlCreateUser : string = "http://" + ApiService.URL + ":" + ApiService.PORT + "/participation/"
   // Model : onlyBlob (dossier models/shared)
-  private _urlSetPicture : string = "http://192.168.200.102:8080/participation/addPhoto?id="
+  private _urlSetPicture : string = "http://" + ApiService.URL + ":" + ApiService.PORT + "/participation/photo/"
   // Model : opinion (changé Satisfaction -> Rating)
-  private _urlRating : string = "http://192.168.200.102:8080/participation/createRating"
+  private _urlRating : string = "http://" + ApiService.URL + ":" + ApiService.PORT + "/participation/rating"
   //#endregion
-  
+
   //#region dashboard - model folder : dashboard-comp
   // Model : dashboard
-  private _urlDashboard : string = "http://192.168.200.102:8080/participation/getDashboard"
+  private _urlDashboard : string = "http://" + ApiService.URL + ":" + ApiService.PORT + "/participation/dashboard"
   //#endregion
 
   //#region participants - model folder : participants-comp
   // Model : participantMostData
-  private _urlAllParticipants : string = "http://192.168.200.102:8080/participation/getAllParticipants"
+  private _urlAllParticipants : string = "http://" + ApiService.URL + ":" + ApiService.PORT + "/participation/"
   //#endregion
 
   //#region stats - model folder : stats-comp
   // Model : allButSpecificWeek
-  private _urlStatsGetAll : string = "http://192.168.200.102:8080/participation/getAllStats"
+  private _urlStatsGetAll : string = "http://" + ApiService.URL + ":" + ApiService.PORT + "/participation/stats"
   // Model : specificWeek
-  private _urlStatsGetWeek : string = "http://192.168.200.102:8080/participation/getWeek="
+  private _urlStatsGetWeek : string = "http://" + ApiService.URL + ":" + ApiService.PORT + "/participation/getWeek?firstDay="
   //#endregion
 
   //#region popup-validation - model folder : popup-comp
   // Model : participantPopup
-  private _urlGetById : string = "http://192.168.200.102:8080/participation/getById/"
+  private _urlGetById : string = "http://" + ApiService.URL + ":" + ApiService.PORT + "/participation/"
   // Model : onlyBlob (same model as post)
-  private _urlGetPhoto : string = "http://192.168.200.102:8080/participation/getPhoto?id="
+  private _urlGetPhoto : string = "http://" + ApiService.URL + ":" + ApiService.PORT + "/participation/photo?id="
   // Patch id sera dans l'url
-  private _urlValidate : string = "http://192.168.200.102:8080/participation/validate/"
+  private _urlValidate : string = "http://" + ApiService.URL + ":" + ApiService.PORT + "/participation/validate?id="
   // Patch id sera dans l'url (changé le verbe denied -> deny)
-  private _urlDeny : string ="http://192.168.200.102:8080/participation/deny/"
+  private _urlDeny : string ="http://" + ApiService.URL + ":" + ApiService.PORT + "/participation/deny?id="
   // Patch id sera dans l'url
-  private _urlShip : string = "http://192.168.200.102:8080/participation/ship/"
+  private _urlShip : string = "http://" + ApiService.URL + ":" + ApiService.PORT + "/participation/ship?id="
   //#endregion
 
   //------------------------------------------------
@@ -87,11 +91,15 @@ export class ApiService {
   createUser(user : ParticipantFullForm) : Observable<any> {
     return this._httpClient.post(this._urlCreateUser, user)
   }
-  
-  addPicture(id : number, picture : FormData) : Observable<any> {
+
+  addPicture(id : number, picture : FormData) {
+    this.header = {
+      headers: new HttpHeaders()
+        .set('Content-Type',  `multipart/form-data`)
+    }
     return this._httpClient.post(this._urlSetPicture + id, picture)
   }
-  
+
   sendOpinion(opinion : Opinion) : Observable<any> {
     return this._httpClient.post(this._urlRating, opinion)
   }
@@ -132,7 +140,7 @@ export class ApiService {
   getById(id : number) : Observable<any> {
     return this._httpClient.get(this._urlGetById + id, this.header)
   }
-  
+
   validate(id : number) : Observable<any> {
     return this._httpClient.patch(this._urlValidate + id, this.header)
   }
@@ -146,5 +154,5 @@ export class ApiService {
   }
   //#endregion
 
-  
+
 }

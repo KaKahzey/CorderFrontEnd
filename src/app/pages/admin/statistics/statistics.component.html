@@ -18,11 +18,11 @@
                             Participations cette semaine : {{weekParticipants}}
                         }
                         @else {
-                            Participations ce mois : 
+                            Participations ce mois :
                             {{allStats.countParticipantsEachLast5Months[0]}}
                         }
                     </div>
-                </div>  
+                </div>
                 <div [ngStyle]="{ display: !showMonths ? 'block' : 'none' }" id="weeks-graph">
                     <div class="graph-vertical-week">
                         <div class="graph-vertical-bars">
@@ -86,8 +86,8 @@
                                         {{this.countLast7Days.days[0]}}
                                     </div>
                                 </div>
-                            </div> 
-                        </div>   
+                            </div>
+                        </div>
                     </div>
                     <div class="below-graph">
                         <div class="previous-week">
@@ -204,11 +204,11 @@
                         <div class="bg-graph-vertical-region">
                             <div class="brabant place-ball">
                                 <div class="ball">
-                                    {{allStats.countByProvince["Brabant wallon"]}}
+                                    {{allStats.countByProvince["Brabant Wallon"]}}
                                 </div>
                             </div>
                         </div>
-                        <p>Brabant wallon</p>
+                        <p>Brabant Wallon</p>
                     </div>
                     <div class="graph-vertical-bars-region">
                         <div class="bg-graph-vertical-region">
@@ -249,7 +249,7 @@
                             </div>
                         </div>
                         <p>Namur</p>
-                    </div> 
+                    </div>
                 </div>
             </div>
         </div>
@@ -305,17 +305,17 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
     <!-- Produits "autres" -->
     <div class="frame products-other">
         <div class="both-graphs">
             <div class="top-title">
                 <div class="title-frame">
-                    Produits &lt;&lt; autres &gt;&gt;
+                    Produits autres
                 </div>
             </div>
             <div class="subhead">
-                Nombre de produits &lt;&lt; autres &gt;&gt; : {{allStats.otherProductsUsed.length}}
+                Nombre de produits  autres  : {{allStats.otherProductsUsed.length}}
             </div>
             <div class="list-comment">
                 @for (comment of allStats.otherProductsUsed; track $index) {
@@ -324,7 +324,7 @@
                         {{$index + 1}}
                     </div>
                     <div class="comment-area" id="commentArea{{$index}}">
-                        &lt;&lt; {{comment}} &gt;&gt;
+                         {{comment}}
                     </div>
                     <div class="btn-comment-area">
                         <button class="btn-comment" (click)="removeNoWrap($index)" id="btn-comment-hide{{$index}}">Voir</button>
@@ -333,7 +333,7 @@
                 }
             </div>
         </div>
-    </div> 
+    </div>
     <!-- Notes -->
     <div class="frame notes-frame">
         <div class="both-graphs">
@@ -369,7 +369,7 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
     <!-- Liste des problèmes -->
     <div class="frame notes-text-frame">
         <div class="top-title">
@@ -419,7 +419,7 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
     <!-- satisfaction autre commentaires -->
     <div class="frame note-other">
         <div class="top-title">
@@ -428,7 +428,7 @@
             </div>
         </div>
         <div class="subhead">
-            Rubrique &lt;&lt; autres &gt;&gt;
+            Rubrique  autres
         </div>
         <div class="list-comment">
             @for (comment of allStats.allOthersSatisfactionComment; track $index) {
@@ -437,7 +437,7 @@
                     {{$index + 1}}
                 </div>
                 <div class="comment-area" id="noteCommentArea{{$index}}">
-                    &lt;&lt; {{allStats.allOthersSatisfactionComment[$index]}} &gt;&gt;
+                     {{allStats.allOthersSatisfactionComment[$index]}}
                 </div>
                 <div class="btn-comment-area">
                     <button class="btn-comment" (click)="removeNoWrapNote($index)" id="btn-note-comment-hide{{$index}}">Voir</button>
@@ -445,5 +445,5 @@
             </div>
             }
         </div>
-    </div> 
+    </div>
 </div>
