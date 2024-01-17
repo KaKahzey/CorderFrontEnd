@@ -9,11 +9,11 @@
                     <img *ngIf="lastThreePending[0]" [src]="lastThreePending[0]" alt="Image 1" class="image" />
                     <img *ngIf="!lastThreePending[0]" src="/assets/img/placeholder.svg" alt="Image 1" class="image" />
                 </div>
-                <div class="image-container" (click)="setId(dashboard.lastThreePending[0]); displayPopup()">
+                <div class="image-container" (click)="setId(dashboard.lastThreePending[1]); displayPopup()">
                     <img *ngIf="lastThreePending[1]" [src]="lastThreePending[1]" alt="Image 2" class="image" />
                     <img *ngIf="!lastThreePending[1]" src="/assets/img/placeholder.svg" alt="Image 2" class="image" />
                 </div>
-                <div class="image-container" (click)="setId(dashboard.lastThreePending[0]); displayPopup()">
+                <div class="image-container" (click)="setId(dashboard.lastThreePending[2]); displayPopup()">
                     <img *ngIf="lastThreePending[2]" [src]="lastThreePending[2]" alt="Image 3" class="image" />
                     <img *ngIf="!lastThreePending[2]" src="/assets/img/placeholder.svg" alt="Image 3" class="image" />
                 </div>
@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="frame">
             <div class="title-frame">
                 Photos validées
@@ -106,9 +106,9 @@
                     <div class="graph-vertical-bars">
                         <div class="bg-graph-vertical">
                             <div class="sunday"></div>
-                        </div> 
+                        </div>
                         <p>D</p>
-                    </div>   
+                    </div>
                 </div>
             </div>
         </div>
