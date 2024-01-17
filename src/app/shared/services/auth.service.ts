@@ -7,23 +7,28 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   constructor(private _router : Router){}
-  
+
   getToken(): string | null {
     return localStorage.getItem('token')
   }
 
-  setUser(user : string, token : string) : void {
-    localStorage.setItem('role', user.toString())
-    localStorage.setItem('token', token.toString())
+  setUser(user : string, token : string, role : string) : void {
+    localStorage.setItem('user', user)
+    localStorage.setItem('role', role)
+    localStorage.setItem('token', token)
   }
-  
+
   getUser() : string | null {
-    return localStorage.getItem('role')
+    return localStorage.getItem('user')
+  }
+
+  getRole() : string | null {
+    return localStorage.getItem('role');
   }
 
   logout() : void {
     localStorage.clear()
     this._router.navigateByUrl("/login")
-    
+
   }
 }

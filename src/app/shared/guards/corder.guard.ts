@@ -7,11 +7,11 @@ export const CorderGuard: CanActivateFn = () => {
   const router = inject(Router)
   const authService = inject(AuthService)
 
-  if(authService.getUser() === "corder"){
+  if(authService.getRole() === 'ADMIN'){
     return true
   }
   else{
-    router.navigateByUrl("/admin/validated-photos")
+    router.navigateByUrl("/admin/participants")
     return false
   }
 };

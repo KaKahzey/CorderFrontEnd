@@ -5,6 +5,7 @@ import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 import { DataFormService } from '../../../shared/services/data-form.service';
 import { ApiService } from '../../../shared/services/api.service';
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Component({
   selector: 'app-user-information',
@@ -19,10 +20,10 @@ export class UserInformationComponent {
   newsletter : boolean = false;
   exposure : boolean = false
   errorMsg : any
-  
+
   constructor(private _fb : FormBuilder,private _dataFormService : DataFormService, private _apiService : ApiService){
     this.infoForm = this._fb.group({
-      
+
       firstName : [null, [Validators.required,Validators.minLength(2)]],
       lastName : [null, [Validators.required]],
       email : [null,[Validators.required,Validators.pattern(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/)]],
@@ -59,13 +60,16 @@ export class UserInformationComponent {
             const formPicture = new FormData()
             formPicture.append("file", file, file.name)
             this._apiService.addPicture(resp.id, formPicture).subscribe({
-              next : ()=>{
+              next : (resp)=>{
                 this.router.navigateByUrl("/thanks");
               },
-              error : () => {
-                console.log("Image pas envoyée")
+              error : (error) => {
+                console.log("Image pas envoyée: " + JSON.stringify(error))
+              },
+              complete : () => {
+                console.log("complete")
               }
-            })  
+            })
           },
           error : (error) => {
             this.errorMsg = error

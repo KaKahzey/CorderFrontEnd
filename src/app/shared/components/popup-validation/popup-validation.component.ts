@@ -15,6 +15,7 @@ import { ShowPopupService } from '../../services/show-popup.service';
 })
 export class PopupValidationComponent {
   [x: string]: any;
+  photoUrl: string | undefined;
 
   userData : ParticipantPopup = {
     id : 1,
@@ -31,7 +32,7 @@ export class PopupValidationComponent {
     acceptNewsletter : false,
     acceptExposure : false
   }
-  
+
   urlPhoto: any;
   admin : string | any = "corder";
 
@@ -45,21 +46,28 @@ export class PopupValidationComponent {
       this.urlPhoto = reader.result as string
     }
 
-    this.admin = this._authService.getUser()
     this._apiService.getById(this._showPopup.getId()).subscribe(data => {
-      this.userData = data
+      this.userData = data;
+      this.admin = this._authService.getRole()
       this._apiService.getPhoto(this.userData.id).subscribe({
-        next : (photo) => reader.readAsDataURL(photo),
-      })
-    })
-     
+        next: (photo) => {
+          const reader: FileReader = new FileReader();
+
+          reader.onload = () => {
+            this.photoUrl = reader.result as string;
+          };
+
+          reader.readAsDataURL(photo);
+        },
+      });
+    });
   }
 
   closePopUp(){
     this._showPopup.togglePopup()
   }
 
-  userDenied(){    
+  userDenied(){
     this._apiService.deny(this.userData.id).subscribe({
       next : (resp) => {
         console.log(resp);
@@ -67,12 +75,12 @@ export class PopupValidationComponent {
       },
       error : (error) => {
         console.log("erreur : ", error);
-        
+
       }
     })
   }
 
-  userValidated(){    
+  userValidated(){
     this._apiService.validate(this.userData.id).subscribe({
       next : (resp) => {
         console.log(resp);
@@ -80,12 +88,12 @@ export class PopupValidationComponent {
       },
       error : (error) => {
         console.log("erreur : ", error);
-        
+
       }
     })
   }
 
-  userShipped(){    
+  userShipped(){
     this._apiService.ship(this.userData.id).subscribe({
       next : (resp) => {
         console.log(resp);
@@ -93,7 +101,7 @@ export class PopupValidationComponent {
       },
       error : (error) => {
         console.log("erreur : ", error);
-        
+
       }
     })
   }

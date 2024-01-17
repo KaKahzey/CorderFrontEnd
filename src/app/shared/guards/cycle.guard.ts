@@ -7,7 +7,7 @@ export const CycleGuard: CanActivateFn = () => {
   const router = inject(Router)
   const authService = inject(AuthService)
 
-  if(authService.getUser() === "cycleenterre" || authService.getUser() === "corder"){
+  if(authService.getRole() != null){
     return true
   }
   else{

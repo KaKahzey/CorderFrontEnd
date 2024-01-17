@@ -17,7 +17,7 @@ import { Dashboard } from '../../../shared/models/dashboard-comp/dashboard';
 export class DashboardComponent {
   //todo les mois apparaissent en Anglais top right
   timeLeft : number = this.displayTimeLeft("2024-06-20")
-  currentDate : string = this._datePipe.transform(new Date(), 
+  currentDate : string = this._datePipe.transform(new Date(),
   'yyyy-MM-dd')!
   weekParticipants : number = 19
 
@@ -35,17 +35,17 @@ export class DashboardComponent {
     lastThreePending : [],
     lastThreeValidated : []
   }
-  lastThreePending : any[] = ["", "", ""] 
-  lastThreeValidated : any[] = ["", "", ""]  
- 
+  lastThreePending : any[] = ["", "", ""]
+  lastThreeValidated : any[] = ["", "", ""]
+
 
   constructor(private _renderer: Renderer2, private _elementRef: ElementRef, private _apiService : ApiService, private _datePipe : DatePipe, private _showPopupService : ShowPopupService) {}
 
   ngOnInit() : void {
-    this.setAllDays()
     this._apiService.getDashboard().subscribe({
       next : (resp) => {
         this.dashboard = resp
+        this.setAllDays()
         this.dashboard.lastThreePending.forEach((p, i) => {
           this._apiService.getPhoto(p).subscribe({
             next : (photo) => {
@@ -57,7 +57,7 @@ export class DashboardComponent {
             },
             error : (error) => {
               console.log("erreur : ", error)
-              
+
             }
           })
         })
@@ -72,7 +72,7 @@ export class DashboardComponent {
             },
             error : (error) => {
               console.log("erreur : ", error)
-              
+
             }
           })
         })
@@ -129,9 +129,9 @@ export class DashboardComponent {
   }
 
   setId(id : number) : void {
-    this._showPopupService.setId(id)    
+    this._showPopupService.setId(id)
   }
-  
+
   displayPopup() : void {
     this._showPopupService.togglePopup()
   }

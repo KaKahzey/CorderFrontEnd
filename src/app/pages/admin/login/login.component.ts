@@ -12,7 +12,7 @@ import { ApiService } from '../../../shared/services/api.service';
   imports: [CommonModule, RouterLink, FormsModule, ReactiveFormsModule, HttpClientModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
-  
+
 })
 
 export class LoginComponent {
@@ -27,20 +27,20 @@ export class LoginComponent {
   }
   loginFormisValid = false;
 
-  login() : void{ 
+  login() : void{
     if (this.loginForm.valid){
-      
+
       const loginInfo = {
       login : this.loginForm.get("login")?.value,
       password : this.loginForm.get("password")?.value
-      }      
-      this._apiService.login(loginInfo).subscribe({        
+      }
+      this._apiService.login(loginInfo).subscribe({
         next : (response) => {
-          
+
           console.log("User logged in : ", response)
-          this._authService.setUser(loginInfo.login, response.token)
-          if(this._authService.getUser() === "cycleenterre"){
-            this._router.navigateByUrl("/admin/validated-photos")
+          this._authService.setUser(response.login, response.token, response.roles[0])
+          if(this._authService.getRole() === "LOGISTIC"){
+            this._router.navigateByUrl("/admin/participants")
           }
           else {
             this._router.navigateByUrl("/admin/dashboard")

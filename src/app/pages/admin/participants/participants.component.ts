@@ -22,6 +22,7 @@ export class ParticipantsComponent {
   lastButton : string = ""
 
   listParticipants : ParticipantMostData[] = [
+    /*
     {
       id : 1,
       participantLastName : "jean",
@@ -61,12 +62,15 @@ export class ParticipantsComponent {
       productType : "fongicide",
       status : "VALIDATED"
     }
+     */
   ]
 
   constructor(private _apiService : ApiService, private _showPopupService : ShowPopupService, private _authService : AuthService) {
   }
+  role: string | null | undefined;
 
   ngOnInit(): void {
+    this.role = this._authService.getRole()
     this._apiService.getAllParticipants().subscribe({
       next : (resp) => {
         resp.forEach((element : any) => {
@@ -87,7 +91,7 @@ export class ParticipantsComponent {
       },
       error : (error) => {
         console.log("erreur : ", error)
-        
+
       }
     })
   }
@@ -95,7 +99,7 @@ export class ParticipantsComponent {
   sortName() : void {
     this.listParticipants.sort((a, b) => {
       const lastNameComparison = a.participantLastName.toLowerCase().localeCompare(b.participantLastName.toLowerCase());
-  
+
       if (lastNameComparison === 0) {
         return a.participantFirstName.toLowerCase().localeCompare(b.participantFirstName.toLowerCase());
       }
@@ -112,7 +116,7 @@ export class ParticipantsComponent {
     this.listParticipants.sort((a, b) => {
       const dateA = new Date(a.participationDate).getTime()
       const dateB = new Date(b.participationDate).getTime()
-  
+
       if (this.isDateSorted) {
         return dateB - dateA
       }
@@ -144,9 +148,9 @@ export class ParticipantsComponent {
     this.lastButton = "product"
   }
   setId(id : number) : void {
-    this._showPopupService.setId(id)    
+    this._showPopupService.setId(id)
   }
-  
+
   displayPopup() : void {
     this._showPopupService.togglePopup()
   }

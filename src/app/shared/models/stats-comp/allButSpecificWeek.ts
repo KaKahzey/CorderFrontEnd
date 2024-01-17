@@ -7,11 +7,11 @@ export interface AllButSpecificWeek {
     countByProvince : {
         "Hainaut": number,
         "Luxembourg": number,
-        "Brabant wallon": number,
+        "Brabant Wallon": number,
         "Liège": number,
         "Namur": number
       },
-    // COUNT par produit 
+    // COUNT par produit
     productsUsed : {
         insecticide : number,
         herbicide : number,
