@@ -83,7 +83,7 @@ export class ApiService {
         .set('Authorization',  `${this._AuthService.getToken()!}`),
       responseType : "text"
     }
-    return this._httpClient.post(this._urlChangePassword, userData, header)
+    return this._httpClient.patch(this._urlChangePassword, userData, header)
   }
   //#endregion
 
