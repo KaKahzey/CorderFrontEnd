@@ -142,15 +142,15 @@ export class ApiService {
   }
 
   validate(id : number) : Observable<any> {
-    return this._httpClient.patch(this._urlValidate + id, this.header)
+    return this._httpClient.patch(this._urlValidate + id, null,this.header)
   }
 
   deny(id : number) : Observable<any> {
-    return this._httpClient.patch(this._urlDeny + id, this.header)
+    return this._httpClient.patch(this._urlDeny + id, null,this.header)
   }
 
   ship(id : number) : Observable<any> {
-    return this._httpClient.patch(this._urlShip + id, this.header)
+    return this._httpClient.patch(this._urlShip + id, null,this.header)
   }
   //#endregion
 
